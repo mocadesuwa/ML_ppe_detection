@@ -199,11 +199,148 @@ class PipelineTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
             archive = root / "bad.zip"
+            for member in ("../outside.txt", "..\\outside.txt", "/outside.txt", "C:/outside.txt", "//server/share/outside.txt", "folder/../outside.txt"):
+                with zipfile.ZipFile(archive, "w") as zipped:
+                    zipped.writestr("valid.txt", "test")
+                    zipped.writestr(member, "test")
+                with self.subTest(member=member), self.assertRaises(ValueError):
+                    extract_archive(archive, root / "destination")
+                self.assertFalse((root / "destination").exists())
+            self.assertFalse((root / "outside.txt").exists())
+
+    def test_archive_extracts_nested_binary_files_and_normalizes_separators(self):
+        import zipfile
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            archive = root / "valid.zip"
+            with zipfile.ZipFile(archive, "w", compression=zipfile.ZIP_DEFLATED) as zipped:
+                zipped.writestr("images/", b"")
+                zipped.writestr("images/sample.bin", b"\x00\xff\r\n")
+                zipped.writestr("annotations\\sample.xml", b"<annotation />")
+            for existing in (False, True):
+                destination = root / f"destination_{existing}"
+                if existing:
+                    destination.mkdir()
+                with self.subTest(existing=existing):
+                    extract_archive(archive, destination)
+                    self.assertEqual((destination / "images" / "sample.bin").read_bytes(), b"\x00\xff\r\n")
+                    self.assertEqual((destination / "annotations" / "sample.xml").read_bytes(), b"<annotation />")
+            self.assertEqual({p.name for p in root.iterdir()}, {"valid.zip", "destination_False", "destination_True"})
+
+    def test_archive_rejects_colliding_file_names_before_writing(self):
+        import warnings
+        import zipfile
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            archive, destination = root / "collision.zip", root / "destination"
+            for names in (("Image.png", "image.png"), ("folder/a.txt", "folder\\a.txt")):
+                with warnings.catch_warnings(), zipfile.ZipFile(archive, "w") as zipped:
+                    # Windows ZipInfo normalizes separators while building this
+                    # intentionally conflicting archive, triggering this warning.
+                    warnings.filterwarnings("ignore", message="Duplicate name:", category=UserWarning)
+                    for name in names:
+                        zipped.writestr(name, name)
+                with self.subTest(names=names), self.assertRaises(ValueError):
+                    extract_archive(archive, destination)
+                self.assertFalse(destination.exists())
+
+    def test_archive_rejects_file_directory_conflicts_before_writing(self):
+        import zipfile
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            archive, destination = root / "conflict.zip", root / "destination"
+            for names in (("folder", "folder/sample.txt"), ("folder/sample.txt", "folder")):
+                with zipfile.ZipFile(archive, "w") as zipped:
+                    for name in names:
+                        zipped.writestr(name, "test")
+                with self.subTest(names=names), self.assertRaises(ValueError):
+                    extract_archive(archive, destination)
+                self.assertFalse(destination.exists())
+
+    def test_archive_does_not_overwrite_existing_data(self):
+        import zipfile
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            archive, destination = root / "overwrite.zip", root / "destination"
+            destination.mkdir()
+            original = destination / "sample.txt"
+            original.write_text("original", encoding="utf-8")
             with zipfile.ZipFile(archive, "w") as zipped:
-                zipped.writestr("../outside.txt", "test")
+                zipped.writestr("sample.txt", "replacement")
+            with self.assertRaises(FileExistsError):
+                extract_archive(archive, destination)
+            self.assertEqual(original.read_text(encoding="utf-8"), "original")
+
+    def test_archive_rejects_names_that_windows_would_rewrite(self):
+        import zipfile
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            archive, destination = root / "name.zip", root / "destination"
+            for member in ("image?.png", "image.png.", "image.png ", "folder//image.png", "./image.png", "folder/./image.png"):
+                with zipfile.ZipFile(archive, "w") as zipped:
+                    zipped.writestr(member, "test")
+                with self.subTest(member=member), self.assertRaises(ValueError):
+                    extract_archive(archive, destination)
+                self.assertFalse(destination.exists())
+
+    def test_archive_rejects_links_and_special_files(self):
+        import zipfile
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            archive, destination = root / "special.zip", root / "destination"
+            for mode in (0o120777, 0o010600):
+                entry = zipfile.ZipInfo("special")
+                entry.create_system = 3
+                entry.external_attr = mode << 16
+                with zipfile.ZipFile(archive, "w") as zipped:
+                    zipped.writestr(entry, "test")
+                with self.subTest(mode=mode), self.assertRaises(ValueError):
+                    extract_archive(archive, destination)
+                self.assertFalse(destination.exists())
+
+    def test_archive_crc_failure_leaves_no_partial_dataset(self):
+        import zipfile
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            archive, destination = root / "corrupt.zip", root / "destination"
+            with zipfile.ZipFile(archive, "w", compression=zipfile.ZIP_STORED) as zipped:
+                zipped.writestr("first.txt", "valid")
+                zipped.writestr("second.txt", "CRC-failure-unique")
+            content = bytearray(archive.read_bytes())
+            content[content.index(b"CRC-failure-unique")] ^= 1
+            archive.write_bytes(content)
+            with self.assertRaises(zipfile.BadZipFile):
+                extract_archive(archive, destination)
+            self.assertFalse(destination.exists())
+            self.assertEqual({p.name for p in root.iterdir()}, {"corrupt.zip"})
+
+    def test_archive_rejects_empty_dataset(self):
+        import zipfile
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            archive = root / "empty.zip"
+            with zipfile.ZipFile(archive, "w"):
+                pass
             with self.assertRaises(ValueError):
                 extract_archive(archive, root / "destination")
-            self.assertFalse((root / "outside.txt").exists())
+            self.assertFalse((root / "destination").exists())
+
+    def test_archive_publish_failure_preserves_empty_destination_and_can_retry(self):
+        import zipfile
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            archive, destination = root / "valid.zip", root / "destination"
+            destination.mkdir()
+            with zipfile.ZipFile(archive, "w") as zipped:
+                zipped.writestr("sample.txt", "original")
+            with patch.object(Path, "rename", side_effect=PermissionError("simulated directory move failure")):
+                with self.assertRaises(PermissionError):
+                    extract_archive(archive, destination)
+            self.assertTrue(destination.is_dir())
+            self.assertEqual(list(destination.iterdir()), [])
+            self.assertEqual({p.name for p in root.iterdir()}, {"valid.zip", "destination"})
+            extract_archive(archive, destination)
+            self.assertEqual((destination / "sample.txt").read_text(encoding="utf-8"), "original")
 
 
 if __name__ == "__main__":

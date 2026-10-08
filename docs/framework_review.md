@@ -18,7 +18,7 @@
 
 | 文件 | 职责 |
 | --- | --- |
-| src/download_data.py | 从原始发布入口获取数据，保留压缩包、来源与哈希 |
+| src/download_data.py | 从原始发布入口获取数据，核查压缩包路径与冲突，完整解压后移入目标目录，保留压缩包、来源与哈希 |
 | src/prepare_dataset.py | XML 转 YOLO，核查框，去除内容完全重复的图，按组固定数据划分 |
 | src/check_dataset.py | 检查标注、类别分布和划分，生成标注抽查拼图 |
 | src/review_dataset.py | 记录实际完成的标注抽查及来源核查，绑定具体数据版本 |
@@ -60,7 +60,7 @@ flowchart TD
 
 ## 5. 当前即可检查的命令
 
-框架搭建阶段曾验证：8 项关键测试通过，全部 CLI 帮助入口、代码编译检查和两种训练计划的 dry-run 通过。初版保存时在 `.venv` 复查受 Pillow 缺失及临时目录权限影响。后续已用系统 Python 3.14 的现有 Pillow/PyYAML 与项目缓存临时目录完成 20 项累计回归测试；`.venv` 的依赖仍未准备完成。真实 YOLO 训练、评价、预测尚未执行。
+框架搭建阶段曾验证：8 项关键测试通过，全部 CLI 帮助入口、代码编译检查和两种训练计划的 dry-run 通过。初版保存时在 `.venv` 复查受 Pillow 缺失及临时目录权限影响。后续已用系统 Python 3.14 的现有 Pillow/PyYAML 与项目缓存临时目录，在正常本机权限下完成 29 项累计回归测试；`.venv` 的依赖仍未准备完成。真实 YOLO 训练、评价、预测尚未执行。
 
 后续调整按 `unittest` 的实际执行顺序推进；同一测试类的方法按名称排序，不按源码中的定义位置排序：
 
@@ -68,7 +68,7 @@ flowchart TD
 | --- | --- | --- | --- |
 | 1 | `BoxTests` | `prepare_dataset.convert_box` | 已补齐图片尺寸校验，6 项坐标测试通过 |
 | 2 | `GroupTests` | `prepare_dataset.split_groups`，随后 `group_samples` | 已修正泄漏、样本覆盖及小规模划分，11 项分组测试通过 |
-| 3 | `PipelineTests.test_archive_cannot_extract_outside_destination` | `download_data.extract_archive` | 现有回归通过，待扩展检查 |
+| 3 | `PipelineTests.test_archive_*` | `download_data.extract_archive` | 已修正路径碰撞、覆盖及失败残留，10 项解压测试通过 |
 | 4 | `PipelineTests.test_conversion_validation_and_changed_data_invalidates_review` | 转换、校验、配置与数据版本核查 | 现有回归通过，待扩展检查 |
 | 5 | `PipelineTests.test_label_fields_and_geometry` | `check_dataset.read_labels` | 现有回归通过，待扩展检查 |
 
@@ -79,6 +79,8 @@ python tests/run_regression.py
 ```
 
 选择已经装有 Pillow 与 PyYAML 的 Python；当前系统 Python 满足这些测试依赖。此入口只在 `.cache/tests/` 创建临时合成样本，并在结束时清理，不修改真实数据或运行 YOLO。
+
+解压测试包含真实的目录重命名：Codex 沙箱可能阻止该操作，应允许测试命令在沙箱外运行后验证，不用跳过此测试。解压函数只接受不存在或为空的目标目录；ZIP 路径不做静默改名，大小写碰撞、冗余路径、特殊文件和文件/目录冲突均会拒绝。解压先在同级临时目录完成，再移入目标目录，失败时清理临时内容。
 
 如果只复查第一项，可在项目根目录运行，无需 Pillow、训练数据或 Ultralytics：
 
