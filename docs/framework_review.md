@@ -24,12 +24,13 @@
 | src/review_dataset.py | 记录实际完成的标注抽查及来源核查，绑定具体数据版本 |
 | src/environment.py | 查询 Python、依赖和 GPU 可用性 |
 | src/train.py | 预检配置和最终参数；dry-run 打印计划，后续实际运行时保存版本、权重与日志 |
-| src/evaluate.py | 保存总体与分类别指标，默认评价验证集 |
+| src/evaluate.py | 预检参数、核查和训练记录，类别一致后创建目录；默认评价验证集并保存指标来源 |
 | src/predict.py | 保存新图片的预测框和 JSONL 检测结果 |
 | tests/test_data_pipeline.py | 检查坐标转换、分组、防泄漏与数据版本记录 |
 | tests/test_pipeline_integrity.py | 合成数据转换、清单一致性、配置校验、旧格式兼容与核查记录失效测试 |
 | tests/test_label_validation.py | 标签字段、精确类别编号、归一化边界及转换输出兼容测试 |
 | tests/test_entry_configs.py | YAML 与路径校验、训练计划参数、覆盖优先级及 CLI 无模型执行测试 |
+| tests/test_evaluation_entry.py | 用临时样本与假模型检查评价预检、最终测试要求、类别指标映射及版本记录 |
 | tests/run_regression.py | 在缓存临时目录累计执行所有现有回归测试 |
 
 ## 3. 流程
@@ -64,7 +65,7 @@ flowchart TD
 
 ## 5. 当前即可检查的命令
 
-框架搭建阶段曾验证：8 项关键测试通过，全部 CLI 帮助入口、代码编译检查和两种训练计划的 dry-run 通过。初版保存时在 `.venv` 复查受 Pillow 缺失及临时目录权限影响。后续已用系统 Python 3.14 的现有 Pillow/PyYAML 与项目缓存临时目录，在正常本机权限下完成 75 项累计回归测试；本轮重新验证两种 dry-run 与 8 个帮助入口。`.venv` 的依赖仍未准备完成，真实 YOLO 训练、评价、预测尚未执行。
+框架搭建阶段曾验证：8 项关键测试通过，全部 CLI 帮助入口、代码编译检查和两种训练计划的 dry-run 通过。初版保存时在 `.venv` 复查受 Pillow 缺失及临时目录权限影响。后续已用系统 Python 3.14 的现有 Pillow/PyYAML 与项目缓存临时目录，在正常本机权限下完成 98 项累计回归测试。配置轮复查了两种 dry-run 与 8 个帮助入口，本轮另复查评价帮助与 3 项 CLI 错误路径。`.venv` 的依赖仍未准备完成，真实 YOLO 训练、评价、预测尚未执行。
 
 后续调整以初版 `unittest` 的实际执行顺序为起点，新增回归由统一入口累计发现；同一测试类的方法按名称排序，不按源码中的定义位置排序：
 
@@ -75,7 +76,8 @@ flowchart TD
 | 3 | `PipelineTests.test_archive_*` | `download_data.extract_archive` | 已修正路径碰撞、覆盖、失败残留及 Windows 短暂移入错误，11 项解压测试通过 |
 | 4 | 原有组合测试与 `IntegrityTests` | 转换、校验、配置与数据版本核查 | 已补齐清单、标签哈希、划分列表与指纹校验，共 16 项组合测试通过 |
 | 5 | `PipelineTests.test_label_fields_and_geometry` 与 `LabelTests` | `check_dataset.read_labels` | 已补齐精确类别、字段范围、边缘舍入及 BOM 校验，共 11 项标签测试通过 |
-| 6 | `EntryConfigTests` | 共享配置读取，随后训练计划与 CLI | 20 项预检与兼容测试通过；评价、预测入口的其余参数待下一轮检查 |
+| 6 | `EntryConfigTests` | 共享配置读取，随后训练计划与 CLI | 20 项预检与兼容测试通过 |
+| 7 | `EvaluationTests` | 评价参数与数据/训练记录预检，随后假模型流程 | 23 项测试通过；下一轮检查预测入口 |
 
 每轮调整后累计复查全部现有测试：
 
@@ -94,6 +96,10 @@ python tests/run_regression.py
 配置读取拒绝显式重复的 YAML 字段，仍支持别名与合并覆盖。数据配置的 `path` 相对该 YAML 文件解析（省略时为该 YAML 所在目录），`train/val/test` 相对数据根目录解析；训练配置的 `data/model/project` 仍相对项目根目录解析。空字符串、布尔值等不能作为这些路径字段。
 
 训练计划以 YAML 配置为基础，再应用 smoke 设置，最后应用 CLI 覆盖，检查最终有效参数。轮数、batch、imgsz 必须为正整数，patience、workers、seed 为非负整数；设备支持 `auto`、`cpu` 或一个非负 CUDA 编号。实验名称仅允许字母、数字、下划线、连字符，拒绝 Windows 保留设备名。配置错误以简短提示退出，`--dry-run` 不创建实验目录、加载模型或读取真实数据内容；扩展 YOLO 参数和设备可用性仍留给实际运行验证。
+
+评价参数与数据核查先通过，再检查权重目录上级的 `experiment.json`。已有记录须包含合法模式、状态与匹配的数据指纹；没有记录时仍允许验证集探索，指标中的 `training_record` 为 null。最终测试须显式提供两个标记，并使用完成的 baseline 记录中列出的 best/last 权重路径；短跑或未完成实验可用于验证集，不用于最终测试。
+
+模型类别检查通过后才创建评价结果目录，预检失败、缺依赖、加载失败或类别不符时不产生结果目录。实际评价开始后可能生成图片等内容；若前后权重哈希或数据指纹变化，程序停止且不写 `metrics.json`。指标增加 `final_test` 和训练记录来源，保留总体与分类别字段；缺少可用类别指标时仍写 null。当前这些流程仅经假模型验证，不能替代真实 Ultralytics 运行与模型效果检查。
 
 如果只复查第一项，可在项目根目录运行，无需 Pillow、训练数据或 Ultralytics：
 
