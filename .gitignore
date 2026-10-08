@@ -9,6 +9,8 @@ dataset/labels/
 dataset/splits/
 dataset/manifest.json
 dataset/quality_review.json
+dataset/derived/
+dataset/prepared_v*/
 weights/*
 !weights/.gitkeep
 results/*

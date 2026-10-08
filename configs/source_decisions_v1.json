@@ -1,0 +1,780 @@
+{
+  "format_version": 1,
+  "reviewed_at_beijing": "2026-10-08",
+  "source_fingerprint": "18ea474a07e45817418aa24cb0aff5eda05adfa8a9e3d090b958f9d2115b354e",
+  "coordinates": "voc_one_based_inclusive",
+  "coordinate_basis": "发布格式为 VOC；原始最小坐标均 >=1，边界终点可等于宽高；按 VOC 1-based inclusive 工程约定换算。发布者未提供端点细则，此为明确假设。",
+  "class_policy": {
+    "with_mask": "口罩覆盖鼻和口；保留发布者脸部框。",
+    "without_mask": "未戴口罩。",
+    "mask_weared_incorrect": "能辨认鼻部暴露或口罩下拉等错误佩戴。无法可靠辨认者整图排除。"
+  },
+  "visual_scope": "已查看全部 123 个原 incorrect 局部；此前 30 张定向全图、12 个越界局部、5 组重复对照。未宣称全部 853 张图片人工逐框验收。",
+  "excluded_images": [
+    {
+      "filename": "maksssksksss9.png",
+      "image_sha256": "bc8991e230caa9716026d3782fffa31ebeff8c82798353a89aff07e765a08c95",
+      "annotation_sha256": "a04a01fa87cc585bb5fca4dd3e08d7ea9d5e6e7dbfb53c5d55c10ddf07d8e6f4",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        1
+      ]
+    },
+    {
+      "filename": "maksssksksss24.png",
+      "image_sha256": "5baafc6e5403a7445c6cd66aed18388e10883411ac91ec68825d7ba6d9f6189e",
+      "annotation_sha256": "7253d9fb043d4e1381157a5620cdb86a466522dec43495d40d634d7481e461d1",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        1
+      ]
+    },
+    {
+      "filename": "maksssksksss94.png",
+      "image_sha256": "9e3afe175442fa50ab597122c302a7d049395801be18d96e695ad351adc03a0a",
+      "annotation_sha256": "5893e70dca75246902f43f0df0520ae6eba2ad9443b1b4749f2ebdac6293bfdf",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        5
+      ]
+    },
+    {
+      "filename": "maksssksksss112.png",
+      "image_sha256": "0e792f8d6eafdf1a0a6409f36d312ff6d27d2e6f25a5fb3241f71c17c5131b4e",
+      "annotation_sha256": "eaedb0df1a6ca35fd52f26453095bfe8c160d6e9fdd3912620237775e04e8332",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        1
+      ]
+    },
+    {
+      "filename": "maksssksksss151.png",
+      "image_sha256": "f5886dee8f68f61985a8a26c7991ceec4d187ec42c0ed0e7576862e8aef5fd3f",
+      "annotation_sha256": "76e5ed455512d4867ec5d978d7509f18ec2123fc521ca5788fb6c35c7180ec58",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        8
+      ]
+    },
+    {
+      "filename": "maksssksksss156.png",
+      "image_sha256": "91aeff917d8ff0fe788a2e00fa8fc2db595c28a93d74bdc249a7d4ac571f3be0",
+      "annotation_sha256": "08ce9f24ba8cce48e3e102c10e2e1d15f706ac510c400a46c0009a3fda9d7816",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "filename": "maksssksksss173.png",
+      "image_sha256": "bb442da50953f1ced2653769a0bc2d3d0a06ecb9e186b0a72c5a289ec226300c",
+      "annotation_sha256": "34d9da453f97e93623a883c7aeda3283a6cb702311bf908ad86abd0e25037fe8",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        2
+      ]
+    },
+    {
+      "filename": "maksssksksss199.png",
+      "image_sha256": "411843a06dbc4282c6c1c8ecb7f182ea4f466e6f853af8bb9e449da74c0cecff",
+      "annotation_sha256": "302c25c899a9522a6cceec9d27aa678103644b3ff3e652755ecc7c6ed5e4db62",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        2
+      ]
+    },
+    {
+      "filename": "maksssksksss206.png",
+      "image_sha256": "16693069526884d5e0f621f8ff871eb17094c04fcbffae08b2feab6e56cc8d4a",
+      "annotation_sha256": "2f9825f7ec336b78e41e16d1da86f0abdd06cff743e9240eca2674410a74957c",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        6
+      ]
+    },
+    {
+      "filename": "maksssksksss223.png",
+      "image_sha256": "594c2bf8439975639c1edd45a6ee36d1aee1751c4c50df4d03913d5c159e92bd",
+      "annotation_sha256": "17d90e628803f884ab3c5f40000ce81f512561bbf8f48382a4cf2abf899f8637",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        6
+      ]
+    },
+    {
+      "filename": "maksssksksss255.png",
+      "image_sha256": "fb053065e01b528ae46be888d99d28973270590ed36b4400d5cfd2d136930f4e",
+      "annotation_sha256": "c9270e0140de6897145dce2fb4c60076f9288d113ffdccb6dd246b88aa83374f",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        14
+      ]
+    },
+    {
+      "filename": "maksssksksss258.png",
+      "image_sha256": "c1f8024844e6cedd4217a4db29334cf613c98d655b5f6f12bf427b380f83fde2",
+      "annotation_sha256": "3eb632f72af1fc88aa6bc196221fd9b55fa84fae8dc7852222c70c9c4d806435",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        1
+      ]
+    },
+    {
+      "filename": "maksssksksss280.png",
+      "image_sha256": "a81095644a0484cbee094a35aa7bfed160699f06fe6e1b17410995ee020ab136",
+      "annotation_sha256": "82237291f655a61dd88162e9619db70c55e73490248b016b3edc15d4ee88389d",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        16
+      ]
+    },
+    {
+      "filename": "maksssksksss282.png",
+      "image_sha256": "6f17d36f8926c8cd15ea5895fa0e1780b783ec8af60b46cf029e1048a55d470c",
+      "annotation_sha256": "64eeabd7621b803ccb534901b2ef5a3c6ab8a10794710d59cb6c6bbfa9e59603",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        8
+      ]
+    },
+    {
+      "filename": "maksssksksss305.png",
+      "image_sha256": "0eb4adc17021acfcd45c51b9d4424dea73ac14d05c04e497d8e8907025fa9c41",
+      "annotation_sha256": "1bbd8a273609d83fcd9496463ba8b63f025d00b5edec01700c4ac971bbbae70a",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "filename": "maksssksksss309.png",
+      "image_sha256": "6dfc043942fbfb5dd1adbf56ba71f56ba37253711dcf30ce6fc128c29c65895b",
+      "annotation_sha256": "c7b56ba6a483da63328c4c8a8a07cc552caf1bee44da228b0c43e4872c1768bd",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        1
+      ]
+    },
+    {
+      "filename": "maksssksksss331.png",
+      "image_sha256": "d0b6be4778afd27224449bf1dd2c540de03086cdd1f9820e4bb20b2ca774e455",
+      "annotation_sha256": "2d7514dc3252860816564db0619819908f19072e2acf19f2ce90f34ceffef540",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        2,
+        8
+      ]
+    },
+    {
+      "filename": "maksssksksss386.png",
+      "image_sha256": "4e683a1909d9ffa393f7af978f260acfa9af87e0ee5640dd9b056a37d0814a48",
+      "annotation_sha256": "d030e31f5aa8fe3eae55c248ce746d72dc1e280db9d2a9cd4abdfc9bc199dcc4",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        1
+      ]
+    },
+    {
+      "filename": "maksssksksss410.png",
+      "image_sha256": "6da704412b28779a67df00e894a562700b78e13db0a4b529feb68a1e1374f7f6",
+      "annotation_sha256": "48d1bfe57b5dca74f85378251aa730f2c8df7dc6b7a1a26e5b895a3a969d6ab7",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        6
+      ]
+    },
+    {
+      "filename": "maksssksksss423.png",
+      "image_sha256": "df6ee7c43f5974c56aa01a19ae5528009366cfe657328fec7bbb1cd0408601c2",
+      "annotation_sha256": "13bb46f205846a263d27317d3e8563ac78caa3797f11d0b7076d32eb97ab5725",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        4
+      ]
+    },
+    {
+      "filename": "maksssksksss424.png",
+      "image_sha256": "a79d91db8157d92a7545d131bee88b284cf27f9fe525bf924be419c562a1e41f",
+      "annotation_sha256": "4968d1429e42dacff18799dcc17b899649623d59cbc1748103ffebd4d8eaa495",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        7
+      ]
+    },
+    {
+      "filename": "maksssksksss428.png",
+      "image_sha256": "6da704412b28779a67df00e894a562700b78e13db0a4b529feb68a1e1374f7f6",
+      "annotation_sha256": "99360719eccaaa8c557ce646a8955f2073babb458770268d2836795b05568539",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        13
+      ]
+    },
+    {
+      "filename": "maksssksksss445.png",
+      "image_sha256": "01717aa3f9dba04ef0005d8046a29790fe5f6179ce89509d337e50f41677ede1",
+      "annotation_sha256": "4e9c1e9eeae50f19d6326aaefd91e8bd23df3fc055c572b493ec5ec406bf2bd9",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        3,
+        10
+      ]
+    },
+    {
+      "filename": "maksssksksss453.png",
+      "image_sha256": "b4cd29d59aa5841969e8cbf566a29f2721e8e1c4c6bbddad38f01d10baeeeb6e",
+      "annotation_sha256": "b2d0d3dc65194eec004872b302832dcbbeac9daabf775769693f4dc1dc807a02",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        7
+      ]
+    },
+    {
+      "filename": "maksssksksss467.png",
+      "image_sha256": "51c6e6473dc341f982d1623f91c72fb31777876719d64f2904ac8ce9ce66f950",
+      "annotation_sha256": "e44cb41703980a116da1d83c5d90dc0d4558235997e5c4b3381193b7c1077a2b",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        5
+      ]
+    },
+    {
+      "filename": "maksssksksss484.png",
+      "image_sha256": "1abc8bac652d7399935aea68697a1c90816c492696dfdf706a108ee31146f22a",
+      "annotation_sha256": "b40027077fac3281def61cabce0a8f4ac010458a916d2d2a3d24e7e86cbb7bc4",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        1
+      ]
+    },
+    {
+      "filename": "maksssksksss498.png",
+      "image_sha256": "b171615ff757680ce92ea2fd4346fd269b58cc2ff8bbcc7ff3bb7b1da12db4a8",
+      "annotation_sha256": "d27778d765f949f119b6bf7902a95b6dd2f4320c1ad82687e745c9c35ecac66d",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        5
+      ]
+    },
+    {
+      "filename": "maksssksksss525.png",
+      "image_sha256": "cfb374bd4a69f7db774bd3040215f3abc60fd09e31fd35e33fa40b61ba33bafb",
+      "annotation_sha256": "7ae247d3d832c480928f5b1fd199057973a71bb526a096f106b87ca766f53faa",
+      "reason": "含示意图或电视文字叠加，首版限定普通实拍画面，整图排除。",
+      "reviewed_incorrect_objects": [
+        1
+      ]
+    },
+    {
+      "filename": "maksssksksss545.png",
+      "image_sha256": "4c30f62192db026604df11d8bec735cd819b3c316758f6ff7d9cb3f1296f7572",
+      "annotation_sha256": "d8aa0f6e6fd76408f5ce71bfc55bf5a63bd1cd0724bcc5109af7c0f789f8ce1b",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        2,
+        6,
+        7
+      ]
+    },
+    {
+      "filename": "maksssksksss552.png",
+      "image_sha256": "8e3cace2b0f577bbc7b2d93bb79f068f6595647c3d30f974c96397cd4b3b36b1",
+      "annotation_sha256": "bbc3d2657b529d31ed04ca311948fc5d431093fd75e82e44c41b4718efedcbbe",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": []
+    },
+    {
+      "filename": "maksssksksss564.png",
+      "image_sha256": "c0ae0a89116cec64e1a0ba97c8fce2d73a73468d05c189827063f6cf77274ba6",
+      "annotation_sha256": "b5b0adcb89d08cda192d319f3f52c397095a0b42bbbe8f8aa1e58bbef019dd85",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        4
+      ]
+    },
+    {
+      "filename": "maksssksksss566.png",
+      "image_sha256": "a7844ee36d10ade04e915e53e7e59cc284fb55dcaa01f8651cb5d76c430edc37",
+      "annotation_sha256": "17ca4b626b01d200a4f1a66117f6378acfdbe2bb3049f24932189abec7038a1b",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        2
+      ]
+    },
+    {
+      "filename": "maksssksksss603.png",
+      "image_sha256": "07f02fe2e7eb5a7260bb0d39566473f1feef6678679ca4b4cf1ef46e68ef9a58",
+      "annotation_sha256": "f6c2fb7943c8e163ec8a51ff3c7f5cda9269fae487ad52ad2a15e4bf204c4302",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        23,
+        72
+      ]
+    },
+    {
+      "filename": "maksssksksss611.png",
+      "image_sha256": "80ea928c59a6c9965cd0a96581bf770aa88250e1e5570ec17492ef8e3392e495",
+      "annotation_sha256": "f7c1ce8f63d648a3ddce1355b3c6bf08392ffff6081a71ed6cfe4925a8e77b62",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        5
+      ]
+    },
+    {
+      "filename": "maksssksksss640.png",
+      "image_sha256": "2675ab1e67d1154319c9f54bbea7d39747c005f18d62dd75314bf67092199629",
+      "annotation_sha256": "ade0a907ce0d7de31cb85e81e5c1db820af38e35c02daa67833a85ed419452b6",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        8
+      ]
+    },
+    {
+      "filename": "maksssksksss657.png",
+      "image_sha256": "1f049b25573f1032717ac484c8555774e234ab80565256053ff8b1e74c681ae6",
+      "annotation_sha256": "82a600bb7c00a6ccf2fb004decd015add050e2d33efaa7c4eeff209932994363",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        7,
+        9
+      ]
+    },
+    {
+      "filename": "maksssksksss658.png",
+      "image_sha256": "96bfd7436da8c85e1b74d1e83acd3edec73022c177cb10e79565da76bcca7b1f",
+      "annotation_sha256": "78903d95c804715ab183dc27ffd97b6e98a3975525f2e7bb9003fa508143a74b",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        1
+      ]
+    },
+    {
+      "filename": "maksssksksss659.png",
+      "image_sha256": "c6421a0e9740721ae8fcb2eb2a70f4e3ed66539c6a68934dcf4384a6716ebfe9",
+      "annotation_sha256": "431955f658ac43eb796d48d759dc5b83e399c955050ada8a6c4837ac2c762b90",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        1
+      ]
+    },
+    {
+      "filename": "maksssksksss666.png",
+      "image_sha256": "99b3530dc6cd30d2194cc681c29ea2b83c5f2e2b0ef3986b175a8e67df5c7937",
+      "annotation_sha256": "1beff7999ad8cf15057248fae0cad453a59de25e97d587e8d8747aeb39434752",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        3
+      ]
+    },
+    {
+      "filename": "maksssksksss698.png",
+      "image_sha256": "0b5dda04d20c59770d31e2c4feab2e4fe65d10a01e9d37cb396f238776bbc184",
+      "annotation_sha256": "47fedb61c3bca9f80d263c20a7e2eae9dbf0b9a8734e1dc1843f0738c928f0fd",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "filename": "maksssksksss717.png",
+      "image_sha256": "7a7d44acaf506ffa1638a698d35cc0757c3033f55918f2aa3ecde25d2d5ca063",
+      "annotation_sha256": "f5b06c50976f84b142a0329040ecf0bf905134d3ab1e6bcf6d5a0956d7fe5f26",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        1
+      ]
+    },
+    {
+      "filename": "maksssksksss718.png",
+      "image_sha256": "a245f750c7a09c03a1253281b69a9e692bb04962dc7d9071a029f478b57216b9",
+      "annotation_sha256": "938c10572cfe0b12497c09aeb56b06616c98470df47c62e735de3841c5a7b2be",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        7
+      ]
+    },
+    {
+      "filename": "maksssksksss728.png",
+      "image_sha256": "93d54e0dc00514e754f5c89c1314dda7e6f63fb718e91cf11f34fc6cf5f6c36b",
+      "annotation_sha256": "43f6415dada56664dc161eb114aa9acf81e380d8366bf1dc7d8655935b2c1c99",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        5
+      ]
+    },
+    {
+      "filename": "maksssksksss736.png",
+      "image_sha256": "351058671ec77c2e642405c013772fedcfe2853ef8998cf4fa5b4dc12faf5b26",
+      "annotation_sha256": "81c0893481129b2b8bc95aef1ab05a9fde816529e2da87dfd837aa863f9065b4",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": []
+    },
+    {
+      "filename": "maksssksksss741.png",
+      "image_sha256": "b9e17de3721d0d7d8172da7c22e0cf20700b6dde38d9da285c9841c22f506c1f",
+      "annotation_sha256": "a0f5fbfc6944dd14de490fdaf8e3fdb434b4572fe122ea8836a7964dac4d89d7",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        1
+      ]
+    },
+    {
+      "filename": "maksssksksss748.png",
+      "image_sha256": "ed8947f1ebb00f6f6ac847165b1c0853cb902eaf760e871b010936e366ff826d",
+      "annotation_sha256": "1b1404a18f9159696b61fcb234936951738977754c6acb90c0085be3bc8f2358",
+      "reason": "含示意图或电视文字叠加，首版限定普通实拍画面，整图排除。",
+      "reviewed_incorrect_objects": [
+        1
+      ]
+    },
+    {
+      "filename": "maksssksksss756.png",
+      "image_sha256": "0e17b568224fcdc5a0ed8f1411cc84ae34f55c1877bbb89375f16728a030519f",
+      "annotation_sha256": "e225ebf92979241b97a329d1d7eff65766a769c2fa9705c7a96d62b5b1b9a44d",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        2
+      ]
+    },
+    {
+      "filename": "maksssksksss760.png",
+      "image_sha256": "6f3f4a1bc17f2cf7ed3d9d4b4462a720de9ac17c977ce7794457b47ebc5f496d",
+      "annotation_sha256": "68f9b6bd51df5257a7683b6a1bbc0d04d855d574381d2b73b62940daeba14a47",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        2,
+        4
+      ]
+    },
+    {
+      "filename": "maksssksksss761.png",
+      "image_sha256": "131f19cb20d5ae146db35362bdfdaa887e8bc5b3645a1702d46e049a634d749b",
+      "annotation_sha256": "74d538025c57ae3e5c589977a5780d101366745b52e0409f580aa3bd6fcad301",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        1
+      ]
+    },
+    {
+      "filename": "maksssksksss782.png",
+      "image_sha256": "5cf9b396f3c283c1e49bf97a2d1f9446c214e622606fa9a7978f0dff8a9e7da6",
+      "annotation_sha256": "bc579a9a897f5a5b1da55c79badc30f07528be0d4010847155ed848aa1c3e1a7",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        1
+      ]
+    },
+    {
+      "filename": "maksssksksss807.png",
+      "image_sha256": "d3857daaae80fd611b1d58f3c9e4734bef6a987952d4e948e5648577d50fa049",
+      "annotation_sha256": "87e229cb83c8893c631d9ae69362a142bd1790c41207bfee7611fca4ae5c467c",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        7
+      ]
+    },
+    {
+      "filename": "maksssksksss815.png",
+      "image_sha256": "ee8fc8698a6cd6840d1de7821931a84c1a7af09a6d7ba3a6931d2fb2fbe0a594",
+      "annotation_sha256": "89f85efaca9b4050943ecf251f66b91735ce637ec01185861176087024cc8903",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        1
+      ]
+    },
+    {
+      "filename": "maksssksksss824.png",
+      "image_sha256": "66d7430549a43c99c712cbe04836314ce5a40b2a71ae6c59a4372754909a8e42",
+      "annotation_sha256": "3c0326be67bfed5c3a11f571c0a7d0adad2f36bf013bef6720caa12d36845d4c",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        1
+      ]
+    },
+    {
+      "filename": "maksssksksss830.png",
+      "image_sha256": "6c4b04ef304d79598f60c703dbe6705033c45d4c088491e61df05f7929120383",
+      "annotation_sha256": "cde676c57406f456623ac9333440cd2a64a935afb528fc6a4bc9c4bf0ab2c896",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        1
+      ]
+    },
+    {
+      "filename": "maksssksksss835.png",
+      "image_sha256": "ac712dbb8708d8dc17c418c5f61df2d25e9290233d4e8b07e56d77efb0eaf95f",
+      "annotation_sha256": "d001961c5aaef01470d4399e0638f65c0f63c48926fc28cddc4c7f051fc43e08",
+      "reason": "原标为 incorrect 的目标在原始分辨率下模糊、遮挡或鼻口覆盖关系含糊；保守整图排除，不删单个框、不猜测改类。",
+      "reviewed_incorrect_objects": [
+        1
+      ]
+    }
+  ],
+  "duplicate_removals": [
+    {
+      "filename": "maksssksksss737.png",
+      "image_sha256": "fc1c5e72c5362f0f1ea703728f51df89ee0715c6c4d33ef03cb143724db6fd56",
+      "annotation_sha256": "6ea3e1c0b4787e72c4aafe777952c4fcf254d6dd05d2b25debe1718e67ead118",
+      "reason": "同像素图片且类别数量相同、框边界不同；固定保留较小编号的标注，不合并重复目标。此选择不声称保留版本是精确真值。",
+      "retained": "maksssksksss13.png"
+    },
+    {
+      "filename": "maksssksksss219.png",
+      "image_sha256": "cf0a8ba14436bf9cf8de1b575aad46606f7404a961333a3ef8e48062edce4624",
+      "annotation_sha256": "2432bd82e765c23c0bf87c33ca17f62ee6091deefc40f67dc040936f9517b714",
+      "reason": "同像素图片且类别数量相同、框边界不同；固定保留较小编号的标注，不合并重复目标。此选择不声称保留版本是精确真值。",
+      "retained": "maksssksksss146.png"
+    },
+    {
+      "filename": "maksssksksss775.png",
+      "image_sha256": "d2c015e032ec3604790b2476ed3adca234b8aea06e8d0112b8970073fda74a35",
+      "annotation_sha256": "b83106a92257b7ec9d0bebf7b5f679784303cd6b433353297cdb25e1388eb747",
+      "reason": "同像素图片且类别数量相同、框边界不同；固定保留较小编号的标注，不合并重复目标。此选择不声称保留版本是精确真值。",
+      "retained": "maksssksksss653.png"
+    },
+    {
+      "filename": "maksssksksss690.png",
+      "image_sha256": "6d97276b701fcbe5f4ebd81c4cf3d1309939a5aa5f1538454e1238b07a438a54",
+      "annotation_sha256": "94d0d3c99d1a58cb528484904d15d79b225f8139f2e5f9b0057977e66808ba00",
+      "reason": "同像素图片且类别数量相同、框边界不同；固定保留较小编号的标注，不合并重复目标。此选择不声称保留版本是精确真值。",
+      "retained": "maksssksksss656.png"
+    }
+  ],
+  "box_repairs": [
+    {
+      "filename": "maksssksksss110.png",
+      "image_sha256": "2e4059c5fc8dda1423e6f1e8730444b9a0fa7ca09303dc8dc51cfdd3173be9cc",
+      "annotation_sha256": "a1fe830bdada7c6439eacd437b40b909bca0aa3b454266591bf8d06ec28c01e1",
+      "reason": "已查看该对象的右边缘局部，只把超出图片一像素的 xmax=401 收到图片宽 400；原始 XML 保留。",
+      "object_index": 25,
+      "before": [
+        381.0,
+        14.0,
+        401.0,
+        34.0
+      ],
+      "after": [
+        381.0,
+        14.0,
+        400,
+        34.0
+      ]
+    },
+    {
+      "filename": "maksssksksss231.png",
+      "image_sha256": "ddba16a4815a2e69952474bc2688d4241d69ab658e5049550c53cae25a1c42d1",
+      "annotation_sha256": "5b1911e581fe5836f185a5e84f9fe2cee6ad12e5774b4bb3377be433106148c7",
+      "reason": "已查看该对象的右边缘局部，只把超出图片一像素的 xmax=401 收到图片宽 400；原始 XML 保留。",
+      "object_index": 15,
+      "before": [
+        392.0,
+        86.0,
+        401.0,
+        106.0
+      ],
+      "after": [
+        392.0,
+        86.0,
+        400,
+        106.0
+      ]
+    },
+    {
+      "filename": "maksssksksss251.png",
+      "image_sha256": "bccfcc18d4f06ea1c8071260abb8171c36807a4e438a30d6ec4c5bf9f489640d",
+      "annotation_sha256": "e62837ea935f8c1b0ec0412cfd3c0e19e2f072de9172cc84bfa31c03ed8baa6b",
+      "reason": "已查看该对象的右边缘局部，只把超出图片一像素的 xmax=401 收到图片宽 400；原始 XML 保留。",
+      "object_index": 20,
+      "before": [
+        373.0,
+        76.0,
+        401.0,
+        114.0
+      ],
+      "after": [
+        373.0,
+        76.0,
+        400,
+        114.0
+      ]
+    },
+    {
+      "filename": "maksssksksss457.png",
+      "image_sha256": "09b18b389ba8046e364e55ee50ba9ddf7d1c66f7e7e12b627debb6be1caee6d1",
+      "annotation_sha256": "6fa360eab148a02ea1ab5c38d5011e032c7cf5feeca978e1e7017f1bab535e82",
+      "reason": "已查看该对象的右边缘局部，只把超出图片一像素的 xmax=401 收到图片宽 400；原始 XML 保留。",
+      "object_index": 6,
+      "before": [
+        389.0,
+        56.0,
+        401.0,
+        83.0
+      ],
+      "after": [
+        389.0,
+        56.0,
+        400,
+        83.0
+      ]
+    },
+    {
+      "filename": "maksssksksss5.png",
+      "image_sha256": "6953a12545dd20afd44a4581fd1d8c1f07296aeeee7fba2351e59a5e4ad5a11b",
+      "annotation_sha256": "6567da9fc8656deff932180c414de69f19e5fc815ac512583b35bf5836ee1e60",
+      "reason": "已查看该对象的右边缘局部，只把超出图片一像素的 xmax=401 收到图片宽 400；原始 XML 保留。",
+      "object_index": 2,
+      "before": [
+        364.0,
+        30.0,
+        401.0,
+        66.0
+      ],
+      "after": [
+        364.0,
+        30.0,
+        400,
+        66.0
+      ]
+    },
+    {
+      "filename": "maksssksksss501.png",
+      "image_sha256": "d0cfbacc63f23d9a75ae92f68852df0e527f56d1544980ee6a73b5bb4334af98",
+      "annotation_sha256": "08048743756407bf278c8e5d29ac8bb64538ebfa066d5b7615dd7fc01c05e77a",
+      "reason": "已查看该对象的右边缘局部，只把超出图片一像素的 xmax=401 收到图片宽 400；原始 XML 保留。",
+      "object_index": 6,
+      "before": [
+        357.0,
+        65.0,
+        401.0,
+        132.0
+      ],
+      "after": [
+        357.0,
+        65.0,
+        400,
+        132.0
+      ]
+    },
+    {
+      "filename": "maksssksksss603.png",
+      "image_sha256": "07f02fe2e7eb5a7260bb0d39566473f1feef6678679ca4b4cf1ef46e68ef9a58",
+      "annotation_sha256": "f6c2fb7943c8e163ec8a51ff3c7f5cda9269fae487ad52ad2a15e4bf204c4302",
+      "reason": "已查看该对象的右边缘局部，只把超出图片一像素的 xmax=401 收到图片宽 400；原始 XML 保留。",
+      "object_index": 99,
+      "before": [
+        397.0,
+        132.0,
+        401.0,
+        142.0
+      ],
+      "after": [
+        397.0,
+        132.0,
+        400,
+        142.0
+      ]
+    },
+    {
+      "filename": "maksssksksss603.png",
+      "image_sha256": "07f02fe2e7eb5a7260bb0d39566473f1feef6678679ca4b4cf1ef46e68ef9a58",
+      "annotation_sha256": "f6c2fb7943c8e163ec8a51ff3c7f5cda9269fae487ad52ad2a15e4bf204c4302",
+      "reason": "已查看该对象的右边缘局部，只把超出图片一像素的 xmax=401 收到图片宽 400；原始 XML 保留。",
+      "object_index": 115,
+      "before": [
+        396.0,
+        18.0,
+        401.0,
+        23.0
+      ],
+      "after": [
+        396.0,
+        18.0,
+        400,
+        23.0
+      ]
+    },
+    {
+      "filename": "maksssksksss616.png",
+      "image_sha256": "2dc56931bc11159602361434e060e7dd640aec12ca2abc6f6ddc5625bef529e5",
+      "annotation_sha256": "4c8337923069b6664c07058de10235c763235fbe24618586320b4c52c6178879",
+      "reason": "已查看该对象的右边缘局部，只把超出图片一像素的 xmax=401 收到图片宽 400；原始 XML 保留。",
+      "object_index": 11,
+      "before": [
+        394.0,
+        92.0,
+        401.0,
+        111.0
+      ],
+      "after": [
+        394.0,
+        92.0,
+        400,
+        111.0
+      ]
+    },
+    {
+      "filename": "maksssksksss706.png",
+      "image_sha256": "104e9bf5a8e9a8de14b659aea66b3196b0738a8b5a4b01d44c2feb36f2e3bfcd",
+      "annotation_sha256": "c98c960a33d9a32a6b1036a9751dc7722397ddef8290b05773f66db0d79b40d6",
+      "reason": "已查看该对象的右边缘局部，只把超出图片一像素的 xmax=401 收到图片宽 400；原始 XML 保留。",
+      "object_index": 15,
+      "before": [
+        368.0,
+        162.0,
+        401.0,
+        219.0
+      ],
+      "after": [
+        368.0,
+        162.0,
+        400,
+        219.0
+      ]
+    },
+    {
+      "filename": "maksssksksss787.png",
+      "image_sha256": "de9b6271a85014cde0c80e6bf55562df52c279deb0a22820465b16908dd955bd",
+      "annotation_sha256": "412549f7fbaed371cd92369742f3983beda0495e6ca0c89647f4ee0e649be856",
+      "reason": "已查看该对象的右边缘局部，只把超出图片一像素的 xmax=401 收到图片宽 400；原始 XML 保留。",
+      "object_index": 8,
+      "before": [
+        360.0,
+        79.0,
+        401.0,
+        139.0
+      ],
+      "after": [
+        360.0,
+        79.0,
+        400,
+        139.0
+      ]
+    },
+    {
+      "filename": "maksssksksss93.png",
+      "image_sha256": "aa28f74c45cb6d1fbe54f7aaee90f7572f87779380e6430d0e44630022822130",
+      "annotation_sha256": "40692699792d079dc6bf49471871e77f04ae7786ee92cad02955e47b6efdba78",
+      "reason": "已查看该对象的右边缘局部，只把超出图片一像素的 xmax=401 收到图片宽 400；原始 XML 保留。",
+      "object_index": 9,
+      "before": [
+        388.0,
+        72.0,
+        401.0,
+        92.0
+      ],
+      "after": [
+        388.0,
+        72.0,
+        400,
+        92.0
+      ]
+    }
+  ]
+}
