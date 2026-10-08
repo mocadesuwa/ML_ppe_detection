@@ -26,6 +26,20 @@ class BoxTests(unittest.TestCase):
             with self.subTest(box=box), self.assertRaises(ValueError):
                 convert_box(box, 10, 10, "zero_based_continuous")
 
+    def test_invalid_image_dimensions_are_rejected(self):
+        for dimension in (0, -1, 0.5, float("inf"), float("-inf"), float("nan"), True, False, "10", None):
+            for width, height in ((dimension, 10), (10, dimension)):
+                with self.subTest(width=width, height=height), self.assertRaises(ValueError):
+                    convert_box((0, 0, 0.25, 0.25), width, height, "zero_based_continuous")
+
+    def test_inclusive_voc_single_pixel_at_image_edge(self):
+        self.assertEqual(convert_box((10, 10, 10, 10), 10, 10, "voc_one_based_inclusive"), (0.95, 0.95, 0.1, 0.1))
+        self.assertEqual(convert_box((1, 1, 1, 1), 1, 1, "voc_one_based_inclusive"), (0.5, 0.5, 1.0, 1.0))
+
+    def test_unknown_coordinate_convention_is_rejected(self):
+        with self.assertRaises(ValueError):
+            convert_box((0, 0, 5, 5), 10, 10, "unknown")
+
 
 class GroupTests(unittest.TestCase):
     def test_near_duplicates_and_exact_duplicates_share_a_group(self):

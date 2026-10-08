@@ -15,6 +15,13 @@ from .common import IMAGE_SUFFIXES, SPLITS, load_yaml, project_path, sha256, utc
 
 
 def convert_box(box: tuple[float, float, float, float], width: int, height: int, convention: str) -> tuple[float, float, float, float]:
+    """Normalize a box using positive integer image dimensions.
+
+    VOC endpoints include their pixels, so a single-pixel box is valid.
+    Continuous endpoints must enclose a positive area.
+    """
+    if any(isinstance(size, bool) or not isinstance(size, int) or size <= 0 for size in (width, height)):
+        raise ValueError("Image width and height must be positive integers")
     x1, y1, x2, y2 = box
     if convention == "voc_one_based_inclusive":
         x1, y1 = x1 - 1, y1 - 1

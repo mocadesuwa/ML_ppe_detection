@@ -58,7 +58,23 @@ flowchart TD
 
 ## 5. 当前即可检查的命令
 
-已验证：8 项关键测试通过，全部 CLI 帮助入口、代码编译检查和两种训练计划的 dry-run 通过。真实 YOLO 训练、评价、预测尚未执行。
+框架搭建阶段曾验证：8 项关键测试通过，全部 CLI 帮助入口、代码编译检查和两种训练计划的 dry-run 通过。初版保存时在当前 `.venv` 复查，完整测试仍受 Pillow 缺失及临时目录权限影响。真实 YOLO 训练、评价、预测尚未执行。
+
+后续调整按 `unittest` 的实际执行顺序推进；同一测试类的方法按名称排序，不按源码中的定义位置排序：
+
+| 顺序 | 测试入口 | 首先调用的项目功能 | 调整状态 |
+| --- | --- | --- | --- |
+| 1 | `BoxTests` | `prepare_dataset.convert_box` | 已补齐图片尺寸校验，6 项坐标测试通过 |
+| 2 | `GroupTests` | `prepare_dataset.split_groups`，随后 `group_samples` | 待检查 |
+| 3 | `PipelineTests.test_archive_cannot_extract_outside_destination` | `download_data.extract_archive` | 待检查 |
+| 4 | `PipelineTests.test_conversion_validation_and_changed_data_invalidates_review` | 转换、校验、配置与数据版本核查 | 待检查 |
+| 5 | `PipelineTests.test_label_fields_and_geometry` | `check_dataset.read_labels` | 待检查 |
+
+当前只复查第一项，可在项目根目录运行，无需 Pillow、训练数据或 Ultralytics：
+
+```powershell
+.\.venv\Scripts\python.exe -m unittest tests.test_data_pipeline.BoxTests -v
+```
 
 在项目根目录运行，无需训练数据或 Ultralytics：
 
