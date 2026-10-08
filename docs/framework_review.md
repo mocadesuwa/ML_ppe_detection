@@ -25,12 +25,13 @@
 | src/environment.py | 查询 Python、依赖和 GPU 可用性 |
 | src/train.py | 预检配置和最终参数；dry-run 打印计划，后续实际运行时保存版本、权重与日志 |
 | src/evaluate.py | 预检参数、核查和训练记录，类别一致后创建目录；默认评价验证集并保存指标来源 |
-| src/predict.py | 保存新图片的预测框和 JSONL 检测结果 |
+| src/predict.py | 预检本地媒体与模型，逐帧检查并保存 JSONL、预测图片及运行状态 |
 | tests/test_data_pipeline.py | 检查坐标转换、分组、防泄漏与数据版本记录 |
 | tests/test_pipeline_integrity.py | 合成数据转换、清单一致性、配置校验、旧格式兼容与核查记录失效测试 |
 | tests/test_label_validation.py | 标签字段、精确类别编号、归一化边界及转换输出兼容测试 |
 | tests/test_entry_configs.py | YAML 与路径校验、训练计划参数、覆盖优先级及 CLI 无模型执行测试 |
 | tests/test_evaluation_entry.py | 用临时样本与假模型检查评价预检、最终测试要求、类别指标映射及版本记录 |
+| tests/test_prediction_entry.py | 用临时媒体与假模型检查预测预检、逐帧内容、输入覆盖及成功/失败记录 |
 | tests/run_regression.py | 在缓存临时目录累计执行所有现有回归测试 |
 
 ## 3. 流程
@@ -65,7 +66,7 @@ flowchart TD
 
 ## 5. 当前即可检查的命令
 
-框架搭建阶段曾验证：8 项关键测试通过，全部 CLI 帮助入口、代码编译检查和两种训练计划的 dry-run 通过。初版保存时在 `.venv` 复查受 Pillow 缺失及临时目录权限影响。后续已用系统 Python 3.14 的现有 Pillow/PyYAML 与项目缓存临时目录，在正常本机权限下完成 98 项累计回归测试。配置轮复查了两种 dry-run 与 8 个帮助入口，本轮另复查评价帮助与 3 项 CLI 错误路径。`.venv` 的依赖仍未准备完成，真实 YOLO 训练、评价、预测尚未执行。
+框架搭建阶段曾验证：8 项关键测试通过，全部 CLI 帮助入口、代码编译检查和两种训练计划的 dry-run 通过。初版保存时在 `.venv` 复查受 Pillow 缺失及临时目录权限影响。后续已用系统 Python 3.14 的现有 Pillow/PyYAML 与项目缓存临时目录，在正常本机权限下完成 124 项累计回归测试。配置轮复查了两种 dry-run 与 8 个帮助入口；评价轮复查评价帮助与 3 项 CLI 错误路径；预测轮复查预测帮助与 4 项 CLI 错误路径。`.venv` 的依赖仍未准备完成，真实 YOLO 训练、评价、预测尚未执行。
 
 后续调整以初版 `unittest` 的实际执行顺序为起点，新增回归由统一入口累计发现；同一测试类的方法按名称排序，不按源码中的定义位置排序：
 
@@ -77,7 +78,8 @@ flowchart TD
 | 4 | 原有组合测试与 `IntegrityTests` | 转换、校验、配置与数据版本核查 | 已补齐清单、标签哈希、划分列表与指纹校验，共 16 项组合测试通过 |
 | 5 | `PipelineTests.test_label_fields_and_geometry` 与 `LabelTests` | `check_dataset.read_labels` | 已补齐精确类别、字段范围、边缘舍入及 BOM 校验，共 11 项标签测试通过 |
 | 6 | `EntryConfigTests` | 共享配置读取，随后训练计划与 CLI | 20 项预检与兼容测试通过 |
-| 7 | `EvaluationTests` | 评价参数与数据/训练记录预检，随后假模型流程 | 23 项测试通过；下一轮检查预测入口 |
+| 7 | `EvaluationTests` | 评价参数与数据/训练记录预检，随后假模型流程 | 23 项测试通过 |
+| 8 | `PredictionTests` | 预测参数与本地媒体预检，随后假模型流式结果 | 26 项测试通过，累计回顾前序 98 项 |
 
 每轮调整后累计复查全部现有测试：
 
@@ -100,6 +102,14 @@ python tests/run_regression.py
 评价参数与数据核查先通过，再检查权重目录上级的 `experiment.json`。已有记录须包含合法模式、状态与匹配的数据指纹；没有记录时仍允许验证集探索，指标中的 `training_record` 为 null。最终测试须显式提供两个标记，并使用完成的 baseline 记录中列出的 best/last 权重路径；短跑或未完成实验可用于验证集，不用于最终测试。
 
 模型类别检查通过后才创建评价结果目录，预检失败、缺依赖、加载失败或类别不符时不产生结果目录。实际评价开始后可能生成图片等内容；若前后权重哈希或数据指纹变化，程序停止且不写 `metrics.json`。指标增加 `final_test` 和训练记录来源，保留总体与分类别字段；缺少可用类别指标时仍写 null。当前这些流程仅经假模型验证，不能替代真实 Ultralytics 运行与模型效果检查。
+
+预测输入支持本地图片、视频或目录，目录只扫描直接包含的支持格式文件，不递归进入子目录。输入路径相对项目根目录解析；空文件、无支持媒体的目录、不支持的格式和已存在的结果名称提前报错。imgsz 为正整数，conf 为 `[0, 1]` 内的有限数值；设备与名称沿用共享入口规则。加载的模型必须为检测模型，类别表须有连续整数编号与不同的非空名称。
+
+预测保持 `stream=True`，逐帧写出临时 JSONL；检查三个检测数组长度、来源归属、图片重复、图像尺寸、整数类别、有限置信度与有效像素框。没有检测目标的帧可保留空 detections，但没有任何帧或遗漏输入文件不能标记完成。JSONL 保留 `source`、`frame_index` 和 detections，增加从零开始的单文件 `source_frame_index` 与 `image_size`。
+
+预测运行记录保存输入文件清单、输入指纹、权重哈希和实际参数。流结束、所有输入有结果且前后内容一致时，将 `predictions.jsonl.part` 移为 `predictions.jsonl`，随后保存 complete 记录。普通异常或中断会尝试保存 failed 记录并保留临时行；若完成记录写入失败而文件撤回也受阻，记录会标明 `unconfirmed_predictions_file`。判断完成须同时检查 `run.json` 的 complete 状态与正式 JSONL，不能只看文件名。磁盘不可写时可能无法更新失败记录，程序会报告记录错误。
+
+输入与权重在前后各计算一次完整哈希，按块读取且不把视频帧积累在内存中，但大文件会增加磁盘读取耗时。本轮视频仅使用假模型生成的帧验证流式逻辑，实际媒体解码、保存图片/视频及 GPU 行为留待依赖与真实权重准备后验证。
 
 如果只复查第一项，可在项目根目录运行，无需 Pillow、训练数据或 Ultralytics：
 
@@ -156,6 +166,6 @@ GPU 不可用时会给出清晰错误。若仅需小型 CPU 流程检查，可�
 - results/smoke_01/：流程检查结果，不当作最终模型表现。
 - results/baseline_01/：真实训练后生成的权重、曲线、环境与参数记录。
 - results/evaluations/：每次评价的数值和图。
-- results/predictions/：预测图片及每个框的类别、置信度、坐标。
+- results/predictions/：预测图片/视频、逐帧 JSONL 与含输入来源及成功/失败状态的 run.json；失败可能保留 `.part` 或未确认文件。
 
 目录中没有训练生成的权重与指标前，项目仍处于准备或实现阶段。
