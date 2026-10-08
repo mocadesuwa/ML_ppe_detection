@@ -163,13 +163,14 @@ class EntryConfigTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "epochs"):
             self.plan(smoke=True, epochs=0)
 
-    def test_plan_default_baseline_keeps_existing_paths_and_parameters(self):
+    def test_plan_default_baseline_uses_frozen_version_and_parameters(self):
         args = argparse.Namespace(config="configs/baseline.yaml", smoke=False, name=None, epochs=None, batch=None, device=None)
         config, data = build_plan(args)
         self.assertEqual((config["epochs"], config["batch"], config["imgsz"]), (50, 8, 640))
         self.assertEqual(config["model"], str(ROOT / "weights/yolo11n.pt"))
         self.assertEqual(config["project"], str(ROOT / "results"))
-        self.assertEqual(data["path"], str(ROOT / "dataset"))
+        self.assertEqual(data["path"], str(ROOT / "dataset" / "prepared_v2"))
+        self.assertEqual(data["train"], str(ROOT / "dataset" / "prepared_v2" / "images" / "train"))
         self.assertEqual(data["names"], {0: "mask", 1: "no_mask", 2: "mask_incorrect"})
 
     def test_train_cli_dry_run_prints_plans_without_model_imports_or_writes(self):

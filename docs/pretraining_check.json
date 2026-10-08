@@ -1,0 +1,79 @@
+{
+  "checked_at": "2026-10-08T15:08:09.272527+00:00",
+  "status": "ready_before_training",
+  "training_started": false,
+  "environment": {
+    "checked_at": "2026-10-08T15:07:39.681187+00:00",
+    "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+    "executable": "C:\\Users\\hao11\\Documents\\ChatGPT\\ML作业：实验室防护用品佩戴检测\\.venv\\Scripts\\python.exe",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "packages": {
+      "torch": "2.11.0+cu128",
+      "torchvision": "0.26.0+cu128",
+      "ultralytics": "8.4.174",
+      "Pillow": "12.3.0",
+      "PyYAML": "6.0.3"
+    },
+    "nvidia_smi": "NVIDIA GeForce RTX 3060 Laptop GPU, 6144 MiB, 616.92",
+    "torch_cuda_build": "12.8",
+    "cuda_available": true,
+    "gpus": [
+      "NVIDIA GeForce RTX 3060 Laptop GPU"
+    ],
+    "gpu_operation_ok": true
+  },
+  "parameters": {
+    "model": "C:\\Users\\hao11\\Documents\\ChatGPT\\ML作业：实验室防护用品佩戴检测\\weights\\yolo11n.pt",
+    "project": "C:\\Users\\hao11\\Documents\\ChatGPT\\ML作业：实验室防护用品佩戴检测\\results",
+    "name": "baseline_01",
+    "epochs": 50,
+    "imgsz": 640,
+    "batch": 8,
+    "patience": 15,
+    "seed": 42,
+    "workers": 0,
+    "device": "auto",
+    "deterministic": true,
+    "optimizer": "auto",
+    "amp": true,
+    "plots": true,
+    "save": true,
+    "cache": false
+  },
+  "data_config": "C:\\Users\\hao11\\Documents\\ChatGPT\\ML作业：实验室防护用品佩戴检测\\configs\\dataset.yaml",
+  "dataset_fingerprint": "fa0dad948f835b862633b2451915085b24f65f14a4f1cb6ab657dac10e4f5a7f",
+  "weights_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+  "initial_model_task": "detect",
+  "initial_pretrained_classes": 80,
+  "configured_classes": {
+    "0": "mask",
+    "1": "no_mask",
+    "2": "mask_incorrect"
+  },
+  "loaded_training_images": [
+    "C:\\Users\\hao11\\Documents\\ChatGPT\\ML作业：实验室防护用品佩戴检测\\dataset\\prepared_v2\\images\\train\\maksssksksss0.png",
+    "C:\\Users\\hao11\\Documents\\ChatGPT\\ML作业：实验室防护用品佩戴检测\\dataset\\prepared_v2\\images\\train\\maksssksksss1.png",
+    "C:\\Users\\hao11\\Documents\\ChatGPT\\ML作业：实验室防护用品佩戴检测\\dataset\\prepared_v2\\images\\train\\maksssksksss100.png",
+    "C:\\Users\\hao11\\Documents\\ChatGPT\\ML作业：实验室防护用品佩戴检测\\dataset\\prepared_v2\\images\\train\\maksssksksss102.png",
+    "C:\\Users\\hao11\\Documents\\ChatGPT\\ML作业：实验室防护用品佩戴检测\\dataset\\prepared_v2\\images\\train\\maksssksksss103.png",
+    "C:\\Users\\hao11\\Documents\\ChatGPT\\ML作业：实验室防护用品佩戴检测\\dataset\\prepared_v2\\images\\train\\maksssksksss104.png",
+    "C:\\Users\\hao11\\Documents\\ChatGPT\\ML作业：实验室防护用品佩戴检测\\dataset\\prepared_v2\\images\\train\\maksssksksss105.png",
+    "C:\\Users\\hao11\\Documents\\ChatGPT\\ML作业：实验室防护用品佩戴检测\\dataset\\prepared_v2\\images\\train\\maksssksksss106.png"
+  ],
+  "input_shape": [
+    8,
+    3,
+    640,
+    640
+  ],
+  "prediction_shape": [
+    8,
+    84,
+    8400
+  ],
+  "cuda_nms_ok": true,
+  "gradient_updates": 0,
+  "inference_peak_allocated_mib": 159.962890625,
+  "content_unchanged": true,
+  "limitations": "Forward only, no augmentation/backprop/optimizer/trainer. Training memory, smoke, checkpoint saving and task metrics remain untested."
+}

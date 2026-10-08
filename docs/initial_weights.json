@@ -1,0 +1,14 @@
+{
+  "downloaded_at": "2026-10-08T15:05:01.931475+00:00",
+  "filename": "weights/yolo11n.pt",
+  "source_repository": "ultralytics/assets",
+  "release": "v8.4.0",
+  "source_url": "https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo11n.pt",
+  "release_api": "https://api.github.com/repos/ultralytics/assets/releases/tags/v8.4.0",
+  "asset_id": 340060970,
+  "bytes": 5613764,
+  "sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+  "publisher_digest": "sha256:0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+  "publisher_digest_matched": true,
+  "role": "COCO-pretrained YOLO11n initial weights; not a PPE-trained checkpoint"
+}
