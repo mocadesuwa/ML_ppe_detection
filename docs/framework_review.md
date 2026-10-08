@@ -46,6 +46,8 @@ flowchart TD
 
 相似图片分组使用 dHash 距离，并支持提供拍摄来源 CSV。它能减少明显近重复泄漏，但不能保证识别出所有同视频或同人物来源；有来源信息时优先补充来源分组。
 
+分组划分要求每个样本恰好出现一次，且每类至少存在于三个独立分组。算法在完整保留分组、覆盖各集合类别的约束下尽量接近目标比例；比例可能因分组大小而偏离。固定 seed 可复现，有限次数的启发式尝试仍可能找不到合法划分，此时停止并报告，不拆分来源分组。
+
 ## 4. 检查框架时重点看什么
 
 1. 课程是否允许先完成口罩一个子任务，是否必须包含手套或护目镜。
@@ -58,19 +60,27 @@ flowchart TD
 
 ## 5. 当前即可检查的命令
 
-框架搭建阶段曾验证：8 项关键测试通过，全部 CLI 帮助入口、代码编译检查和两种训练计划的 dry-run 通过。初版保存时在当前 `.venv` 复查，完整测试仍受 Pillow 缺失及临时目录权限影响。真实 YOLO 训练、评价、预测尚未执行。
+框架搭建阶段曾验证：8 项关键测试通过，全部 CLI 帮助入口、代码编译检查和两种训练计划的 dry-run 通过。初版保存时在 `.venv` 复查受 Pillow 缺失及临时目录权限影响。后续已用系统 Python 3.14 的现有 Pillow/PyYAML 与项目缓存临时目录完成 20 项累计回归测试；`.venv` 的依赖仍未准备完成。真实 YOLO 训练、评价、预测尚未执行。
 
 后续调整按 `unittest` 的实际执行顺序推进；同一测试类的方法按名称排序，不按源码中的定义位置排序：
 
 | 顺序 | 测试入口 | 首先调用的项目功能 | 调整状态 |
 | --- | --- | --- | --- |
 | 1 | `BoxTests` | `prepare_dataset.convert_box` | 已补齐图片尺寸校验，6 项坐标测试通过 |
-| 2 | `GroupTests` | `prepare_dataset.split_groups`，随后 `group_samples` | 待检查 |
-| 3 | `PipelineTests.test_archive_cannot_extract_outside_destination` | `download_data.extract_archive` | 待检查 |
-| 4 | `PipelineTests.test_conversion_validation_and_changed_data_invalidates_review` | 转换、校验、配置与数据版本核查 | 待检查 |
-| 5 | `PipelineTests.test_label_fields_and_geometry` | `check_dataset.read_labels` | 待检查 |
+| 2 | `GroupTests` | `prepare_dataset.split_groups`，随后 `group_samples` | 已修正泄漏、样本覆盖及小规模划分，11 项分组测试通过 |
+| 3 | `PipelineTests.test_archive_cannot_extract_outside_destination` | `download_data.extract_archive` | 现有回归通过，待扩展检查 |
+| 4 | `PipelineTests.test_conversion_validation_and_changed_data_invalidates_review` | 转换、校验、配置与数据版本核查 | 现有回归通过，待扩展检查 |
+| 5 | `PipelineTests.test_label_fields_and_geometry` | `check_dataset.read_labels` | 现有回归通过，待扩展检查 |
 
-当前只复查第一项，可在项目根目录运行，无需 Pillow、训练数据或 Ultralytics：
+每轮调整后累计复查全部现有测试：
+
+```powershell
+python tests/run_regression.py
+```
+
+选择已经装有 Pillow 与 PyYAML 的 Python；当前系统 Python 满足这些测试依赖。此入口只在 `.cache/tests/` 创建临时合成样本，并在结束时清理，不修改真实数据或运行 YOLO。
+
+如果只复查第一项，可在项目根目录运行，无需 Pillow、训练数据或 Ultralytics：
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest tests.test_data_pipeline.BoxTests -v

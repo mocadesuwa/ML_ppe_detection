@@ -90,8 +90,12 @@ def read_samples(raw: Path, classes: dict[str, int], convention: str) -> tuple[l
 
 
 def group_samples(samples: list[dict], distance: int, csv_path: Path | None = None) -> list[list[int]]:
-    if not 0 <= distance <= 64:
-        raise ValueError("Near-duplicate distance must be between 0 and 64")
+    if isinstance(distance, bool) or not isinstance(distance, int) or not 0 <= distance <= 64:
+        raise ValueError("Near-duplicate distance must be an integer between 0 and 64")
+    for sample in samples:
+        digest = sample["dhash"]
+        if isinstance(digest, bool) or not isinstance(digest, int) or not 0 <= digest < 1 << 64:
+            raise ValueError("dHash must be an unsigned 64-bit integer")
     parents = list(range(len(samples)))
 
     def find(i: int) -> int:
@@ -115,9 +119,14 @@ def group_samples(samples: list[dict], distance: int, csv_path: Path | None = No
             if not {"filename", "group"}.issubset(reader.fieldnames or []):
                 raise ValueError("groups CSV must contain filename and group columns")
             for row in reader:
-                if row["filename"] in source_groups:
-                    raise ValueError(f"Repeated CSV filename: {row['filename']}")
-                source_groups[row["filename"]] = row["group"]
+                if None in row or row["filename"] is None or row["group"] is None:
+                    raise ValueError("Each groups CSV row must match the header columns")
+                filename, group = row["filename"].strip(), row["group"].strip()
+                if not filename:
+                    raise ValueError("groups CSV filenames must not be empty")
+                if filename in source_groups:
+                    raise ValueError(f"Repeated CSV filename: {filename}")
+                source_groups[filename] = group
         known = {sample["image"].name for sample in samples}
         if set(source_groups) - known:
             raise ValueError("groups CSV contains filenames absent from the usable data")
@@ -136,15 +145,42 @@ def group_samples(samples: list[dict], distance: int, csv_path: Path | None = No
 
 
 def split_groups(groups: list[list[int]], samples: list[dict], ratios: list[float], seed: int, class_count: int) -> dict[str, list[int]]:
-    import math
-    if len(ratios) != 3 or any(r <= 0 for r in ratios) or not math.isclose(sum(ratios), 1.0):
+    if isinstance(class_count, bool) or not isinstance(class_count, int) or class_count < 1:
+        raise ValueError("Class count must be a positive integer")
+    if isinstance(seed, bool) or not isinstance(seed, int):
+        raise ValueError("Split seed must be an integer")
+    if len(ratios) != 3 or any(isinstance(r, bool) or not isinstance(r, (int, float)) or not math.isfinite(r) or r <= 0 for r in ratios) or not math.isclose(sum(ratios), 1.0):
         raise ValueError("Three positive split ratios summing to 1 are required")
     if len(groups) < 3:
         raise ValueError("At least three independent groups are needed")
-    group_counts = [Counter(int(label[0]) for i in group for label in samples[i]["labels"]) for group in groups]
+    seen = set()
+    for group in groups:
+        if not group:
+            raise ValueError("Groups must not be empty")
+        for index in group:
+            if isinstance(index, bool) or not isinstance(index, int) or not 0 <= index < len(samples):
+                raise ValueError("Group members must be valid sample indices")
+            if index in seen:
+                raise ValueError(f"Sample {index} occurs in more than one group or is repeated")
+            seen.add(index)
+    if len(seen) != len(samples):
+        raise ValueError("Groups must contain every sample exactly once")
+    group_counts = []
+    for group in groups:
+        counts = Counter()
+        for index in group:
+            for label in samples[index]["labels"]:
+                category = label[0]
+                if isinstance(category, bool) or not isinstance(category, (int, float)) or not math.isfinite(category) or category != int(category) or not 0 <= category < class_count:
+                    raise ValueError(f"Invalid class ID in sample {index}: {category}")
+                counts[int(category)] += 1
+        group_counts.append(counts)
     totals = sum(group_counts, Counter())
     if any(totals[c] == 0 for c in range(class_count)):
         raise ValueError("The source data does not contain all configured classes")
+    support = Counter(category for counts in group_counts for category in counts)
+    if any(support[c] < len(SPLITS) for c in range(class_count)):
+        raise ValueError("Every class must appear in at least three independent groups")
     total_images = len(samples)
     best = None
     # Multiple deterministic greedy trials balance group sizes and class instances.
@@ -156,8 +192,21 @@ def split_groups(groups: list[list[int]], samples: list[dict], ratios: list[floa
         assignments = {split: [] for split in SPLITS}
         counts = {split: Counter() for split in SPLITS}
         sizes = {split: 0 for split in SPLITS}
+        remaining_support = support.copy()
+        complete = True
         for index in order:
-            candidates = list(SPLITS)
+            for category in group_counts[index]:
+                remaining_support[category] -= 1
+            # Reserve enough unassigned groups to cover each still-missing class.
+            candidates = [candidate for candidate in SPLITS if all(
+                remaining_support[c] >= sum(
+                    counts[split][c] == 0 and not (split == candidate and group_counts[index][c] > 0)
+                    for split in SPLITS
+                ) for c in range(class_count)
+            )]
+            if not candidates:
+                complete = False
+                break
             rng.shuffle(candidates)
 
             def cost(candidate: str) -> float:
@@ -174,13 +223,15 @@ def split_groups(groups: list[list[int]], samples: list[dict], ratios: list[floa
             assignments[chosen].extend(groups[index])
             sizes[chosen] += len(groups[index])
             counts[chosen].update(group_counts[index])
+        if not complete:
+            continue
         missing = sum(counts[split][c] == 0 for split in SPLITS for c in range(class_count))
         score = missing * 10000 + sum(((sizes[s] - total_images * r) / max(total_images * r, 1)) ** 2 for s, r in zip(SPLITS, ratios))
         score += sum(((counts[s][c] - totals[c] * r) / max(totals[c] * r, 1)) ** 2 for s, r in zip(SPLITS, ratios) for c in range(class_count))
         if best is None or score < best[0]:
             best = score, assignments, missing
-    if best[2]:
-        raise ValueError("Cannot place every class in all three splits without breaking groups. Check grouping or add minority-class data.")
+    if best is None or best[2]:
+        raise ValueError("No valid grouped split found with every class in all three splits. Check grouping or add minority-class data.")
     return {split: sorted(indices) for split, indices in best[1].items()}
 
 
@@ -220,8 +271,8 @@ def main() -> None:
             unique.append(sample)
     samples = unique
     groups_csv = project_path(config["groups_csv"]) if config.get("groups_csv") else None
-    groups = group_samples(samples, int(config["near_duplicate_distance"]), groups_csv)
-    assignments = split_groups(groups, samples, config["ratios"], int(config["seed"]), len(classes))
+    groups = group_samples(samples, config["near_duplicate_distance"], groups_csv)
+    assignments = split_groups(groups, samples, config["ratios"], config["seed"], len(classes))
     group_ids = {index: group_id for group_id, group in enumerate(groups) for index in group}
     manifest = {"created_at": utc_now(), "config": config, "raw_directory": str(raw), "exact_duplicates_removed": duplicates, "excluded_stems": sorted(excluded), "independent_groups": len(groups), "grouping_limitations": "dHash detects similar appearance, not all shared video/person sources. Supply groups_csv where available.", "splits": {}}
     for split in SPLITS:

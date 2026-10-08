@@ -42,6 +42,92 @@ class BoxTests(unittest.TestCase):
 
 
 class GroupTests(unittest.TestCase):
+    def test_three_independent_groups_cover_all_splits(self):
+        for sizes in ((1, 1, 1), (20, 1, 1)):
+            samples, groups = [], []
+            for size in sizes:
+                start = len(samples)
+                samples.extend({"labels": [[0, 0.5, 0.5, 0.2, 0.2]]} for _ in range(size))
+                groups.append(list(range(start, len(samples))))
+            with self.subTest(sizes=sizes):
+                assignments = split_groups(groups, samples, [0.7, 0.2, 0.1], 42, 1)
+                self.assertEqual({frozenset(indices) for indices in assignments.values()}, {frozenset(group) for group in groups})
+                self.assertEqual(assignments, split_groups(groups, samples, [0.7, 0.2, 0.1], 42, 1))
+
+    def test_insufficient_independent_groups_for_a_class_are_rejected(self):
+        samples = [{"labels": [[i % 2, 0.5, 0.5, 0.2, 0.2]]} for i in range(4)]
+        with self.assertRaises(ValueError):
+            split_groups([[i] for i in range(4)], samples, [0.7, 0.2, 0.1], 42, 2)
+
+    def test_group_split_rejects_overlapping_missing_or_invalid_members(self):
+        samples = [{"labels": [[0, 0.5, 0.5, 0.2, 0.2]]} for _ in range(9)]
+        valid = [[i] for i in range(9)]
+        invalid = (
+            [[0], [0], *valid[2:]],  # Duplicate 0 also omits 1.
+            valid[:-1],
+            [*valid, []],
+            [[-1], *valid[1:]],
+            [[9], *valid[1:]],
+            [[0.0], *valid[1:]],
+            [[False], *valid[1:]],
+            [[0, 0], *valid[1:]],
+        )
+        for groups in invalid:
+            with self.subTest(groups=groups), self.assertRaises(ValueError):
+                split_groups(groups, samples, [1 / 3] * 3, 42, 1)
+
+    def test_group_split_rejects_invalid_class_ids(self):
+        for category in (-1, 1, 0.5, float("nan"), float("inf"), True, False, "0"):
+            samples = [{"labels": [[category, 0.5, 0.5, 0.2, 0.2]]} for _ in range(9)]
+            with self.subTest(category=category), self.assertRaises(ValueError):
+                split_groups([[i] for i in range(9)], samples, [1 / 3] * 3, 42, 1)
+
+    def test_group_split_rejects_invalid_configuration(self):
+        samples = [{"labels": [[0, 0.5, 0.5, 0.2, 0.2]]} for _ in range(9)]
+        groups = [[i] for i in range(9)]
+        for count in (0, -1, 1.5, True, "1"):
+            with self.subTest(class_count=count), self.assertRaises(ValueError):
+                split_groups(groups, samples, [1 / 3] * 3, 42, count)
+        for ratios in ([0.7, 0.2], [0.7, 0.2, 0], [float("nan"), 0.2, 0.1], ["0.7", 0.2, 0.1], [True, 0.2, 0.1]):
+            with self.subTest(ratios=ratios), self.assertRaises(ValueError):
+                split_groups(groups, samples, ratios, 42, 1)
+        for seed in (0.5, True, "42"):
+            with self.subTest(seed=seed), self.assertRaises(ValueError):
+                split_groups(groups, samples, [1 / 3] * 3, seed, 1)
+
+    def test_near_duplicate_threshold_and_hash_are_validated(self):
+        valid = [{"sha256": "a", "dhash": 0}]
+        for distance in (-1, 65, 0.5, True, "1"):
+            with self.subTest(distance=distance), self.assertRaises(ValueError):
+                group_samples(valid, distance)
+        for digest in (-1, 1 << 64, 0.5, True, "0"):
+            with self.subTest(dhash=digest), self.assertRaises(ValueError):
+                group_samples([{"sha256": "a", "dhash": digest}], 0)
+
+    def test_near_duplicate_grouping_is_transitive(self):
+        samples = [{"sha256": str(i), "dhash": digest} for i, digest in enumerate((0, 1, 3, (1 << 64) - 1))]
+        self.assertEqual(group_samples(samples, 1), [[0, 1, 2], [3]])
+
+    def test_source_csv_groups_and_similarity_are_combined(self):
+        samples = [
+            {"image": Path(f"image_{i}.png"), "sha256": str(i), "dhash": digest}
+            for i, digest in enumerate((0, 1, (1 << 64) - 1, 0xAAAAAAAAAAAAAAAA))
+        ]
+        with tempfile.TemporaryDirectory() as temporary:
+            csv_path = Path(temporary) / "groups.csv"
+            csv_path.write_text("filename,group\n image_1.png , session_a \nimage_2.png,session_a\n", encoding="utf-8-sig")
+            self.assertEqual(group_samples(samples, 1, csv_path), [[0, 1, 2], [3]])
+
+    def test_malformed_source_csv_is_rejected(self):
+        samples = [{"image": Path("a.png"), "sha256": "a", "dhash": 0}]
+        invalid_rows = ("a.png", ",group_a", "a.png,group_a,extra", "a.png,group_a\n a.png ,group_b", "unknown.png,group_a")
+        with tempfile.TemporaryDirectory() as temporary:
+            csv_path = Path(temporary) / "groups.csv"
+            for row in invalid_rows:
+                csv_path.write_text("filename,group\n" + row + "\n", encoding="utf-8")
+                with self.subTest(row=row), self.assertRaises(ValueError):
+                    group_samples(samples, 0, csv_path)
+
     def test_near_duplicates_and_exact_duplicates_share_a_group(self):
         samples = [{"sha256": "a", "dhash": 0}, {"sha256": "b", "dhash": 1}, {"sha256": "c", "dhash": (1 << 64) - 1}, {"sha256": "a", "dhash": 123}]
         groups = [set(group) for group in group_samples(samples, 1)]
@@ -54,6 +140,7 @@ class GroupTests(unittest.TestCase):
         first = split_groups(groups, samples, [0.7, 0.2, 0.1], 42, 3)
         self.assertEqual(first, split_groups(groups, samples, [0.7, 0.2, 0.1], 42, 3))
         membership = {index: split for split, indices in first.items() for index in indices}
+        self.assertEqual(sum(map(len, first.values())), len(samples))
         self.assertEqual(len(membership), len(samples))
         for group in groups:
             self.assertEqual(len({membership[i] for i in group}), 1)
