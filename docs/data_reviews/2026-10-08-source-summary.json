@@ -1,0 +1,367 @@
+{
+  "checked_at": "2026-10-08T13:56:41.452324+00:00",
+  "image_count": 853,
+  "annotation_count": 853,
+  "object_count": 4072,
+  "class_objects": {
+    "without_mask": 717,
+    "with_mask": 3232,
+    "mask_weared_incorrect": 123
+  },
+  "images_with_class": {
+    "with_mask": 768,
+    "without_mask": 286,
+    "mask_weared_incorrect": 97
+  },
+  "geometry": {
+    "zero_based_continuous_valid_objects": 4060,
+    "voc_one_based_inclusive_valid_objects": 4060,
+    "xmin_or_ymin_zero": 0,
+    "touches_right_or_bottom": 70,
+    "width_or_height_under_16": 1272
+  },
+  "invalid_boxes": [
+    {
+      "annotation": "maksssksksss110.xml",
+      "filename": "maksssksksss110.png",
+      "width": 400,
+      "height": 267,
+      "index": 25,
+      "class": "without_mask",
+      "box": [
+        381.0,
+        14.0,
+        401.0,
+        34.0
+      ],
+      "zero_based_continuous": false,
+      "voc_one_based_inclusive": false
+    },
+    {
+      "annotation": "maksssksksss231.xml",
+      "filename": "maksssksksss231.png",
+      "width": 400,
+      "height": 249,
+      "index": 15,
+      "class": "with_mask",
+      "box": [
+        392.0,
+        86.0,
+        401.0,
+        106.0
+      ],
+      "zero_based_continuous": false,
+      "voc_one_based_inclusive": false
+    },
+    {
+      "annotation": "maksssksksss251.xml",
+      "filename": "maksssksksss251.png",
+      "width": 400,
+      "height": 206,
+      "index": 20,
+      "class": "with_mask",
+      "box": [
+        373.0,
+        76.0,
+        401.0,
+        114.0
+      ],
+      "zero_based_continuous": false,
+      "voc_one_based_inclusive": false
+    },
+    {
+      "annotation": "maksssksksss457.xml",
+      "filename": "maksssksksss457.png",
+      "width": 400,
+      "height": 300,
+      "index": 6,
+      "class": "with_mask",
+      "box": [
+        389.0,
+        56.0,
+        401.0,
+        83.0
+      ],
+      "zero_based_continuous": false,
+      "voc_one_based_inclusive": false
+    },
+    {
+      "annotation": "maksssksksss5.xml",
+      "filename": "maksssksksss5.png",
+      "width": 400,
+      "height": 266,
+      "index": 2,
+      "class": "without_mask",
+      "box": [
+        364.0,
+        30.0,
+        401.0,
+        66.0
+      ],
+      "zero_based_continuous": false,
+      "voc_one_based_inclusive": false
+    },
+    {
+      "annotation": "maksssksksss501.xml",
+      "filename": "maksssksksss501.png",
+      "width": 400,
+      "height": 255,
+      "index": 6,
+      "class": "with_mask",
+      "box": [
+        357.0,
+        65.0,
+        401.0,
+        132.0
+      ],
+      "zero_based_continuous": false,
+      "voc_one_based_inclusive": false
+    },
+    {
+      "annotation": "maksssksksss603.xml",
+      "filename": "maksssksksss603.png",
+      "width": 400,
+      "height": 278,
+      "index": 99,
+      "class": "with_mask",
+      "box": [
+        397.0,
+        132.0,
+        401.0,
+        142.0
+      ],
+      "zero_based_continuous": false,
+      "voc_one_based_inclusive": false
+    },
+    {
+      "annotation": "maksssksksss603.xml",
+      "filename": "maksssksksss603.png",
+      "width": 400,
+      "height": 278,
+      "index": 115,
+      "class": "without_mask",
+      "box": [
+        396.0,
+        18.0,
+        401.0,
+        23.0
+      ],
+      "zero_based_continuous": false,
+      "voc_one_based_inclusive": false
+    },
+    {
+      "annotation": "maksssksksss616.xml",
+      "filename": "maksssksksss616.png",
+      "width": 400,
+      "height": 267,
+      "index": 11,
+      "class": "with_mask",
+      "box": [
+        394.0,
+        92.0,
+        401.0,
+        111.0
+      ],
+      "zero_based_continuous": false,
+      "voc_one_based_inclusive": false
+    },
+    {
+      "annotation": "maksssksksss706.xml",
+      "filename": "maksssksksss706.png",
+      "width": 400,
+      "height": 267,
+      "index": 15,
+      "class": "with_mask",
+      "box": [
+        368.0,
+        162.0,
+        401.0,
+        219.0
+      ],
+      "zero_based_continuous": false,
+      "voc_one_based_inclusive": false
+    },
+    {
+      "annotation": "maksssksksss787.xml",
+      "filename": "maksssksksss787.png",
+      "width": 400,
+      "height": 288,
+      "index": 8,
+      "class": "with_mask",
+      "box": [
+        360.0,
+        79.0,
+        401.0,
+        139.0
+      ],
+      "zero_based_continuous": false,
+      "voc_one_based_inclusive": false
+    },
+    {
+      "annotation": "maksssksksss93.xml",
+      "filename": "maksssksksss93.png",
+      "width": 400,
+      "height": 267,
+      "index": 9,
+      "class": "with_mask",
+      "box": [
+        388.0,
+        72.0,
+        401.0,
+        92.0
+      ],
+      "zero_based_continuous": false,
+      "voc_one_based_inclusive": false
+    }
+  ],
+  "file_errors": [],
+  "exact_duplicate_groups": [
+    {
+      "filenames": [
+        "maksssksksss13.png",
+        "maksssksksss737.png"
+      ],
+      "conflicting_labels": true
+    },
+    {
+      "filenames": [
+        "maksssksksss146.png",
+        "maksssksksss219.png"
+      ],
+      "conflicting_labels": true
+    },
+    {
+      "filenames": [
+        "maksssksksss410.png",
+        "maksssksksss428.png"
+      ],
+      "conflicting_labels": true
+    },
+    {
+      "filenames": [
+        "maksssksksss653.png",
+        "maksssksksss775.png"
+      ],
+      "conflicting_labels": true
+    },
+    {
+      "filenames": [
+        "maksssksksss656.png",
+        "maksssksksss690.png"
+      ],
+      "conflicting_labels": true
+    }
+  ],
+  "source_fingerprint": "18ea474a07e45817418aa24cb0aff5eda05adfa8a9e3d090b958f9d2115b354e",
+  "source_unchanged": true,
+  "source_file_count": 1707,
+  "archive_bytes": 416968083,
+  "archive_sha256": "cabae358a60492a1b96da0510c31475414b64100480ae52cadbe00753bbef904",
+  "publisher": {
+    "checked_date_beijing": "2026-10-08",
+    "page": "https://www.kaggle.com/datasets/andrewmvd/face-mask-detection",
+    "observed_version": 1,
+    "observed_license": "CC0: Public Domain",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "access_method": "Edge browser, visible Data Card",
+    "original_attribution": "Make ML, Mask Dataset",
+    "original_attribution_url": "https://makeml.app/datasets/mask",
+    "original_attribution_page_status": "Parked domain observed; annotation convention not recoverable from it",
+    "download_version_pinned": false
+  },
+  "visual_review": {
+    "reviewer": "Codex",
+    "kind": "first-pass source review, not final prepared-dataset acceptance",
+    "overview_images": [
+      "maksssksksss110.png",
+      "maksssksksss231.png",
+      "maksssksksss251.png",
+      "maksssksksss457.png",
+      "maksssksksss5.png",
+      "maksssksksss501.png",
+      "maksssksksss603.png",
+      "maksssksksss616.png",
+      "maksssksksss706.png",
+      "maksssksksss787.png",
+      "maksssksksss93.png",
+      "maksssksksss11.png",
+      "maksssksksss112.png",
+      "maksssksksss13.png",
+      "maksssksksss130.png",
+      "maksssksksss132.png",
+      "maksssksksss139.png",
+      "maksssksksss145.png",
+      "maksssksksss151.png",
+      "maksssksksss156.png",
+      "maksssksksss173.png",
+      "maksssksksss518.png",
+      "maksssksksss240.png",
+      "maksssksksss260.png",
+      "maksssksksss0.png",
+      "maksssksksss1.png",
+      "maksssksksss10.png",
+      "maksssksksss100.png",
+      "maksssksksss101.png",
+      "maksssksksss102.png"
+    ],
+    "overview_pages_viewed": [
+      "overview_01.png",
+      "overview_02.png",
+      "overview_03.png",
+      "overview_04.png",
+      "overview_05.png"
+    ],
+    "invalid_box_pages_viewed": [
+      "invalid_01.png"
+    ],
+    "duplicate_pages_viewed": [
+      "duplicate_01.png",
+      "duplicate_02.png",
+      "duplicate_03.png",
+      "duplicate_04.png",
+      "duplicate_05.png"
+    ],
+    "incorrect_class_pages_viewed": [
+      "incorrect_01.png",
+      "incorrect_02.png",
+      "incorrect_03.png",
+      "incorrect_04.png"
+    ],
+    "incorrect_crops_viewed": 48,
+    "incorrect_crops_generated": 123,
+    "final_quality_review_record_created": false
+  },
+  "additional_scene_group_candidate": {
+    "filenames": [
+      "maksssksksss603.png",
+      "maksssksksss518.png"
+    ],
+    "image_sizes": [
+      [
+        400,
+        278
+      ],
+      [
+        400,
+        225
+      ]
+    ],
+    "dhash_distance": 17,
+    "current_threshold": 3,
+    "basis": "Visual review of overview_02 and overview_04 suggests a cropped variant of the same crowd scene; do not split across sets"
+  },
+  "distance3_preview": {
+    "independent_groups": 839,
+    "multi_image_groups": 14,
+    "largest_group_size": 2,
+    "split_generated": false
+  },
+  "pending": [
+    "Confirm coordinate convention; do not infer solely from pass counts",
+    "Resolve 12 right-edge boxes in 11 images using a documented derived-data policy",
+    "Resolve five exact-image pairs with differing box coordinates",
+    "Review ambiguous incorrect-mask labels and low-resolution targets",
+    "Expand manual scene grouping, including the distance-17 candidate",
+    "Prepare and inspect frozen splits before recording final quality review"
+  ]
+}
