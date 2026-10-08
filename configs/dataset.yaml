@@ -1,0 +1,9 @@
+# Paths in this file are resolved relative to this YAML by our Python entry points.
+path: ../dataset
+train: images/train
+val: images/val
+test: images/test
+names:
+  0: mask
+  1: no_mask
+  2: mask_incorrect

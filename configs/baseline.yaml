@@ -1,0 +1,17 @@
+model: weights/yolo11n.pt
+data: configs/dataset.yaml
+project: results
+name: baseline_01
+epochs: 50
+imgsz: 640
+batch: 8
+patience: 15
+seed: 42
+workers: 0
+device: auto
+deterministic: true
+optimizer: auto
+amp: true
+plots: true
+save: true
+cache: false

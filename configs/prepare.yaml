@@ -1,0 +1,14 @@
+raw: dataset/raw/face-mask-detection
+output: dataset
+seed: 42
+ratios: [0.7, 0.2, 0.1]
+# Verify the original XML convention visually before accepting the dataset.
+# Alternative: voc_one_based_inclusive.
+coordinates: zero_based_continuous
+near_duplicate_distance: 3
+# Optional CSV: filename,group (e.g. video ID or shooting session).
+groups_csv: null
+classes:
+  with_mask: 0
+  without_mask: 1
+  mask_weared_incorrect: 2

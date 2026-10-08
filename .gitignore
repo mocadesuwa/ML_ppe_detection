@@ -1,0 +1,16 @@
+.venv/
+.cache/
+__pycache__/
+*.py[cod]
+dataset/raw/*
+!dataset/raw/.gitkeep
+dataset/images/
+dataset/labels/
+dataset/splits/
+dataset/manifest.json
+dataset/quality_review.json
+weights/*
+!weights/.gitkeep
+results/*
+!results/.gitkeep
+*.part
