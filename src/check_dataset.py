@@ -7,27 +7,39 @@ import math
 import random
 import re
 from collections import Counter
+from decimal import Decimal, InvalidOperation
 from pathlib import Path
 
 from .common import IMAGE_SUFFIXES, SPLITS, dataset_config, dataset_fingerprint, project_path, sha256, utc_now, write_json
 
 
 def read_labels(path: Path, class_count: int) -> list[list[float]]:
+    if isinstance(class_count, bool) or not isinstance(class_count, int) or class_count <= 0:
+        raise ValueError("Class count must be a positive integer")
     labels = []
-    for line_number, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
+    for line_number, line in enumerate(path.read_text(encoding="utf-8-sig").splitlines(), 1):
         if not line.strip():
             continue
         parts = line.split()
         if len(parts) != 5:
             raise ValueError(f"Line {line_number}: expected five fields")
-        values = list(map(float, parts))
+        try:
+            exact = [Decimal(part) for part in parts]
+            values = list(map(float, parts))
+        except (InvalidOperation, ValueError, OverflowError) as error:
+            raise ValueError(f"Line {line_number}: expected numeric fields") from error
         category, x, y, width, height = values
-        if not all(math.isfinite(v) for v in values):
+        if not all(v.is_finite() for v in exact) or not all(math.isfinite(v) for v in values):
             raise ValueError(f"Line {line_number}: non-finite value")
-        if category != int(category) or not 0 <= category < class_count:
+        # Check the original numeric tokens before float rounding can hide errors.
+        if exact[0] != exact[0].to_integral_value() or not 0 <= exact[0] < class_count:
             raise ValueError(f"Line {line_number}: invalid class ID")
-        tolerance = 1e-7
-        if not (width > 0 and height > 0 and x - width / 2 >= -tolerance and x + width / 2 <= 1 + tolerance and y - height / 2 >= -tolerance and y + height / 2 <= 1 + tolerance):
+        if not (0 < exact[1] < 1 and 0 < exact[2] < 1 and 0 < exact[3] <= 1 and 0 < exact[4] <= 1
+                and 0 < x < 1 and 0 < y < 1 and 0 < width <= 1 and 0 < height <= 1):
+            raise ValueError(f"Line {line_number}: invalid normalized box")
+        # The converter writes eight decimals: a corner can round by up to 7.5e-9.
+        tolerance = 1e-8
+        if not (x - width / 2 >= -tolerance and x + width / 2 <= 1 + tolerance and y - height / 2 >= -tolerance and y + height / 2 <= 1 + tolerance):
             raise ValueError(f"Line {line_number}: invalid normalized box")
         labels.append(values)
     return labels
