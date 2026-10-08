@@ -3,26 +3,59 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import time
 from pathlib import Path
 
 from .check_dataset import validate
-from .common import dataset_config, load_yaml, local_caches, project_path, require_review, run_directory, select_device, utc_now, write_json
+from .common import ROOT, config_path, dataset_config, load_yaml, local_caches, normalize_device, require_review, run_directory, select_device, utc_now, validate_run_name, write_json
+
+
+def validate_plan(config: dict) -> None:
+    required = ("data", "model", "project", "name", "epochs", "batch", "imgsz", "device")
+    missing = [field for field in required if field not in config]
+    if missing:
+        raise ValueError("Missing required fields: " + ", ".join(missing))
+    if any(not isinstance(field, str) for field in config):
+        raise ValueError("Training parameter names must be strings")
+    for field, minimum in (("epochs", 1), ("batch", 1), ("imgsz", 1), ("patience", 0), ("workers", 0), ("seed", 0)):
+        if field in config:
+            value = config[field]
+            if isinstance(value, bool) or not isinstance(value, int) or value < minimum:
+                raise ValueError(f"{field} must be an integer >= {minimum}")
+    for field in ("deterministic", "amp", "plots", "save"):
+        if field in config and not isinstance(config[field], bool):
+            raise ValueError(f"{field} must be a boolean")
+    if "cache" in config and not (isinstance(config["cache"], bool) or isinstance(config["cache"], str) and config["cache"] in ("ram", "disk")):
+        raise ValueError("cache must be a boolean, ram, or disk")
+    if "fraction" in config:
+        value = config["fraction"]
+        if isinstance(value, bool) or not isinstance(value, (int, float)) or not 0 < value <= 1 or not math.isfinite(value):
+            raise ValueError("fraction must be a finite number in (0, 1]")
+    validate_run_name(config["name"])
+    config["device"] = normalize_device(config["device"])
 
 
 def build_plan(args) -> tuple[dict, dict]:
-    config = load_yaml(project_path(args.config))
-    data = dataset_config(project_path(config.pop("data")))
-    config["model"] = str(project_path(config["model"]))
-    config["project"] = str(project_path(config["project"]))
+    path = config_path(args.config, "config", ROOT)
+    config = load_yaml(path)
     if args.smoke:
         config.update(name="smoke_01", epochs=3, patience=3, fraction=0.1)
     for key in ("name", "epochs", "batch", "device"):
         value = getattr(args, key)
         if value is not None:
             config[key] = value
-    if config["epochs"] < 1 or config["batch"] < 1:
-        raise ValueError("epochs and batch must be positive integers")
+    try:
+        validate_plan(config)
+        paths = {field: config_path(config[field], field, ROOT) for field in ("data", "model", "project")}
+        if paths["project"].exists() and not paths["project"].is_dir():
+            raise ValueError("project must be a directory path")
+    except ValueError as error:
+        raise ValueError(f"Invalid training configuration {path}: {error}") from error
+    data = dataset_config(paths["data"])
+    config.pop("data")
+    config["model"] = str(paths["model"])
+    config["project"] = str(paths["project"])
     return config, data
 
 
@@ -36,7 +69,10 @@ def main() -> None:
     parser.add_argument("--batch", type=int)
     parser.add_argument("--device", help="auto, cpu, or a CUDA device index such as 0")
     args = parser.parse_args()
-    config, data = build_plan(args)
+    try:
+        config, data = build_plan(args)
+    except (ValueError, OSError) as error:
+        parser.error(str(error))
     if args.dry_run:
         print(json.dumps({"mode": "smoke" if args.smoke else "baseline", "train": config, "dataset": data}, ensure_ascii=False, indent=2))
         return

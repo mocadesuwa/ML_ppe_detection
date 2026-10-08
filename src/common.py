@@ -18,6 +18,16 @@ def project_path(value: str | Path) -> Path:
     return path.resolve() if path.is_absolute() else (ROOT / path).resolve()
 
 
+def config_path(value: object, field: str, base: Path) -> Path:
+    if not isinstance(value, str) or not value.strip():
+        raise ValueError(f"{field} must be a non-empty path string")
+    try:
+        path = Path(value)
+        return (base / path).resolve() if not path.is_absolute() else path.resolve()
+    except (ValueError, OSError) as error:
+        raise ValueError(f"Invalid {field} path: {error}") from error
+
+
 def utc_now() -> str:
     return datetime.now(timezone.utc).isoformat()
 
@@ -39,7 +49,39 @@ def write_json(path: Path, value: object) -> None:
 
 def load_yaml(path: Path) -> dict:
     import yaml
-    value = yaml.safe_load(path.read_text(encoding="utf-8"))
+
+    class ConfigLoader(yaml.SafeLoader):
+        def __init__(self, stream):
+            super().__init__(stream)
+            self.checked_mappings = set()
+
+        def flatten_mapping(self, node):
+            # Check explicit keys before flattening; YAML merge overrides remain valid.
+            if id(node) not in self.checked_mappings:
+                self.checked_mappings.add(id(node))
+                seen = set()
+                for key_node, _ in node.value:
+                    if key_node.tag == "tag:yaml.org,2002:merge":
+                        key = ("merge",)
+                    elif key_node.tag == "tag:yaml.org,2002:value":
+                        key = key_node.value
+                    else:
+                        key = self.construct_object(key_node)
+                    try:
+                        duplicate = key in seen
+                        seen.add(key)
+                    except TypeError as error:
+                        raise yaml.constructor.ConstructorError(None, None, "Configuration keys must be hashable", key_node.start_mark) from error
+                    if duplicate:
+                        raise yaml.constructor.ConstructorError(None, None, f"Duplicate configuration key: {key}", key_node.start_mark)
+            super().flatten_mapping(node)
+
+    try:
+        value = yaml.load(path.read_text(encoding="utf-8-sig"), Loader=ConfigLoader)
+    except (OSError, UnicodeError) as error:
+        raise ValueError(f"Cannot read YAML configuration {path}: {error}") from error
+    except yaml.YAMLError as error:
+        raise ValueError(f"Invalid YAML configuration {path}: {error}") from error
     if not isinstance(value, dict):
         raise ValueError(f"Expected a YAML mapping: {path}")
     return value
@@ -47,15 +89,11 @@ def load_yaml(path: Path) -> dict:
 
 def dataset_config(path: Path) -> dict:
     config = load_yaml(path)
-    base = Path(config.get("path", "."))
-    base = (path.parent / base).resolve() if not base.is_absolute() else base.resolve()
+    base = config_path(config.get("path", "."), "path", path.parent)
     config["path"] = str(base)
     for split in SPLITS:
         value = config.get(split)
-        if not isinstance(value, str):
-            raise ValueError(f"Expected an image directory for {split}")
-        directory = Path(value)
-        config[split] = str((base / directory).resolve() if not directory.is_absolute() else directory.resolve())
+        config[split] = str(config_path(value, split, base))
     names = config.get("names")
     if not isinstance(names, (list, dict)) or not names:
         raise ValueError("Class names must be a non-empty list or mapping")
@@ -84,9 +122,15 @@ def local_caches() -> None:
         os.environ[name] = str(path)
 
 
+def validate_run_name(name: object) -> None:
+    if not isinstance(name, str) or not re.fullmatch(r"[A-Za-z0-9_-]+", name):
+        raise ValueError("Experiment name must use letters, digits, underscores and hyphens")
+    if re.fullmatch(r"CON|PRN|AUX|NUL|COM[1-9]|LPT[1-9]", name, re.IGNORECASE):
+        raise ValueError("Experiment name cannot be a Windows reserved device name")
+
+
 def run_directory(project: Path, name: str) -> Path:
-    if not re.fullmatch(r"[A-Za-z0-9_-]+", name):
-        raise ValueError("Use letters, digits, underscores and hyphens for an experiment name")
+    validate_run_name(name)
     path = project / name
     if path.exists():
         raise FileExistsError(f"Experiment already exists; choose a new name: {path}")
@@ -94,14 +138,23 @@ def run_directory(project: Path, name: str) -> Path:
     return path
 
 
+def normalize_device(requested: object) -> str:
+    if isinstance(requested, int) and not isinstance(requested, bool) and requested >= 0:
+        return str(requested)
+    if isinstance(requested, str) and (requested in ("auto", "cpu") or re.fullmatch(r"[0-9]+", requested)):
+        return requested
+    raise ValueError("device must be auto, cpu, or a non-negative CUDA device index")
+
+
 def select_device(requested: str) -> str | int:
+    requested = normalize_device(requested)
+    if requested == "cpu":
+        return requested
     import torch
     if requested == "auto":
         if not torch.cuda.is_available():
             raise RuntimeError("CUDA is unavailable. Prepare a CUDA PyTorch environment, or explicitly use --device cpu for a small check.")
         return 0
-    if requested == "cpu":
-        return requested
     index = int(requested)
     if not torch.cuda.is_available() or not 0 <= index < torch.cuda.device_count():
         raise RuntimeError(f"CUDA device {index} is unavailable")

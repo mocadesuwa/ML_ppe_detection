@@ -23,12 +23,13 @@
 | src/check_dataset.py | 检查标注、类别分布和划分，生成标注抽查拼图 |
 | src/review_dataset.py | 记录实际完成的标注抽查及来源核查，绑定具体数据版本 |
 | src/environment.py | 查询 Python、依赖和 GPU 可用性 |
-| src/train.py | 分别运行流程短跑或正式 baseline，保存版本、配置、权重与日志 |
+| src/train.py | 预检配置和最终参数；dry-run 打印计划，后续实际运行时保存版本、权重与日志 |
 | src/evaluate.py | 保存总体与分类别指标，默认评价验证集 |
 | src/predict.py | 保存新图片的预测框和 JSONL 检测结果 |
 | tests/test_data_pipeline.py | 检查坐标转换、分组、防泄漏与数据版本记录 |
 | tests/test_pipeline_integrity.py | 合成数据转换、清单一致性、配置校验、旧格式兼容与核查记录失效测试 |
 | tests/test_label_validation.py | 标签字段、精确类别编号、归一化边界及转换输出兼容测试 |
+| tests/test_entry_configs.py | YAML 与路径校验、训练计划参数、覆盖优先级及 CLI 无模型执行测试 |
 | tests/run_regression.py | 在缓存临时目录累计执行所有现有回归测试 |
 
 ## 3. 流程
@@ -63,7 +64,7 @@ flowchart TD
 
 ## 5. 当前即可检查的命令
 
-框架搭建阶段曾验证：8 项关键测试通过，全部 CLI 帮助入口、代码编译检查和两种训练计划的 dry-run 通过。初版保存时在 `.venv` 复查受 Pillow 缺失及临时目录权限影响。后续已用系统 Python 3.14 的现有 Pillow/PyYAML 与项目缓存临时目录，在正常本机权限下完成 55 项累计回归测试；`.venv` 的依赖仍未准备完成。真实 YOLO 训练、评价、预测尚未执行。
+框架搭建阶段曾验证：8 项关键测试通过，全部 CLI 帮助入口、代码编译检查和两种训练计划的 dry-run 通过。初版保存时在 `.venv` 复查受 Pillow 缺失及临时目录权限影响。后续已用系统 Python 3.14 的现有 Pillow/PyYAML 与项目缓存临时目录，在正常本机权限下完成 75 项累计回归测试；本轮重新验证两种 dry-run 与 8 个帮助入口。`.venv` 的依赖仍未准备完成，真实 YOLO 训练、评价、预测尚未执行。
 
 后续调整以初版 `unittest` 的实际执行顺序为起点，新增回归由统一入口累计发现；同一测试类的方法按名称排序，不按源码中的定义位置排序：
 
@@ -74,6 +75,7 @@ flowchart TD
 | 3 | `PipelineTests.test_archive_*` | `download_data.extract_archive` | 已修正路径碰撞、覆盖、失败残留及 Windows 短暂移入错误，11 项解压测试通过 |
 | 4 | 原有组合测试与 `IntegrityTests` | 转换、校验、配置与数据版本核查 | 已补齐清单、标签哈希、划分列表与指纹校验，共 16 项组合测试通过 |
 | 5 | `PipelineTests.test_label_fields_and_geometry` 与 `LabelTests` | `check_dataset.read_labels` | 已补齐精确类别、字段范围、边缘舍入及 BOM 校验，共 11 项标签测试通过 |
+| 6 | `EntryConfigTests` | 共享配置读取，随后训练计划与 CLI | 20 项预检与兼容测试通过；评价、预测入口的其余参数待下一轮检查 |
 
 每轮调整后累计复查全部现有测试：
 
@@ -88,6 +90,10 @@ python tests/run_regression.py
 新清单使用 `format_version: 1`，记录图片与标签文件的哈希；检查时核对类别编号、完整条目、分组和划分列表。数据指纹 v2 同时绑定类别名、图片、全部标签、清单和划分文件，任何变化均须重新核查。旧清单可读取，但没有标签哈希时不能核对冻结的标签几何；旧核查记录因指纹算法升级而失效，须实际检查后重新记录。
 
 标签中心坐标必须在 `(0, 1)`、宽高在 `(0, 1]`，类别编号必须是合法整数。原始数值先精确校验，再返回浮点结果；框边缘允许最多 `1e-8` 的舍入误差，以兼容转换程序的八位小数输出。空标签可以表示无目标图片，读取支持 UTF-8 BOM；本检查不自动裁剪或修改标签。
+
+配置读取拒绝显式重复的 YAML 字段，仍支持别名与合并覆盖。数据配置的 `path` 相对该 YAML 文件解析（省略时为该 YAML 所在目录），`train/val/test` 相对数据根目录解析；训练配置的 `data/model/project` 仍相对项目根目录解析。空字符串、布尔值等不能作为这些路径字段。
+
+训练计划以 YAML 配置为基础，再应用 smoke 设置，最后应用 CLI 覆盖，检查最终有效参数。轮数、batch、imgsz 必须为正整数，patience、workers、seed 为非负整数；设备支持 `auto`、`cpu` 或一个非负 CUDA 编号。实验名称仅允许字母、数字、下划线、连字符，拒绝 Windows 保留设备名。配置错误以简短提示退出，`--dry-run` 不创建实验目录、加载模型或读取真实数据内容；扩展 YOLO 参数和设备可用性仍留给实际运行验证。
 
 如果只复查第一项，可在项目根目录运行，无需 Pillow、训练数据或 Ultralytics：
 
