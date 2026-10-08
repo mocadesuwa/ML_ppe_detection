@@ -1,0 +1,168 @@
+{
+  "dataset_version": "prepared_v2",
+  "derived_source": "source_v1",
+  "source_fingerprint": "18ea474a07e45817418aa24cb0aff5eda05adfa8a9e3d090b958f9d2115b354e",
+  "derivation_sha256": "5e221167202489c38b9fe26e9985937a81823e61bc392aca047e3bbbcb458746",
+  "decisions_sha256": "969a9b39a7483a45a7ed7952e24b9433df381b33c609b16fe3b4c6327a8369fa",
+  "manual_groups_sha256": "0332053fd99ff7c888925dd3cecf1f13e2da97c1e33f2d82c73e155df0f277af",
+  "manifest_sha256": "6000f309703c985f953879879898c19a99ed4d4b86359d652ec90e3a0a567815",
+  "dataset_fingerprint": "fa0dad948f835b862633b2451915085b24f65f14a4f1cb6ab657dac10e4f5a7f",
+  "independent_groups": 579,
+  "split_groups": {
+    "train": 508,
+    "val": 21,
+    "test": 50
+  },
+  "splits": {
+    "train": {
+      "images": 510,
+      "negative_images": 0,
+      "class_instances": {
+        "mask": 1983,
+        "no_mask": 439,
+        "mask_incorrect": 39
+      },
+      "images_containing_class": {
+        "mask": 500,
+        "no_mask": 162,
+        "mask_incorrect": 29
+      }
+    },
+    "val": {
+      "images": 206,
+      "negative_images": 0,
+      "class_instances": {
+        "mask": 565,
+        "no_mask": 121,
+        "mask_incorrect": 11
+      },
+      "images_containing_class": {
+        "mask": 155,
+        "no_mask": 69,
+        "mask_incorrect": 9
+      }
+    },
+    "test": {
+      "images": 78,
+      "negative_images": 0,
+      "class_instances": {
+        "mask": 286,
+        "no_mask": 61,
+        "mask_incorrect": 5
+      },
+      "images_containing_class": {
+        "mask": 69,
+        "no_mask": 33,
+        "mask_incorrect": 5
+      }
+    }
+  },
+  "visual_samples": {
+    "train": [
+      "maksssksksss639.png",
+      "maksssksksss54.png",
+      "maksssksksss673.png",
+      "maksssksksss391.png",
+      "maksssksksss586.png",
+      "maksssksksss269.png",
+      "maksssksksss224.png",
+      "maksssksksss789.png",
+      "maksssksksss345.png",
+      "maksssksksss373.png",
+      "maksssksksss425.png",
+      "maksssksksss510.png",
+      "maksssksksss758.png",
+      "maksssksksss227.png",
+      "maksssksksss3.png",
+      "maksssksksss40.png",
+      "maksssksksss141.png",
+      "maksssksksss108.png",
+      "maksssksksss261.png",
+      "maksssksksss688.png",
+      "maksssksksss319.png",
+      "maksssksksss585.png",
+      "maksssksksss43.png",
+      "maksssksksss163.png",
+      "maksssksksss401.png",
+      "maksssksksss363.png",
+      "maksssksksss148.png",
+      "maksssksksss39.png",
+      "maksssksksss106.png",
+      "maksssksksss763.png"
+    ],
+    "val": [
+      "maksssksksss260.png",
+      "maksssksksss370.png",
+      "maksssksksss99.png",
+      "maksssksksss16.png",
+      "maksssksksss845.png",
+      "maksssksksss58.png",
+      "maksssksksss125.png",
+      "maksssksksss380.png",
+      "maksssksksss236.png",
+      "maksssksksss343.png",
+      "maksssksksss601.png",
+      "maksssksksss37.png",
+      "maksssksksss477.png",
+      "maksssksksss492.png",
+      "maksssksksss818.png",
+      "maksssksksss262.png",
+      "maksssksksss757.png",
+      "maksssksksss544.png",
+      "maksssksksss300.png",
+      "maksssksksss162.png",
+      "maksssksksss841.png",
+      "maksssksksss107.png",
+      "maksssksksss62.png",
+      "maksssksksss709.png",
+      "maksssksksss291.png",
+      "maksssksksss571.png",
+      "maksssksksss727.png",
+      "maksssksksss765.png",
+      "maksssksksss72.png",
+      "maksssksksss60.png"
+    ],
+    "test": [
+      "maksssksksss605.png",
+      "maksssksksss61.png",
+      "maksssksksss786.png",
+      "maksssksksss642.png",
+      "maksssksksss185.png",
+      "maksssksksss636.png",
+      "maksssksksss801.png",
+      "maksssksksss438.png",
+      "maksssksksss287.png",
+      "maksssksksss704.png",
+      "maksssksksss656.png",
+      "maksssksksss619.png",
+      "maksssksksss522.png",
+      "maksssksksss846.png",
+      "maksssksksss67.png",
+      "maksssksksss359.png",
+      "maksssksksss366.png",
+      "maksssksksss157.png",
+      "maksssksksss699.png",
+      "maksssksksss674.png",
+      "maksssksksss466.png",
+      "maksssksksss293.png",
+      "maksssksksss772.png",
+      "maksssksksss294.png",
+      "maksssksksss302.png",
+      "maksssksksss548.png",
+      "maksssksksss416.png",
+      "maksssksksss726.png",
+      "maksssksksss689.png",
+      "maksssksksss785.png"
+    ]
+  },
+  "quality_review": {
+    "reviewed_at": "2026-10-08T14:45:48.786292+00:00",
+    "reviewer": "Codex",
+    "notes": "已查看全部原 incorrect 123 个局部，保守整图筛除并在派生副本修正逐项边缘框；采用明确记录的 VOC inclusive 假设。已查看 211 对候选、794 张小图作画面分组核查，并对 prepared_v2 的 train/val/test 各 30 张标注拼图实际抽查，框映射与三类规则可用于首版基线。已把共同背景与摆拍序列整体分组，三类数量 1983/439/39、565/121/11、286/61/5。仍含水印、广告或新闻实拍，密集小目标及其他类别未人工逐框验收；数据非实验室专用，少数类测试仅5个目标，不代表效果已验证。许可已于前轮在发布页实际核对CC0；原始文件保留。",
+    "license_source": "https://www.kaggle.com/datasets/andrewmvd/face-mask-detection",
+    "dataset_fingerprint": "fa0dad948f835b862633b2451915085b24f65f14a4f1cb6ab657dac10e4f5a7f"
+  },
+  "deterministic_replay_matches": true,
+  "manual_groups_cross_split": 0,
+  "source_unchanged": true
+}

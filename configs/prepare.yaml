@@ -1,13 +1,12 @@
-raw: dataset/raw/face-mask-detection
-output: dataset
+raw: dataset/derived/source_v1
+output: dataset/prepared_v2
 seed: 42
 ratios: [0.7, 0.2, 0.1]
-# Verify the original XML convention visually before accepting the dataset.
-# Alternative: voc_one_based_inclusive.
-coordinates: zero_based_continuous
+# Explicit reviewed VOC assumption; see docs/data_reviews/2026-10-08-derived-v1.md.
+coordinates: voc_one_based_inclusive
 near_duplicate_distance: 3
 # Optional CSV: filename,group (e.g. video ID or shooting session).
-groups_csv: null
+groups_csv: configs/source_groups_v1.csv
 classes:
   with_mask: 0
   without_mask: 1
