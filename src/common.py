@@ -56,10 +56,24 @@ def dataset_config(path: Path) -> dict:
             raise ValueError(f"Expected an image directory for {split}")
         directory = Path(value)
         config[split] = str((base / directory).resolve() if not directory.is_absolute() else directory.resolve())
-    names = config["names"]
-    config["names"] = {i: str(n) for i, n in enumerate(names)} if isinstance(names, list) else {int(i): str(n) for i, n in names.items()}
+    names = config.get("names")
+    if not isinstance(names, (list, dict)) or not names:
+        raise ValueError("Class names must be a non-empty list or mapping")
+    normalized = {}
+    for key, name in (enumerate(names) if isinstance(names, list) else names.items()):
+        if isinstance(key, bool) or not (isinstance(key, int) or isinstance(key, str) and re.fullmatch(r"[0-9]+", key)):
+            raise ValueError(f"Class ID must be an integer or digit string: {key}")
+        index = int(key)
+        if index in normalized:
+            raise ValueError(f"Repeated class ID after normalization: {key}")
+        if not isinstance(name, str) or not name.strip():
+            raise ValueError("Class names must be non-empty strings")
+        normalized[index] = name.strip()
+    config["names"] = normalized
     if sorted(config["names"]) != list(range(len(config["names"]))):
         raise ValueError("Class IDs must be contiguous, starting at zero")
+    if len(set(normalized.values())) != len(normalized):
+        raise ValueError("Class names must be distinct")
     return config
 
 
@@ -95,14 +109,24 @@ def select_device(requested: str) -> str | int:
 
 
 def dataset_fingerprint(config: dict) -> str:
-    """Fingerprint images, labels, names and split membership for fair comparisons."""
-    digest = hashlib.sha256(json.dumps(config["names"], sort_keys=True).encode())
+    """Bind content, class names, frozen metadata and split membership."""
+    digest = hashlib.sha256(b"ppe-dataset-fingerprint-v2")
+    digest.update(json.dumps(config["names"], sort_keys=True).encode())
+    base = Path(config["path"])
+    for relative in ("manifest.json", *(f"splits/{split}.txt" for split in SPLITS)):
+        path = base / relative
+        digest.update(relative.encode())
+        digest.update(sha256(path).encode() if path.is_file() else b"missing")
     for split in SPLITS:
         directory = Path(config[split])
-        for image in sorted(p for p in directory.iterdir() if p.suffix.lower() in IMAGE_SUFFIXES):
-            label = Path(config["path"]) / "labels" / split / (image.stem + ".txt")
-            digest.update(f"{split}/{image.name}".encode("utf-8"))
+        for image in sorted(p for p in directory.iterdir() if p.is_file() and p.suffix.lower() in IMAGE_SUFFIXES):
+            digest.update(f"images/{split}/{image.name}".encode("utf-8"))
             digest.update(sha256(image).encode())
+        label_dir = base / "labels" / split
+        if not label_dir.is_dir():
+            raise FileNotFoundError(f"Missing label directory: {label_dir}")
+        for label in sorted(p for p in label_dir.glob("*.txt") if p.is_file()):
+            digest.update(f"labels/{split}/{label.name}".encode("utf-8"))
             digest.update(sha256(label).encode())
     return digest.hexdigest()
 
@@ -111,6 +135,15 @@ def require_review(config: dict) -> None:
     review_path = Path(config["path"]) / "quality_review.json"
     if not review_path.is_file():
         raise RuntimeError("Inspect the label sheets and record the data review first: python -m src.review_dataset --help")
-    review = json.loads(review_path.read_text(encoding="utf-8"))
-    if review.get("dataset_fingerprint") != dataset_fingerprint(config):
+    try:
+        review = json.loads(review_path.read_text(encoding="utf-8"))
+    except (ValueError, OSError) as error:
+        raise RuntimeError("Cannot read the data review record. Recheck data and record the review again.") from error
+    if not isinstance(review, dict) or not isinstance(review.get("dataset_fingerprint"), str):
+        raise RuntimeError("Invalid data review record. Recheck data and record the review again.")
+    try:
+        fingerprint = dataset_fingerprint(config)
+    except OSError as error:
+        raise RuntimeError("Cannot verify the reviewed dataset. Check missing or unreadable files.") from error
+    if review["dataset_fingerprint"] != fingerprint:
         raise RuntimeError("The dataset changed after review. Recheck labels and update the review record.")

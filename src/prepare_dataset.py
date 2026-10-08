@@ -58,8 +58,9 @@ def read_samples(raw: Path, classes: dict[str, int], convention: str) -> tuple[l
     for annotation in annotations:
         try:
             root = ET.parse(annotation).getroot()
-            filename = Path((root.findtext("filename") or annotation.stem).replace("\\", "/")).stem
-            image = images.get(filename, images.get(annotation.stem))
+            declared = (root.findtext("filename") or "").strip()
+            filename = Path((declared or annotation.stem).replace("\\", "/")).stem
+            image = images.get(filename)
             if image is None:
                 raise ValueError("No matching image")
             if image.stem in seen:
@@ -244,7 +245,11 @@ def main() -> None:
     raw, output = project_path(config["raw"]), project_path(config["output"])
     if (output / "manifest.json").exists() or any((output / "labels").glob("**/*.txt")) or any(p.is_file() and p.suffix.lower() in IMAGE_SUFFIXES for p in (output / "images").glob("**/*")):
         raise FileExistsError("Prepared data already exists. Use a new output directory/config for a new version.")
-    classes = {str(name): int(index) for name, index in config["classes"].items()}
+    classes = config.get("classes")
+    if not isinstance(classes, dict) or not classes:
+        raise ValueError("Classes must be a non-empty mapping")
+    if any(not isinstance(name, str) or not name.strip() or isinstance(index, bool) or not isinstance(index, int) for name, index in classes.items()):
+        raise ValueError("Class names must be non-empty strings and IDs must be integers")
     if sorted(classes.values()) != list(range(len(classes))):
         raise ValueError("Class IDs must start at zero and be contiguous")
     samples, errors = read_samples(raw, classes, config["coordinates"])
@@ -274,7 +279,7 @@ def main() -> None:
     groups = group_samples(samples, config["near_duplicate_distance"], groups_csv)
     assignments = split_groups(groups, samples, config["ratios"], config["seed"], len(classes))
     group_ids = {index: group_id for group_id, group in enumerate(groups) for index in group}
-    manifest = {"created_at": utc_now(), "config": config, "raw_directory": str(raw), "exact_duplicates_removed": duplicates, "excluded_stems": sorted(excluded), "independent_groups": len(groups), "grouping_limitations": "dHash detects similar appearance, not all shared video/person sources. Supply groups_csv where available.", "splits": {}}
+    manifest = {"format_version": 1, "created_at": utc_now(), "config": config, "raw_directory": str(raw), "exact_duplicates_removed": duplicates, "excluded_stems": sorted(excluded), "independent_groups": len(groups), "grouping_limitations": "dHash detects similar appearance, not all shared video/person sources. Supply groups_csv where available.", "splits": {}}
     for split in SPLITS:
         image_dir, label_dir = output / "images" / split, output / "labels" / split
         image_dir.mkdir(parents=True, exist_ok=True)
@@ -285,8 +290,9 @@ def main() -> None:
             image = sample["image"]
             shutil.copy2(image, image_dir / image.name)
             lines = [f"{int(label[0])} " + " ".join(f"{v:.8f}" for v in label[1:]) for label in sample["labels"]]
-            (label_dir / (image.stem + ".txt")).write_text("\n".join(lines) + ("\n" if lines else ""), encoding="utf-8")
-            records.append({"filename": image.name, "sha256": sample["sha256"], "dhash": str(sample["dhash"]), "group": group_ids[index], "class_ids": [int(label[0]) for label in sample["labels"]]})
+            label_path = label_dir / (image.stem + ".txt")
+            label_path.write_text("\n".join(lines) + ("\n" if lines else ""), encoding="utf-8")
+            records.append({"filename": image.name, "sha256": sample["sha256"], "label_sha256": sha256(label_path), "dhash": str(sample["dhash"]), "group": group_ids[index], "class_ids": [int(label[0]) for label in sample["labels"]]})
         manifest["splits"][split] = records
         split_path = output / "splits" / f"{split}.txt"
         split_path.parent.mkdir(parents=True, exist_ok=True)

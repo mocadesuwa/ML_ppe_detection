@@ -342,6 +342,41 @@ class PipelineTests(unittest.TestCase):
             extract_archive(archive, destination)
             self.assertEqual((destination / "sample.txt").read_text(encoding="utf-8"), "original")
 
+    def test_archive_retries_transient_windows_move_errors_with_a_limit(self):
+        import zipfile
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            archive = root / "valid.zip"
+            with zipfile.ZipFile(archive, "w") as zipped:
+                zipped.writestr("sample.txt", "original")
+            original_rename = Path.rename
+            for permanent in (False, True):
+                destination = root / f"destination_{permanent}"
+                destination.mkdir()
+                attempts = []
+
+                def move(path, target):
+                    attempts.append(target)
+                    if permanent or len(attempts) == 1:
+                        error = PermissionError("simulated Windows move error")
+                        error.winerror = 5
+                        raise error
+                    return original_rename(path, target)
+
+                with patch.object(Path, "rename", move), patch("src.download_data.time.sleep") as sleep:
+                    if permanent:
+                        with self.assertRaises(PermissionError):
+                            extract_archive(archive, destination)
+                        self.assertEqual(len(attempts), 5)
+                        self.assertEqual(sleep.call_count, 4)
+                        self.assertEqual(list(destination.iterdir()), [])
+                    else:
+                        extract_archive(archive, destination)
+                        self.assertEqual(len(attempts), 2)
+                        self.assertEqual(sleep.call_count, 1)
+                        self.assertEqual((destination / "sample.txt").read_text(encoding="utf-8"), "original")
+            self.assertFalse(any(root.glob(".ppe-extract-*")))
+
 
 if __name__ == "__main__":
     unittest.main()

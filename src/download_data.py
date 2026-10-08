@@ -5,6 +5,7 @@ import argparse
 import shutil
 import stat
 import tempfile
+import time
 import urllib.error
 import urllib.request
 import zipfile
@@ -70,7 +71,17 @@ def extract_archive(archive: Path, destination: Path) -> None:
             if existed:
                 destination.rmdir()
             try:
-                staged.rename(destination)
+                for attempt in range(5):
+                    require_empty(destination)
+                    try:
+                        staged.rename(destination)
+                        break
+                    except PermissionError as error:
+                        # Windows may briefly retain a handle to a removed
+                        # empty directory (e.g. filesystem indexing/scanning).
+                        if getattr(error, "winerror", None) not in (5, 32, 33) or attempt == 4:
+                            raise
+                        time.sleep(0.05 * 2 ** attempt)
             except OSError:
                 if existed and not destination.exists():
                     destination.mkdir()

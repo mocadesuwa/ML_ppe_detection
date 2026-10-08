@@ -27,6 +27,8 @@
 | src/evaluate.py | 保存总体与分类别指标，默认评价验证集 |
 | src/predict.py | 保存新图片的预测框和 JSONL 检测结果 |
 | tests/test_data_pipeline.py | 检查坐标转换、分组、防泄漏与数据版本记录 |
+| tests/test_pipeline_integrity.py | 合成数据转换、清单一致性、配置校验、旧格式兼容与核查记录失效测试 |
+| tests/run_regression.py | 在缓存临时目录累计执行所有现有回归测试 |
 
 ## 3. 流程
 
@@ -60,16 +62,16 @@ flowchart TD
 
 ## 5. 当前即可检查的命令
 
-框架搭建阶段曾验证：8 项关键测试通过，全部 CLI 帮助入口、代码编译检查和两种训练计划的 dry-run 通过。初版保存时在 `.venv` 复查受 Pillow 缺失及临时目录权限影响。后续已用系统 Python 3.14 的现有 Pillow/PyYAML 与项目缓存临时目录，在正常本机权限下完成 29 项累计回归测试；`.venv` 的依赖仍未准备完成。真实 YOLO 训练、评价、预测尚未执行。
+框架搭建阶段曾验证：8 项关键测试通过，全部 CLI 帮助入口、代码编译检查和两种训练计划的 dry-run 通过。初版保存时在 `.venv` 复查受 Pillow 缺失及临时目录权限影响。后续已用系统 Python 3.14 的现有 Pillow/PyYAML 与项目缓存临时目录，在正常本机权限下完成 45 项累计回归测试；`.venv` 的依赖仍未准备完成。真实 YOLO 训练、评价、预测尚未执行。
 
-后续调整按 `unittest` 的实际执行顺序推进；同一测试类的方法按名称排序，不按源码中的定义位置排序：
+后续调整以初版 `unittest` 的实际执行顺序为起点，新增回归由统一入口累计发现；同一测试类的方法按名称排序，不按源码中的定义位置排序：
 
 | 顺序 | 测试入口 | 首先调用的项目功能 | 调整状态 |
 | --- | --- | --- | --- |
 | 1 | `BoxTests` | `prepare_dataset.convert_box` | 已补齐图片尺寸校验，6 项坐标测试通过 |
 | 2 | `GroupTests` | `prepare_dataset.split_groups`，随后 `group_samples` | 已修正泄漏、样本覆盖及小规模划分，11 项分组测试通过 |
-| 3 | `PipelineTests.test_archive_*` | `download_data.extract_archive` | 已修正路径碰撞、覆盖及失败残留，10 项解压测试通过 |
-| 4 | `PipelineTests.test_conversion_validation_and_changed_data_invalidates_review` | 转换、校验、配置与数据版本核查 | 现有回归通过，待扩展检查 |
+| 3 | `PipelineTests.test_archive_*` | `download_data.extract_archive` | 已修正路径碰撞、覆盖、失败残留及 Windows 短暂移入错误，11 项解压测试通过 |
+| 4 | 原有组合测试与 `IntegrityTests` | 转换、校验、配置与数据版本核查 | 已补齐清单、标签哈希、划分列表与指纹校验，共 16 项组合测试通过 |
 | 5 | `PipelineTests.test_label_fields_and_geometry` | `check_dataset.read_labels` | 现有回归通过，待扩展检查 |
 
 每轮调整后累计复查全部现有测试：
@@ -81,6 +83,8 @@ python tests/run_regression.py
 选择已经装有 Pillow 与 PyYAML 的 Python；当前系统 Python 满足这些测试依赖。此入口只在 `.cache/tests/` 创建临时合成样本，并在结束时清理，不修改真实数据或运行 YOLO。
 
 解压测试包含真实的目录重命名：Codex 沙箱可能阻止该操作，应允许测试命令在沙箱外运行后验证，不用跳过此测试。解压函数只接受不存在或为空的目标目录；ZIP 路径不做静默改名，大小写碰撞、冗余路径、特殊文件和文件/目录冲突均会拒绝。解压先在同级临时目录完成，再移入目标目录，失败时清理临时内容。
+
+新清单使用 `format_version: 1`，记录图片与标签文件的哈希；检查时核对类别编号、完整条目、分组和划分列表。数据指纹 v2 同时绑定类别名、图片、全部标签、清单和划分文件，任何变化均须重新核查。旧清单可读取，但没有标签哈希时不能核对冻结的标签几何；旧核查记录因指纹算法升级而失效，须实际检查后重新记录。
 
 如果只复查第一项，可在项目根目录运行，无需 Pillow、训练数据或 Ultralytics：
 
@@ -132,7 +136,7 @@ GPU 不可用时会给出清晰错误。若仅需小型 CPU 流程检查，可�
 
 ## 7. 保存的结果
 
-- dataset/manifest.json：数据版本、固定划分、分组、去重与排除记录。
+- dataset/manifest.json：清单格式版本、图片与标签哈希、固定划分、分组、去重与排除记录。
 - results/data_check/：标注检查报告、抽查图片清单和拼图。
 - results/smoke_01/：流程检查结果，不当作最终模型表现。
 - results/baseline_01/：真实训练后生成的权重、曲线、环境与参数记录。
