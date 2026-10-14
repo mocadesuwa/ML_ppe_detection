@@ -33,13 +33,13 @@ class IntegrityTests(unittest.TestCase):
             image.save(raw / f"sample_{index}.png")
             (raw / f"sample_{index}.xml").write_text(
                 f"<annotation><filename>sample_{index}.png</filename><size><width>16</width><height>16</height></size>"
-                "<object><name>with_mask</name><bndbox><xmin>1</xmin><ymin>1</ymin><xmax>15</xmax><ymax>15</ymax></bndbox></object></annotation>", encoding="utf-8")
+                "<object><name>object_a</name><bndbox><xmin>1</xmin><ymin>1</ymin><xmax>15</xmax><ymax>15</ymax></bndbox></object></annotation>", encoding="utf-8")
         self.output = self.root / "prepared"
         self.prepare_path = self.root / "prepare.yaml"
-        self.prepare_config = {"raw": str(raw), "output": str(self.output), "seed": 42, "ratios": [0.7, 0.2, 0.1], "coordinates": "zero_based_continuous", "near_duplicate_distance": 0, "classes": {"with_mask": 0}}
+        self.prepare_config = {"raw": str(raw), "output": str(self.output), "seed": 42, "ratios": [0.7, 0.2, 0.1], "coordinates": "zero_based_continuous", "near_duplicate_distance": 0, "classes": {"object_a": 0}}
         self.prepare_path.write_text(yaml.safe_dump(self.prepare_config), encoding="utf-8")
         self.data_path = self.root / "dataset.yaml"
-        self.data_config = {"path": "prepared", "train": "images/train", "val": "images/val", "test": "images/test", "names": ["mask"]}
+        self.data_config = {"path": "prepared", "train": "images/train", "val": "images/val", "test": "images/test", "names": ["class_a"]}
         self.data_path.write_text(yaml.safe_dump(self.data_config), encoding="utf-8")
 
     def prepare(self):
@@ -54,7 +54,7 @@ class IntegrityTests(unittest.TestCase):
 
     def test_conversion_rejects_invalid_class_mapping_before_writing(self):
         import yaml
-        for classes in ({"with_mask": 0.5}, {"with_mask": False}, {"with_mask": "0"}, {}, {"with_mask": 0, "without_mask": 0}):
+        for classes in ({"object_a": 0.5}, {"object_a": False}, {"object_a": "0"}, {}, {"object_a": 0, "object_b": 0}):
             config = dict(self.prepare_config, classes=classes)
             self.prepare_path.write_text(yaml.safe_dump(config), encoding="utf-8")
             with self.subTest(classes=classes), self.assertRaises(ValueError):
@@ -63,16 +63,16 @@ class IntegrityTests(unittest.TestCase):
 
     def test_dataset_names_reject_invalid_or_colliding_ids(self):
         import yaml
-        for names in ({0.5: "mask"}, {False: "mask"}, {0: "mask", "0": "other"}, [], None, {0: ""}, ["mask", "mask"]):
+        for names in ({0.5: "class_a"}, {False: "class_a"}, {0: "class_a", "0": "other"}, [], None, {0: ""}, ["class_a", "class_a"]):
             self.data_path.write_text(yaml.safe_dump(dict(self.data_config, names=names)), encoding="utf-8")
             with self.subTest(names=names), self.assertRaises(ValueError):
                 dataset_config(self.data_path)
 
     def test_dataset_names_accept_integer_ids_or_digit_strings(self):
         import yaml
-        for names in (["mask"], {0: "mask"}, {"0": "mask"}):
+        for names in (["class_a"], {0: "class_a"}, {"0": "class_a"}):
             self.data_path.write_text(yaml.safe_dump(dict(self.data_config, names=names)), encoding="utf-8")
-            self.assertEqual(dataset_config(self.data_path)["names"], {0: "mask"})
+            self.assertEqual(dataset_config(self.data_path)["names"], {0: "class_a"})
 
     def test_malformed_manifest_reports_errors_without_crashing(self):
         config = self.prepare()

@@ -156,7 +156,7 @@ class PipelineTests(unittest.TestCase):
             root = Path(temporary)
             raw, output = root / "raw", root / "prepared"
             raw.mkdir()
-            names = ["with_mask", "without_mask", "mask_weared_incorrect"]
+            names = ["object_a", "object_b", "object_c"]
             for i in range(30):
                 rng = random.Random(i)
                 image = Image.new("L", (16, 16))
@@ -170,7 +170,7 @@ class PipelineTests(unittest.TestCase):
                 write.side_effect = lambda path, value: write_json(root / "source_check.json" if path.name == "source_check.json" else path, value)
                 prepare_main()
             data_path = root / "dataset.yaml"
-            data_path.write_text(yaml.safe_dump({"path": "prepared", "train": "images/train", "val": "images/val", "test": "images/test", "names": ["mask", "no_mask", "mask_incorrect"]}), encoding="utf-8")
+            data_path.write_text(yaml.safe_dump({"path": "prepared", "train": "images/train", "val": "images/val", "test": "images/test", "names": ["class_a", "class_b", "class_c"]}), encoding="utf-8")
             config = dataset_config(data_path)
             report, _ = validate(config)
             self.assertTrue(report["ok"], report["errors"])

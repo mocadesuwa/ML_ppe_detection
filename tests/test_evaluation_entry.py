@@ -30,7 +30,7 @@ class EvaluationTests(unittest.TestCase):
             Image.new("RGB", (8, 8), (index * 50, 20, 30)).save(images / f"sample_{index}.png")
             (labels / f"sample_{index}.txt").write_text("0 0.25 0.25 0.5 0.5\n1 0.75 0.75 0.5 0.5\n", encoding="utf-8")
         self.data_path = self.root / "dataset.yaml"
-        self.data_path.write_text(yaml.safe_dump({"path": str(base), "train": "images/train", "val": "images/val", "test": "images/test", "names": ["mask", "no_mask"]}), encoding="utf-8")
+        self.data_path.write_text(yaml.safe_dump({"path": str(base), "train": "images/train", "val": "images/val", "test": "images/test", "names": ["class_a", "class_b"]}), encoding="utf-8")
         self.data = dataset_config(self.data_path)
         self.fingerprint = dataset_fingerprint(self.data)
         self.review_path = base / "quality_review.json"
@@ -45,7 +45,7 @@ class EvaluationTests(unittest.TestCase):
         write_json(self.experiment_path, self.record)
         box = types.SimpleNamespace(ap_class_index=[1, 0], p=[0.8, 0.6], r=[0.7, 0.5], ap50=[0.9, 0.4], ap=[0.3, 0.2], mp=0.7, mr=0.6, map50=0.65, map=0.25)
         self.metrics = types.SimpleNamespace(box=box, speed={"inference": 1.0})
-        self.model = types.SimpleNamespace(names={0: "mask", 1: "no_mask"}, val=Mock(return_value=self.metrics))
+        self.model = types.SimpleNamespace(names={0: "class_a", 1: "class_b"}, val=Mock(return_value=self.metrics))
         self.yolo = Mock(return_value=self.model)
         self.backend = types.ModuleType("ultralytics")
         self.backend.YOLO = self.yolo
@@ -190,7 +190,7 @@ class EvaluationTests(unittest.TestCase):
         self.rejected(message="CUDA")
 
     def test_model_class_mismatch_is_rejected_before_output_creation(self):
-        for names in ({0: "different", 1: "no_mask"}, {0.5: "mask", 1: "no_mask"}, {False: "mask", 1: "no_mask"}, {0: "mask", "0": "mask", 1: "no_mask"}, None):
+        for names in ({0: "different", 1: "class_b"}, {0.5: "class_a", 1: "class_b"}, {False: "class_a", 1: "class_b"}, {0: "class_a", "0": "class_a", 1: "class_b"}, None):
             self.model.names = names
             with self.subTest(names=names):
                 self.rejected(message="class", before_model=False)
@@ -227,7 +227,7 @@ class EvaluationTests(unittest.TestCase):
         self.assertEqual(result["split"], "test")
 
     def test_list_model_names_and_unavailable_class_metrics_remain_supported(self):
-        self.model.names = ["mask", "no_mask"]
+        self.model.names = ["class_a", "class_b"]
         self.metrics.box.ap_class_index = [0]
         self.invoke()
         self.assertIsNone(self.result()["per_class"][1]["precision"])

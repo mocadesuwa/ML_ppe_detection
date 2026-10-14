@@ -24,7 +24,7 @@ class PreflightGateTests(unittest.TestCase):
             Image.new("RGB", (8, 8), (i * 50, 20, 30)).save(images / f"{i}.png")
             (labels / f"{i}.txt").write_text("0 .25 .25 .5 .5\n1 .75 .75 .5 .5\n", encoding="utf-8")
         source = self.root / "data.yaml"
-        source.write_text(yaml.safe_dump({"path": str(self.base), "train": "images/train", "val": "images/val", "test": "images/test", "names": ["mask", "no_mask"]}), encoding="utf-8")
+        source.write_text(yaml.safe_dump({"path": str(self.base), "train": "images/train", "val": "images/val", "test": "images/test", "names": ["class_a", "class_b"]}), encoding="utf-8")
         self.data = dataset_config(source)
         write_json(self.base / "quality_review.json", {"dataset_fingerprint": dataset_fingerprint(self.data)})
         self.weights = self.root / "initial.pt"

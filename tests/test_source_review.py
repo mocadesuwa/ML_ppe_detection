@@ -8,7 +8,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from legacy.mask.review_raw_dataset import inspect, main, snapshot
+from src.source_review import inspect, main, snapshot
 
 
 class SourceReviewTests(unittest.TestCase):
@@ -16,11 +16,12 @@ class SourceReviewTests(unittest.TestCase):
         temporary = tempfile.TemporaryDirectory()
         self.addCleanup(temporary.cleanup)
         self.root = Path(temporary.name)
+        self.classes = ["object_a", "object_b"]
         self.raw = self.root / "raw"
         (self.raw / "images").mkdir(parents=True)
         (self.raw / "annotations").mkdir()
 
-    def sample(self, name="sample", boxes=None, size=(10, 12), class_name="with_mask"):
+    def sample(self, name="sample", boxes=None, size=(10, 12), class_name="object_a"):
         from PIL import Image
 
         Image.new("RGB", (10, 12), (50, 70, 90)).save(self.raw / "images" / f"{name}.png")
@@ -34,7 +35,7 @@ class SourceReviewTests(unittest.TestCase):
     def test_all_invalid_objects_are_reported_without_changing_source(self):
         self.sample(boxes=[[1, 2, 11, 7], [5, 3, 11, 8], [1, 1, 4, 4]])
         before = snapshot(self.raw)
-        report = inspect(self.raw)
+        report = inspect(self.raw, self.classes)
         self.assertEqual([obj["index"] for obj in report["invalid_boxes"]], [1, 2])
         self.assertEqual(report["object_count"], 3)
         self.assertEqual(report["geometry"]["zero_based_continuous_valid_objects"], 1)
@@ -42,7 +43,7 @@ class SourceReviewTests(unittest.TestCase):
 
     def test_conventions_are_compared_without_guessing_a_winner(self):
         self.sample(boxes=[[0, 0, 4, 4], [5, 5, 5, 5]])
-        report = inspect(self.raw)
+        report = inspect(self.raw, self.classes)
         self.assertTrue(report["invalid_boxes"][0]["zero_based_continuous"])
         self.assertFalse(report["invalid_boxes"][0]["voc_one_based_inclusive"])
         self.assertFalse(report["invalid_boxes"][1]["zero_based_continuous"])
@@ -52,7 +53,7 @@ class SourceReviewTests(unittest.TestCase):
         self.sample("wrong_size", size=(11, 12))
         self.sample("unpaired")
         (self.raw / "annotations/unpaired.xml").unlink()
-        report = inspect(self.raw)
+        report = inspect(self.raw, self.classes)
         self.assertEqual(len(report["file_errors"]), 2)
         self.assertTrue(any("size" in e["error"] for e in report["file_errors"]))
         self.assertTrue(any("Missing annotation" in e["error"] for e in report["file_errors"]))
@@ -60,7 +61,7 @@ class SourceReviewTests(unittest.TestCase):
     def test_identical_images_with_different_box_labels_are_not_silently_merged(self):
         self.sample("first")
         self.sample("second", boxes=[[2, 2, 7, 7]])
-        report = inspect(self.raw)
+        report = inspect(self.raw, self.classes)
         self.assertEqual(report["exact_duplicate_groups"], [{"filenames": ["first.png", "second.png"], "conflicting_labels": True}])
         self.assertEqual(len(report["records"]), 2)
 
@@ -68,8 +69,32 @@ class SourceReviewTests(unittest.TestCase):
         self.sample()
         before = snapshot(self.raw)
         path = self.raw / "annotations/sample.xml"
-        path.write_text(path.read_text(encoding="utf-8").replace("with_mask", "without_mask"), encoding="utf-8")
+        path.write_text(path.read_text(encoding="utf-8").replace("object_a", "object_b"), encoding="utf-8")
         self.assertNotEqual(snapshot(self.raw)[1], before[1])
+
+    def test_allowed_classes_are_explicit_and_unknown_objects_are_reported(self):
+        self.sample(class_name="unexpected")
+        report = inspect(self.raw, self.classes)
+        self.assertEqual(report["classes"], self.classes)
+        self.assertEqual(report["object_count"], 1)
+        self.assertIn("Unknown class: unexpected", report["file_errors"][0]["error"])
+        for classes in (None, [], [""], [1], ["object_a", "object_a"]):
+            with self.subTest(classes=classes), self.assertRaises(ValueError):
+                inspect(self.raw, classes)
+
+    def test_cli_records_generic_audit_without_claiming_visual_review(self):
+        self.sample()
+        output = self.root / "audit"
+        before = snapshot(self.raw)
+        with patch("sys.argv", ["audit", "--raw", str(self.raw), "--classes", *self.classes, "--output", str(output)]), contextlib.redirect_stdout(io.StringIO()):
+            main()
+        import json
+
+        report = json.loads((output / "audit.json").read_text(encoding="utf-8"))
+        self.assertEqual(report["classes"], self.classes)
+        self.assertTrue(report["source_unchanged"])
+        self.assertFalse(report["visual_review_completed"])
+        self.assertEqual(snapshot(self.raw), before)
 
     def test_output_cannot_overwrite_an_audit_or_enter_raw_directory(self):
         self.sample()
@@ -78,7 +103,7 @@ class SourceReviewTests(unittest.TestCase):
         (existing / "keep.txt").write_text("keep", encoding="utf-8")
         before = snapshot(self.raw)
         for output in (existing, self.raw, self.raw / "new"):
-            with self.subTest(output=output), patch("sys.argv", ["audit", "--raw", str(self.raw), "--output", str(output)]), contextlib.redirect_stderr(io.StringIO()), self.assertRaises(SystemExit) as error:
+            with self.subTest(output=output), patch("sys.argv", ["audit", "--raw", str(self.raw), "--output", str(output), "--classes", *self.classes]), contextlib.redirect_stderr(io.StringIO()), self.assertRaises(SystemExit) as error:
                 main()
             self.assertEqual(error.exception.code, 2)
         self.assertEqual((existing / "keep.txt").read_text(encoding="utf-8"), "keep")

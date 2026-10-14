@@ -12,7 +12,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from src.common import ROOT, dataset_config, load_yaml, run_directory, select_device
+from src.common import dataset_config, load_yaml, run_directory, select_device
 from src.train import build_plan, main as train_main
 
 
@@ -25,7 +25,7 @@ class EntryConfigTests(unittest.TestCase):
         self.root = Path(temporary.name) / "配置与路径 tests"
         self.root.mkdir()
         self.data_path = self.root / "dataset.yaml"
-        self.data_config = {"path": "../prepared", "train": "images/train", "val": "images/val", "test": "images/test", "names": ["mask"]}
+        self.data_config = {"path": "../prepared", "train": "images/train", "val": "images/val", "test": "images/test", "names": ["class_a"]}
         self.data_path.write_text(yaml.safe_dump(self.data_config), encoding="utf-8")
         self.plan_path = self.root / "baseline.yaml"
         self.config = {"data": str(self.data_path), "model": str(self.root / "weights" / "initial.pt"), "project": str(self.root / "results"), "name": "baseline_01", "epochs": 50, "batch": 8, "imgsz": 640, "device": "auto", "patience": 15, "seed": 42, "workers": 0, "fraction": 1.0, "amp": True, "deterministic": True, "plots": True, "save": True, "cache": False}
@@ -44,7 +44,7 @@ class EntryConfigTests(unittest.TestCase):
         return build_plan(args)
 
     def test_config_duplicate_keys_are_not_silently_overwritten(self):
-        for content in ("epochs: 50\nepochs: 1\n", "names:\n  0: mask\n  0: other\n", "names:\n  0: mask\n  false: other\n", "[a, b]: value\n"):
+        for content in ("epochs: 50\nepochs: 1\n", "names:\n  0: class_a\n  0: other\n", "names:\n  0: class_a\n  false: other\n", "[a, b]: value\n"):
             self.plan_path.write_text(content, encoding="utf-8")
             with self.subTest(content=content), self.assertRaisesRegex(ValueError, "baseline.yaml"):
                 load_yaml(self.plan_path)
@@ -89,7 +89,7 @@ class EntryConfigTests(unittest.TestCase):
         expected = (self.root / "../prepared").resolve()
         self.assertEqual(config["path"], str(expected))
         self.assertEqual(config["train"], str(expected / "images/train"))
-        self.assertEqual(config["names"], {0: "mask"})
+        self.assertEqual(config["names"], {0: "class_a"})
 
     def test_plan_missing_required_fields_report_the_field(self):
         import yaml
@@ -163,15 +163,6 @@ class EntryConfigTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "epochs"):
             self.plan(smoke=True, epochs=0)
 
-    def test_archived_mask_plan_still_resolves_its_frozen_version(self):
-        args = argparse.Namespace(config="legacy/mask/baseline.yaml", smoke=False, name=None, epochs=None, batch=None, device=None)
-        config, data = build_plan(args)
-        self.assertEqual((config["epochs"], config["batch"], config["imgsz"]), (50, 8, 640))
-        self.assertEqual(config["model"], str(ROOT / "weights/yolo11n.pt"))
-        self.assertEqual(config["project"], str(ROOT / "results"))
-        self.assertEqual(data["path"], str(ROOT / "dataset" / "prepared_v2"))
-        self.assertEqual(data["train"], str(ROOT / "dataset" / "prepared_v2" / "images" / "train"))
-        self.assertEqual(data["names"], {0: "mask", 1: "no_mask", 2: "mask_incorrect"})
 
     def test_train_cli_dry_run_prints_plans_without_model_imports_or_writes(self):
         original_import = builtins.__import__

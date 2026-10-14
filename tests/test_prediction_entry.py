@@ -44,7 +44,7 @@ class PredictionTests(unittest.TestCase):
         self.weights = self.root / "model.pt"
         self.weights.write_bytes(b"synthetic fixture, not model weights")
         self.outputs = self.root / "results/predictions"
-        self.model = types.SimpleNamespace(task="detect", names={0: "mask", 1: "no_mask"}, predict=Mock(side_effect=lambda **kwargs: iter([self.image_result()])))
+        self.model = types.SimpleNamespace(task="detect", names={0: "class_a", 1: "class_b"}, predict=Mock(side_effect=lambda **kwargs: iter([self.image_result()])))
         self.yolo = Mock(return_value=self.model)
         self.backend = types.ModuleType("ultralytics")
         self.backend.YOLO = self.yolo
@@ -193,7 +193,7 @@ class PredictionTests(unittest.TestCase):
         self.rejected(message="detection", before_model=False)
 
     def test_invalid_model_class_names_precede_output_creation(self):
-        for names in ({0.5: "mask"}, {False: "mask"}, {0: "mask", "0": "other"}, ["mask", "mask"], [], None):
+        for names in ({0.5: "class_a"}, {False: "class_a"}, {0: "class_a", "0": "other"}, ["class_a", "class_a"], [], None):
             self.model.names = names
             with self.subTest(names=names):
                 self.rejected(message="class", before_model=False)
@@ -270,7 +270,7 @@ class PredictionTests(unittest.TestCase):
                 self.failed(f"values_{index}")
 
     def test_invalid_image_metadata_cannot_be_published(self):
-        invalid = ({"path": str(self.root / "unexpected.png")}, {"path": None}, {"orig_shape": (0, 10)}, {"orig_shape": (True, 10)}, {"orig_shape": None}, {"names": {0: "different", 1: "no_mask"}})
+        invalid = ({"path": str(self.root / "unexpected.png")}, {"path": None}, {"orig_shape": (0, 10)}, {"orig_shape": (True, 10)}, {"orig_shape": None}, {"names": {0: "different", 1: "class_b"}})
         for index, changes in enumerate(invalid):
             with self.subTest(changes=changes):
                 self.model.predict.side_effect = lambda changes=changes, **kwargs: iter([self.image_result(**changes)])
