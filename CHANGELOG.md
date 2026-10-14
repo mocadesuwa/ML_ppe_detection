@@ -1,5 +1,12 @@
 # 版本记录
 
+## 护目镜需求调整与工作指引 — 2026-10-14
+
+- 当前目标调整为头部裁剪头像的护目镜佩戴识别；位置框要求待确认，分类/检测路线、类别及裁剪细则尚未定稿。
+- AGENTS.md 合并 Karpathy 启发的编码原则并注明社区来源；新增[需求与修改清单](docs/goggles_requirements.md)，同步 README 和框架状态。
+- 本轮仅改文档，旧口罩代码、配置、数据与证据保留；未训练、未安装依赖，护目镜第一版完成前不上传 GitHub。
+- 验证与限制见[本轮日志](docs/change_logs/2026-10-14-01-goggles-requirements.md)；历史141项测试未在本轮重跑。
+
 ## 训练前准备完成 — 2026-10-08
 
 - 项目 .venv 安装官方 CUDA PyTorch/torchvision、Ultralytics及画面候选依赖；41包精确锁定，pip check与CUDA矩阵运算通过，系统环境保留。

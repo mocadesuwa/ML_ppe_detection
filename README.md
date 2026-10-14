@@ -1,55 +1,52 @@
 # 实验室防护用品佩戴检测
 
-机器学习课程实践项目，首版子任务为人脸口罩状态检测：mask、no_mask、mask_incorrect。使用 YOLO11n 预训练检测模型，后续微调到三类。
+机器学习课程实践项目。**当前目标（2026-10-14）：对头部裁剪头像进行护目镜佩戴识别，以静态图像为输入。** 是否必须输出位置框待确认，分类或目标检测路线、类别和裁剪细则暂未定稿。
 
-**已完成到首次训练前（2026-10-08）**：派生数据、固定划分、实际标注抽查、CUDA 环境、初始权重和无梯度 GPU 前向检查均完成。短跑与正式训练未启动，暂无本任务模型指标。
+当前处于需求调整阶段，代码、配置和真实数据仍为口罩旧版，尚无护目镜模型或指标。先明确修改内容，再分轮完善，详见[护目镜需求与修改清单](docs/goggles_requirements.md)。[AGENTS.md](AGENTS.md) 已合并 Karpathy 启发的编码原则与本项目约定。
 
-初版标签 **v0.1.0** 保留。每轮独立[修改日志](docs/change_logs/README.md)与代码一起提交，版本摘要见 [CHANGELOG](CHANGELOG.md)。本轮按用户要求先完成阶段检查，结尾统一累计回归：系统 Python 和项目 `.venv` 均 141 项通过。
+护目镜第一版完成前不上传 GitHub，本地独立提交及[修改日志](docs/change_logs/README.md)继续保留，初版标签 **v0.1.0** 不变。版本摘要见 [CHANGELOG](CHANGELOG.md)。本轮仅改文档，历史141项回归未重跑。
 
-## 当前结果
+## 口罩旧版历史结果（2026-10-08）
+
+以下为旧任务证据，本轮未重新执行，不能用作护目镜任务结果。旧类别为 mask、no_mask、mask_incorrect，使用 YOLO11n 检测模型；短跑和正式训练未启动，暂无任务训练指标。
 
 - 原始 853 对图片/XML 和 ZIP 保留；新副本 794 张、3,510 个目标，逐项记录排除、去重及边缘修正。
-- 当前 `dataset/prepared_v2`：train/val/test **510/206/78** 张，579 个独立组。全量程序检查通过，最终各集合实际查看 30 张标注图，质量记录绑定指纹。
+- 旧版 `dataset/prepared_v2`：train/val/test **510/206/78** 张，579 个独立组。全量程序检查曾通过，最终各集合实际查看 30 张标注图，质量记录绑定指纹。
 - 三类目标数分别为 train **1983/439/39**、val **565/121/11**、test **286/61/5**；少数类样本很少。
-- `.venv`：Python 3.14、torch 2.11.0+cu128、torchvision 0.26.0+cu128、Ultralytics 8.4.174；RTX 3060 Laptop 6 GiB、CUDA 可用，依赖检查通过。41 包版本见 [requirements-lock.txt](requirements-lock.txt)。
+- 历史 `.venv`：Python 3.14、torch 2.11.0+cu128、torchvision 0.26.0+cu128、Ultralytics 8.4.174；RTX 3060 Laptop 6 GiB、CUDA 可用，依赖检查曾通过。41 包版本见 [requirements-lock.txt](requirements-lock.txt)，护目镜路线确定后再检查适用性。
 - 官方初始权重发布方 SHA-256 匹配；真实训练集加载、8×3×640×640 无梯度 GPU 前向和 CUDA NMS 通过。此检查不包含反向传播、优化器、训练显存或效果评价。
+- 当时系统 Python 与项目 `.venv` 各141项累计回归通过，详细执行证据保留在原日志。
 
 证据：[训练前准备报告](docs/pretraining_ready.md)、[固定划分核查](docs/data_reviews/2026-10-08-prepared-v2.md)、[派生决策](docs/data_reviews/2026-10-08-derived-v1.md)、[环境与复现](docs/environment_check.md)。
 
-## 运行与停止点
+## 当前工作与停止点
 
-在项目根目录使用项目解释器；中文路径已通过真实数据加载检查：
+本轮完成工作指引、需求和状态文档，不修改代码、配置或真实数据，不安装依赖，不启动短跑或正式训练。后续顺序如下，详细文件范围和检查点见[需求清单](docs/goggles_requirements.md)：
 
-```powershell
-# 只查看计划，不加载模型或创建训练目录。
-.\.venv\Scripts\python.exe -m src.train --dry-run
-.\.venv\Scripts\python.exe -m src.train --smoke --dry-run
+1. 明确位置框、类别和头像/裁剪规则，只读核查候选护目镜数据的来源、许可与标签。
+2. 相应数据工作获推进后，建立独立头像数据版本，按原图、人物或拍摄来源分组，完成裁剪与质量核查。
+3. 路线明确后，逐步调整配置、数据准备、模型及预测/评价入口，更新适用测试与报告。
+4. 完成第一版验收后按约定上传；训练仍须用户明确推进，不沿用旧计划启动口罩训练。
 
-# 重做无梯度预检须选择新证据目录。
-.\.venv\Scripts\python.exe scripts/preflight_training.py --output results/preflight_new
+每轮代码修改后运行 `python tests/run_regression.py`，按初版调用顺序累计回顾。仅文档修改执行适用文档检查，不运行模型或真实数据流程。旧 YOLO11n、640输入、batch=8及50轮等参数是历史参考，不视为护目镜方案已定。
 
-# 累计回归仅使用缓存中的临时合成样本。
-.\.venv\Scripts\python.exe tests/run_regression.py
-```
-
-下一步是首次 GPU 短跑，须用户明确启动后执行。随后才做正式 baseline、验证分析和最终测试。计划仍为 imgsz=640、batch=8、最多50轮、workers=0；实际训练显存不足时降低 batch 并记录参数。前向检查显存不能当作训练用量。
-
-## 文件与文档
+## 文件与文档（程序和数据仍为口罩旧版）
 
 | 位置 | 职责 |
 | --- | --- |
-| configs/ | 当前数据版本、三类、派生决策、画面组及训练计划 |
+| docs/goggles_requirements.md | 当前护目镜需求、待确认项、分轮修改与第一版验收 |
+| configs/ | 旧口罩数据版本、三类、派生决策、画面组及训练计划 |
 | src/ | 下载、转换、核查、环境、训练、评价和预测入口 |
 | scripts/ | 原始核查、可追溯派生、画面候选及无训练预检 |
 | tests/ | 坐标、分组、解压、指纹、配置及模型入口回归 |
 | dataset/raw/ | 原始图片/XML、ZIP与来源记录 |
 | dataset/derived/source_v1/ | 派生图片/XML及操作台账 |
-| dataset/prepared_v2/ | 当前冻结图片、YOLO标签、划分、清单及质量记录 |
+| dataset/prepared_v2/ | 旧口罩冻结图片、YOLO标签、划分、清单及质量记录 |
 | weights/ | 初始权重；任务训练权重未生成 |
 | results/ | 核查及预检证据；无 smoke/baseline 训练目录 |
 
-真实数据、缓存、虚拟环境和权重被 Git 忽略；仓库保存代码、决策、摘要和来源哈希。复现已存在的派生版本须复制配置并选新目录，不能覆盖冻结清单，也不能未经实际查看就复制质量记录文字。
+真实数据、缓存、虚拟环境和权重被 Git 忽略；引入护目镜新目录时需核对忽略规则。仓库保存代码、决策、摘要和来源哈希。复现已存在的派生版本须复制配置并选新目录，不能覆盖冻结清单，也不能未经实际查看就复制质量记录文字。
 
-继续阅读：[框架说明](docs/framework_review.md)、[Baseline 方案](docs/baseline_v0.1.md)、[数据选择](docs/data_selection.md)、[实验记录模板](docs/experiment_record.md)。
+继续阅读：[当前框架与旧实现说明](docs/framework_review.md)。[Baseline 方案](docs/baseline_v0.1.md)、[数据选择](docs/data_selection.md)及[实验记录模板](docs/experiment_record.md)尚为口罩旧版，后续分轮迁移。
 
-当前是通用场景口罩子任务，尚无实验室、手套或护目镜实测。少数样本、来源不完整和验证画面分布变化已记录，后续报告需解释这些限制。
+旧版是通用场景口罩子任务；目前尚无护目镜实测。少数样本、来源不完整和验证画面分布变化等旧限制继续保留，不能通过更换任务名称消除。
