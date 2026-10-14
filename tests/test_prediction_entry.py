@@ -1,4 +1,4 @@
-"""Prediction preflight and streaming records, with no real model or video decoder."""
+"""Static image prediction with synthetic images and a fake detection backend."""
 from __future__ import annotations
 
 import contextlib
@@ -44,13 +44,13 @@ class PredictionTests(unittest.TestCase):
         self.weights = self.root / "model.pt"
         self.weights.write_bytes(b"synthetic fixture, not model weights")
         self.outputs = self.root / "results/predictions"
-        self.model = types.SimpleNamespace(task="detect", names={0: "mask", 1: "no_mask"}, predict=Mock(side_effect=lambda **kwargs: iter([self.frame()])))
+        self.model = types.SimpleNamespace(task="detect", names={0: "mask", 1: "no_mask"}, predict=Mock(side_effect=lambda **kwargs: iter([self.image_result()])))
         self.yolo = Mock(return_value=self.model)
         self.backend = types.ModuleType("ultralytics")
         self.backend.YOLO = self.yolo
         self.caches, self.device = Mock(), Mock(return_value="cpu")
 
-    def frame(self, path=..., **changes):
+    def image_result(self, path=..., **changes):
         result_path = self.source if path is ... else path
         values = {"path": str(result_path) if result_path is not None else None, "orig_shape": (12, 10), "names": self.model.names, "boxes": boxes()}
         values.update(changes)
@@ -133,9 +133,27 @@ class PredictionTests(unittest.TestCase):
                 self.rejected(["--source", str(path)], "source")
 
     def test_empty_media_files_are_rejected_before_loading_model(self):
-        path = self.root / "empty.mp4"
+        path = self.root / "empty.png"
         path.touch()
         self.rejected(["--source", str(path)], "empty")
+
+    def test_video_and_corrupt_images_are_rejected_before_model(self):
+        video = self.root / "sample.mp4"
+        video.write_bytes(b"synthetic video")
+        corrupt = self.root / "broken.jpg"
+        corrupt.write_bytes(b"not image content")
+        for path in (video, corrupt):
+            with self.subTest(path=path):
+                self.rejected(["--source", str(path)], "image")
+
+    def test_animated_png_is_rejected_before_model(self):
+        from PIL import Image
+
+        animation = self.root / "animated.png"
+        first = Image.new("RGB", (10, 12), "red")
+        second = Image.new("RGB", (10, 12), "blue")
+        first.save(animation, save_all=True, append_images=[second], duration=100, loop=0)
+        self.rejected(["--source", str(animation)], "static image")
 
     def test_existing_results_are_not_overwritten_or_loaded_into_model(self):
         directory = self.outputs / "baseline_examples"
@@ -189,84 +207,86 @@ class PredictionTests(unittest.TestCase):
         self.assertEqual(record["status"], "complete")
         self.assertEqual(record["weights_sha256"], sha256(self.weights))
         self.assertEqual(record["source_files"], [{"path": str(self.source), "sha256": sha256(self.source)}])
-        self.assertEqual(record["images_or_frames"], 1)
+        self.assertEqual(record["image_count"], 1)
         self.assertEqual(row["detections"][0]["name"], "正确佩戴")
         self.assertEqual(row["detections"][0]["xyxy_pixels"], [1.0, 2.0, 6.0, 7.0])
         self.assertEqual(row["image_size"], {"width": 10, "height": 12})
-        self.assertEqual((row["frame_index"], row["source_frame_index"]), (0, 0))
+        self.assertEqual(row["image_index"], 0)
+        self.assertEqual(record["format_version"], 2)
         self.assertFalse((directory / "predictions.jsonl.part").exists())
         self.assertTrue(self.model.predict.call_args.kwargs["stream"])
 
-    def test_directory_results_have_global_and_per_source_indices(self):
+    def test_directory_predicts_each_checked_image_once_and_ignores_video(self):
         second = self.source.with_name("second.jpg")
         second.write_bytes(self.original_image)
-        self.model.predict.side_effect = lambda **kwargs: iter([self.frame(), self.frame(second, boxes=None)])
+        video = self.source.with_name("unrelated.mp4")
+        video.write_bytes(b"not an image; must not reach the backend")
+        self.model.predict.side_effect = lambda source, **kwargs: iter([self.image_result(Path(source), boxes=None if Path(source) == second else boxes())])
         self.invoke(["--source", str(self.source.parent)])
         rows = [json.loads(line) for line in (self.outputs / "baseline_examples/predictions.jsonl").read_text(encoding="utf-8").splitlines()]
-        self.assertEqual([row["frame_index"] for row in rows], [0, 1])
-        self.assertEqual([row["source_frame_index"] for row in rows], [0, 0])
+        self.assertEqual([row["image_index"] for row in rows], [0, 1])
+        self.assertEqual([Path(call.kwargs["source"]) for call in self.model.predict.call_args_list], [self.source, second])
         self.assertEqual(rows[1]["detections"], [])
-        self.assertEqual(self.record()["images_or_frames"], 2)
+        self.assertEqual(self.record()["image_count"], 2)
 
-    def test_video_stream_is_written_incrementally_and_closed(self):
-        video = self.root / "sample.MP4"
-        video.write_bytes(b"synthetic video fixture; decoder not used")
+    def test_image_results_are_written_incrementally_and_streams_closed(self):
+        second = self.source.with_name("second.png")
+        second.write_bytes(self.original_image)
         closed = []
 
-        def stream(**kwargs):
+        def stream(source, **kwargs):
             try:
-                yield self.frame(video)
-                part = self.outputs / "baseline_examples/predictions.jsonl.part"
-                self.assertEqual(len(part.read_text(encoding="utf-8").splitlines()), 1)
-                yield self.frame(video)
-                yield self.frame(video, boxes=None)
+                if Path(source) == second:
+                    part = self.outputs / "baseline_examples/predictions.jsonl.part"
+                    self.assertEqual(len(part.read_text(encoding="utf-8").splitlines()), 1)
+                yield self.image_result(Path(source))
             finally:
                 closed.append(True)
 
         self.model.predict.side_effect = stream
-        self.invoke(["--source", str(video), "--conf", "1"])
+        self.invoke(["--source", str(self.source.parent), "--conf", "1"])
         rows = [json.loads(line) for line in (self.outputs / "baseline_examples/predictions.jsonl").read_text(encoding="utf-8").splitlines()]
-        self.assertEqual([row["source_frame_index"] for row in rows], [0, 1, 2])
-        self.assertEqual(self.record()["images_or_frames"], 3)
-        self.assertEqual(closed, [True])
+        self.assertEqual([row["image_index"] for row in rows], [0, 1])
+        self.assertEqual(self.record()["image_count"], 2)
+        self.assertEqual(closed, [True, True])
 
     def test_different_detection_array_lengths_cannot_be_silently_truncated(self):
-        self.model.predict.side_effect = lambda **kwargs: iter([self.frame(boxes=boxes(categories=[0.0, 1.0]))])
+        self.model.predict.side_effect = lambda **kwargs: iter([self.image_result(boxes=boxes(categories=[0.0, 1.0]))])
         record = self.failed("unequal", message="length")
-        self.assertEqual(record["images_or_frames"], 0)
+        self.assertEqual(record["image_count"], 0)
 
     def test_invalid_box_coordinates_cannot_be_published(self):
         invalid = ([1, 2, float("nan"), 7], [1, 2, float("inf"), 7], [-1, 2, 6, 7], [6, 2, 1, 7], [1, 2, 1, 7], [1, 2, 11, 7], [1, 2, 6], [True, 2, 6, 7])
         for index, coordinates in enumerate(invalid):
             with self.subTest(coordinates=coordinates):
-                self.model.predict.side_effect = lambda coordinates=coordinates, **kwargs: iter([self.frame(boxes=boxes(coordinates=[coordinates]))])
+                self.model.predict.side_effect = lambda coordinates=coordinates, **kwargs: iter([self.image_result(boxes=boxes(coordinates=[coordinates]))])
                 self.failed(f"box_{index}")
 
     def test_invalid_categories_and_confidence_cannot_be_published(self):
         invalid = ((0.5, 0.9), (-1, 0.9), (2, 0.9), (True, 0.9), (float("nan"), 0.9), (0, 1.1), (0, -0.1), (0, float("inf")), (0, float("nan")), (0, False))
         for index, (category, confidence) in enumerate(invalid):
             with self.subTest(category=category, confidence=confidence):
-                self.model.predict.side_effect = lambda category=category, confidence=confidence, **kwargs: iter([self.frame(boxes=boxes(categories=[category], confidence=[confidence]))])
+                self.model.predict.side_effect = lambda category=category, confidence=confidence, **kwargs: iter([self.image_result(boxes=boxes(categories=[category], confidence=[confidence]))])
                 self.failed(f"values_{index}")
 
-    def test_invalid_frame_metadata_cannot_be_published(self):
+    def test_invalid_image_metadata_cannot_be_published(self):
         invalid = ({"path": str(self.root / "unexpected.png")}, {"path": None}, {"orig_shape": (0, 10)}, {"orig_shape": (True, 10)}, {"orig_shape": None}, {"names": {0: "different", 1: "no_mask"}})
         for index, changes in enumerate(invalid):
             with self.subTest(changes=changes):
-                self.model.predict.side_effect = lambda changes=changes, **kwargs: iter([self.frame(**changes)])
+                self.model.predict.side_effect = lambda changes=changes, **kwargs: iter([self.image_result(**changes)])
                 self.failed(f"metadata_{index}")
 
     def test_zero_output_and_missing_input_results_are_not_complete(self):
         self.model.predict.side_effect = lambda **kwargs: iter([])
         record = self.failed("no_frames")
-        self.assertEqual(record["images_or_frames"], 0)
+        self.assertEqual(record["image_count"], 0)
         second = self.source.with_name("skipped.png")
         second.write_bytes(self.original_image)
-        self.model.predict.side_effect = lambda **kwargs: iter([self.frame()])
+        self.model.predict.side_effect = lambda source, **kwargs: iter([self.image_result()] if Path(source) == self.source else [])
         self.failed("skipped", ["--source", str(self.source.parent)], message="missing")
 
     def test_duplicate_image_results_are_not_complete(self):
-        self.model.predict.side_effect = lambda **kwargs: iter([self.frame(), self.frame()])
+        self.model.predict.side_effect = lambda **kwargs: iter([self.image_result(), self.image_result()])
         self.failed("duplicate", message="Duplicate")
 
     def test_backend_error_preserves_partial_jsonl_and_closes_stream(self):
@@ -274,21 +294,21 @@ class PredictionTests(unittest.TestCase):
 
         def stream(**kwargs):
             try:
-                yield self.frame()
+                yield self.image_result()
                 raise RuntimeError("Synthetic stream failure")
             finally:
                 closed.append(True)
 
         self.model.predict.side_effect = stream
         record = self.failed("interrupted_stream", message="Synthetic stream failure")
-        self.assertEqual(record["images_or_frames"], 1)
+        self.assertEqual(record["image_count"], 1)
         part = self.outputs / "interrupted_stream/predictions.jsonl.part"
         self.assertEqual(len(part.read_text(encoding="utf-8").splitlines()), 1)
         self.assertEqual(closed, [True])
 
     def test_keyboard_interrupt_records_failure_and_preserves_partial_output(self):
         def stream(**kwargs):
-            yield self.frame()
+            yield self.image_result()
             raise KeyboardInterrupt()
 
         self.model.predict.side_effect = stream
@@ -297,7 +317,7 @@ class PredictionTests(unittest.TestCase):
         record = self.record("keyboard")
         self.assertEqual(record["status"], "failed")
         self.assertEqual(record["error"], "KeyboardInterrupt")
-        self.assertEqual(record["images_or_frames"], 1)
+        self.assertEqual(record["image_count"], 1)
         self.assertFalse((self.outputs / "keyboard/predictions.jsonl").exists())
 
     def test_changed_weights_sources_or_membership_do_not_publish_results(self):
@@ -305,7 +325,7 @@ class PredictionTests(unittest.TestCase):
             self.source.write_bytes(self.original_image)
 
             def stream(index=index, **kwargs):
-                yield self.frame()
+                yield self.image_result()
                 if index == 0:
                     self.weights.write_bytes(b"changed synthetic fixture")
                 elif index == 1:

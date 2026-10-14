@@ -1,4 +1,4 @@
-"""Save boxes, names, confidence scores and images for local inputs."""
+"""Run the retained detection backend on checked static images only."""
 from __future__ import annotations
 
 import argparse
@@ -11,27 +11,28 @@ from pathlib import Path
 
 from .common import IMAGE_SUFFIXES, config_path, local_caches, normalize_device, project_path, run_directory, select_device, sha256, utc_now, validate_run_name, write_json
 
-PREDICT_IMAGE_SUFFIXES = IMAGE_SUFFIXES | {".avif", ".dng", ".heic", ".heif", ".jp2", ".mpo", ".tif", ".tiff"}
-VIDEO_SUFFIXES = {".asf", ".avi", ".gif", ".m4v", ".mkv", ".mov", ".mp4", ".mpeg", ".mpg", ".ts", ".wmv", ".webm"}
-MEDIA_SUFFIXES = PREDICT_IMAGE_SUFFIXES | VIDEO_SUFFIXES
-
-
 def source_snapshot(source: Path) -> tuple[list[dict], str]:
-    """Bind direct media files without buffering image pixels or video frames."""
+    """Validate static images one at a time and bind their paths and content."""
+    from PIL import Image
+
     if source.is_dir():
-        paths = sorted(path for path in source.iterdir() if not path.name.startswith(".") and path.is_file() and path.suffix.lower() in MEDIA_SUFFIXES)
+        paths = sorted(path for path in source.iterdir() if not path.name.startswith(".") and path.is_file() and path.suffix.lower() in IMAGE_SUFFIXES)
     elif source.is_file():
-        if source.suffix.lower() not in MEDIA_SUFFIXES:
-            raise ValueError(f"Unsupported local source media format: {source}")
+        if source.suffix.lower() not in IMAGE_SUFFIXES:
+            raise ValueError(f"Unsupported source image format: {source}")
         paths = [source]
     else:
-        raise FileNotFoundError(f"Local source file or directory does not exist: {source}")
+        raise FileNotFoundError(f"Source image or directory does not exist: {source}")
     if not paths:
-        raise ValueError(f"No supported source media files directly inside: {source}")
+        raise ValueError(f"No supported source images directly inside: {source}")
     files = []
     for path in paths:
         if path.stat().st_size == 0:
-            raise ValueError(f"Source media file is empty: {path}")
+            raise ValueError(f"Source image file is empty: {path}")
+        with Image.open(path) as opened:
+            if getattr(opened, "n_frames", 1) != 1:
+                raise ValueError(f"Source must be a static image: {path}")
+            opened.verify()
         files.append({"path": str(path.resolve()), "sha256": sha256(path)})
     digest = hashlib.sha256(json.dumps(files, ensure_ascii=False, sort_keys=True).encode("utf-8")).hexdigest()
     return files, digest
@@ -88,12 +89,11 @@ def finite_number(value: object, field: str) -> float:
     return number
 
 
-def frame_record(result, names: dict, allowed: set[Path], counts: dict[Path, int], index: int) -> tuple[Path, dict]:
+def image_record(result, names: dict, allowed: set[Path], seen: set[Path], index: int) -> tuple[Path, dict]:
     source = config_path(str(result.path) if isinstance(result.path, Path) else result.path, "result source", project_path("."))
     if source not in allowed:
         raise ValueError(f"Unexpected prediction source: {source}")
-    source_index = counts.get(source, 0)
-    if source.suffix.lower() in PREDICT_IMAGE_SUFFIXES and source_index:
+    if source in seen:
         raise ValueError(f"Duplicate prediction result for image: {source}")
     shape = getattr(result, "orig_shape", None)
     if not isinstance(shape, (tuple, list)) or len(shape) != 2 or any(isinstance(size, bool) or not isinstance(size, int) or size <= 0 for size in shape):
@@ -119,13 +119,13 @@ def frame_record(result, names: dict, allowed: set[Path], counts: dict[Path, int
             if not 0 <= confidence <= 1:
                 raise ValueError("Prediction confidence must be between zero and one")
             detections.append({"class_id": int(category), "name": names[int(category)], "confidence": confidence, "xyxy_pixels": [x1, y1, x2, y2]})
-    return source, {"source": str(source), "frame_index": index, "source_frame_index": source_index, "image_size": {"width": width, "height": height}, "detections": detections}
+    return source, {"source": str(source), "image_index": index, "image_size": {"width": width, "height": height}, "detections": detections}
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Predict on a local image, image directory or video")
-    parser.add_argument("--source", required=True, help="Local media file or directory; directory scanning does not recurse")
-    parser.add_argument("--weights", default="results/baseline_01/weights/best.pt")
+    parser = argparse.ArgumentParser(description="Predict on static JPG/JPEG, PNG, BMP or WebP images")
+    parser.add_argument("--source", required=True, help="Image or directory of images; no recursive scanning")
+    parser.add_argument("--weights", required=True, help="Existing detection weights; no task weights are selected by default")
     parser.add_argument("--name", default="baseline_examples")
     parser.add_argument("--conf", type=float, default=0.25)
     parser.add_argument("--imgsz", type=int, default=640)
@@ -153,29 +153,30 @@ def main() -> None:
     except (ValueError, OSError) as error:
         parser.error(str(error))
     partial, final = directory / "predictions.jsonl.part", directory / "predictions.jsonl"
-    record = {"started_at": utc_now(), "status": "running", "source": str(source), "source_files": plan["source_files"], "source_fingerprint": plan["source_fingerprint"], "weights": str(weights), "weights_sha256": plan["weights_sha256"], "class_names": names, "confidence": plan["confidence"], "imgsz": plan["imgsz"], "device": device, "images_or_frames": 0}
+    record = {"format_version": 2, "started_at": utc_now(), "status": "running", "source": str(source), "source_files": plan["source_files"], "source_fingerprint": plan["source_fingerprint"], "weights": str(weights), "weights_sha256": plan["weights_sha256"], "class_names": names, "confidence": plan["confidence"], "imgsz": plan["imgsz"], "device": device, "image_count": 0}
     allowed = {Path(item["path"]) for item in plan["source_files"]}
-    counts = {}
+    seen = set()
     count = 0
     start = time.perf_counter()
     try:
         write_json(directory / "run.json", record)
-        # Line buffering preserves completed rows without collecting the video in RAM.
+        # One checked image per call keeps directories and unrelated media out.
         with partial.open("w", encoding="utf-8", buffering=1) as handle:
-            stream = model.predict(source=str(source), imgsz=plan["imgsz"], conf=plan["confidence"], device=device, save=True, stream=True, project=str(directory.parent), name=directory.name, exist_ok=True)
-            try:
-                for result in stream:
-                    path, row = frame_record(result, names, allowed, counts, count)
-                    handle.write(json.dumps(row, ensure_ascii=False, allow_nan=False) + "\n")
-                    counts[path] = counts.get(path, 0) + 1
-                    count += 1
-            finally:
-                close = getattr(stream, "close", None)
-                if callable(close):
-                    close()
+            for item in plan["source_files"]:
+                stream = model.predict(source=item["path"], imgsz=plan["imgsz"], conf=plan["confidence"], device=device, save=True, stream=True, project=str(directory.parent), name=directory.name, exist_ok=True)
+                try:
+                    for result in stream:
+                        path, row = image_record(result, names, allowed, seen, count)
+                        handle.write(json.dumps(row, ensure_ascii=False, allow_nan=False) + "\n")
+                        seen.add(path)
+                        count += 1
+                finally:
+                    close = getattr(stream, "close", None)
+                    if callable(close):
+                        close()
         if count == 0:
-            raise ValueError("No prediction frames were returned")
-        missing = allowed - set(counts)
+            raise ValueError("No prediction images were returned")
+        missing = allowed - seen
         if missing:
             raise ValueError("Prediction results are missing for source files: " + ", ".join(str(path) for path in sorted(missing)[:3]))
         if sha256(weights) != plan["weights_sha256"]:
@@ -187,7 +188,7 @@ def main() -> None:
         if fingerprint != plan["source_fingerprint"]:
             raise ValueError("Prediction source content or membership changed during the run")
         partial.replace(final)
-        record.update(status="complete", completed_at=utc_now(), elapsed_seconds=time.perf_counter() - start, images_or_frames=count, predictions_file=str(final))
+        record.update(status="complete", completed_at=utc_now(), elapsed_seconds=time.perf_counter() - start, image_count=count, predictions_file=str(final))
         write_json(directory / "run.json", record)
     except (Exception, KeyboardInterrupt) as error:
         # If the completion record failed, keep output clearly marked as partial.
@@ -197,7 +198,7 @@ def main() -> None:
                 final.replace(partial)
             except OSError as move_error:
                 rollback_error = str(move_error)
-        record.update(status="failed", completed_at=utc_now(), elapsed_seconds=time.perf_counter() - start, images_or_frames=count, predictions_file=None, error=str(error) or type(error).__name__)
+        record.update(status="failed", completed_at=utc_now(), elapsed_seconds=time.perf_counter() - start, image_count=count, predictions_file=None, error=str(error) or type(error).__name__)
         record["partial_predictions_file"] = str(partial) if partial.is_file() else None
         record["unconfirmed_predictions_file"] = str(final) if final.is_file() else None
         if rollback_error:

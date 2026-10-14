@@ -8,7 +8,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from scripts.review_raw_dataset import inspect, main, snapshot
+from legacy.mask.review_raw_dataset import inspect, main, snapshot
 
 
 class SourceReviewTests(unittest.TestCase):

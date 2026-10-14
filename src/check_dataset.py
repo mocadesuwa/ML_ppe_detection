@@ -223,7 +223,7 @@ def draw_sheets(samples: dict, names: dict, destination: Path, count: int, seed:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Check all splits and save visual label sheets")
-    parser.add_argument("--data", default="configs/dataset.yaml")
+    parser.add_argument("--data", required=True, help="Explicit detection dataset configuration")
     parser.add_argument("--output", default="results/data_check")
     parser.add_argument("--samples", type=int, default=30)
     parser.add_argument("--seed", type=int, default=42)

@@ -11,6 +11,7 @@ dataset/manifest.json
 dataset/quality_review.json
 dataset/derived/
 dataset/prepared_v*/
+dataset/goggles/
 weights/*
 !weights/.gitkeep
 results/*

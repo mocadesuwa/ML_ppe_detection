@@ -4,8 +4,8 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from scripts.derive_dataset import derive
-from scripts.review_raw_dataset import inspect, snapshot
+from legacy.mask.derive_dataset import derive
+from legacy.mask.review_raw_dataset import inspect, snapshot
 from src.common import write_json
 
 

@@ -10,7 +10,7 @@ import xml.etree.ElementTree as ET
 from collections import Counter, defaultdict
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from src.common import IMAGE_SUFFIXES, sha256, utc_now, write_json
 from src.prepare_dataset import convert_box, difference_hash
 

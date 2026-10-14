@@ -83,7 +83,7 @@
 
 ## 复现与下一步
 
-核查脚本：[review_raw_dataset.py](../../scripts/review_raw_dataset.py)。在项目根目录使用已有 Pillow 的系统 Python，选择尚不存在的输出目录：
+核查脚本（2026-10-14维护链接，已移至归档）：[review_raw_dataset.py](../../legacy/mask/review_raw_dataset.py)。以下命令保留2026-10-08当时入口，当前入口见归档说明；本报告原操作使用已有Pillow的系统Python，在项目根目录选择尚不存在的输出目录：
 
 ```powershell
 python scripts/review_raw_dataset.py --output results/source_review_new

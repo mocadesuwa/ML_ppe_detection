@@ -238,7 +238,7 @@ def split_groups(groups: list[list[int]], samples: list[dict], ratios: list[floa
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Convert VOC labels and create an immutable grouped YOLO split")
-    parser.add_argument("--config", default="configs/prepare.yaml")
+    parser.add_argument("--config", required=True, help="Explicit VOC preparation configuration")
     parser.add_argument("--exclude-file", help="Text file listing original image stems to exclude after inspection")
     args = parser.parse_args()
     config = load_yaml(project_path(args.config))
@@ -299,7 +299,7 @@ def main() -> None:
         split_path.write_text("\n".join(record["filename"] for record in records) + "\n", encoding="utf-8")
     write_json(output / "manifest.json", manifest)
     print(json.dumps({split: len(records) for split, records in manifest["splits"].items()}))
-    print("Next: python -m src.check_dataset, inspect sheets, then record the review")
+    print("Next: python -m src.check_dataset --data <dataset.yaml>, inspect sheets, then record the review")
 
 
 if __name__ == "__main__":

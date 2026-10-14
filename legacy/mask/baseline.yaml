@@ -1,6 +1,6 @@
 # The Python entry point resolves data/model/project paths from the project root.
 model: weights/yolo11n.pt
-data: configs/dataset.yaml
+data: legacy/mask/dataset.yaml
 project: results
 name: baseline_01
 epochs: 50

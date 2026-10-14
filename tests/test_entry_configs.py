@@ -163,8 +163,8 @@ class EntryConfigTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "epochs"):
             self.plan(smoke=True, epochs=0)
 
-    def test_plan_default_baseline_uses_frozen_version_and_parameters(self):
-        args = argparse.Namespace(config="configs/baseline.yaml", smoke=False, name=None, epochs=None, batch=None, device=None)
+    def test_archived_mask_plan_still_resolves_its_frozen_version(self):
+        args = argparse.Namespace(config="legacy/mask/baseline.yaml", smoke=False, name=None, epochs=None, batch=None, device=None)
         config, data = build_plan(args)
         self.assertEqual((config["epochs"], config["batch"], config["imgsz"]), (50, 8, 640))
         self.assertEqual(config["model"], str(ROOT / "weights/yolo11n.pt"))

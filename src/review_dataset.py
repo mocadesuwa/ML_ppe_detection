@@ -10,7 +10,7 @@ from .common import dataset_config, project_path, utc_now, write_json
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Record a completed visual review; this command does not inspect images for you")
-    parser.add_argument("--data", default="configs/dataset.yaml")
+    parser.add_argument("--data", required=True, help="Explicit detection dataset configuration")
     parser.add_argument("--reviewer", required=True)
     parser.add_argument("--notes", required=True, help="Actual sampled-image findings and coordinate/class rules")
     parser.add_argument("--license-source", required=True, help="Publisher URL or local license file actually checked")

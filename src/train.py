@@ -61,7 +61,7 @@ def build_plan(args) -> tuple[dict, dict]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Train the baseline; --dry-run prints the plan without loading YOLO")
-    parser.add_argument("--config", default="configs/baseline.yaml")
+    parser.add_argument("--config", required=True, help="Explicit training plan; no task is selected by default")
     parser.add_argument("--smoke", action="store_true", help="3 epochs on a small training fraction; not a final baseline")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--name")

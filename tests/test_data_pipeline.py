@@ -10,7 +10,7 @@ from unittest.mock import patch
 
 from src.check_dataset import read_labels, validate
 from src.common import dataset_config, dataset_fingerprint, require_review, write_json
-from src.download_data import extract_archive
+from src.import_data import extract_archive
 from src.prepare_dataset import convert_box, group_samples, main as prepare_main, split_groups
 
 
@@ -363,7 +363,7 @@ class PipelineTests(unittest.TestCase):
                         raise error
                     return original_rename(path, target)
 
-                with patch.object(Path, "rename", move), patch("src.download_data.time.sleep") as sleep:
+                with patch.object(Path, "rename", move), patch("src.import_data.time.sleep") as sleep:
                     if permanent:
                         with self.assertRaises(PermissionError):
                             extract_archive(archive, destination)

@@ -9,8 +9,8 @@ import xml.etree.ElementTree as ET
 from collections import Counter
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from scripts.review_raw_dataset import inspect, snapshot
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from legacy.mask.review_raw_dataset import inspect, snapshot
 from src.common import sha256, utc_now, write_json
 from src.prepare_dataset import convert_box
 
@@ -128,7 +128,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--raw", default="dataset/raw/face-mask-detection")
     parser.add_argument("--output", default="dataset/derived/source_v1")
-    parser.add_argument("--decisions", default="configs/source_decisions_v1.json")
+    parser.add_argument("--decisions", default="legacy/mask/source_decisions_v1.json")
     args = parser.parse_args()
     ledger = derive(Path(args.raw), Path(args.output), Path(args.decisions))
     print(json.dumps({k: ledger[k] for k in ("status", "source_unchanged", "retained_images", "class_objects")}, indent=2))

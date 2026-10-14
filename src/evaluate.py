@@ -96,8 +96,8 @@ def check_model_names(names: object, expected: dict) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Evaluate on val by default; use --split test --final-test for final reporting")
-    parser.add_argument("--weights", default="results/baseline_01/weights/best.pt")
-    parser.add_argument("--data", default="configs/dataset.yaml")
+    parser.add_argument("--weights", required=True, help="Existing trained weights")
+    parser.add_argument("--data", required=True, help="Dataset configuration for these weights")
     parser.add_argument("--split", choices=("val", "test"), default="val")
     parser.add_argument("--final-test", action="store_true", help="Requires --split test, a completed baseline record, and a recorded best/last checkpoint")
     parser.add_argument("--name")

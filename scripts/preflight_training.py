@@ -90,7 +90,7 @@ def run(args) -> dict:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--config", default="configs/baseline.yaml")
+    parser.add_argument("--config", required=True, help="Explicit detection training plan")
     parser.add_argument("--output", default="results/preflight_01")
     parser.add_argument("--batch", type=int)
     parser.add_argument("--device")

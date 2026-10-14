@@ -63,7 +63,7 @@ def candidates(raw: Path, output: Path, dhash_distance: int = 8, phash_distance:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--raw", default="dataset/derived/source_v1")
+    parser.add_argument("--raw", required=True, help="Image source directory to inspect")
     parser.add_argument("--output", required=True)
     parser.add_argument("--dhash-distance", type=int, default=8)
     parser.add_argument("--phash-distance", type=int, default=10)
