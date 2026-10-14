@@ -7,7 +7,7 @@ import json
 import tempfile
 from pathlib import Path
 
-from .common import IMAGE_SUFFIXES, config_path, project_path, sha256, utc_now, validate_run_name, write_json
+from .common import IMAGE_SUFFIXES, config_path, project_path, publish_path, sha256, utc_now, validate_run_name, write_json
 
 
 def unique_fields(pairs: list[tuple]) -> dict:
@@ -19,13 +19,11 @@ def unique_fields(pairs: list[tuple]) -> dict:
     return result
 
 
-def build_plan(manifest: Path, output: Path) -> dict:
-    """Validate every box and source before creating any output directory."""
+def read_plan(manifest: Path) -> dict:
+    """Read and validate the original crop specification without writing files."""
     from PIL import Image
 
-    manifest, output = manifest.resolve(), output.resolve()
-    if output.exists() or output.is_symlink():
-        raise FileExistsError(f"Crop output already exists: {output}")
+    manifest = manifest.resolve()
     content = manifest.read_bytes()
     digest = hashlib.sha256(content).hexdigest()
     data = json.loads(content.decode("utf-8-sig"), object_pairs_hook=unique_fields)
@@ -51,8 +49,6 @@ def build_plan(manifest: Path, output: Path) -> dict:
         if "label" in item and (not isinstance(item["label"], str) or not item["label"].strip()):
             raise ValueError("Optional label must be a non-empty string")
         source = config_path(item["source"], "source", manifest.parent)
-        if source.parent == output or source.parent in output.parents:
-            raise ValueError("Crop output must be outside the source image directory")
         if source not in sources:
             if source.suffix.lower() not in IMAGE_SUFFIXES:
                 raise ValueError(f"Unsupported source image: {source}")
@@ -83,10 +79,23 @@ def build_plan(manifest: Path, output: Path) -> dict:
                   "source_size": size, "crop_size": {"width": x2 - x1, "height": y2 - y1},
                   "output_file": f"images/{item['id']}.png"}
         items.append(record)
-    plan = {"manifest": str(manifest), "manifest_sha256": digest, "output": str(output),
+    plan = {"manifest": str(manifest), "manifest_sha256": digest,
             "sources": list(sources.values()), "items": items}
     require_unchanged_inputs(plan)
     return plan
+
+
+def build_plan(manifest: Path, output: Path) -> dict:
+    """Validate every box and source before creating any output directory."""
+    output = output.resolve()
+    if output.exists() or output.is_symlink():
+        raise FileExistsError(f"Crop output already exists: {output}")
+    plan = read_plan(manifest)
+    for source in plan["sources"]:
+        directory = Path(source["path"]).parent
+        if output == directory or directory in output.parents:
+            raise ValueError("Crop output must be outside the source image directory")
+    return {**plan, "output": str(output)}
 
 
 def require_unchanged_inputs(plan: dict) -> None:
@@ -113,18 +122,16 @@ def prepare(plan: dict) -> dict:
         for item in plan["items"]:
             destination = staged / item["output_file"]
             with Image.open(item["source"]) as image:
-                crop = image.crop(tuple(item["box_xyxy"])).convert("RGB")
-                crop.info.clear()
-                crop.save(destination, format="PNG")
+                with image.crop(tuple(item["box_xyxy"])).convert("RGB") as crop:
+                    crop.info.clear()
+                    crop.save(destination, format="PNG")
             records.append({**item, "output_sha256": sha256(destination)})
         require_unchanged_inputs(plan)
         report = {"format_version": 1, "purpose": "goggles_head_crops", "status": "complete", "created_at": utc_now(),
                   "source_manifest": plan["manifest"], "source_manifest_sha256": plan["manifest_sha256"],
                   "sources": plan["sources"], "crops": records, "visual_review_completed": False}
         write_json(staged / "crops_manifest.json", report)
-        if output.exists() or output.is_symlink():
-            raise FileExistsError(f"Crop output appeared during preparation: {output}")
-        staged.rename(output)
+        publish_path(staged, output)
     return report
 
 

@@ -8,7 +8,7 @@ import zipfile
 from pathlib import Path
 from unittest.mock import patch
 
-from src import check_dataset, evaluate, import_data, predict, prepare_dataset, prepare_head_crops, review_dataset, source_review, train
+from src import check_dataset, check_head_crops, evaluate, import_data, predict, prepare_dataset, prepare_head_crops, review_dataset, source_review, split_head_crops, train
 from src.common import sha256
 
 
@@ -29,6 +29,8 @@ class TaskCleanupTests(unittest.TestCase):
             (import_data.main, ["import"], "--archive"),
             (source_review.main, ["audit", "--raw", "source", "--output", "audit"], "--classes"),
             (prepare_head_crops.main, ["heads"], "--manifest"),
+            (check_head_crops.main, ["head-check"], "--crops"),
+            (split_head_crops.main, ["head-split", "--crops", "heads", "--output", "split"], "--classes"),
         )
         for main, argv, required in cases:
             stderr = io.StringIO()

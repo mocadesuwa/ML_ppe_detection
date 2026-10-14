@@ -9,5 +9,7 @@
 - 预测与评价：显式提供`--weights`。
 - 原始VOC数据核查：显式提供`--raw`、`--classes`和`--output`。
 - 头像准备：显式提供`--manifest`和新`--output`，可先`--dry-run`检查计划。
+- 头像完整性核查：`src.check_head_crops --crops`只读检查，不生成质量通过记录。
+- 头像分组计划：`src.split_head_crops`显式提供`--crops`、`--classes`和新`--output`，可先`--dry-run`；类别仍须实际确认，不使用示例中性标签替代。
 
 任务契约明确后在此建立护目镜配置，绑定独立数据版本。类别含义应依据实际样本和标注规范确定，不以测试中的中性标签代替业务类别。

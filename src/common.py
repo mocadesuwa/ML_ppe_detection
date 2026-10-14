@@ -5,6 +5,7 @@ import hashlib
 import json
 import os
 import re
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -44,7 +45,24 @@ def write_json(path: Path, value: object) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_suffix(path.suffix + ".part")
     temporary.write_text(json.dumps(value, ensure_ascii=False, indent=2, allow_nan=False), encoding="utf-8")
-    temporary.replace(path)
+    publish_path(temporary, path, overwrite=True)
+
+
+def publish_path(staged: Path, output: Path, *, overwrite: bool = False) -> None:
+    """Bound Windows access/sharing retries while retaining atomic rename/replace."""
+    for attempt in range(6):
+        if not overwrite and (output.exists() or output.is_symlink()):
+            raise FileExistsError(f"Output appeared during publication: {output}")
+        try:
+            if overwrite:
+                staged.replace(output)
+            else:
+                staged.rename(output)
+            return
+        except PermissionError as error:
+            if getattr(error, "winerror", None) not in {5, 32, 33} or attempt == 5:
+                raise
+            time.sleep(0.05 * 2 ** attempt)
 
 
 def load_yaml(path: Path) -> dict:
