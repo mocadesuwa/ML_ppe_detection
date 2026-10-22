@@ -14,6 +14,8 @@
 | 实际训练 | 两轮短跑18次更新；基线11轮99次更新，骨干冻结及最佳检查点重载通过 |
 | 训练运行峰值已分配显存 | 两次均约76.53 MiB，包含训练及重载验证，不等于整机GPU占用 |
 
+以上训练次数为第一轮历史记录。第二轮使用同一虚拟环境，未安装依赖：新短跑26次更新，control143次、groups/uniform各182次；四次运行冻结、头更新与最佳权重重载均通过，峰值已分配仍约76.53MiB。当前比较见[改进状态](goggles_improvement_status.json)，完整预检和模型均保存在本地新目录。
+
 完整环境报告保存在本地`results/environment_goggles_classification_20261022.json`，真实无梯度证据为`results/preflight_goggles_v1/report.json`；可同步摘要见[训练前状态](pretraining_status.json)。原图准备和回归使用已有系统Python/Pillow，真实模型前向使用项目虚拟环境。
 
 新增依赖按用户授权仅安装到项目虚拟环境，不安装到系统Python。历史依赖清单见[requirements.txt](../requirements.txt)及[锁定文件](../requirements-lock.txt)；本轮未修改它们。当前模型初始权重来源见[分类初始权重](initial_classification_weights.json)，旧[通用检测权重](initial_weights.json)不用于本次分类。

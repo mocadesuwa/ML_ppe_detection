@@ -1,0 +1,139 @@
+{
+  "format_version": 1,
+  "selected_at": "2026-10-22T11:50:41.818391+00:00",
+  "protocol_sha256": "9a0192087f8d70ef60f9cc35ef661927735761523723f860bf75634c95fbcf17",
+  "dataset_fingerprint": "5859b079a61f07f9436f5a7c75383d9c8854fe73fb98c0211cb4045643ae550c",
+  "source_code_commit": "559e2cc",
+  "selected_before_any_new_test_forward": true,
+  "rule": "Highest best validation macro-F1, then validation accuracy at that epoch, then earlier candidate order. No threshold tuning.",
+  "candidates": [
+    {
+      "id": "control",
+      "name": "goggles_v2_control",
+      "config": "configs/goggles_classification_v2_control.yaml",
+      "config_sha256": "2e7790cbee3d54743e6c51076e0ade92f66b685dcb4f1390b062fbed8931e78a",
+      "weights": "results/classification/goggles_v2_control/best.pt",
+      "weights_sha256": "c66432ef67e71efb9341c7aceed7a2291e1f45cf4de313548ad3d9a03c6be8d7",
+      "epochs_completed": 11,
+      "gradient_updates": 143,
+      "best_epoch": 3,
+      "val_macro_f1": 0.8493589743589743,
+      "val_accuracy": 0.9148936170212766,
+      "val_per_class": [
+        {
+          "class_id": 0,
+          "name": "not_wearing_goggles",
+          "support": 38,
+          "precision": 0.925,
+          "recall": 0.9736842105263158,
+          "f1": 0.9487179487179487
+        },
+        {
+          "class_id": 1,
+          "name": "wearing_goggles",
+          "support": 9,
+          "precision": 0.8571428571428571,
+          "recall": 0.6666666666666666,
+          "f1": 0.75
+        }
+      ],
+      "order": 0
+    },
+    {
+      "id": "groups",
+      "name": "goggles_v2_groups",
+      "config": "configs/goggles_classification_v2_groups.yaml",
+      "config_sha256": "1a80ebf14598b7dccb9dc05f44cf958e9f67551dea8b4805c445252fd1364964",
+      "weights": "results/classification/goggles_v2_groups/best.pt",
+      "weights_sha256": "7a7578ab4cebb689bcf6e74afa90aef2c6d40a05974f5cc104901284db3ab4c2",
+      "epochs_completed": 14,
+      "gradient_updates": 182,
+      "best_epoch": 6,
+      "val_macro_f1": 0.7134146341463414,
+      "val_accuracy": 0.8723404255319149,
+      "val_per_class": [
+        {
+          "class_id": 0,
+          "name": "not_wearing_goggles",
+          "support": 38,
+          "precision": 0.8636363636363636,
+          "recall": 1.0,
+          "f1": 0.926829268292683
+        },
+        {
+          "class_id": 1,
+          "name": "wearing_goggles",
+          "support": 9,
+          "precision": 1.0,
+          "recall": 0.3333333333333333,
+          "f1": 0.5
+        }
+      ],
+      "order": 1
+    },
+    {
+      "id": "uniform",
+      "name": "goggles_v2_uniform",
+      "config": "configs/goggles_classification_v2_uniform.yaml",
+      "config_sha256": "15931c667db9acfb25082812610df636a2f37b1ea50601a0ab88c1b835478306",
+      "weights": "results/classification/goggles_v2_uniform/best.pt",
+      "weights_sha256": "855738b3067e961447a6bffe71756e48ad41e7431d1eae27b08e2da264228ceb",
+      "epochs_completed": 14,
+      "gradient_updates": 182,
+      "best_epoch": 6,
+      "val_macro_f1": 0.5523809523809524,
+      "val_accuracy": 0.8297872340425532,
+      "val_per_class": [
+        {
+          "class_id": 0,
+          "name": "not_wearing_goggles",
+          "support": 38,
+          "precision": 0.8260869565217391,
+          "recall": 1.0,
+          "f1": 0.9047619047619048
+        },
+        {
+          "class_id": 1,
+          "name": "wearing_goggles",
+          "support": 9,
+          "precision": 1.0,
+          "recall": 0.1111111111111111,
+          "f1": 0.2
+        }
+      ],
+      "order": 2
+    }
+  ],
+  "selected": {
+    "id": "control",
+    "name": "goggles_v2_control",
+    "config": "configs/goggles_classification_v2_control.yaml",
+    "config_sha256": "2e7790cbee3d54743e6c51076e0ade92f66b685dcb4f1390b062fbed8931e78a",
+    "weights": "results/classification/goggles_v2_control/best.pt",
+    "weights_sha256": "c66432ef67e71efb9341c7aceed7a2291e1f45cf4de313548ad3d9a03c6be8d7",
+    "epochs_completed": 11,
+    "gradient_updates": 143,
+    "best_epoch": 3,
+    "val_macro_f1": 0.8493589743589743,
+    "val_accuracy": 0.9148936170212766,
+    "val_per_class": [
+      {
+        "class_id": 0,
+        "name": "not_wearing_goggles",
+        "support": 38,
+        "precision": 0.925,
+        "recall": 0.9736842105263158,
+        "f1": 0.9487179487179487
+      },
+      {
+        "class_id": 1,
+        "name": "wearing_goggles",
+        "support": 9,
+        "precision": 0.8571428571428571,
+        "recall": 0.6666666666666666,
+        "f1": 0.75
+      }
+    ],
+    "order": 0
+  }
+}

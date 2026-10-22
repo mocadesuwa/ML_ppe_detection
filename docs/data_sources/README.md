@@ -4,7 +4,7 @@
 
 - [新增SH17原140张](sh17_expansion_140_20261022.json)、[逐项复核](goggles_v3_expansion_review.json)记录原图和原VOC哈希、110张保留/30张排除及实际查看范围。
 - [v3头像框](goggles_v3_head_plan.json)、[v3质量记录](goggles_v3_quality_review.json)、[v3固定划分](goggles_v3_split_assignments.json)对应272张实验数据，201/47/24；旧29张测试头像封存、不进入本轮数据。
-- 新实验、选择规则与新保留集约束见[改进方案](../goggles_improvement_plan.md)，实际结果另行记录。
+- 新实验、选择规则与新保留集约束见[改进方案](../goggles_improvement_plan.md)，实际同集比较见[改进报告](../goggles_improvement_report.md)；旧数据和结果均未覆盖。
 
 - [PPEs原100张来源](ppes_v7_review_100_20261022.json)保留首次下载哈希与抽查。
 - [SH17作者原80张来源](sh17_original_80_20261022.json)固定Kaggle版本1，逐图/原VOC可追溯；镜像仅定位候选。

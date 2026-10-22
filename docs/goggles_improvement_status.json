@@ -1,0 +1,420 @@
+{
+  "format_version": 1,
+  "status": "controlled_experiments_and_fresh_comparison_complete",
+  "recorded_at": "2026-10-22T11:59:23.314354+00:00",
+  "source_code_commit": "559e2cc",
+  "data_version": "v3",
+  "dataset_fingerprint": "5859b079a61f07f9436f5a7c75383d9c8854fe73fb98c0211cb4045643ae550c",
+  "new_original_images": 140,
+  "new_accepted_heads": 110,
+  "new_excluded_heads": 30,
+  "new_positive_heads": 18,
+  "new_negative_heads": 92,
+  "total_available_heads": 301,
+  "old_test_quarantined": 29,
+  "experiment_heads": 272,
+  "counts": {
+    "train": {
+      "not_wearing_goggles": 157,
+      "wearing_goggles": 44
+    },
+    "val": {
+      "not_wearing_goggles": 38,
+      "wearing_goggles": 9
+    },
+    "test": {
+      "not_wearing_goggles": 18,
+      "wearing_goggles": 6
+    }
+  },
+  "training_source_groups": 72,
+  "training_positive_groups": 8,
+  "fresh_test_groups": 20,
+  "fresh_test_positive_groups": 4,
+  "regression_tests": 212,
+  "regression_result": "PASS",
+  "smoke": {
+    "gradient_updates": 26,
+    "best_epoch": 1,
+    "best_val_macro_f1": 0.4470588235294118,
+    "elapsed_seconds": 108.64968249999947,
+    "peak_allocated_mib": 76.5322265625,
+    "frozen_features_unchanged": true,
+    "classifier_updated": true,
+    "checkpoint_reload_verified": true
+  },
+  "selection": {
+    "format_version": 1,
+    "selected_at": "2026-10-22T11:50:41.818391+00:00",
+    "protocol_sha256": "9a0192087f8d70ef60f9cc35ef661927735761523723f860bf75634c95fbcf17",
+    "dataset_fingerprint": "5859b079a61f07f9436f5a7c75383d9c8854fe73fb98c0211cb4045643ae550c",
+    "source_code_commit": "559e2cc",
+    "selected_before_any_new_test_forward": true,
+    "rule": "Highest best validation macro-F1, then validation accuracy at that epoch, then earlier candidate order. No threshold tuning.",
+    "candidates": [
+      {
+        "id": "control",
+        "name": "goggles_v2_control",
+        "config": "configs/goggles_classification_v2_control.yaml",
+        "config_sha256": "2e7790cbee3d54743e6c51076e0ade92f66b685dcb4f1390b062fbed8931e78a",
+        "weights": "results/classification/goggles_v2_control/best.pt",
+        "weights_sha256": "c66432ef67e71efb9341c7aceed7a2291e1f45cf4de313548ad3d9a03c6be8d7",
+        "epochs_completed": 11,
+        "gradient_updates": 143,
+        "best_epoch": 3,
+        "val_macro_f1": 0.8493589743589743,
+        "val_accuracy": 0.9148936170212766,
+        "val_per_class": [
+          {
+            "class_id": 0,
+            "name": "not_wearing_goggles",
+            "support": 38,
+            "precision": 0.925,
+            "recall": 0.9736842105263158,
+            "f1": 0.9487179487179487
+          },
+          {
+            "class_id": 1,
+            "name": "wearing_goggles",
+            "support": 9,
+            "precision": 0.8571428571428571,
+            "recall": 0.6666666666666666,
+            "f1": 0.75
+          }
+        ],
+        "order": 0
+      },
+      {
+        "id": "groups",
+        "name": "goggles_v2_groups",
+        "config": "configs/goggles_classification_v2_groups.yaml",
+        "config_sha256": "1a80ebf14598b7dccb9dc05f44cf958e9f67551dea8b4805c445252fd1364964",
+        "weights": "results/classification/goggles_v2_groups/best.pt",
+        "weights_sha256": "7a7578ab4cebb689bcf6e74afa90aef2c6d40a05974f5cc104901284db3ab4c2",
+        "epochs_completed": 14,
+        "gradient_updates": 182,
+        "best_epoch": 6,
+        "val_macro_f1": 0.7134146341463414,
+        "val_accuracy": 0.8723404255319149,
+        "val_per_class": [
+          {
+            "class_id": 0,
+            "name": "not_wearing_goggles",
+            "support": 38,
+            "precision": 0.8636363636363636,
+            "recall": 1.0,
+            "f1": 0.926829268292683
+          },
+          {
+            "class_id": 1,
+            "name": "wearing_goggles",
+            "support": 9,
+            "precision": 1.0,
+            "recall": 0.3333333333333333,
+            "f1": 0.5
+          }
+        ],
+        "order": 1
+      },
+      {
+        "id": "uniform",
+        "name": "goggles_v2_uniform",
+        "config": "configs/goggles_classification_v2_uniform.yaml",
+        "config_sha256": "15931c667db9acfb25082812610df636a2f37b1ea50601a0ab88c1b835478306",
+        "weights": "results/classification/goggles_v2_uniform/best.pt",
+        "weights_sha256": "855738b3067e961447a6bffe71756e48ad41e7431d1eae27b08e2da264228ceb",
+        "epochs_completed": 14,
+        "gradient_updates": 182,
+        "best_epoch": 6,
+        "val_macro_f1": 0.5523809523809524,
+        "val_accuracy": 0.8297872340425532,
+        "val_per_class": [
+          {
+            "class_id": 0,
+            "name": "not_wearing_goggles",
+            "support": 38,
+            "precision": 0.8260869565217391,
+            "recall": 1.0,
+            "f1": 0.9047619047619048
+          },
+          {
+            "class_id": 1,
+            "name": "wearing_goggles",
+            "support": 9,
+            "precision": 1.0,
+            "recall": 0.1111111111111111,
+            "f1": 0.2
+          }
+        ],
+        "order": 2
+      }
+    ],
+    "selected": {
+      "id": "control",
+      "name": "goggles_v2_control",
+      "config": "configs/goggles_classification_v2_control.yaml",
+      "config_sha256": "2e7790cbee3d54743e6c51076e0ade92f66b685dcb4f1390b062fbed8931e78a",
+      "weights": "results/classification/goggles_v2_control/best.pt",
+      "weights_sha256": "c66432ef67e71efb9341c7aceed7a2291e1f45cf4de313548ad3d9a03c6be8d7",
+      "epochs_completed": 11,
+      "gradient_updates": 143,
+      "best_epoch": 3,
+      "val_macro_f1": 0.8493589743589743,
+      "val_accuracy": 0.9148936170212766,
+      "val_per_class": [
+        {
+          "class_id": 0,
+          "name": "not_wearing_goggles",
+          "support": 38,
+          "precision": 0.925,
+          "recall": 0.9736842105263158,
+          "f1": 0.9487179487179487
+        },
+        {
+          "class_id": 1,
+          "name": "wearing_goggles",
+          "support": 9,
+          "precision": 0.8571428571428571,
+          "recall": 0.6666666666666666,
+          "f1": 0.75
+        }
+      ],
+      "order": 0
+    }
+  },
+  "selected_validation": {
+    "image_count": 47,
+    "accuracy": 0.9148936170212766,
+    "macro_f1": 0.8493589743589743,
+    "per_class": [
+      {
+        "class_id": 0,
+        "name": "not_wearing_goggles",
+        "support": 38,
+        "precision": 0.925,
+        "recall": 0.9736842105263158,
+        "f1": 0.9487179487179487
+      },
+      {
+        "class_id": 1,
+        "name": "wearing_goggles",
+        "support": 9,
+        "precision": 0.8571428571428571,
+        "recall": 0.6666666666666666,
+        "f1": 0.75
+      }
+    ],
+    "confusion_matrix": [
+      [
+        37,
+        1
+      ],
+      [
+        3,
+        6
+      ]
+    ],
+    "confusion_matrix_axes": "rows=true, columns=predicted",
+    "zero_division": 0
+  },
+  "paired_fresh_benchmark": {
+    "images": 24,
+    "same_ordered_ids": true,
+    "old_model": {
+      "image_count": 24,
+      "accuracy": 0.5833333333333334,
+      "macro_f1": 0.5555555555555556,
+      "per_class": [
+        {
+          "class_id": 0,
+          "name": "not_wearing_goggles",
+          "support": 18,
+          "precision": 0.8333333333333334,
+          "recall": 0.5555555555555556,
+          "f1": 0.6666666666666666
+        },
+        {
+          "class_id": 1,
+          "name": "wearing_goggles",
+          "support": 6,
+          "precision": 0.3333333333333333,
+          "recall": 0.6666666666666666,
+          "f1": 0.4444444444444444
+        }
+      ],
+      "confusion_matrix": [
+        [
+          10,
+          8
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "confusion_matrix_axes": "rows=true, columns=predicted",
+      "zero_division": 0
+    },
+    "selected_model": {
+      "image_count": 24,
+      "accuracy": 0.7916666666666666,
+      "macro_f1": 0.7051597051597052,
+      "per_class": [
+        {
+          "class_id": 0,
+          "name": "not_wearing_goggles",
+          "support": 18,
+          "precision": 0.8421052631578947,
+          "recall": 0.8888888888888888,
+          "f1": 0.8648648648648649
+        },
+        {
+          "class_id": 1,
+          "name": "wearing_goggles",
+          "support": 6,
+          "precision": 0.6,
+          "recall": 0.5,
+          "f1": 0.5454545454545454
+        }
+      ],
+      "confusion_matrix": [
+        [
+          16,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "confusion_matrix_axes": "rows=true, columns=predicted",
+      "zero_division": 0
+    },
+    "accuracy_delta_percentage_points": 20.833333333333325,
+    "macro_f1_delta": 0.14960414960414958,
+    "majority_baseline_accuracy": 0.75,
+    "new_errors": [
+      "sh17_p10871712",
+      "sh17_p375903",
+      "sh17_p209271",
+      "sh17_p9875406",
+      "sh17_p9875418"
+    ],
+    "old_model_errors": [
+      "sh17_p10347138",
+      "sh17_p10871712",
+      "sh17_p18079568",
+      "sh17_p375903",
+      "sh17_p3808818",
+      "sh17_p3811829",
+      "sh17_p5619458",
+      "sh17_p5647259",
+      "sh17_p9875406",
+      "sh17_p9875418"
+    ],
+    "old_test_not_rerun": true,
+    "selection_precedes_both_test_runs": true,
+    "wearing_recall_delta_percentage_points": -16.666666666666664,
+    "false_wearing_counts": {
+      "old": 8,
+      "selected": 2
+    },
+    "missed_wearing_counts": {
+      "old": 2,
+      "selected": 3
+    }
+  },
+  "old_artifacts_unchanged": true,
+  "selected_weights": "results/classification/goggles_v2_control/best.pt",
+  "selected_weights_sha256": "c66432ef67e71efb9341c7aceed7a2291e1f45cf4de313548ad3d9a03c6be8d7",
+  "full_run_summaries": {
+    "control": {
+      "best_epoch": 3,
+      "best_val_macro_f1": 0.8493589743589743,
+      "gradient_updates": 143,
+      "elapsed_seconds": 274.3147121000002,
+      "peak_allocated_mib": 76.5322265625,
+      "frozen_features_unchanged": true,
+      "classifier_updated": true,
+      "checkpoint_reload_verified": true
+    },
+    "groups": {
+      "best_epoch": 6,
+      "best_val_macro_f1": 0.7134146341463414,
+      "gradient_updates": 182,
+      "elapsed_seconds": 550.876085200005,
+      "peak_allocated_mib": 76.5322265625,
+      "frozen_features_unchanged": true,
+      "classifier_updated": true,
+      "checkpoint_reload_verified": true
+    },
+    "uniform": {
+      "best_epoch": 6,
+      "best_val_macro_f1": 0.5523809523809524,
+      "gradient_updates": 182,
+      "elapsed_seconds": 488.2113676999943,
+      "peak_allocated_mib": 76.5322265625,
+      "frozen_features_unchanged": true,
+      "classifier_updated": true,
+      "checkpoint_reload_verified": true
+    }
+  },
+  "limitations": [
+    "Only 24 fresh test heads, 6 positives in 4 known groups.",
+    "Unknown original photographer/person relationships remain.",
+    "Codex visual review without an independent second annotator.",
+    "Public industrial/stock domain; no real laboratory deployment validation.",
+    "Softmax scores uncalibrated; one training seed; no statistical significance or general deployment claim."
+  ],
+  "evidence_sha256": {
+    "protocol": {
+      "file": "docs/goggles_improvement_protocol.json",
+      "sha256": "9a0192087f8d70ef60f9cc35ef661927735761523723f860bf75634c95fbcf17"
+    },
+    "selection": {
+      "file": "docs/goggles_improvement_selection.json",
+      "sha256": "ef5939ac42aeb9820258d239b8b794138122ad8783b36a92f487c4e38dc52b07"
+    },
+    "smoke": {
+      "file": "results/classification/goggles_v2_smoke/experiment.json",
+      "sha256": "934b3679798662c83c692437c001f88a14df39c99fe88c694ee467bb4a659e66"
+    },
+    "validation": {
+      "file": "results/classification_evaluations/goggles_v2_selected_validation/metrics.json",
+      "sha256": "126ebfbc9485fae5bf6000c4ae4af7b7ee745c403742a8e09195c30c8667ec61"
+    },
+    "old_fresh_test": {
+      "file": "results/classification_evaluations/goggles_v1_on_v3_benchmark/metrics.json",
+      "sha256": "1298ccf99c86ca1c69cd55efe94aa8f98ae3e8671042b373dfa1ae5ec9fd553c"
+    },
+    "selected_test": {
+      "file": "results/classification_evaluations/goggles_v2_selected_test/metrics.json",
+      "sha256": "2d4accd1371e0a6c726a805745a94c97279e10fcf695d2192feab86d914031ac"
+    },
+    "prediction_examples": {
+      "file": "results/classification_predictions/goggles_v2_examples/run.json",
+      "sha256": "bbc96466c9d9ca409f44ab6703e3333174405c7e9ffc0f306326390e5c14e764"
+    },
+    "control": {
+      "file": "results/classification/goggles_v2_control/experiment.json",
+      "sha256": "58ad66d31b77247f1505de25266ab8e671bdaf6f4106e812593d31c425846546"
+    },
+    "groups": {
+      "file": "results/classification/goggles_v2_groups/experiment.json",
+      "sha256": "151cd27549de3f6a0ea9cfff6e26ba3edc42a90bc6a5d6c9f4892670ec5e17b9"
+    },
+    "uniform": {
+      "file": "results/classification/goggles_v2_uniform/experiment.json",
+      "sha256": "49ab06bc386577d84908beca28b031ab74903e0f933174b1c2ea5fbc571d18c8"
+    }
+  },
+  "assessment": {
+    "accuracy_and_macro_f1_improved_on_same_fresh_test": true,
+    "wearing_recall_decreased": true,
+    "deployment_readiness_established": false
+  },
+  "sampling_positive_fractions": {
+    "shuffle": 0.21890547263681592,
+    "source_group_balanced": 0.10092592592592592
+  }
+}
