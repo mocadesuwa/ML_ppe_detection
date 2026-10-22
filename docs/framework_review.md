@@ -2,7 +2,11 @@
 
 更新日期：2026-10-22。用户已确认静态头部头像二分类，仅输出佩戴状态、不输出框，详见[需求](goggles_requirements.md)。当前为272张v3数据上的第二轮改进，实际对照与同一新保留集结果见[改进报告](goggles_improvement_report.md)；第一轮191张数据与旧模型保留历史。
 
-## 代码职责
+## 护目镜主流程
+
+原图和原标注 → 显式复核与头部框 → `prepare_head_crops` → `check_head_crops` → `split_head_crops` → `classification_data` → 分类预检 → 分类训练、评价与预测。
+
+当前数据统一在`dataset/goggles/`，当前模型和评价在`results/classification*`；具体目录见[数据目录说明](../dataset/README.md)，当前与历史配置见[配置索引](../configs/README.md)。
 
 | 文件 | 职责 |
 | --- | --- |
@@ -17,19 +21,26 @@
 | `src/classification_model.py` | 分类检查点契约、完成运行/最佳权重绑定、两类指标与概率输出检查 |
 | `src/evaluate_classification.py` | 分类验证/最终测试、逐图分数与错误记录，最终测试仅允许完成的基线且防止重复尝试 |
 | `src/predict_classification.py` | 已裁剪静态头像的类别预测，逐图JSONL与输入/权重完整性检查 |
-| `src/prepare_dataset.py` | VOC到YOLO转换、去重、来源分组与固定划分 |
-| `src/check_dataset.py` | 检测标签、清单和划分校验，生成标注抽查拼图 |
-| `src/review_dataset.py` | 记录实际人工核查并绑定数据指纹 |
 | `src/environment.py` | 查询现有Python、依赖和GPU环境 |
-| `src/train.py` | 显式训练计划，`--dry-run`不读取真实数据内容或加载模型 |
-| `src/evaluate.py` | 显式数据/权重、类别一致性、训练来源及最终测试约束 |
-| `src/predict.py` | 静态图片预检、逐张预测及JSONL/成功失败记录 |
 | `scripts/find_related_images.py` | 相似图片候选，不自动判断人物或来源组 |
-| `scripts/preflight_training.py` | 显式检测配置的无梯度预检，不能代替训练或任务评价 |
 | `scripts/preflight_classification.py` | 当前分类数据加载、变换、官方初始模型与CUDA eval前向；不构建优化器、不训练 |
 | `scripts/demo_head_crops.py` | 纯合成头像流程演示，不生成业务标签或训练数据 |
 
-当前护目镜使用独立分类路径，不强行把头像标签转换为检测框。既有VOC/YOLO转换、`src.train`、`src.evaluate`、`src.predict`保留通用检测约束，不用于本次头像分类；本次成果来自独立分类入口的真实训练和评价。
+## 通用检测基础
+
+下列工具接受调用者显式提供的类别和路径，不包含专用业务类别。分组算法和静态图片预检也供头像分类流程复用，因此保留在通用框架中。
+
+| 文件 | 职责 |
+| --- | --- |
+| `src/prepare_dataset.py` | VOC到YOLO转换、去重、来源分组与固定划分；头像划分复用其中的分组算法 |
+| `src/check_dataset.py` | 检测标签、清单和划分校验，生成标注抽查拼图 |
+| `src/review_dataset.py` | 记录实际人工核查并绑定数据指纹 |
+| `src/train.py` | 显式检测训练计划，`--dry-run`不读取真实数据内容或加载模型 |
+| `src/evaluate.py` | 显式检测数据/权重、类别一致性、训练来源及最终测试约束 |
+| `src/predict.py` | 静态图片预检及检测结果；分类预测复用其中的静态输入检查 |
+| `scripts/preflight_training.py` | 显式检测配置的无梯度预检 |
+
+当前护目镜使用独立分类入口，输出佩戴状态和两类分数。旧专用业务分支及本地数据/检查输出已清理；通用算法、校验和测试继续保留。完整清理范围及保护核查见[本轮日志](change_logs/2026-10-22-07-remove-mask-data.md)。
 
 第一轮按[分类训练流程](classification_training_workflow.md)完成短跑、基线与冻结测试。分类入口已补齐，损失日志按类别权重分母累计；该阶段203项回归与真实运行证据保留历史，不把回归通过视为模型效果。
 
@@ -51,7 +62,9 @@
 
 输出包含类别表、全部对象、重复冲突、来源哈希与前后不变检查；拒绝覆盖已有输出或写入原始数据内。报告明确`visual_review_completed=false`，程序核查不等同于人工看过图片。本工具不修改、修补或裁剪原始数据。
 
-## 图片结果格式
+## 通用检测结果格式
+
+本节仅描述`src.predict`的扩展接口。当前头像分类由`src.predict_classification`输出类别与两类分数，输入裁剪规则见[需求](goggles_requirements.md)。
 
 - 支持JPG/JPEG、PNG、BMP和静态WebP。空文件、无法校验的图片、动画及单文件视频在模型加载前报错。
 - 目录只筛选直接包含的支持图片，逐张交给后端；没有图片时报错，不一次加载整个数据集。
@@ -59,7 +72,7 @@
 - `run.json`使用`format_version=2`、`image_count`，绑定输入/权重哈希与实际参数，记录`running/complete/failed`。
 - 保留重复/遗漏、框/类别/置信度及内容变化检查；结果先写`.part`，通过完整检查后才发布，失败或中断保留证据。
 
-以上为既有通用检测入口的格式，不能认定输入已经正确裁成头部头像。本次护目镜分类输出由`src.predict_classification`提供类别与两类分数，不包含上述检测框。
+通用检测入口不能认定输入已经正确裁成头部头像。
 
 ## 头像准备
 
