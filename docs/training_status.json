@@ -1,0 +1,218 @@
+{
+  "format_version": 1,
+  "status": "baseline_and_final_test_complete",
+  "recorded_at_beijing": "2026-10-22T18:36:17+08:00",
+  "source_code_commit": "8b3175786120cb07b0f06bec0a61131a09682050",
+  "dataset_fingerprint": "b9176dd923d011a63f7373e126d0997f9959c2e324debc20117140013250e7af",
+  "training_started": true,
+  "dataset_counts": {
+    "train": {
+      "not_wearing_goggles": 97,
+      "wearing_goggles": 36
+    },
+    "val": {
+      "not_wearing_goggles": 24,
+      "wearing_goggles": 5
+    },
+    "test": {
+      "not_wearing_goggles": 24,
+      "wearing_goggles": 5
+    }
+  },
+  "smoke": {
+    "mode": "smoke",
+    "gradient_updates": 18,
+    "best_epoch": 2,
+    "best_val_macro_f1": 0.7410714285714286,
+    "elapsed_seconds": 46.87288059999992,
+    "peak_allocated_mib": 76.5322265625,
+    "trainable_parameters": 592898,
+    "frozen_features_unchanged": true,
+    "classifier_updated": true,
+    "checkpoint_reload_verified": true,
+    "best_weights_sha256": "4061d65dffd1cf638fadfe57d4f4044c8d23b801e3d83da3c6f35a5e38599b52",
+    "code_sha256": {
+      "src/train_classification.py": "e0cf69be2413ee8b9f552b547e3365fe1235e881a7f69f017dae44cf5372a46a",
+      "src/classification_model.py": "0517e1d26c2072ee8c480eee4d207ba966af26e4bbd5259298a1daa9dd52e862",
+      "scripts/preflight_classification.py": "afa785d6f22f12b56a957ec5f4d0effd2f74a95c832cd3734216d8f10611abb7"
+    },
+    "environment": {
+      "torch": "2.11.0+cu128",
+      "torchvision": "0.26.0+cu128",
+      "device": "cuda:0",
+      "gpu": "NVIDIA GeForce RTX 3060 Laptop GPU"
+    },
+    "epochs_completed": 2,
+    "epochs_limit": 2,
+    "stop_reason": "epoch_limit",
+    "initial_weights_sha256": "047dcff4addef86ea5bc2eff13c9614dc11f47ab1160d0a71a25e7db994f4e1f",
+    "config_sha256": "ea4e598a61e22e145825cba31eed2e7d313668b6b5ed57155dc93dd7d7b49e13"
+  },
+  "baseline": {
+    "mode": "baseline",
+    "gradient_updates": 99,
+    "best_epoch": 3,
+    "best_val_macro_f1": 0.7751937984496124,
+    "elapsed_seconds": 84.82464790000085,
+    "peak_allocated_mib": 76.5322265625,
+    "trainable_parameters": 592898,
+    "frozen_features_unchanged": true,
+    "classifier_updated": true,
+    "checkpoint_reload_verified": true,
+    "best_weights_sha256": "ab649ad5020a80e9f0edcd00a9fe75e808b4ed3e3df2d29bc6a4d0e06f4737eb",
+    "code_sha256": {
+      "src/train_classification.py": "e0cf69be2413ee8b9f552b547e3365fe1235e881a7f69f017dae44cf5372a46a",
+      "src/classification_model.py": "0517e1d26c2072ee8c480eee4d207ba966af26e4bbd5259298a1daa9dd52e862",
+      "scripts/preflight_classification.py": "afa785d6f22f12b56a957ec5f4d0effd2f74a95c832cd3734216d8f10611abb7"
+    },
+    "environment": {
+      "torch": "2.11.0+cu128",
+      "torchvision": "0.26.0+cu128",
+      "device": "cuda:0",
+      "gpu": "NVIDIA GeForce RTX 3060 Laptop GPU"
+    },
+    "epochs_completed": 11,
+    "epochs_limit": 30,
+    "stop_reason": "patience_exhausted",
+    "initial_weights_sha256": "047dcff4addef86ea5bc2eff13c9614dc11f47ab1160d0a71a25e7db994f4e1f",
+    "config_sha256": "64bb40122ba0bfe5f0df1ec54ebe8fef0bf94cb5c9112222f8c8b397d43077b2"
+  },
+  "validation": {
+    "image_count": 29,
+    "accuracy": 0.8275862068965517,
+    "macro_f1": 0.7751937984496124,
+    "per_class": [
+      {
+        "class_id": 0,
+        "name": "not_wearing_goggles",
+        "support": 24,
+        "precision": 1.0,
+        "recall": 0.7916666666666666,
+        "f1": 0.8837209302325582
+      },
+      {
+        "class_id": 1,
+        "name": "wearing_goggles",
+        "support": 5,
+        "precision": 0.5,
+        "recall": 1.0,
+        "f1": 0.6666666666666666
+      }
+    ],
+    "confusion_matrix": [
+      [
+        19,
+        5
+      ],
+      [
+        0,
+        5
+      ]
+    ],
+    "confusion_matrix_axes": "rows=true, columns=predicted",
+    "zero_division": 0
+  },
+  "test": {
+    "image_count": 29,
+    "accuracy": 0.6206896551724138,
+    "macro_f1": 0.5054263565891473,
+    "per_class": [
+      {
+        "class_id": 0,
+        "name": "not_wearing_goggles",
+        "support": 24,
+        "precision": 0.8421052631578947,
+        "recall": 0.6666666666666666,
+        "f1": 0.7441860465116279
+      },
+      {
+        "class_id": 1,
+        "name": "wearing_goggles",
+        "support": 5,
+        "precision": 0.2,
+        "recall": 0.4,
+        "f1": 0.26666666666666666
+      }
+    ],
+    "confusion_matrix": [
+      [
+        16,
+        8
+      ],
+      [
+        3,
+        2
+      ]
+    ],
+    "confusion_matrix_axes": "rows=true, columns=predicted",
+    "zero_division": 0
+  },
+  "test_errors": [
+    "sh17_p3760930",
+    "sh17_p3869180",
+    "sh17_p4489706",
+    "sh17_p4492080",
+    "sh17_p6197036",
+    "sh17_p7550433",
+    "sh17_p8761657",
+    "sh17_p9062781",
+    "sh17_p5466163",
+    "sh17_p9242803",
+    "sh17_p9242855"
+  ],
+  "all_negative_evaluation_accuracy": 0.8275862068965517,
+  "final_test_attempts_for_baseline": 1,
+  "test_selection_policy": "No model/epoch/threshold changes after final test; argmax fixed in advance",
+  "prediction_verification": {
+    "single_image_count": 1,
+    "directory_image_count": 4,
+    "source_split": "val",
+    "outputs_without_boxes": true
+  },
+  "regression": {
+    "tests": 203,
+    "result": "PASS",
+    "log": ".cache/regression-2026-10-22-classification-workflow-01.txt"
+  },
+  "local_evidence": {
+    "baseline": "results/classification/goggles_v1_baseline/experiment.json",
+    "best_weights": "results/classification/goggles_v1_baseline/best.pt",
+    "validation": "results/classification_evaluations/goggles_v1_validation/metrics.json",
+    "test": "results/classification_evaluations/goggles_v1_final_test/metrics.json"
+  },
+  "evidence_sha256": {
+    "smoke": "07cc1f033e7cc3484243082d72143306a0905e2f3f3a45267e3e99a603657359",
+    "baseline": "e852080db3582303b1d4cf8fb44def3b0d5e98814aabd4d3c37429ebb778c8ae",
+    "validation": "6d3b7b135a9dac42d78b22909a80fd891277701e6ce1996f901a3a5d380d82fd",
+    "test": "dd308ec68e83ff951d09d45cca1aaa7271999b2d30e8dd65e7f8c7d0060649c7",
+    "final_test_marker": "7a42a3b882aeb36f3f55e387fa64e191fcb68ff9ead439a40d5a9ce5ae5c80ba",
+    "single_prediction": "cdf5e45df5e215301944a1d860c5fa85c154ebc564df7249c11c84cadf1d651e",
+    "directory_prediction": "53eafb9368381e800f79e12723dee3d32aab73390e4cf7405e85e7342b94fab3"
+  },
+  "limitations": [
+    "Small pilot: 5 positive examples in each held-out split.",
+    "Training has 12 explicit source groups, positives in 3 groups; factory images are 120/133.",
+    "No independent second annotator review or real laboratory domain validation.",
+    "No course acceptance threshold specified; softmax probabilities are not calibrated.",
+    "Known source grouping does not establish complete person/photographer independence."
+  ],
+  "assessment": {
+    "generalization": "weak_on_small_frozen_test",
+    "test_false_wearing": 8,
+    "test_missed_wearing": 3,
+    "test_accuracy_below_all_negative_reference": true,
+    "deployment_readiness_established": false
+  },
+  "posthoc_error_inspection": {
+    "reviewer": "Codex",
+    "sample_ids": [
+      "sh17_p3760930",
+      "sh17_p4492080",
+      "sh17_p5466163",
+      "sh17_p9242803"
+    ],
+    "labels_changed": false,
+    "additional_model_forward": false
+  },
+  "test_evaluated": true
+}
