@@ -11,12 +11,28 @@ from PIL import Image
 from src.classification_model import (MODEL, PREPROCESSING, classification_metrics, completed_training_record,
                                       prediction_row, validate_checkpoint_metadata)
 from src.common import sha256, write_json
-from src.evaluate_classification import build_plan
+from src.evaluate_classification import build_plan, independent_benchmark
 from src.predict_classification import run as predict
-from src.train_classification import weighted_loss_totals
+from src.train_classification import source_group_sampling_weights, weighted_loss_totals
 
 
 class ClassificationMetricsTests(unittest.TestCase):
+    def test_source_groups_have_equal_sampling_mass_despite_repeated_frames(self):
+        rows = [{"id": f"frame_{i}", "group": "factory"} for i in range(120)]
+        rows += [{"id": "independent_a", "group": "a"}, {"id": "independent_b", "group": "b"}]
+        ids = [row["id"] for row in reversed(rows)]
+        weights = source_group_sampling_weights(ids, rows)
+        by_id = dict(zip(ids, weights))
+        self.assertAlmostEqual(sum(by_id[f"frame_{i}"] for i in range(120)), 1)
+        self.assertEqual(by_id["independent_a"], 1)
+        self.assertEqual(by_id["independent_b"], 1)
+
+    def test_source_sampler_rejects_missing_duplicate_or_unknown_ids(self):
+        rows = [{"id": "a", "group": "group_a"}, {"id": "b", "group": "group_b"}]
+        for ids in (["a"], ["a", "a"], ["a", "other"]):
+            with self.subTest(ids=ids), self.assertRaises(ValueError):
+                source_group_sampling_weights(ids, rows)
+
     def test_imbalanced_all_negative_baseline_has_zero_positive_recall(self):
         result = classification_metrics([[24, 0], [5, 0]], ["class_0", "class_1"])
         self.assertAlmostEqual(result["accuracy"], 24 / 29)
@@ -154,6 +170,37 @@ class ClassificationProvenanceTests(unittest.TestCase):
             with self.subTest(status=status), self.assertRaises(FileExistsError):
                 self.plan("test", True)
 
+    def test_external_benchmark_cannot_reset_same_dataset_final_test(self):
+        with self.assertRaisesRegex(ValueError, "new dataset"):
+            build_plan(self.config, self.weights, "test", True, "fixture_workflow", benchmark=True)
+
+    def test_new_independent_benchmark_preserves_old_test_marker(self):
+        old_marker = self.root / "final_test.json"
+        write_json(old_marker, {"status": "complete", "historical": True})
+        historical = old_marker.read_bytes()
+        self.record["parameters"]["data"] = str(self.root / "old_data")
+        self.save_record()
+        with patch("src.evaluate_classification.training_plan", return_value=(
+                {"data": str(self.root / "new_data")}, {"dataset_fingerprint": "e" * 64})), \
+             patch("src.evaluate_classification.independent_benchmark", return_value={
+                 "reference_dataset_fingerprint": "f" * 64, "known_overlap_count": 0}) as independent:
+            plan, _ = build_plan(self.config, self.weights, "test", True, "fixture_workflow", benchmark=True)
+            self.assertEqual(Path(plan["marker"]).name, "benchmark_" + "e" * 64 + ".json")
+            self.assertEqual(plan["trained_dataset_fingerprint"], "f" * 64)
+            independent.assert_called_once()
+            write_json(Path(plan["marker"]), {"status": "complete"})
+            with self.assertRaises(FileExistsError):
+                build_plan(self.config, self.weights, "test", True, "fixture_workflow", benchmark=True)
+        self.assertEqual(old_marker.read_bytes(), historical)
+
+    def test_smoke_rejected_before_external_benchmark_inspection(self):
+        self.record["mode"] = "smoke"
+        self.save_record()
+        with patch("src.evaluate_classification.independent_benchmark") as independent:
+            with self.assertRaisesRegex(ValueError, "not a smoke"):
+                build_plan(self.config, self.weights, "test", True, "fixture_workflow", benchmark=True)
+            independent.assert_not_called()
+
     def test_prediction_rejects_invalid_static_source_before_model_loading(self):
         source = self.root / "animated.webp"
         Image.new("RGB", (8, 8), "red").save(source, save_all=True,
@@ -162,6 +209,50 @@ class ClassificationProvenanceTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "static"):
                 predict(self.weights, source, "fixture_invalid")
             load.assert_not_called()
+
+
+class IndependentBenchmarkTests(unittest.TestCase):
+    def setUp(self):
+        self.temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temporary.cleanup)
+        self.root = Path(self.temporary.name)
+        self.old, self.new = self.root / "old", self.root / "new"
+        self.old.mkdir(); self.new.mkdir()
+        self.old_rows = [{"id": name, "group": "group_" + name, "sha256": "png_" + name,
+                          "pixel_sha256": "pixels_" + name} for name in ("train", "val", "test")]
+        self.new_row = {"id": "new", "group": "group_new", "sha256": "png_new", "pixel_sha256": "pixels_new"}
+        self.old_manifest = {"classes": ["class_0", "class_1"], "crop_directory": str(self.old),
+                             "splits": {name: [row] for name, row in zip(("train", "val", "test"), self.old_rows)}}
+        self.new_manifest = {"classes": ["class_0", "class_1"], "crop_directory": str(self.new),
+                             "splits": {"test": [self.new_row]}}
+        write_json(self.old / "manifest.json", self.old_manifest)
+        write_json(self.old / "crops_manifest.json", {"crops": [dict(row, source_sha256="raw_" + row["id"]) for row in self.old_rows]})
+        write_json(self.new / "crops_manifest.json", {"crops": [dict(self.new_row, source_sha256="raw_new")]})
+        self.mock = patch("src.evaluate_classification.inspect_dataset", return_value={"dataset_fingerprint": "f" * 64})
+        self.mock.start(); self.addCleanup(self.mock.stop)
+
+    def check(self):
+        write_json(self.new / "manifest.json", self.new_manifest)
+        return independent_benchmark(self.new, self.old)
+
+    def test_disjoint_benchmark_excludes_all_old_splits(self):
+        result = self.check()
+        self.assertEqual(result["excluded_old_images"], 3)
+        self.assertEqual(result["known_overlap_count"], 0)
+        self.assertEqual(len(result["metadata_sha256"]), 3)
+
+    def test_old_test_ids_groups_or_duplicate_pixels_are_not_new_benchmarks(self):
+        for field in ("id", "group", "sha256", "pixel_sha256"):
+            original = self.new_row[field]
+            self.new_row[field] = self.old_rows[2][field]
+            with self.subTest(field=field), self.assertRaisesRegex(ValueError, "overlaps"):
+                self.check()
+            self.new_row[field] = original
+
+    def test_different_crops_from_same_old_original_are_rejected(self):
+        write_json(self.new / "crops_manifest.json", {"crops": [dict(self.new_row, source_sha256="raw_test")]})
+        with self.assertRaisesRegex(ValueError, "original image bytes"):
+            self.check()
 
 
 if __name__ == "__main__":

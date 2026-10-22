@@ -5,6 +5,7 @@ import argparse
 import json
 import math
 import time
+from collections import Counter
 from pathlib import Path
 
 from scripts.preflight_classification import build_transform, state_hash, validate_runtime_plan
@@ -27,8 +28,11 @@ def training_plan(config: Path) -> tuple[dict, dict]:
             raise ValueError(f"Invalid {key}")
     if plan.get("optimizer") != "AdamW" or type(plan.get("workers")) is not int or plan["workers"] != 0:
         raise ValueError("The first plan uses AdamW and workers=0")
-    if plan.get("class_weighting") != "inverse_train_frequency":
-        raise ValueError("Class weights must use training counts only")
+    if plan.get("class_weighting") not in ("inverse_train_frequency", "none"):
+        raise ValueError("Class weighting must be inverse_train_frequency or none")
+    plan.setdefault("sampling", "shuffle")
+    if plan["sampling"] not in ("shuffle", "source_group_balanced"):
+        raise ValueError("Sampling must be shuffle or source_group_balanced")
     if not isinstance(plan.get("name"), str):
         raise ValueError("A run name is required")
     validate_run_name(plan["name"])
@@ -37,7 +41,8 @@ def training_plan(config: Path) -> tuple[dict, dict]:
             raise ValueError(f"Explicit {key} path is required")
     counts = checked["counts"]["train"]
     total = sum(counts.values())
-    plan["class_weights"] = [total / (len(plan["classes"]) * counts[name]) for name in plan["classes"]]
+    plan["class_weights"] = ([total / (len(plan["classes"]) * counts[name]) for name in plan["classes"]]
+                             if plan["class_weighting"] == "inverse_train_frequency" else [1.0] * len(plan["classes"]))
     return plan, checked
 
 
@@ -61,6 +66,14 @@ def weighted_loss_totals(batch_loss: float, batch_weight: float, numerator: floa
     return numerator + batch_loss * batch_weight, denominator + batch_weight
 
 
+def source_group_sampling_weights(sample_ids: list[str], rows: list[dict]) -> list[float]:
+    by_id = {row["id"]: row["group"] for row in rows}
+    if len(by_id) != len(rows) or len(sample_ids) != len(set(sample_ids)) or set(sample_ids) != set(by_id):
+        raise ValueError("Sampler must cover exactly the frozen training IDs")
+    counts = Counter(by_id.values())
+    return [1.0 / counts[by_id[identifier]] for identifier in sample_ids]
+
+
 def start(config: Path, plan: dict, checked: dict) -> dict:
     require_preflight(config, plan, checked)
     project = project_path(plan["project"])
@@ -80,7 +93,7 @@ def start(config: Path, plan: dict, checked: dict) -> dict:
         local_caches()
         import torch
         import torchvision
-        from torch.utils.data import DataLoader
+        from torch.utils.data import DataLoader, WeightedRandomSampler
         from torchvision.datasets import ImageFolder
         from torchvision.models import mobilenet_v3_small
 
@@ -94,9 +107,16 @@ def start(config: Path, plan: dict, checked: dict) -> dict:
         if any(dataset.class_to_idx != mapping for dataset in datasets.values()):
             raise ValueError("ImageFolder class mapping differs from plan")
         generator = torch.Generator().manual_seed(plan["seed"])
-        loaders = {subset: DataLoader(dataset, batch_size=plan["batch"], shuffle=subset == "train",
-                                     num_workers=0, generator=generator if subset == "train" else None)
-                   for subset, dataset in datasets.items()}
+        sampler = None
+        if plan["sampling"] == "source_group_balanced":
+            rows = read_json(data / "manifest.json")["splits"]["train"]
+            weights = source_group_sampling_weights([Path(path).stem for path, _ in datasets["train"].samples], rows)
+            sampler = WeightedRandomSampler(weights, len(weights), replacement=True, generator=generator)
+            record["sampling"] = {"strategy": plan["sampling"], "source_groups": len({row["group"] for row in rows}),
+                                  "draws_per_epoch": len(weights), "replacement": True}
+        loaders = {"train": DataLoader(datasets["train"], batch_size=plan["batch"], shuffle=sampler is None,
+                                        sampler=sampler, num_workers=0, generator=generator),
+                   "val": DataLoader(datasets["val"], batch_size=plan["batch"], shuffle=False, num_workers=0)}
         network = mobilenet_v3_small(weights=None)
         network.load_state_dict(torch.load(plan["weights"], map_location="cpu", weights_only=True), strict=True)
         network.classifier[-1] = torch.nn.Linear(network.classifier[-1].in_features, len(mapping))

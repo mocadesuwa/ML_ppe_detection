@@ -1,0 +1,54 @@
+{
+  "format_version": 1,
+  "created_at": "2026-10-22T11:25:47.878844+00:00",
+  "status": "locked_before_training",
+  "dataset_fingerprint": "5859b079a61f07f9436f5a7c75383d9c8854fe73fb98c0211cb4045643ae550c",
+  "image_count": 272,
+  "new_accepted_heads": 110,
+  "old_test_quarantined": 29,
+  "candidates": [
+    {
+      "id": "control",
+      "config": "configs/goggles_classification_v2_control.yaml",
+      "config_sha256": "2e7790cbee3d54743e6c51076e0ade92f66b685dcb4f1390b062fbed8931e78a",
+      "sampling": "shuffle",
+      "class_weighting": "inverse_train_frequency",
+      "name": "goggles_v2_control"
+    },
+    {
+      "id": "groups",
+      "config": "configs/goggles_classification_v2_groups.yaml",
+      "config_sha256": "1a80ebf14598b7dccb9dc05f44cf958e9f67551dea8b4805c445252fd1364964",
+      "sampling": "source_group_balanced",
+      "class_weighting": "inverse_train_frequency",
+      "name": "goggles_v2_groups"
+    },
+    {
+      "id": "uniform",
+      "config": "configs/goggles_classification_v2_uniform.yaml",
+      "config_sha256": "15931c667db9acfb25082812610df636a2f37b1ea50601a0ab88c1b835478306",
+      "sampling": "source_group_balanced",
+      "class_weighting": "none",
+      "name": "goggles_v2_uniform"
+    }
+  ],
+  "selection_rule": "Highest best validation macro-F1, then validation accuracy at that epoch, then earlier candidate order. No threshold tuning.",
+  "decision_rule": "argmax",
+  "fresh_test_counts": {
+    "not_wearing_goggles": 18,
+    "wearing_goggles": 6
+  },
+  "final_comparison": "Evaluate original v1 and only the validation-selected v2 on the same new frozen test once each; no old test rerun.",
+  "old_artifacts_sha256": {
+    "results/classification/goggles_v1_baseline/best.pt": "ab649ad5020a80e9f0edcd00a9fe75e808b4ed3e3df2d29bc6a4d0e06f4737eb",
+    "results/classification/goggles_v1_baseline/experiment.json": "e852080db3582303b1d4cf8fb44def3b0d5e98814aabd4d3c37429ebb778c8ae",
+    "results/classification/goggles_v1_baseline/final_test.json": "7a42a3b882aeb36f3f55e387fa64e191fcb68ff9ead439a40d5a9ce5ae5c80ba",
+    "results/classification_evaluations/goggles_v1_final_test/metrics.json": "dd308ec68e83ff951d09d45cca1aaa7271999b2d30e8dd65e7f8c7d0060649c7",
+    "dataset/goggles/classification_v2_20261022/manifest.json": "5e376b473f45abc2b2a26c69b5c52cbb18838f15c6cef8330a10a3dd2535ee7d"
+  },
+  "limitations": [
+    "Assistant review without an independent second annotator.",
+    "New test has only 6 positives in 4 known groups.",
+    "Unknown photographer/person relationships remain."
+  ]
+}

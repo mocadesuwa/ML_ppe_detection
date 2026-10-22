@@ -1,0 +1,5272 @@
+{
+  "format_version": 1,
+  "source": "https://www.kaggle.com/datasets/mugheesahmad/sh17-dataset-for-ppe-detection",
+  "original_dataset_version": 1,
+  "author_repository": "https://github.com/ahmadmughees/SH17dataset",
+  "author_revision": "2f832c289f9deea063367045ed8230b26e3e7ea9",
+  "license_declared_by_author": "CC BY-NC-SA 4.0",
+  "locator_mirror": "https://huggingface.co/datasets/fathansanum/SH-17-Dataset",
+  "locator_revision": "c979be777eaa1c6b5338410788b65926a033e3a0",
+  "locator_role": "Candidate locations only; original author images and VOC annotations used.",
+  "seed": 20261023,
+  "previous_photo_id_buckets_excluded": [
+    110,
+    337,
+    376,
+    384,
+    386,
+    387,
+    393,
+    396,
+    397,
+    403,
+    419,
+    422,
+    424,
+    425,
+    435,
+    447,
+    448,
+    449,
+    455,
+    462,
+    488,
+    523,
+    546,
+    566,
+    568,
+    569,
+    572,
+    584,
+    597,
+    599,
+    612,
+    616,
+    619,
+    620,
+    624,
+    634,
+    676,
+    679,
+    685,
+    718,
+    755,
+    765,
+    772,
+    779,
+    790,
+    797,
+    806,
+    810,
+    819,
+    820,
+    827,
+    835,
+    837,
+    853,
+    876,
+    882,
+    885,
+    894,
+    896,
+    898,
+    906,
+    907,
+    924,
+    935,
+    936,
+    1274,
+    1290,
+    1380,
+    1459,
+    1505,
+    1514,
+    1694,
+    1847
+  ],
+  "records": [
+    {
+      "photo_id": 209230,
+      "file_name": "pexels-photo-209230.jpeg",
+      "mirror_image_id": 4155,
+      "mirror_head_annotation_id": 39034,
+      "mirror_head_box": [
+        338,
+        44,
+        83,
+        147
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 12201,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-209230.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-209230.xml&datasetVersionNumber=1",
+      "image_size": [
+        3872,
+        2592
+      ],
+      "sha256": "28eeb5b329d63a398e30fd9027edff493c3971b236115c0f292233ddd48d6b37",
+      "bytes": 1617893,
+      "voc_file": "pexels-photo-209230.xml",
+      "voc_sha256": "d5a307883deeb7c60e70e53a055326a6cd41f645479ed3b3ac1bd075fab9be5c",
+      "original_head_box_xyxy": [
+        2045.0,
+        179.0,
+        2548.0,
+        774.0
+      ],
+      "head_box_xyxy": [
+        2019,
+        149,
+        2574,
+        804
+      ],
+      "locator_match_max_error_640": 0.19753086419753174
+    },
+    {
+      "photo_id": 209271,
+      "file_name": "pexels-photo-209271.jpeg",
+      "mirror_image_id": 3568,
+      "mirror_head_annotation_id": 33689,
+      "mirror_head_box": [
+        225,
+        55,
+        82,
+        77
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 6314,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-209271.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-209271.xml&datasetVersionNumber=1",
+      "image_size": [
+        2592,
+        3872
+      ],
+      "sha256": "024232614c07bb5b67c846a59f99a25a21a3cd2398b04a2e3c3f682874f1f992",
+      "bytes": 1625270,
+      "voc_file": "pexels-photo-209271.xml",
+      "voc_sha256": "e9443233f496ac4e70909892153200c93c08cf550c07cdd74c23f133175aef9a",
+      "original_head_box_xyxy": [
+        910.0,
+        330.0,
+        1243.0,
+        796.0
+      ],
+      "head_box_xyxy": [
+        893,
+        306,
+        1260,
+        820
+      ],
+      "locator_match_max_error_640": 0.45454545454546036
+    },
+    {
+      "photo_id": 375903,
+      "file_name": "pexels-photo-375903.jpeg",
+      "mirror_image_id": 5280,
+      "mirror_head_annotation_id": 49831,
+      "mirror_head_box": [
+        121,
+        0,
+        90,
+        164
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 14760,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-375903.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-375903.xml&datasetVersionNumber=1",
+      "image_size": [
+        5400,
+        3713
+      ],
+      "sha256": "97e4e80b4fb5c71636a59bdd9e330af73b029f5b1066602bddc673d873d421d9",
+      "bytes": 1405292,
+      "voc_file": "pexels-photo-375903.xml",
+      "voc_sha256": "ab6bed902187d1c9b43ed33c5561954502ba554615436a4a04fe7f94bc482996",
+      "original_head_box_xyxy": [
+        1016.0,
+        1.0,
+        1776.0,
+        952.0
+      ],
+      "head_box_xyxy": [
+        978,
+        0,
+        1814,
+        1000
+      ],
+      "locator_match_max_error_640": 0.5851851851851819
+    },
+    {
+      "photo_id": 618613,
+      "file_name": "pexels-photo-618613.jpeg",
+      "mirror_image_id": 4972,
+      "mirror_head_annotation_id": 46919,
+      "mirror_head_box": [
+        297,
+        0,
+        116.5,
+        227.5
+      ],
+      "candidate_stratum": "other_glasses",
+      "head_area": 26503.75,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-618613.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-618613.xml&datasetVersionNumber=1",
+      "image_size": [
+        4596,
+        3180
+      ],
+      "sha256": "8011ab747edb58f951488dedfa14238ea77d6a2cd9a9c41e95e53628c2c7447e",
+      "bytes": 838867,
+      "voc_file": "pexels-photo-618613.xml",
+      "voc_sha256": "777a8694fe8f98901d4d1f4db70d0f0fb8fad3986cd7abee2ac5514e6f6c4ddd",
+      "original_head_box_xyxy": [
+        2136.0,
+        0.0,
+        2973.0,
+        1131.0
+      ],
+      "head_box_xyxy": [
+        2094,
+        0,
+        3015,
+        1188
+      ],
+      "locator_match_max_error_640": 0.44125326370755147
+    },
+    {
+      "photo_id": 848205,
+      "file_name": "pexels-photo-848205.jpeg",
+      "mirror_image_id": 531,
+      "mirror_head_annotation_id": 4981,
+      "mirror_head_box": [
+        161,
+        7,
+        151,
+        293.5
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 44318.5,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-848205.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-848205.xml&datasetVersionNumber=1",
+      "image_size": [
+        6720,
+        4480
+      ],
+      "sha256": "06a3f42c4e7affebb3fe63c71658fee8e2c9c8e3ecfb64079c3d02a48c6663a7",
+      "bytes": 1408074,
+      "voc_file": "pexels-photo-848205.xml",
+      "voc_sha256": "d70e4587bdec4b7c8d2200c9bc15bcfc24607a59fa9a465c80970e1204a1486a",
+      "original_head_box_xyxy": [
+        1685.0,
+        47.0,
+        3272.0,
+        2102.0
+      ],
+      "head_box_xyxy": [
+        1605,
+        0,
+        3352,
+        2205
+      ],
+      "locator_match_max_error_640": 0.5238095238095184
+    },
+    {
+      "photo_id": 2668638,
+      "file_name": "pexels-photo-2668638.jpeg",
+      "mirror_image_id": 1374,
+      "mirror_head_annotation_id": 12962,
+      "mirror_head_box": [
+        275,
+        152,
+        95,
+        75
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 7125,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-2668638.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-2668638.xml&datasetVersionNumber=1",
+      "image_size": [
+        3376,
+        6000
+      ],
+      "sha256": "c5158b963ffbb8e64deffeac1d45c2f0dc4a72c2b333920e156ba48a68b2ffec",
+      "bytes": 2163540,
+      "voc_file": "pexels-photo-2668638.xml",
+      "voc_sha256": "bec89c461b722de44719732824b5b5a835b7676cff81a94abe814dd944f88c75",
+      "original_head_box_xyxy": [
+        1449.0,
+        1425.0,
+        1950.0,
+        2127.0
+      ],
+      "head_box_xyxy": [
+        1423,
+        1389,
+        1976,
+        2163
+      ],
+      "locator_match_max_error_640": 0.3080568720379233
+    },
+    {
+      "photo_id": 3097103,
+      "file_name": "pexels-photo-3097103.jpeg",
+      "mirror_image_id": 2612,
+      "mirror_head_annotation_id": 24403,
+      "mirror_head_box": [
+        0,
+        272,
+        94.5,
+        87.5
+      ],
+      "candidate_stratum": "no_glasses",
+      "head_area": 8268.75,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-3097103.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-3097103.xml&datasetVersionNumber=1",
+      "image_size": [
+        3072,
+        4609
+      ],
+      "sha256": "12ad7b800fa256eda410562ad563ef516a6558710e88da880d96b1ba898e167e",
+      "bytes": 994911,
+      "voc_file": "pexels-photo-3097103.xml",
+      "voc_sha256": "610342fb0ec46daae9502c7811a1cce3ae504b7d3b4ca1a31f33806accd87b58",
+      "original_head_box_xyxy": [
+        1.0,
+        1961.0,
+        455.0,
+        2592.0
+      ],
+      "head_box_xyxy": [
+        0,
+        1929,
+        478,
+        2624
+      ],
+      "locator_match_max_error_640": 0.30201779127793316
+    },
+    {
+      "photo_id": 3184423,
+      "file_name": "pexels-photo-3184423.jpeg",
+      "mirror_image_id": 3257,
+      "mirror_head_annotation_id": 30559,
+      "mirror_head_box": [
+        356,
+        87,
+        96,
+        85
+      ],
+      "candidate_stratum": "other_glasses",
+      "head_area": 8160,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-3184423.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-3184423.xml&datasetVersionNumber=1",
+      "image_size": [
+        4004,
+        6000
+      ],
+      "sha256": "68655a495c014dd1de2733ce53e7491bd7c725c55c25ebcc9c4ea985fc2987f0",
+      "bytes": 1827837,
+      "voc_file": "pexels-photo-3184423.xml",
+      "voc_sha256": "50bf3c1f00ebbe90537fdf11e1f5bb0ef79576b400e0ce0d196bb359047a6ca3",
+      "original_head_box_xyxy": [
+        2226.0,
+        814.0,
+        2826.0,
+        1609.0
+      ],
+      "head_box_xyxy": [
+        2196,
+        774,
+        2856,
+        1649
+      ],
+      "locator_match_max_error_640": 0.19999999999998863
+    },
+    {
+      "photo_id": 3680959,
+      "file_name": "pexels-photo-3680959.jpeg",
+      "mirror_image_id": 2956,
+      "mirror_head_annotation_id": 27756,
+      "mirror_head_box": [
+        348,
+        73,
+        85,
+        175.5
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 14917.5,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-3680959.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-3680959.xml&datasetVersionNumber=1",
+      "image_size": [
+        5169,
+        3446
+      ],
+      "sha256": "329971ce970750bc1eaa24bc11158434a5e7a3c9fba1a3fc64b00926d8dd7103",
+      "bytes": 841528,
+      "voc_file": "pexels-photo-3680959.xml",
+      "voc_sha256": "e54badadb77dbd678f558695ac05e05f6b0db064b637cfc05e85e8de0fd5a903",
+      "original_head_box_xyxy": [
+        2807.0,
+        393.0,
+        3494.0,
+        1338.0
+      ],
+      "head_box_xyxy": [
+        2772,
+        345,
+        3529,
+        1386
+      ],
+      "locator_match_max_error_640": 0.4511510930547047
+    },
+    {
+      "photo_id": 3724482,
+      "file_name": "pexels-photo-3724482.jpeg",
+      "mirror_image_id": 4720,
+      "mirror_head_annotation_id": 44701,
+      "mirror_head_box": [
+        265,
+        174,
+        119.5,
+        125.5
+      ],
+      "candidate_stratum": "no_glasses",
+      "head_area": 14997.25,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-3724482.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-3724482.xml&datasetVersionNumber=1",
+      "image_size": [
+        3456,
+        5184
+      ],
+      "sha256": "7439b186b385d95928892785c01bf2f7ea0bc9cf8d71a4672c58474c16d85c07",
+      "bytes": 741698,
+      "voc_file": "pexels-photo-3724482.xml",
+      "voc_sha256": "20f4dd552651851d82a5f616a6669516d01aebb1cc6f56a35d4f836b2a52627c",
+      "original_head_box_xyxy": [
+        1433.0,
+        1413.0,
+        2079.0,
+        2428.0
+      ],
+      "head_box_xyxy": [
+        1400,
+        1362,
+        2112,
+        2479
+      ],
+      "locator_match_max_error_640": 0.44444444444442865
+    },
+    {
+      "photo_id": 3736109,
+      "file_name": "pexels-photo-3736109.jpeg",
+      "mirror_image_id": 264,
+      "mirror_head_annotation_id": 2369,
+      "mirror_head_box": [
+        174,
+        61,
+        79,
+        146.5
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 11573.5,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-3736109.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-3736109.xml&datasetVersionNumber=1",
+      "image_size": [
+        5472,
+        3648
+      ],
+      "sha256": "34d575891baa650dc25ad5cb34b83fac6e68ea48d18938b1041ddb88fbafb327",
+      "bytes": 1224744,
+      "voc_file": "pexels-photo-3736109.xml",
+      "voc_sha256": "33f42a5ee7d583de32c48e8825965e2cec43ea27f83163257743aab479f980db",
+      "original_head_box_xyxy": [
+        1483.0,
+        347.0,
+        2157.0,
+        1181.0
+      ],
+      "head_box_xyxy": [
+        1449,
+        305,
+        2191,
+        1223
+      ],
+      "locator_match_max_error_640": 0.5497076023391969
+    },
+    {
+      "photo_id": 3772616,
+      "file_name": "pexels-photo-3772616.jpeg",
+      "mirror_image_id": 4778,
+      "mirror_head_annotation_id": 45184,
+      "mirror_head_box": [
+        308,
+        36,
+        190,
+        400.5
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 76095.0,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-3772616.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-3772616.xml&datasetVersionNumber=1",
+      "image_size": [
+        6425,
+        4976
+      ],
+      "sha256": "3702ca03f1357fb832f48f92a6816a0d1f50b97447f2e28b3be5d6d7861aadcf",
+      "bytes": 732633,
+      "voc_file": "pexels-photo-3772616.xml",
+      "voc_sha256": "ba1bd48a3df7e1f858cb6ead6908824b0f243f66ddd4180373441e1d3a584308",
+      "original_head_box_xyxy": [
+        3091.0,
+        282.0,
+        4997.0,
+        3395.0
+      ],
+      "head_box_xyxy": [
+        2995,
+        126,
+        5093,
+        3551
+      ],
+      "locator_match_max_error_640": 0.27009646302251156
+    },
+    {
+      "photo_id": 3808818,
+      "file_name": "pexels-photo-3808818.jpeg",
+      "mirror_image_id": 3704,
+      "mirror_head_annotation_id": 34881,
+      "mirror_head_box": [
+        272,
+        154,
+        79,
+        150.5
+      ],
+      "candidate_stratum": "other_glasses",
+      "head_area": 11889.5,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-3808818.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-3808818.xml&datasetVersionNumber=1",
+      "image_size": [
+        7680,
+        5120
+      ],
+      "sha256": "db7c2c335e4fe442c70449fa15ef93868227424c209816473dc98acac93648a4",
+      "bytes": 703010,
+      "voc_file": "pexels-photo-3808818.xml",
+      "voc_sha256": "5fe67c5f3c7cc012e206e525bc3567c086973fd767b91bf90d0c6dfee1b4a181",
+      "original_head_box_xyxy": [
+        3256.0,
+        1229.0,
+        4203.0,
+        2432.0
+      ],
+      "head_box_xyxy": [
+        3208,
+        1168,
+        4251,
+        2493
+      ],
+      "locator_match_max_error_640": 0.6666666666666856
+    },
+    {
+      "photo_id": 3811829,
+      "file_name": "pexels-photo-3811829.jpeg",
+      "mirror_image_id": 4601,
+      "mirror_head_annotation_id": 43560,
+      "mirror_head_box": [
+        250,
+        136,
+        161.5,
+        139
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 22448.5,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-3811829.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-3811829.xml&datasetVersionNumber=1",
+      "image_size": [
+        4000,
+        6000
+      ],
+      "sha256": "8d9ff2d1069d406297cb9f74dbac4eea5a27df384bec32e932b7bc4336553485",
+      "bytes": 961175,
+      "voc_file": "pexels-photo-3811829.xml",
+      "voc_sha256": "c64c876101296b097419ebfe902903c3552aba77c6ba006e225d9097b6e1551f",
+      "original_head_box_xyxy": [
+        1566.0,
+        1272.0,
+        2574.0,
+        2577.0
+      ],
+      "head_box_xyxy": [
+        1515,
+        1206,
+        2625,
+        2643
+      ],
+      "locator_match_max_error_640": 0.5600000000000023
+    },
+    {
+      "photo_id": 3814539,
+      "file_name": "pexels-photo-3814539.jpeg",
+      "mirror_image_id": 2145,
+      "mirror_head_annotation_id": 20162,
+      "mirror_head_box": [
+        356,
+        9,
+        142,
+        281
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 39902,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-3814539.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-3814539.xml&datasetVersionNumber=1",
+      "image_size": [
+        7680,
+        5120
+      ],
+      "sha256": "2e6f6e7768ef4463d251a0e25e28b933d82301d90ac4c57a506a74e50c1bd495",
+      "bytes": 1631422,
+      "voc_file": "pexels-photo-3814539.xml",
+      "voc_sha256": "8df89bcf412a86a7d5875b1f62ae64a23df73da2b9607f66026ceaa9bcfe9d9d",
+      "original_head_box_xyxy": [
+        4266.0,
+        70.0,
+        5969.0,
+        2319.0
+      ],
+      "head_box_xyxy": [
+        4180,
+        0,
+        6055,
+        2432
+      ],
+      "locator_match_max_error_640": 0.5
+    },
+    {
+      "photo_id": 3825413,
+      "file_name": "pexels-photo-3825413.jpeg",
+      "mirror_image_id": 3911,
+      "mirror_head_annotation_id": 36779,
+      "mirror_head_box": [
+        402,
+        349,
+        101.5,
+        87.5
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 8881.25,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-3825413.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-3825413.xml&datasetVersionNumber=1",
+      "image_size": [
+        3214,
+        4500
+      ],
+      "sha256": "5edc53938325f4d790b1a617a6e42a70b9a835516350b1f28be7c0e3a936ec9b",
+      "bytes": 402645,
+      "voc_file": "pexels-photo-3825413.xml",
+      "voc_sha256": "aceaf9cdfc24b7b88e15043eb9c3b8b7984beec8b9ea38ee94eb94c1337d3894",
+      "original_head_box_xyxy": [
+        2018.0,
+        2454.0,
+        2527.0,
+        3069.0
+      ],
+      "head_box_xyxy": [
+        1992,
+        2423,
+        2553,
+        3100
+      ],
+      "locator_match_max_error_640": 0.15805849408837958
+    },
+    {
+      "photo_id": 3825434,
+      "file_name": "pexels-photo-3825434.jpeg",
+      "mirror_image_id": 4388,
+      "mirror_head_annotation_id": 41463,
+      "mirror_head_box": [
+        152,
+        0,
+        122,
+        132
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 16104,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-3825434.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-3825434.xml&datasetVersionNumber=1",
+      "image_size": [
+        4500,
+        3002
+      ],
+      "sha256": "52d30418c33ec92d706da9794be7d86875ea92a55541c3bfec52bff07cdb2f8f",
+      "bytes": 419888,
+      "voc_file": "pexels-photo-3825434.xml",
+      "voc_sha256": "0222285696dd75db63409fe0c8e92c3867c86dd0b8886c8be0976910244a7ee7",
+      "original_head_box_xyxy": [
+        1072.0,
+        0.0,
+        1931.0,
+        621.0
+      ],
+      "head_box_xyxy": [
+        1029,
+        0,
+        1974,
+        653
+      ],
+      "locator_match_max_error_640": 0.46222222222223763
+    },
+    {
+      "photo_id": 3912369,
+      "file_name": "pexels-photo-3912369.jpeg",
+      "mirror_image_id": 1737,
+      "mirror_head_annotation_id": 16308,
+      "mirror_head_box": [
+        380,
+        157,
+        88,
+        162.5
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 14300.0,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-3912369.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-3912369.xml&datasetVersionNumber=1",
+      "image_size": [
+        7952,
+        5304
+      ],
+      "sha256": "726d8e81b749046acacd8c873f33c4f82db80586db272714a665156ae75d76f3",
+      "bytes": 3137550,
+      "voc_file": "pexels-photo-3912369.xml",
+      "voc_sha256": "995480f9bcaf2bc45edd363637ff4cd6ae15cfb5d8cebaeffa74dc91f21388d5",
+      "original_head_box_xyxy": [
+        4714.0,
+        1306.0,
+        5808.0,
+        2651.0
+      ],
+      "head_box_xyxy": [
+        4659,
+        1238,
+        5863,
+        2719
+      ],
+      "locator_match_max_error_640": 0.603621730382315
+    },
+    {
+      "photo_id": 3992928,
+      "file_name": "pexels-photo-3992928.jpeg",
+      "mirror_image_id": 369,
+      "mirror_head_annotation_id": 3400,
+      "mirror_head_box": [
+        388,
+        134,
+        99.5,
+        158.5
+      ],
+      "candidate_stratum": "other_glasses",
+      "head_area": 15770.75,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-3992928.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-3992928.xml&datasetVersionNumber=1",
+      "image_size": [
+        4950,
+        3300
+      ],
+      "sha256": "e903f2e550d7cb20aaa6c0bd4ed7817b8f0808a9a4b79b323f8e2630f40402a0",
+      "bytes": 2253771,
+      "voc_file": "pexels-photo-3992928.xml",
+      "voc_sha256": "9aca687ad100b2c25138351b7fddee65c1cf83ac63b433c32f6289da320d072f",
+      "original_head_box_xyxy": [
+        3002.0,
+        693.0,
+        3772.0,
+        1509.0
+      ],
+      "head_box_xyxy": [
+        2963,
+        652,
+        3811,
+        1550
+      ],
+      "locator_match_max_error_640": 0.4000000000000057
+    },
+    {
+      "photo_id": 4050363,
+      "file_name": "pexels-photo-4050363.jpeg",
+      "mirror_image_id": 2118,
+      "mirror_head_annotation_id": 19850,
+      "mirror_head_box": [
+        171,
+        218,
+        157.5,
+        128
+      ],
+      "candidate_stratum": "other_glasses",
+      "head_area": 20160.0,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-4050363.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-4050363.xml&datasetVersionNumber=1",
+      "image_size": [
+        4480,
+        6720
+      ],
+      "sha256": "7ab977c65d2a8dacec69bfe393f96aa883d95adfb3f4d562a0caedca9b6039ff",
+      "bytes": 1368204,
+      "voc_file": "pexels-photo-4050363.xml",
+      "voc_sha256": "cbff2291ef4387c6b5b0c7957c2c099f78d8a9c6dc6d7d2cdd76945312503b6d",
+      "original_head_box_xyxy": [
+        1200.0,
+        2289.0,
+        2303.0,
+        3632.0
+      ],
+      "head_box_xyxy": [
+        1144,
+        2221,
+        2359,
+        3700
+      ],
+      "locator_match_max_error_640": 0.4285714285714164
+    },
+    {
+      "photo_id": 4173288,
+      "file_name": "pexels-photo-4173288.jpeg",
+      "mirror_image_id": 277,
+      "mirror_head_annotation_id": 2480,
+      "mirror_head_box": [
+        380,
+        132,
+        98,
+        167.5
+      ],
+      "candidate_stratum": "no_glasses",
+      "head_area": 16415.0,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-4173288.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-4173288.xml&datasetVersionNumber=1",
+      "image_size": [
+        5760,
+        3840
+      ],
+      "sha256": "9fae6bf6945a1b5c6fd293186f0e666eb56947af26058473870549a7b58e8924",
+      "bytes": 3286617,
+      "voc_file": "pexels-photo-4173288.xml",
+      "voc_sha256": "844d01190da3a41fb4e4466da1f1bc7395a059701a1c33b328cedc0c42a954ad",
+      "original_head_box_xyxy": [
+        3417.0,
+        790.0,
+        4297.0,
+        1795.0
+      ],
+      "head_box_xyxy": [
+        3373,
+        739,
+        4341,
+        1846
+      ],
+      "locator_match_max_error_640": 0.3333333333333428
+    },
+    {
+      "photo_id": 4423420,
+      "file_name": "pexels-photo-4423420.jpeg",
+      "mirror_image_id": 5445,
+      "mirror_head_annotation_id": 51237,
+      "mirror_head_box": [
+        47,
+        127,
+        44,
+        74.5
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 3278.0,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-4423420.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-4423420.xml&datasetVersionNumber=1",
+      "image_size": [
+        2560,
+        1920
+      ],
+      "sha256": "2acdbf3b559c208bb634168609a8c01edabebdbf34b93dcaad4e9c5a4f5808d4",
+      "bytes": 584604,
+      "voc_file": "pexels-photo-4423420.xml",
+      "voc_sha256": "2ca6b8a8d804ab12ed1f382728b117d135a432b7154c7dc087d7a6e6c904c71b",
+      "original_head_box_xyxy": [
+        186.0,
+        380.0,
+        361.0,
+        603.0
+      ],
+      "head_box_xyxy": [
+        177,
+        368,
+        370,
+        615
+      ],
+      "locator_match_max_error_640": 0.5
+    },
+    {
+      "photo_id": 4467586,
+      "file_name": "pexels-photo-4467586.jpeg",
+      "mirror_image_id": 98,
+      "mirror_head_annotation_id": 938,
+      "mirror_head_box": [
+        114,
+        0,
+        295,
+        440
+      ],
+      "candidate_stratum": "other_glasses",
+      "head_area": 129800,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-4467586.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-4467586.xml&datasetVersionNumber=1",
+      "image_size": [
+        6624,
+        4416
+      ],
+      "sha256": "dbcd9957be99d53682b15a6e5038d59a925fc1b9cbe8967d039fcc763a43b14e",
+      "bytes": 1385396,
+      "voc_file": "pexels-photo-4467586.xml",
+      "voc_sha256": "a02fcf12d4370c8405f08a24b950572845874e295957a79b2aa18898b03e4be7",
+      "original_head_box_xyxy": [
+        1177.0,
+        0.0,
+        4231.0,
+        3037.0
+      ],
+      "head_box_xyxy": [
+        1024,
+        0,
+        4384,
+        3189
+      ],
+      "locator_match_max_error_640": 0.28019323671496466
+    },
+    {
+      "photo_id": 4560078,
+      "file_name": "pexels-photo-4560078.jpeg",
+      "mirror_image_id": 198,
+      "mirror_head_annotation_id": 1767,
+      "mirror_head_box": [
+        294,
+        85,
+        341,
+        169.5
+      ],
+      "candidate_stratum": "no_glasses",
+      "head_area": 57799.5,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-4560078.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-4560078.xml&datasetVersionNumber=1",
+      "image_size": [
+        4000,
+        6000
+      ],
+      "sha256": "545408487bc69ea5c168aa6f99c410900f2e23995f1784adbf7bd368a5cdd4c2",
+      "bytes": 1275535,
+      "voc_file": "pexels-photo-4560078.xml",
+      "voc_sha256": "11a0db0903d01ac5588f28b1f32973df79e6ca0a1b40a1cdaa0045a6a417b240",
+      "original_head_box_xyxy": [
+        1834.0,
+        798.0,
+        3965.0,
+        2387.0
+      ],
+      "head_box_xyxy": [
+        1727,
+        718,
+        4000,
+        2467
+      ],
+      "locator_match_max_error_640": 0.5600000000000023
+    },
+    {
+      "photo_id": 4687174,
+      "file_name": "pexels-photo-4687174.jpeg",
+      "mirror_image_id": 4369,
+      "mirror_head_annotation_id": 41280,
+      "mirror_head_box": [
+        62,
+        0,
+        340.5,
+        128.5
+      ],
+      "candidate_stratum": "no_glasses",
+      "head_area": 43754.25,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-4687174.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-4687174.xml&datasetVersionNumber=1",
+      "image_size": [
+        3840,
+        5760
+      ],
+      "sha256": "d911c3e2fc347715ab782f82977d7bb6c24ac3810a87baa7fcc34c61f9b6ad0f",
+      "bytes": 1033838,
+      "voc_file": "pexels-photo-4687174.xml",
+      "voc_sha256": "3f03930244d15e8aaf1e8694b3f3ee9ab3cc2c98d5086d11400445ab71162a50",
+      "original_head_box_xyxy": [
+        370.0,
+        1.0,
+        2414.0,
+        1159.0
+      ],
+      "head_box_xyxy": [
+        267,
+        0,
+        2517,
+        1217
+      ],
+      "locator_match_max_error_640": 0.3333333333333286
+    },
+    {
+      "photo_id": 4732346,
+      "file_name": "pexels-photo-4732346.jpeg",
+      "mirror_image_id": 968,
+      "mirror_head_annotation_id": 9360,
+      "mirror_head_box": [
+        307,
+        295,
+        41,
+        43
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 1763,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-4732346.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-4732346.xml&datasetVersionNumber=1",
+      "image_size": [
+        3341,
+        5184
+      ],
+      "sha256": "005c0540f6bfcd78bffde316a9adc21470dc1c607a9522713eaf543d9105eb84",
+      "bytes": 1081533,
+      "voc_file": "pexels-photo-4732346.xml",
+      "voc_sha256": "b2ebe8c0054a1b109f1eea2a545f48afc8e604671c53668e3a9341d09a7b9c43",
+      "original_head_box_xyxy": [
+        1603.0,
+        2385.0,
+        1818.0,
+        2734.0
+      ],
+      "head_box_xyxy": [
+        1592,
+        2367,
+        1829,
+        2752
+      ],
+      "locator_match_max_error_640": 0.5555555555555429
+    },
+    {
+      "photo_id": 4754261,
+      "file_name": "pexels-photo-4754261.jpeg",
+      "mirror_image_id": 3822,
+      "mirror_head_annotation_id": 35884,
+      "mirror_head_box": [
+        366,
+        120,
+        113,
+        147
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 16611,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-4754261.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-4754261.xml&datasetVersionNumber=1",
+      "image_size": [
+        5805,
+        3862
+      ],
+      "sha256": "b448c3206a261110d5291d3327b11a6befd44af2c01b8f289ea8493df028b786",
+      "bytes": 914993,
+      "voc_file": "pexels-photo-4754261.xml",
+      "voc_sha256": "7592ef01da6cc91a46af83fbba6f5bcb067dd52c990627180335848b1353df94",
+      "original_head_box_xyxy": [
+        3312.0,
+        723.0,
+        4339.0,
+        1611.0
+      ],
+      "head_box_xyxy": [
+        3260,
+        678,
+        4391,
+        1656
+      ],
+      "locator_match_max_error_640": 0.8527131782946071
+    },
+    {
+      "photo_id": 4872056,
+      "file_name": "pexels-photo-4872056.jpeg",
+      "mirror_image_id": 4135,
+      "mirror_head_annotation_id": 38860,
+      "mirror_head_box": [
+        349,
+        0,
+        194.5,
+        314
+      ],
+      "candidate_stratum": "other_glasses",
+      "head_area": 61073.0,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-4872056.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-4872056.xml&datasetVersionNumber=1",
+      "image_size": [
+        5760,
+        3840
+      ],
+      "sha256": "096ce05e3560404181bd570b22c92d0768f8810105d958ce5bb7b6d37b1ff47e",
+      "bytes": 1025373,
+      "voc_file": "pexels-photo-4872056.xml",
+      "voc_sha256": "2a5f99e29129e2d8fe2db77dc800814686dcde166a8e88cc0a190a1c8bc32568",
+      "original_head_box_xyxy": [
+        3143.0,
+        0.0,
+        4894.0,
+        1885.0
+      ],
+      "head_box_xyxy": [
+        3055,
+        0,
+        4982,
+        1980
+      ],
+      "locator_match_max_error_640": 0.22222222222222854
+    },
+    {
+      "photo_id": 4904448,
+      "file_name": "pexels-photo-4904448.jpeg",
+      "mirror_image_id": 2418,
+      "mirror_head_annotation_id": 22636,
+      "mirror_head_box": [
+        211,
+        174,
+        293.5,
+        168
+      ],
+      "candidate_stratum": "other_glasses",
+      "head_area": 49308.0,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-4904448.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-4904448.xml&datasetVersionNumber=1",
+      "image_size": [
+        4378,
+        6567
+      ],
+      "sha256": "0a1db0fb57028cada4ec9174b240a19f5c513a2493a56ddd7fa01398ad6d4a33",
+      "bytes": 1958526,
+      "voc_file": "pexels-photo-4904448.xml",
+      "voc_sha256": "475ac47e8b39bf9aee18e5a134ef01a6cab9e705c1ba65f218280ab2216fb5b3",
+      "original_head_box_xyxy": [
+        1446.0,
+        1778.0,
+        3455.0,
+        3502.0
+      ],
+      "head_box_xyxy": [
+        1345,
+        1691,
+        3556,
+        3589
+      ],
+      "locator_match_max_error_640": 0.7214862189736664
+    },
+    {
+      "photo_id": 4956909,
+      "file_name": "pexels-photo-4956909.jpeg",
+      "mirror_image_id": 4213,
+      "mirror_head_annotation_id": 39621,
+      "mirror_head_box": [
+        348,
+        235,
+        78,
+        123
+      ],
+      "candidate_stratum": "no_glasses",
+      "head_area": 9594,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-4956909.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-4956909.xml&datasetVersionNumber=1",
+      "image_size": [
+        3464,
+        2309
+      ],
+      "sha256": "ae70b6c79d955d686fd96473459f87bccd64c5714cc02ffe64ab827d100bea3b",
+      "bytes": 824457,
+      "voc_file": "pexels-photo-4956909.xml",
+      "voc_sha256": "74eb8211584dd9e435f465bc54d465b2908c41b18797740af93a08501d83dfd2",
+      "original_head_box_xyxy": [
+        1882.0,
+        848.0,
+        2305.0,
+        1292.0
+      ],
+      "head_box_xyxy": [
+        1860,
+        825,
+        2327,
+        1315
+      ],
+      "locator_match_max_error_640": 0.2863741339492094
+    },
+    {
+      "photo_id": 4968556,
+      "file_name": "pexels-photo-4968556.jpeg",
+      "mirror_image_id": 1751,
+      "mirror_head_annotation_id": 16514,
+      "mirror_head_box": [
+        28,
+        0,
+        154.5,
+        95
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 14677.5,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-4968556.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-4968556.xml&datasetVersionNumber=1",
+      "image_size": [
+        6720,
+        4480
+      ],
+      "sha256": "65126f364911131e2dfcb656d7b1cb5ba0fe2a3305819b540284caa4cabf2e47",
+      "bytes": 1768482,
+      "voc_file": "pexels-photo-4968556.xml",
+      "voc_sha256": "b7a89cbf1d61cd2a6dbda2233ad344476ce9f1711d01e8858b13f54afd21f494",
+      "original_head_box_xyxy": [
+        298.0,
+        0.0,
+        1920.0,
+        666.0
+      ],
+      "head_box_xyxy": [
+        216,
+        0,
+        2002,
+        700
+      ],
+      "locator_match_max_error_640": 0.38095238095238315
+    },
+    {
+      "photo_id": 4968560,
+      "file_name": "pexels-photo-4968560.jpeg",
+      "mirror_image_id": 3630,
+      "mirror_head_annotation_id": 34225,
+      "mirror_head_box": [
+        107,
+        1,
+        160,
+        185.5
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 29680.0,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-4968560.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-4968560.xml&datasetVersionNumber=1",
+      "image_size": [
+        6720,
+        4480
+      ],
+      "sha256": "c9a6add682365b2d35ee5217910333d5034ba9e3d56b7d941645e4a54a2c9998",
+      "bytes": 1358597,
+      "voc_file": "pexels-photo-4968560.xml",
+      "voc_sha256": "93a08864d88c8517b83055ed5d5d96d6755a78aee29a801b4e9e2e71cf51bd4f",
+      "original_head_box_xyxy": [
+        1122.0,
+        7.0,
+        2802.0,
+        1306.0
+      ],
+      "head_box_xyxy": [
+        1038,
+        0,
+        2886,
+        1371
+      ],
+      "locator_match_max_error_640": 0.142857142857153
+    },
+    {
+      "photo_id": 4981775,
+      "file_name": "pexels-photo-4981775.jpeg",
+      "mirror_image_id": 712,
+      "mirror_head_annotation_id": 6839,
+      "mirror_head_box": [
+        230,
+        186,
+        227.5,
+        382.5
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 87018.75,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-4981775.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-4981775.xml&datasetVersionNumber=1",
+      "image_size": [
+        4000,
+        2667
+      ],
+      "sha256": "dcbce7e1589c1d4ba3d24244c63288c4f400e8016775e7409093e6df54c60eff",
+      "bytes": 877606,
+      "voc_file": "pexels-photo-4981775.xml",
+      "voc_sha256": "41f9aa39e8717836a228fcb4399d4a243f597bebc2f1d864ab5d0113c4a9b0b7",
+      "original_head_box_xyxy": [
+        1434.0,
+        777.0,
+        2857.0,
+        2371.0
+      ],
+      "head_box_xyxy": [
+        1362,
+        697,
+        2929,
+        2451
+      ],
+      "locator_match_max_error_640": 0.5600000000000023
+    },
+    {
+      "photo_id": 4981781,
+      "file_name": "pexels-photo-4981781.jpeg",
+      "mirror_image_id": 1079,
+      "mirror_head_annotation_id": 10359,
+      "mirror_head_box": [
+        296,
+        211,
+        148,
+        125
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 18500,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-4981781.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-4981781.xml&datasetVersionNumber=1",
+      "image_size": [
+        4000,
+        6000
+      ],
+      "sha256": "f9caf14f563de28cf8208ce020f8c47a8245e87de9b949561e307e3672e360ee",
+      "bytes": 1359373,
+      "voc_file": "pexels-photo-4981781.xml",
+      "voc_sha256": "02883a96dd4971f60394dfbeac5a4ca58613112d8fcf18db586c248bc68521a7",
+      "original_head_box_xyxy": [
+        1847.0,
+        1972.0,
+        2772.0,
+        3144.0
+      ],
+      "head_box_xyxy": [
+        1800,
+        1913,
+        2819,
+        3203
+      ],
+      "locator_match_max_error_640": 0.653333333333336
+    },
+    {
+      "photo_id": 5061273,
+      "file_name": "pexels-photo-5061273.jpeg",
+      "mirror_image_id": 65,
+      "mirror_head_annotation_id": 497,
+      "mirror_head_box": [
+        382,
+        57,
+        117.5,
+        119.5
+      ],
+      "candidate_stratum": "no_glasses",
+      "head_area": 14041.25,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-5061273.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-5061273.xml&datasetVersionNumber=1",
+      "image_size": [
+        4147,
+        6220
+      ],
+      "sha256": "ae547b12eeb2854f43f98662bc9d5d0e098b8adfe2a732957c39c7a2bbbd6bb0",
+      "bytes": 1203881,
+      "voc_file": "pexels-photo-5061273.xml",
+      "voc_sha256": "63ba511cd1d5ee7fdce6bd2a989e9ed7aa65da296e747b8291ba9c5c2019ea0f",
+      "original_head_box_xyxy": [
+        2475.0,
+        556.0,
+        3237.0,
+        1715.0
+      ],
+      "head_box_xyxy": [
+        2436,
+        498,
+        3276,
+        1773
+      ],
+      "locator_match_max_error_640": 0.24598070739548916
+    },
+    {
+      "photo_id": 5089184,
+      "file_name": "pexels-photo-5089184.jpeg",
+      "mirror_image_id": 2370,
+      "mirror_head_annotation_id": 22215,
+      "mirror_head_box": [
+        164,
+        0,
+        264,
+        226
+      ],
+      "candidate_stratum": "no_glasses",
+      "head_area": 59664,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-5089184.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-5089184.xml&datasetVersionNumber=1",
+      "image_size": [
+        2333,
+        3500
+      ],
+      "sha256": "3dec1e15dcc77774688ba4d7251bb9f14986fc7fcbac477a9c5df07c67d9bdb6",
+      "bytes": 667458,
+      "voc_file": "pexels-photo-5089184.xml",
+      "voc_sha256": "c0f141c7fd2b0efc79df2762c24713e4b1ce035b57a5687be404bd06b6bfdcf8",
+      "original_head_box_xyxy": [
+        598.0,
+        0.0,
+        1560.0,
+        1238.0
+      ],
+      "head_box_xyxy": [
+        549,
+        0,
+        1609,
+        1300
+      ],
+      "locator_match_max_error_640": 0.377142857142843
+    },
+    {
+      "photo_id": 5186372,
+      "file_name": "pexels-photo-5186372.jpeg",
+      "mirror_image_id": 5529,
+      "mirror_head_annotation_id": 51955,
+      "mirror_head_box": [
+        422,
+        0,
+        192.5,
+        206.5
+      ],
+      "candidate_stratum": "other_glasses",
+      "head_area": 39751.25,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-5186372.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-5186372.xml&datasetVersionNumber=1",
+      "image_size": [
+        6240,
+        4160
+      ],
+      "sha256": "1d486635cff5fb25f904b3e90d3be52724bdabf2f653e0fea1898741b0f9f2c9",
+      "bytes": 3687430,
+      "voc_file": "pexels-photo-5186372.xml",
+      "voc_sha256": "c0a8b06cfbcca24ebbe14893a0f3cf22c0cedbcecd0dc18782a946662c17b008",
+      "original_head_box_xyxy": [
+        4109.0,
+        1.0,
+        5988.0,
+        1342.0
+      ],
+      "head_box_xyxy": [
+        4015,
+        0,
+        6082,
+        1410
+      ],
+      "locator_match_max_error_640": 0.5641025641025408
+    },
+    {
+      "photo_id": 5207088,
+      "file_name": "pexels-photo-5207088.jpeg",
+      "mirror_image_id": 280,
+      "mirror_head_annotation_id": 2501,
+      "mirror_head_box": [
+        272,
+        70,
+        234,
+        177
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 41418,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-5207088.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-5207088.xml&datasetVersionNumber=1",
+      "image_size": [
+        4067,
+        6101
+      ],
+      "sha256": "e19d9fb39fe6a9d920cfc7506b6f06e8ea8f5b2b04eaca7665cdec89b029a8fd",
+      "bytes": 935266,
+      "voc_file": "pexels-photo-5207088.xml",
+      "voc_sha256": "522af2943235662e333bc9c1ade87823585be827ac13ae5afb9ef87e3f80d42e",
+      "original_head_box_xyxy": [
+        1726.0,
+        670.0,
+        3213.0,
+        2356.0
+      ],
+      "head_box_xyxy": [
+        1651,
+        585,
+        3288,
+        2441
+      ],
+      "locator_match_max_error_640": 0.3894762724366956
+    },
+    {
+      "photo_id": 5214968,
+      "file_name": "pexels-photo-5214968.jpeg",
+      "mirror_image_id": 2831,
+      "mirror_head_annotation_id": 26421,
+      "mirror_head_box": [
+        259,
+        57,
+        228,
+        181
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 41268,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-5214968.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-5214968.xml&datasetVersionNumber=1",
+      "image_size": [
+        4000,
+        6000
+      ],
+      "sha256": "b23a18dab083bfa7cfa0d1f64ad5769938766270fa31bd5dcd2e994d62dae2ca",
+      "bytes": 680351,
+      "voc_file": "pexels-photo-5214968.xml",
+      "voc_sha256": "fa4452b9a4b225baee71e5b138fcec70123a00ad849eb7a3e3bf615c79e41d04",
+      "original_head_box_xyxy": [
+        1618.0,
+        529.0,
+        3042.0,
+        2227.0
+      ],
+      "head_box_xyxy": [
+        1546,
+        444,
+        3114,
+        2312
+      ],
+      "locator_match_max_error_640": 0.5733333333333306
+    },
+    {
+      "photo_id": 5215009,
+      "file_name": "pexels-photo-5215009.jpeg",
+      "mirror_image_id": 1613,
+      "mirror_head_annotation_id": 15170,
+      "mirror_head_box": [
+        220,
+        118,
+        184.5,
+        159.5
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 29427.75,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-5215009.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-5215009.xml&datasetVersionNumber=1",
+      "image_size": [
+        4000,
+        6000
+      ],
+      "sha256": "636d8ee48a3ab22bc90f8a9f1ddb4e592f3342b1689eb966977bd73bcc6fd9ff",
+      "bytes": 980802,
+      "voc_file": "pexels-photo-5215009.xml",
+      "voc_sha256": "32c7b7afd6aa892aba59cbf745e7d06c93ba2c9e1234169a7f103edc48ff4398",
+      "original_head_box_xyxy": [
+        1375.0,
+        1102.0,
+        2528.0,
+        2598.0
+      ],
+      "head_box_xyxy": [
+        1317,
+        1027,
+        2586,
+        2673
+      ],
+      "locator_match_max_error_640": 0.45333333333333314
+    },
+    {
+      "photo_id": 5273661,
+      "file_name": "pexels-photo-5273661.jpeg",
+      "mirror_image_id": 1804,
+      "mirror_head_annotation_id": 16992,
+      "mirror_head_box": [
+        277,
+        63,
+        164.5,
+        164.5
+      ],
+      "candidate_stratum": "other_glasses",
+      "head_area": 27060.25,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-5273661.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-5273661.xml&datasetVersionNumber=1",
+      "image_size": [
+        4480,
+        6720
+      ],
+      "sha256": "3b4fd76c16ea8f65a1cd7a156c743ed6f4524ca219761bbe3c9f0a6262bf3c7c",
+      "bytes": 5850193,
+      "voc_file": "pexels-photo-5273661.xml",
+      "voc_sha256": "731bc20825de4f185c19f6cfb3fe5838491c9ef6b920f166e586a18dbb98a84c",
+      "original_head_box_xyxy": [
+        1938.0,
+        662.0,
+        3090.0,
+        2390.0
+      ],
+      "head_box_xyxy": [
+        1880,
+        575,
+        3148,
+        2477
+      ],
+      "locator_match_max_error_640": 0.14285714285711038
+    },
+    {
+      "photo_id": 5302895,
+      "file_name": "pexels-photo-5302895.jpeg",
+      "mirror_image_id": 3435,
+      "mirror_head_annotation_id": 32325,
+      "mirror_head_box": [
+        482,
+        17,
+        158,
+        195
+      ],
+      "candidate_stratum": "no_glasses",
+      "head_area": 30810,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-5302895.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-5302895.xml&datasetVersionNumber=1",
+      "image_size": [
+        3746,
+        5619
+      ],
+      "sha256": "507e6a3f233e7aed7bfbc1b8c1f2cc3d71880d9baf851db7b353009c685e73ed",
+      "bytes": 1401630,
+      "voc_file": "pexels-photo-5302895.xml",
+      "voc_sha256": "ac6218197f0658f3a429c36e6955d50d7f02c680a17848056183f02b276c6be2",
+      "original_head_box_xyxy": [
+        2825.0,
+        155.0,
+        3746.0,
+        1865.0
+      ],
+      "head_box_xyxy": [
+        2778,
+        69,
+        3746,
+        1951
+      ],
+      "locator_match_max_error_640": 0.6543869015839121
+    },
+    {
+      "photo_id": 5409668,
+      "file_name": "pexels-photo-5409668.jpeg",
+      "mirror_image_id": 5358,
+      "mirror_head_annotation_id": 50458,
+      "mirror_head_box": [
+        392,
+        0,
+        183.5,
+        129
+      ],
+      "candidate_stratum": "no_glasses",
+      "head_area": 23671.5,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-5409668.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-5409668.xml&datasetVersionNumber=1",
+      "image_size": [
+        2624,
+        3936
+      ],
+      "sha256": "7ed0e685e6267f1170ec7b76b9c516bcefe24d8b61ee1bef65e6101f10e28499",
+      "bytes": 1861556,
+      "voc_file": "pexels-photo-5409668.xml",
+      "voc_sha256": "54184196c25c870effc17ac8f021706639964efa06b4cbd79d02493d80457036",
+      "original_head_box_xyxy": [
+        1605.0,
+        0.0,
+        2358.0,
+        793.0
+      ],
+      "head_box_xyxy": [
+        1567,
+        0,
+        2396,
+        833
+      ],
+      "locator_match_max_error_640": 0.5365853658536253
+    },
+    {
+      "photo_id": 5413988,
+      "file_name": "pexels-photo-5413988.jpeg",
+      "mirror_image_id": 1910,
+      "mirror_head_annotation_id": 17948,
+      "mirror_head_box": [
+        359,
+        0,
+        196,
+        108
+      ],
+      "candidate_stratum": "no_glasses",
+      "head_area": 21168,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-5413988.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-5413988.xml&datasetVersionNumber=1",
+      "image_size": [
+        2091,
+        2611
+      ],
+      "sha256": "4809dea8dbff80e1172146810b409c49b91de473ebdfe722d42395b993e8799e",
+      "bytes": 970698,
+      "voc_file": "pexels-photo-5413988.xml",
+      "voc_sha256": "3b1ff3c372ed46b879a0e485447e1cb57aedf3c430217f4564e5f288b35b9e3e",
+      "original_head_box_xyxy": [
+        1173.0,
+        0.0,
+        1813.0,
+        442.0
+      ],
+      "head_box_xyxy": [
+        1141,
+        0,
+        1845,
+        465
+      ],
+      "locator_match_max_error_640": 0.34163155878974294
+    },
+    {
+      "photo_id": 5439398,
+      "file_name": "pexels-photo-5439398.jpeg",
+      "mirror_image_id": 444,
+      "mirror_head_annotation_id": 4176,
+      "mirror_head_box": [
+        368,
+        252,
+        78,
+        80
+      ],
+      "candidate_stratum": "other_glasses",
+      "head_area": 6240,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-5439398.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-5439398.xml&datasetVersionNumber=1",
+      "image_size": [
+        3565,
+        5348
+      ],
+      "sha256": "3ec52d9d6134de5c021f5bc8c55a5262468e8a0f0aca97dfa729354a191c5eaf",
+      "bytes": 1501551,
+      "voc_file": "pexels-photo-5439398.xml",
+      "voc_sha256": "dd5a4a9c15756174274178f1746ec6424c0e554af5334bfe8c219f68a512e958",
+      "original_head_box_xyxy": [
+        2047.0,
+        2101.0,
+        2481.0,
+        2768.0
+      ],
+      "head_box_xyxy": [
+        2025,
+        2067,
+        2503,
+        2802
+      ],
+      "locator_match_max_error_640": 0.5714285714285836
+    },
+    {
+      "photo_id": 5452298,
+      "file_name": "pexels-photo-5452298.jpeg",
+      "mirror_image_id": 5230,
+      "mirror_head_annotation_id": 49409,
+      "mirror_head_box": [
+        200,
+        0,
+        286,
+        195
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 55770,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-5452298.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-5452298.xml&datasetVersionNumber=1",
+      "image_size": [
+        4000,
+        6000
+      ],
+      "sha256": "cbecb5e6d30a51ca9ef9e03ec9377f59c45efc0bf817fd5ead48a953d3169a1c",
+      "bytes": 1959397,
+      "voc_file": "pexels-photo-5452298.xml",
+      "voc_sha256": "5b21d809518e469923d15ecf12062e07e1f95c4e25d21598557bffb57a51110f",
+      "original_head_box_xyxy": [
+        1246.0,
+        0.0,
+        3035.0,
+        1827.0
+      ],
+      "head_box_xyxy": [
+        1156,
+        0,
+        3125,
+        1919
+      ],
+      "locator_match_max_error_640": 0.6399999999999864
+    },
+    {
+      "photo_id": 5493654,
+      "file_name": "pexels-photo-5493654.jpeg",
+      "mirror_image_id": 1905,
+      "mirror_head_annotation_id": 17869,
+      "mirror_head_box": [
+        411,
+        156,
+        138,
+        103
+      ],
+      "candidate_stratum": "no_glasses",
+      "head_area": 14214,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-5493654.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-5493654.xml&datasetVersionNumber=1",
+      "image_size": [
+        4000,
+        6000
+      ],
+      "sha256": "9e466c42f03cc659c1d315f9ef447a62742a94e2cb6b56d8312c43f6b5138da7",
+      "bytes": 2040137,
+      "voc_file": "pexels-photo-5493654.xml",
+      "voc_sha256": "6355af4959001c6876d1d045b3747ee254a2545206e750da3d1d5fae6a689f25",
+      "original_head_box_xyxy": [
+        2568.0,
+        1459.0,
+        3432.0,
+        2425.0
+      ],
+      "head_box_xyxy": [
+        2524,
+        1410,
+        3476,
+        2474
+      ],
+      "locator_match_max_error_640": 0.37333333333333485
+    },
+    {
+      "photo_id": 5619452,
+      "file_name": "pexels-photo-5619452.jpeg",
+      "mirror_image_id": 387,
+      "mirror_head_annotation_id": 3593,
+      "mirror_head_box": [
+        271,
+        56,
+        103,
+        200
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 20600,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-5619452.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-5619452.xml&datasetVersionNumber=1",
+      "image_size": [
+        8192,
+        5461
+      ],
+      "sha256": "a54dfbf6c5d0fb654786530e914b542dae33b1a43e04d52e3aab46d4c9bc3258",
+      "bytes": 3528029,
+      "voc_file": "pexels-photo-5619452.xml",
+      "voc_sha256": "3fe795e88ba649705008509fa9b5a58bd5da5e597864c02e3321c75476029f80",
+      "original_head_box_xyxy": [
+        3469.0,
+        477.0,
+        4788.0,
+        2183.0
+      ],
+      "head_box_xyxy": [
+        3403,
+        391,
+        4854,
+        2269
+      ],
+      "locator_match_max_error_640": 0.09815052188243811
+    },
+    {
+      "photo_id": 5619458,
+      "file_name": "pexels-photo-5619458.jpeg",
+      "mirror_image_id": 2363,
+      "mirror_head_annotation_id": 22135,
+      "mirror_head_box": [
+        162,
+        184,
+        64,
+        115.5
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 7392.0,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-5619458.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-5619458.xml&datasetVersionNumber=1",
+      "image_size": [
+        8192,
+        5461
+      ],
+      "sha256": "cc59e6990e36e1705ee01e696c4ab689ab072155520a2dc04836de58c2659686",
+      "bytes": 1889209,
+      "voc_file": "pexels-photo-5619458.xml",
+      "voc_sha256": "e69c85999b4355d05dce9093cc8355910a443a57b77809414203e61b3d07dccb",
+      "original_head_box_xyxy": [
+        2073.0,
+        1569.0,
+        2891.0,
+        2554.0
+      ],
+      "head_box_xyxy": [
+        2032,
+        1519,
+        2932,
+        2604
+      ],
+      "locator_match_max_error_640": 0.12158945248123132
+    },
+    {
+      "photo_id": 5647259,
+      "file_name": "pexels-photo-5647259.jpeg",
+      "mirror_image_id": 3351,
+      "mirror_head_annotation_id": 31517,
+      "mirror_head_box": [
+        104,
+        124,
+        111.5,
+        237.5
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 26481.25,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-5647259.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-5647259.xml&datasetVersionNumber=1",
+      "image_size": [
+        5430,
+        3198
+      ],
+      "sha256": "ef4db3d70202fe7ef6189b2b00d908ac395cf2b29ddb269485ec9d0c98e07139",
+      "bytes": 1363292,
+      "voc_file": "pexels-photo-5647259.xml",
+      "voc_sha256": "b75e834d7fd53362b9a051d02a3e17e008c5a92539284c98e5a3f883a4baaee8",
+      "original_head_box_xyxy": [
+        882.0,
+        618.0,
+        1827.0,
+        1806.0
+      ],
+      "head_box_xyxy": [
+        834,
+        558,
+        1875,
+        1866
+      ],
+      "locator_match_max_error_640": 0.3227016885553411
+    },
+    {
+      "photo_id": 5750131,
+      "file_name": "pexels-photo-5750131.jpeg",
+      "mirror_image_id": 1036,
+      "mirror_head_annotation_id": 9987,
+      "mirror_head_box": [
+        218,
+        211,
+        102,
+        87.5
+      ],
+      "candidate_stratum": "no_glasses",
+      "head_area": 8925.0,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-5750131.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-5750131.xml&datasetVersionNumber=1",
+      "image_size": [
+        4064,
+        6096
+      ],
+      "sha256": "b6a3148b8f7f57dd2596bd07d51e839481d24d5d4d5689f492bec20111b66ce3",
+      "bytes": 1942670,
+      "voc_file": "pexels-photo-5750131.xml",
+      "voc_sha256": "0cf6dd6e2989bc3196840113882c577738b156cc666535cb94712eaf7e69cef4",
+      "original_head_box_xyxy": [
+        1381.0,
+        2015.0,
+        2028.0,
+        2847.0
+      ],
+      "head_box_xyxy": [
+        1348,
+        1973,
+        2061,
+        2889
+      ],
+      "locator_match_max_error_640": 0.5485564304461832
+    },
+    {
+      "photo_id": 5835344,
+      "file_name": "pexels-photo-5835344.jpeg",
+      "mirror_image_id": 1116,
+      "mirror_head_annotation_id": 10648,
+      "mirror_head_box": [
+        223,
+        102,
+        222.5,
+        327.5
+      ],
+      "candidate_stratum": "other_glasses",
+      "head_area": 72868.75,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-5835344.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-5835344.xml&datasetVersionNumber=1",
+      "image_size": [
+        6000,
+        4000
+      ],
+      "sha256": "3e13e6fc82ac3090d3d646625c222520a90a19d9751fcc9c019b92428c1d0ce3",
+      "bytes": 1769266,
+      "voc_file": "pexels-photo-5835344.xml",
+      "voc_sha256": "2625978635e222e36add9c2c178d17904d4eea1a64bc2d9e240dda1675582829",
+      "original_head_box_xyxy": [
+        2095.0,
+        636.0,
+        4181.0,
+        2683.0
+      ],
+      "head_box_xyxy": [
+        1990,
+        533,
+        4286,
+        2786
+      ],
+      "locator_match_max_error_640": 0.46666666666666856
+    },
+    {
+      "photo_id": 5894265,
+      "file_name": "pexels-photo-5894265.jpeg",
+      "mirror_image_id": 4101,
+      "mirror_head_annotation_id": 38538,
+      "mirror_head_box": [
+        136,
+        244,
+        118,
+        108.5
+      ],
+      "candidate_stratum": "no_glasses",
+      "head_area": 12803.0,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-5894265.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-5894265.xml&datasetVersionNumber=1",
+      "image_size": [
+        3822,
+        5733
+      ],
+      "sha256": "aefe1c1becb2b9cafb26064da96ae7820cd344496686bb815c36763f76452b26",
+      "bytes": 2075450,
+      "voc_file": "pexels-photo-5894265.xml",
+      "voc_sha256": "1d47a25042d7b24cdcd0ad9c27075eb31de043ea3529073c81322c66b10a7852",
+      "original_head_box_xyxy": [
+        811.0,
+        2184.0,
+        1515.0,
+        3155.0
+      ],
+      "head_box_xyxy": [
+        775,
+        2135,
+        1551,
+        3204
+      ],
+      "locator_match_max_error_640": 0.19675562532705726
+    },
+    {
+      "photo_id": 5915140,
+      "file_name": "pexels-photo-5915140.jpeg",
+      "mirror_image_id": 639,
+      "mirror_head_annotation_id": 6055,
+      "mirror_head_box": [
+        224,
+        48,
+        202,
+        206
+      ],
+      "candidate_stratum": "other_glasses",
+      "head_area": 41612,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-5915140.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-5915140.xml&datasetVersionNumber=1",
+      "image_size": [
+        4471,
+        6706
+      ],
+      "sha256": "e3494fa44c1e7aedbae808e83498b8251738f5248bd062e48f952c197e679bfe",
+      "bytes": 2174896,
+      "voc_file": "pexels-photo-5915140.xml",
+      "voc_sha256": "bb30d1d5dfd8db09d296ba1777cc0d5f2254f3e86e0d877bd17ce74026915caa",
+      "original_head_box_xyxy": [
+        1566.0,
+        498.0,
+        2977.0,
+        2655.0
+      ],
+      "head_box_xyxy": [
+        1495,
+        390,
+        3048,
+        2763
+      ],
+      "locator_match_max_error_640": 0.47241276468834315
+    },
+    {
+      "photo_id": 5922212,
+      "file_name": "pexels-photo-5922212.jpeg",
+      "mirror_image_id": 5076,
+      "mirror_head_annotation_id": 47829,
+      "mirror_head_box": [
+        299,
+        200,
+        100.5,
+        94
+      ],
+      "candidate_stratum": "other_glasses",
+      "head_area": 9447.0,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-5922212.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-5922212.xml&datasetVersionNumber=1",
+      "image_size": [
+        4366,
+        6549
+      ],
+      "sha256": "e1be30d8b935fac1b6b8a780e4a911b0596a01fff70c0b4a50591ba10d84bcfa",
+      "bytes": 1714104,
+      "voc_file": "pexels-photo-5922212.xml",
+      "voc_sha256": "eb215a3e615fb85cb803173c82c6f6e15f93c6a210ec89681829d2b69bc883ca",
+      "original_head_box_xyxy": [
+        2040.0,
+        2042.0,
+        2724.0,
+        3006.0
+      ],
+      "head_box_xyxy": [
+        2005,
+        1993,
+        2759,
+        3055
+      ],
+      "locator_match_max_error_640": 0.44586959841197427
+    },
+    {
+      "photo_id": 5940704,
+      "file_name": "pexels-photo-5940704.jpeg",
+      "mirror_image_id": 4772,
+      "mirror_head_annotation_id": 45136,
+      "mirror_head_box": [
+        21,
+        164,
+        131,
+        256
+      ],
+      "candidate_stratum": "other_glasses",
+      "head_area": 33536,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-5940704.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-5940704.xml&datasetVersionNumber=1",
+      "image_size": [
+        3999,
+        2666
+      ],
+      "sha256": "060dfdce8f61b9923d2ab41cb7af7881e9287864048c43591a560cac6bbcfa63",
+      "bytes": 658809,
+      "voc_file": "pexels-photo-5940704.xml",
+      "voc_sha256": "f7eb7595ea066bf046173770ede52e1893761a5ed8d7bd82899478eb6823ba6f",
+      "original_head_box_xyxy": [
+        130.0,
+        682.0,
+        949.0,
+        1749.0
+      ],
+      "head_box_xyxy": [
+        89,
+        628,
+        990,
+        1803
+      ],
+      "locator_match_max_error_640": 0.27906976744185386
+    },
+    {
+      "photo_id": 5953543,
+      "file_name": "pexels-photo-5953543.jpeg",
+      "mirror_image_id": 393,
+      "mirror_head_annotation_id": 3669,
+      "mirror_head_box": [
+        356,
+        119,
+        157.5,
+        144.5
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 22758.75,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-5953543.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-5953543.xml&datasetVersionNumber=1",
+      "image_size": [
+        3947,
+        5920
+      ],
+      "sha256": "5a4875b965aba832d300afabadbdc33a13ed66430e0fb1c7f72f5d59af329c42",
+      "bytes": 2106497,
+      "voc_file": "pexels-photo-5953543.xml",
+      "voc_sha256": "e9ca8b568129c4076a1b5e13aa3d62b5a08b99d0a3a63e17f4147d4d35a8bb5c",
+      "original_head_box_xyxy": [
+        2197.0,
+        1097.0,
+        3168.0,
+        2434.0
+      ],
+      "head_box_xyxy": [
+        2148,
+        1030,
+        3217,
+        2501
+      ],
+      "locator_match_max_error_640": 0.4054054054054035
+    },
+    {
+      "photo_id": 5953570,
+      "file_name": "pexels-photo-5953570.jpeg",
+      "mirror_image_id": 3621,
+      "mirror_head_annotation_id": 34135,
+      "mirror_head_box": [
+        401,
+        0,
+        221,
+        93.5
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 20663.5,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-5953570.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-5953570.xml&datasetVersionNumber=1",
+      "image_size": [
+        4074,
+        6111
+      ],
+      "sha256": "d556ef662bb9b6901e2de4c9f8466ad3d2d906ee83683a4356812e5f8be76037",
+      "bytes": 2149237,
+      "voc_file": "pexels-photo-5953570.xml",
+      "voc_sha256": "aa9543bd0f8734249bb872d035f608f548828bd94c825c674315fa9254a34449",
+      "original_head_box_xyxy": [
+        2552.0,
+        1.0,
+        3959.0,
+        894.0
+      ],
+      "head_box_xyxy": [
+        2481,
+        0,
+        4030,
+        939
+      ],
+      "locator_match_max_error_640": 0.10472917689412534
+    },
+    {
+      "photo_id": 6100028,
+      "file_name": "pexels-photo-6100028.jpeg",
+      "mirror_image_id": 965,
+      "mirror_head_annotation_id": 9345,
+      "mirror_head_box": [
+        268,
+        326,
+        60.5,
+        40
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 2420.0,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-6100028.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-6100028.xml&datasetVersionNumber=1",
+      "image_size": [
+        2257,
+        4032
+      ],
+      "sha256": "9a82f979c3ae9c7b72cc922d534ca498a9419f78068c3f38e6ab0ead14ae4391",
+      "bytes": 827431,
+      "voc_file": "pexels-photo-6100028.xml",
+      "voc_sha256": "ff6a5d3492779b35644c71f4d70329851987c81b1a72bac678075df49ca29496",
+      "original_head_box_xyxy": [
+        946.0,
+        2050.0,
+        1159.0,
+        2301.0
+      ],
+      "head_box_xyxy": [
+        935,
+        2037,
+        1170,
+        2314
+      ],
+      "locator_match_max_error_640": 0.6031746031746366
+    },
+    {
+      "photo_id": 6147025,
+      "file_name": "pexels-photo-6147025.jpeg",
+      "mirror_image_id": 3460,
+      "mirror_head_annotation_id": 32594,
+      "mirror_head_box": [
+        0,
+        397,
+        84.5,
+        128
+      ],
+      "candidate_stratum": "other_glasses",
+      "head_area": 10816.0,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-6147025.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-6147025.xml&datasetVersionNumber=1",
+      "image_size": [
+        5600,
+        3733
+      ],
+      "sha256": "1330888f8e458f670d7ec46ae5fd47a2c38e3968ce56ce03f49819f324e2cb98",
+      "bytes": 2243504,
+      "voc_file": "pexels-photo-6147025.xml",
+      "voc_sha256": "ae128ac46ccfcf3c41721c8d38d3193901991476aa3a15e9a093cc3d7a0c2cc8",
+      "original_head_box_xyxy": [
+        1.0,
+        2314.0,
+        739.0,
+        3061.0
+      ],
+      "head_box_xyxy": [
+        0,
+        2276,
+        776,
+        3099
+      ],
+      "locator_match_max_error_640": 0.2788641843021651
+    },
+    {
+      "photo_id": 6285151,
+      "file_name": "pexels-photo-6285151.jpeg",
+      "mirror_image_id": 3410,
+      "mirror_head_annotation_id": 32118,
+      "mirror_head_box": [
+        381,
+        60,
+        83.5,
+        181.5
+      ],
+      "candidate_stratum": "no_glasses",
+      "head_area": 15155.25,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-6285151.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-6285151.xml&datasetVersionNumber=1",
+      "image_size": [
+        5760,
+        3840
+      ],
+      "sha256": "21d9c2124e086d0bb79c725944c73f8c4cf711634fe5144e45598b18575913f0",
+      "bytes": 1322456,
+      "voc_file": "pexels-photo-6285151.xml",
+      "voc_sha256": "6a2e443a7a21d1bf5939bd99945f96fb833ad3bb3258d540914cd0da59040ed5",
+      "original_head_box_xyxy": [
+        3433.0,
+        362.0,
+        4183.0,
+        1452.0
+      ],
+      "head_box_xyxy": [
+        3395,
+        307,
+        4221,
+        1507
+      ],
+      "locator_match_max_error_640": 0.4444444444444571
+    },
+    {
+      "photo_id": 6322359,
+      "file_name": "pexels-photo-6322359.jpeg",
+      "mirror_image_id": 4607,
+      "mirror_head_annotation_id": 43710,
+      "mirror_head_box": [
+        372,
+        282,
+        96,
+        93.5
+      ],
+      "candidate_stratum": "other_glasses",
+      "head_area": 8976.0,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-6322359.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-6322359.xml&datasetVersionNumber=1",
+      "image_size": [
+        4000,
+        6000
+      ],
+      "sha256": "a6b56e6ec71ce798d287b8aecee7aaaa9864a9ac088341fc3d8cb5dae6a85898",
+      "bytes": 3305045,
+      "voc_file": "pexels-photo-6322359.xml",
+      "voc_sha256": "218181c1f8c629b0996e1b6c78a0e92efddd332de5fb27515fb21f950c271de6",
+      "original_head_box_xyxy": [
+        2322.0,
+        2644.0,
+        2922.0,
+        3519.0
+      ],
+      "head_box_xyxy": [
+        2292,
+        2600,
+        2952,
+        3563
+      ],
+      "locator_match_max_error_640": 0.4800000000000182
+    },
+    {
+      "photo_id": 6405670,
+      "file_name": "pexels-photo-6405670.jpeg",
+      "mirror_image_id": 601,
+      "mirror_head_annotation_id": 5696,
+      "mirror_head_box": [
+        344,
+        262,
+        71,
+        119.5
+      ],
+      "candidate_stratum": "no_glasses",
+      "head_area": 8484.5,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-6405670.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-6405670.xml&datasetVersionNumber=1",
+      "image_size": [
+        5192,
+        3466
+      ],
+      "sha256": "cd3e1118a80661942fc2b2d85174a2f06d6e4958415129ad9ca0fded3dae04e6",
+      "bytes": 1628536,
+      "voc_file": "pexels-photo-6405670.xml",
+      "voc_sha256": "1bddbef453e1ff03577da9008c3d18ed5c646705a79a94baea03cc537e18248b",
+      "original_head_box_xyxy": [
+        2790.0,
+        1420.0,
+        3367.0,
+        2067.0
+      ],
+      "head_box_xyxy": [
+        2761,
+        1387,
+        3396,
+        2100
+      ],
+      "locator_match_max_error_640": 0.20427005193306513
+    },
+    {
+      "photo_id": 6474349,
+      "file_name": "pexels-photo-6474349.jpeg",
+      "mirror_image_id": 778,
+      "mirror_head_annotation_id": 7434,
+      "mirror_head_box": [
+        364,
+        196,
+        71.5,
+        50.5
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 3610.75,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-6474349.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-6474349.xml&datasetVersionNumber=1",
+      "image_size": [
+        3633,
+        5449
+      ],
+      "sha256": "a650d14535e5435022cbcb615e81bd6d9cc79aa36ed083a26142382fb2b7cdd9",
+      "bytes": 2781035,
+      "voc_file": "pexels-photo-6474349.xml",
+      "voc_sha256": "58aa55814a2dfae3e79be27328705df98d4cd8c5b38b2461176afaca96073844",
+      "original_head_box_xyxy": [
+        2064.0,
+        1673.0,
+        2471.0,
+        2102.0
+      ],
+      "head_box_xyxy": [
+        2043,
+        1651,
+        2492,
+        2124
+      ],
+      "locator_match_max_error_640": 0.49844008074876456
+    },
+    {
+      "photo_id": 6611408,
+      "file_name": "pexels-photo-6611408.jpeg",
+      "mirror_image_id": 2060,
+      "mirror_head_annotation_id": 19290,
+      "mirror_head_box": [
+        256,
+        92,
+        111,
+        111
+      ],
+      "candidate_stratum": "no_glasses",
+      "head_area": 12321,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-6611408.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-6611408.xml&datasetVersionNumber=1",
+      "image_size": [
+        3338,
+        5000
+      ],
+      "sha256": "3357a99d5afcd33e3677814b6fc348cf00e15e687f859c5accc4d53900181d94",
+      "bytes": 1427574,
+      "voc_file": "pexels-photo-6611408.xml",
+      "voc_sha256": "dc2a2fa01a89a8ce7a092064da7182c7bff2fa70ff5af272dd5b52d5d5d5b3ee",
+      "original_head_box_xyxy": [
+        1335.0,
+        718.0,
+        1913.0,
+        1584.0
+      ],
+      "head_box_xyxy": [
+        1306,
+        674,
+        1942,
+        1628
+      ],
+      "locator_match_max_error_640": 0.17914919113242433
+    },
+    {
+      "photo_id": 6693642,
+      "file_name": "pexels-photo-6693642.jpeg",
+      "mirror_image_id": 2586,
+      "mirror_head_annotation_id": 24178,
+      "mirror_head_box": [
+        310,
+        54,
+        96.5,
+        232
+      ],
+      "candidate_stratum": "other_glasses",
+      "head_area": 22388.0,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-6693642.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-6693642.xml&datasetVersionNumber=1",
+      "image_size": [
+        5911,
+        3941
+      ],
+      "sha256": "fea32eaac8fc70bae8c55dc8bc0b9fabc16e0d1599c339f3822714896568919c",
+      "bytes": 1502735,
+      "voc_file": "pexels-photo-6693642.xml",
+      "voc_sha256": "51aee2bb317bbfa9954f4fb1217e5438dc8d5dec8ea74f19397aab5deec4d77d",
+      "original_head_box_xyxy": [
+        2864.0,
+        332.0,
+        3755.0,
+        1761.0
+      ],
+      "head_box_xyxy": [
+        2819,
+        260,
+        3800,
+        1833
+      ],
+      "locator_match_max_error_640": 0.09304686178313659
+    },
+    {
+      "photo_id": 6720541,
+      "file_name": "pexels-photo-6720541.jpeg",
+      "mirror_image_id": 327,
+      "mirror_head_annotation_id": 2934,
+      "mirror_head_box": [
+        278,
+        48,
+        70.5,
+        156
+      ],
+      "candidate_stratum": "no_glasses",
+      "head_area": 10998.0,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-6720541.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-6720541.xml&datasetVersionNumber=1",
+      "image_size": [
+        5760,
+        3840
+      ],
+      "sha256": "c16de71a5387d859c06726c427f60dc10258efce5bde1285e44cc77bdd1edb28",
+      "bytes": 1653484,
+      "voc_file": "pexels-photo-6720541.xml",
+      "voc_sha256": "a51f96b49135865cc8fe84168099f83599bcec1479c1af8f0a0e4e20024d353c",
+      "original_head_box_xyxy": [
+        2505.0,
+        287.0,
+        3138.0,
+        1224.0
+      ],
+      "head_box_xyxy": [
+        2473,
+        240,
+        3170,
+        1271
+      ],
+      "locator_match_max_error_640": 0.3333333333333144
+    },
+    {
+      "photo_id": 6774143,
+      "file_name": "pexels-photo-6774143.jpeg",
+      "mirror_image_id": 75,
+      "mirror_head_annotation_id": 677,
+      "mirror_head_box": [
+        110,
+        275,
+        104.5,
+        163.5
+      ],
+      "candidate_stratum": "no_glasses",
+      "head_area": 17085.75,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-6774143.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-6774143.xml&datasetVersionNumber=1",
+      "image_size": [
+        5184,
+        3888
+      ],
+      "sha256": "b02269ee6f3b8c795e6af3d6beddb905ce22761627fa0d276612899d7ab1a801",
+      "bytes": 1278588,
+      "voc_file": "pexels-photo-6774143.xml",
+      "voc_sha256": "e5b03791f2ba8a71a05fff31551f9282d683b87eb81c2f61cb97aa3a37d94bf5",
+      "original_head_box_xyxy": [
+        892.0,
+        1673.0,
+        1739.0,
+        2666.0
+      ],
+      "head_box_xyxy": [
+        849,
+        1623,
+        1782,
+        2716
+      ],
+      "locator_match_max_error_640": 0.3909465020576022
+    },
+    {
+      "photo_id": 6914349,
+      "file_name": "pexels-photo-6914349.jpeg",
+      "mirror_image_id": 631,
+      "mirror_head_annotation_id": 5953,
+      "mirror_head_box": [
+        207,
+        158,
+        223,
+        137
+      ],
+      "candidate_stratum": "other_glasses",
+      "head_area": 30551,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-6914349.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-6914349.xml&datasetVersionNumber=1",
+      "image_size": [
+        3713,
+        5569
+      ],
+      "sha256": "1b3cf5651842c78f32d3f7536fb028a4d8a84089b764bd2d2a350305d4bb0e6b",
+      "bytes": 1669219,
+      "voc_file": "pexels-photo-6914349.xml",
+      "voc_sha256": "3f75f583c98722bd60842818b34af811d97ce269aee56aa0341ff0fc943d7af5",
+      "original_head_box_xyxy": [
+        1197.0,
+        1370.0,
+        2491.0,
+        2562.0
+      ],
+      "head_box_xyxy": [
+        1132,
+        1310,
+        2556,
+        2622
+      ],
+      "locator_match_max_error_640": 0.6762725558847364
+    },
+    {
+      "photo_id": 7006693,
+      "file_name": "pexels-photo-7006693.jpeg",
+      "mirror_image_id": 1753,
+      "mirror_head_annotation_id": 16530,
+      "mirror_head_box": [
+        282,
+        80,
+        77,
+        147
+      ],
+      "candidate_stratum": "no_glasses",
+      "head_area": 11319,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-7006693.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-7006693.xml&datasetVersionNumber=1",
+      "image_size": [
+        6000,
+        4000
+      ],
+      "sha256": "43820c54be2e18fae5fd94248288392446c9243c28d6bba0c7e136738830fcf1",
+      "bytes": 1470124,
+      "voc_file": "pexels-photo-7006693.xml",
+      "voc_sha256": "d3ef3d3fd1678b21a6b0daf69c2ff8be3a1157bc9afb2f6983099192e03772cd",
+      "original_head_box_xyxy": [
+        2644.0,
+        501.0,
+        3366.0,
+        1420.0
+      ],
+      "head_box_xyxy": [
+        2607,
+        455,
+        3403,
+        1466
+      ],
+      "locator_match_max_error_640": 0.1599999999999966
+    },
+    {
+      "photo_id": 7019765,
+      "file_name": "pexels-photo-7019765.jpeg",
+      "mirror_image_id": 5495,
+      "mirror_head_annotation_id": 51698,
+      "mirror_head_box": [
+        298,
+        12,
+        63.5,
+        111.5
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 7080.25,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-7019765.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-7019765.xml&datasetVersionNumber=1",
+      "image_size": [
+        6000,
+        4000
+      ],
+      "sha256": "a091dff0929a8c61326dede2c6beb056195ed4d8ac3492bd66d374cb2750caa2",
+      "bytes": 864555,
+      "voc_file": "pexels-photo-7019765.xml",
+      "voc_sha256": "6f32a0a7135defcf3b65b9c124ee125cffaf7a96e4231817f28a19017e61f26b",
+      "original_head_box_xyxy": [
+        2798.0,
+        77.0,
+        3392.0,
+        774.0
+      ],
+      "head_box_xyxy": [
+        2768,
+        42,
+        3422,
+        809
+      ],
+      "locator_match_max_error_640": 0.45333333333331893
+    },
+    {
+      "photo_id": 7019768,
+      "file_name": "pexels-photo-7019768.jpeg",
+      "mirror_image_id": 1081,
+      "mirror_head_annotation_id": 10373,
+      "mirror_head_box": [
+        297,
+        172,
+        94.5,
+        89
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 8410.5,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-7019768.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-7019768.xml&datasetVersionNumber=1",
+      "image_size": [
+        3689,
+        5533
+      ],
+      "sha256": "2d573135f1cf1b8a9c78f5ac9f1983f07061635b9ab8c73749d6485b25a268a1",
+      "bytes": 824170,
+      "voc_file": "pexels-photo-7019768.xml",
+      "voc_sha256": "76c162bdc4bc2f13ebebf1f08adcb66830006e3f2b04930a6d076623632bbef7",
+      "original_head_box_xyxy": [
+        1712.0,
+        1481.0,
+        2257.0,
+        2251.0
+      ],
+      "head_box_xyxy": [
+        1684,
+        1442,
+        2285,
+        2290
+      ],
+      "locator_match_max_error_640": 0.6932947767937776
+    },
+    {
+      "photo_id": 7023922,
+      "file_name": "pexels-photo-7023922.jpeg",
+      "mirror_image_id": 94,
+      "mirror_head_annotation_id": 889,
+      "mirror_head_box": [
+        176,
+        69,
+        74.5,
+        146
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 10877.0,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-7023922.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-7023922.xml&datasetVersionNumber=1",
+      "image_size": [
+        5472,
+        3648
+      ],
+      "sha256": "2459dfc26a67991142c972b39fd8733c85b1bdae372dae818c2fb0e00f71384c",
+      "bytes": 763886,
+      "voc_file": "pexels-photo-7023922.xml",
+      "voc_sha256": "2b7280db77549fe5eb2d1dee4da9aac7e65b5a88ec3753c33754c571f11b79f1",
+      "original_head_box_xyxy": [
+        1507.0,
+        391.0,
+        2142.0,
+        1222.0
+      ],
+      "head_box_xyxy": [
+        1475,
+        349,
+        2174,
+        1264
+      ],
+      "locator_match_max_error_640": 0.40350877192983603
+    },
+    {
+      "photo_id": 7147645,
+      "file_name": "pexels-photo-7147645.jpeg",
+      "mirror_image_id": 1746,
+      "mirror_head_annotation_id": 16461,
+      "mirror_head_box": [
+        341,
+        223,
+        82,
+        133.5
+      ],
+      "candidate_stratum": "no_glasses",
+      "head_area": 10947.0,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-7147645.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-7147645.xml&datasetVersionNumber=1",
+      "image_size": [
+        6000,
+        4000
+      ],
+      "sha256": "6677f74051c7776cb07c478fe07ece8b4e1152da1134e2d48e39be640f7786db",
+      "bytes": 1331192,
+      "voc_file": "pexels-photo-7147645.xml",
+      "voc_sha256": "be40f0c72cda391ebf78c646b91f62c905dc7f5f70b7238b0ac496a4881a25ae",
+      "original_head_box_xyxy": [
+        3198.0,
+        1392.0,
+        3967.0,
+        2225.0
+      ],
+      "head_box_xyxy": [
+        3159,
+        1350,
+        4006,
+        2267
+      ],
+      "locator_match_max_error_640": 0.28000000000002956
+    },
+    {
+      "photo_id": 7222230,
+      "file_name": "pexels-photo-7222230.jpeg",
+      "mirror_image_id": 5405,
+      "mirror_head_annotation_id": 50806,
+      "mirror_head_box": [
+        38,
+        108,
+        159.5,
+        119
+      ],
+      "candidate_stratum": "no_glasses",
+      "head_area": 18980.5,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-7222230.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-7222230.xml&datasetVersionNumber=1",
+      "image_size": [
+        2333,
+        3500
+      ],
+      "sha256": "968b451c576c0f31b135d39358a098715ad8012c6e201382b6d224f4f941f75d",
+      "bytes": 319009,
+      "voc_file": "pexels-photo-7222230.xml",
+      "voc_sha256": "923e193feb9e73a4596ff1a253330a59c023479c913fa42a9a0db99c9e52b803",
+      "original_head_box_xyxy": [
+        138.0,
+        589.0,
+        720.0,
+        1241.0
+      ],
+      "head_box_xyxy": [
+        108,
+        556,
+        750,
+        1274
+      ],
+      "locator_match_max_error_640": 0.29714285714285893
+    },
+    {
+      "photo_id": 7388965,
+      "file_name": "pexels-photo-7388965.jpeg",
+      "mirror_image_id": 4570,
+      "mirror_head_annotation_id": 43260,
+      "mirror_head_box": [
+        89,
+        36,
+        143.5,
+        121
+      ],
+      "candidate_stratum": "no_glasses",
+      "head_area": 17363.5,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-7388965.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-7388965.xml&datasetVersionNumber=1",
+      "image_size": [
+        4000,
+        6000
+      ],
+      "sha256": "87057b40171dffa770d72ccd8a8225793448ab825c629c07d8566c60a840fafe",
+      "bytes": 2551188,
+      "voc_file": "pexels-photo-7388965.xml",
+      "voc_sha256": "45841fbf87a1820c3de928c339ddd7760af45786665738831407cbb755de56f5",
+      "original_head_box_xyxy": [
+        557.0,
+        335.0,
+        1454.0,
+        1470.0
+      ],
+      "head_box_xyxy": [
+        512,
+        278,
+        1499,
+        1527
+      ],
+      "locator_match_max_error_640": 0.2666666666666657
+    },
+    {
+      "photo_id": 7446761,
+      "file_name": "pexels-photo-7446761.jpeg",
+      "mirror_image_id": 995,
+      "mirror_head_annotation_id": 9627,
+      "mirror_head_box": [
+        432,
+        5,
+        122,
+        230
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 28060,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-7446761.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-7446761.xml&datasetVersionNumber=1",
+      "image_size": [
+        5760,
+        3840
+      ],
+      "sha256": "791c10c7f3c4c8d618605988757612f5efbba81759f3cfcd957acbe05d3ef4b4",
+      "bytes": 1067783,
+      "voc_file": "pexels-photo-7446761.xml",
+      "voc_sha256": "df8622858809a1b1faa060b6caec57d3784c9112931f913418896200574c0838",
+      "original_head_box_xyxy": [
+        3887.0,
+        31.0,
+        4986.0,
+        1412.0
+      ],
+      "head_box_xyxy": [
+        3832,
+        0,
+        5041,
+        1482
+      ],
+      "locator_match_max_error_640": 0.16666666666666696
+    },
+    {
+      "photo_id": 7446996,
+      "file_name": "pexels-photo-7446996.jpeg",
+      "mirror_image_id": 2798,
+      "mirror_head_annotation_id": 26129,
+      "mirror_head_box": [
+        420,
+        41,
+        107,
+        175.5
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 18778.5,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-7446996.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-7446996.xml&datasetVersionNumber=1",
+      "image_size": [
+        5760,
+        3840
+      ],
+      "sha256": "c310fba36a8bde705c55e804c8b3333c1ec25b1e9837c94d33aeaaf3c16fab7f",
+      "bytes": 714291,
+      "voc_file": "pexels-photo-7446996.xml",
+      "voc_sha256": "0dd2e07d7fed9fd71a2dd5c000d2d9e59b5b2277e3cfc99e415840c633bd53ca",
+      "original_head_box_xyxy": [
+        3779.0,
+        248.0,
+        4744.0,
+        1300.0
+      ],
+      "head_box_xyxy": [
+        3730,
+        195,
+        4793,
+        1353
+      ],
+      "locator_match_max_error_640": 0.3333333333333357
+    },
+    {
+      "photo_id": 7461112,
+      "file_name": "pexels-photo-7461112.jpeg",
+      "mirror_image_id": 4470,
+      "mirror_head_annotation_id": 42250,
+      "mirror_head_box": [
+        519,
+        117,
+        60.5,
+        97.5
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 5898.75,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-7461112.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-7461112.xml&datasetVersionNumber=1",
+      "image_size": [
+        6000,
+        4000
+      ],
+      "sha256": "8f4fff33e83d2616f6f52c5c889027fad2fa51500e4ba157c1e4eec41829ddc1",
+      "bytes": 3352726,
+      "voc_file": "pexels-photo-7461112.xml",
+      "voc_sha256": "8da32750c6dc88385fe5b877a7dab776b7dda6029829edf046f55c6faab07ae6",
+      "original_head_box_xyxy": [
+        4869.0,
+        730.0,
+        5434.0,
+        1338.0
+      ],
+      "head_box_xyxy": [
+        4840,
+        699,
+        5463,
+        1369
+      ],
+      "locator_match_max_error_640": 0.36000000000001364
+    },
+    {
+      "photo_id": 7518805,
+      "file_name": "pexels-photo-7518805.jpeg",
+      "mirror_image_id": 5366,
+      "mirror_head_annotation_id": 50513,
+      "mirror_head_box": [
+        518,
+        105,
+        121.5,
+        185
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 22477.5,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-7518805.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-7518805.xml&datasetVersionNumber=1",
+      "image_size": [
+        3968,
+        5952
+      ],
+      "sha256": "51d5a3c5ba571991aa6ecd2fcf3bd437dc82e94c694a78303bd75fe3b0e8b16b",
+      "bytes": 1353992,
+      "voc_file": "pexels-photo-7518805.xml",
+      "voc_sha256": "86c8ea5331324634f252075c76ff2982844aaf311c31051c64c13db55112fa8c",
+      "original_head_box_xyxy": [
+        3214.0,
+        979.0,
+        3968.0,
+        2699.0
+      ],
+      "head_box_xyxy": [
+        3176,
+        893,
+        3968,
+        2785
+      ],
+      "locator_match_max_error_640": 0.3870967741935374
+    },
+    {
+      "photo_id": 7519285,
+      "file_name": "pexels-photo-7519285.jpeg",
+      "mirror_image_id": 942,
+      "mirror_head_annotation_id": 9098,
+      "mirror_head_box": [
+        170,
+        14,
+        136,
+        266
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 36176,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-7519285.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-7519285.xml&datasetVersionNumber=1",
+      "image_size": [
+        6091,
+        4061
+      ],
+      "sha256": "21fce7b2da3d7acb1c76b0c230e545e677cb883938027dbb835a1a9f714eaa27",
+      "bytes": 1737015,
+      "voc_file": "pexels-photo-7519285.xml",
+      "voc_sha256": "5d9e36099a4d1b4dbbb2ee90e0a5a8507db1e44d144e245d2df1cb3f39917754",
+      "original_head_box_xyxy": [
+        1619.0,
+        87.0,
+        2913.0,
+        1776.0
+      ],
+      "head_box_xyxy": [
+        1554,
+        2,
+        2978,
+        1861
+      ],
+      "locator_match_max_error_640": 0.28909135680866704
+    },
+    {
+      "photo_id": 7533369,
+      "file_name": "pexels-photo-7533369.jpeg",
+      "mirror_image_id": 2868,
+      "mirror_head_annotation_id": 26987,
+      "mirror_head_box": [
+        402,
+        50,
+        92.5,
+        214
+      ],
+      "candidate_stratum": "other_glasses",
+      "head_area": 19795.0,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-7533369.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-7533369.xml&datasetVersionNumber=1",
+      "image_size": [
+        5815,
+        3869
+      ],
+      "sha256": "9fc82bc64feb827d7c0f0c7e80a6c3fd3777bc03273193df7093410b3a97ac41",
+      "bytes": 1216842,
+      "voc_file": "pexels-photo-7533369.xml",
+      "voc_sha256": "0725408930e6285db1a885e0501fa0abaf0123a5fce13da894f122334e0a2cab",
+      "original_head_box_xyxy": [
+        3651.0,
+        304.0,
+        4493.0,
+        1597.0
+      ],
+      "head_box_xyxy": [
+        3608,
+        239,
+        4536,
+        1662
+      ],
+      "locator_match_max_error_640": 0.28689583871801716
+    },
+    {
+      "photo_id": 7579188,
+      "file_name": "pexels-photo-7579188.jpeg",
+      "mirror_image_id": 1977,
+      "mirror_head_annotation_id": 18572,
+      "mirror_head_box": [
+        0,
+        158,
+        158.5,
+        185.5
+      ],
+      "candidate_stratum": "no_glasses",
+      "head_area": 29401.75,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-7579188.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-7579188.xml&datasetVersionNumber=1",
+      "image_size": [
+        4000,
+        6000
+      ],
+      "sha256": "daff0cbee11c633b8eb967c8a1ede1fb1961ed72675e6a17756f9e8631ff8b08",
+      "bytes": 2287996,
+      "voc_file": "pexels-photo-7579188.xml",
+      "voc_sha256": "e31f9d882d2de917a893e1d0bf070f17efcef0543f37ee4fca1f8a25d85c7c8f",
+      "original_head_box_xyxy": [
+        0.0,
+        1485.0,
+        991.0,
+        3225.0
+      ],
+      "head_box_xyxy": [
+        0,
+        1398,
+        1041,
+        3312
+      ],
+      "locator_match_max_error_640": 0.4000000000000057
+    },
+    {
+      "photo_id": 7643760,
+      "file_name": "pexels-photo-7643760.jpeg",
+      "mirror_image_id": 5662,
+      "mirror_head_annotation_id": 53180,
+      "mirror_head_box": [
+        239,
+        98,
+        72,
+        160
+      ],
+      "candidate_stratum": "other_glasses",
+      "head_area": 11520,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-7643760.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-7643760.xml&datasetVersionNumber=1",
+      "image_size": [
+        6000,
+        4000
+      ],
+      "sha256": "a324abb2c08e91814381753376ffeb40785fb977d64a064822ea278827fd9fdc",
+      "bytes": 1807991,
+      "voc_file": "pexels-photo-7643760.xml",
+      "voc_sha256": "8e407502384ec7448c46ec675c251451a847423f7e75d504fad0d4080e4aa49e",
+      "original_head_box_xyxy": [
+        2241.0,
+        614.0,
+        2915.0,
+        1613.0
+      ],
+      "head_box_xyxy": [
+        2207,
+        564,
+        2949,
+        1663
+      ],
+      "locator_match_max_error_640": 0.23999999999999488
+    },
+    {
+      "photo_id": 7675999,
+      "file_name": "pexels-photo-7675999.jpeg",
+      "mirror_image_id": 4042,
+      "mirror_head_annotation_id": 37998,
+      "mirror_head_box": [
+        260,
+        132,
+        172,
+        156.5
+      ],
+      "candidate_stratum": "no_glasses",
+      "head_area": 26918.0,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-7675999.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-7675999.xml&datasetVersionNumber=1",
+      "image_size": [
+        4000,
+        6000
+      ],
+      "sha256": "296fdd6619e17c20a474bee54765f9eb27f010340499a82c1c3a900d7deca9c1",
+      "bytes": 3091363,
+      "voc_file": "pexels-photo-7675999.xml",
+      "voc_sha256": "868386148b9f1f165b4b97904f30f6d5417757800abadde217523677845c1603",
+      "original_head_box_xyxy": [
+        1623.0,
+        1238.0,
+        2697.0,
+        2706.0
+      ],
+      "head_box_xyxy": [
+        1569,
+        1164,
+        2751,
+        2780
+      ],
+      "locator_match_max_error_640": 0.3199999999999932
+    },
+    {
+      "photo_id": 7681564,
+      "file_name": "pexels-photo-7681564.jpeg",
+      "mirror_image_id": 253,
+      "mirror_head_annotation_id": 2241,
+      "mirror_head_box": [
+        400,
+        344,
+        128.5,
+        109
+      ],
+      "candidate_stratum": "other_glasses",
+      "head_area": 14006.5,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-7681564.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-7681564.xml&datasetVersionNumber=1",
+      "image_size": [
+        4000,
+        6000
+      ],
+      "sha256": "d779085a8f8c74b3ff549025ab68672af26dcf69379ab025c8ca803e771b3666",
+      "bytes": 1148880,
+      "voc_file": "pexels-photo-7681564.xml",
+      "voc_sha256": "5168acad71e97fb6d3d72b75b451a9637c2005529c8443c10d81bd38da666d6b",
+      "original_head_box_xyxy": [
+        2500.0,
+        3221.0,
+        3302.0,
+        4245.0
+      ],
+      "head_box_xyxy": [
+        2459,
+        3169,
+        3343,
+        4297
+      ],
+      "locator_match_max_error_640": 0.4266666666666197
+    },
+    {
+      "photo_id": 7698835,
+      "file_name": "pexels-photo-7698835.jpeg",
+      "mirror_image_id": 5181,
+      "mirror_head_annotation_id": 48894,
+      "mirror_head_box": [
+        0,
+        244,
+        99,
+        174
+      ],
+      "candidate_stratum": "other_glasses",
+      "head_area": 17226,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-7698835.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-7698835.xml&datasetVersionNumber=1",
+      "image_size": [
+        6000,
+        4000
+      ],
+      "sha256": "35c0ba9be5f1c017582a41e4a1b232151ad8b4e9353bc471acfa04d2591f0db2",
+      "bytes": 1739337,
+      "voc_file": "pexels-photo-7698835.xml",
+      "voc_sha256": "c5d3661229a246eadcd6102549d683736ce8889480325bc64932ec0b95b966fa",
+      "original_head_box_xyxy": [
+        1.0,
+        1523.0,
+        927.0,
+        2609.0
+      ],
+      "head_box_xyxy": [
+        0,
+        1468,
+        974,
+        2664
+      ],
+      "locator_match_max_error_640": 0.3200000000000216
+    },
+    {
+      "photo_id": 7739856,
+      "file_name": "pexels-photo-7739856.jpeg",
+      "mirror_image_id": 360,
+      "mirror_head_annotation_id": 3264,
+      "mirror_head_box": [
+        290,
+        297,
+        41,
+        91
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 3731,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-7739856.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-7739856.xml&datasetVersionNumber=1",
+      "image_size": [
+        5760,
+        3840
+      ],
+      "sha256": "44fae0f6b97b9e6d0eb991feba86f36cb40448f1503b8307cd7435a2a087f218",
+      "bytes": 799280,
+      "voc_file": "pexels-photo-7739856.xml",
+      "voc_sha256": "0db54640bbdc2b1ae52def7e738e6c0e233cca67c57b3e46d788a3dcaae71a91",
+      "original_head_box_xyxy": [
+        2611.0,
+        1781.0,
+        2978.0,
+        2327.0
+      ],
+      "head_box_xyxy": [
+        2592,
+        1753,
+        2997,
+        2355
+      ],
+      "locator_match_max_error_640": 0.22222222222222854
+    },
+    {
+      "photo_id": 7805067,
+      "file_name": "pexels-photo-7805067.jpeg",
+      "mirror_image_id": 1030,
+      "mirror_head_annotation_id": 9911,
+      "mirror_head_box": [
+        439,
+        78,
+        115,
+        209.5
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 24092.5,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-7805067.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-7805067.xml&datasetVersionNumber=1",
+      "image_size": [
+        5932,
+        3955
+      ],
+      "sha256": "9ea60c237f3a04195a87de24863ddbb1b25677eefe88065c2b2456c9e9842b4b",
+      "bytes": 2851859,
+      "voc_file": "pexels-photo-7805067.xml",
+      "voc_sha256": "6cb5278971d40face412d8cb3d5930c411bd262146043f33fbe17da1124508dd",
+      "original_head_box_xyxy": [
+        4066.0,
+        479.0,
+        5131.0,
+        1775.0
+      ],
+      "head_box_xyxy": [
+        4012,
+        414,
+        5185,
+        1840
+      ],
+      "locator_match_max_error_640": 0.4879898862199781
+    },
+    {
+      "photo_id": 7888818,
+      "file_name": "pexels-photo-7888818.jpeg",
+      "mirror_image_id": 1587,
+      "mirror_head_annotation_id": 14896,
+      "mirror_head_box": [
+        254,
+        266,
+        88.5,
+        77.5
+      ],
+      "candidate_stratum": "other_glasses",
+      "head_area": 6858.75,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-7888818.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-7888818.xml&datasetVersionNumber=1",
+      "image_size": [
+        4397,
+        6595
+      ],
+      "sha256": "3419dbb37b0bf2d495d300b4be52d7cf74c555217bc8d01d375a020e2b330759",
+      "bytes": 1699354,
+      "voc_file": "pexels-photo-7888818.xml",
+      "voc_sha256": "c528c9811293590d1b1b7630f283131e9038c827b47a0720b96393b15f635c7e",
+      "original_head_box_xyxy": [
+        1749.0,
+        2745.0,
+        2356.0,
+        3543.0
+      ],
+      "head_box_xyxy": [
+        1718,
+        2705,
+        2387,
+        3583
+      ],
+      "locator_match_max_error_640": 0.5735728906072382
+    },
+    {
+      "photo_id": 8123815,
+      "file_name": "pexels-photo-8123815.jpeg",
+      "mirror_image_id": 4312,
+      "mirror_head_annotation_id": 40715,
+      "mirror_head_box": [
+        485,
+        67,
+        71.5,
+        134.5
+      ],
+      "candidate_stratum": "other_glasses",
+      "head_area": 9616.75,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-8123815.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-8123815.xml&datasetVersionNumber=1",
+      "image_size": [
+        6325,
+        4217
+      ],
+      "sha256": "3df550f7b4eff5e213cd5341ebc35d05f9faa4e0ad35ae07b8cc4c6d71c2566c",
+      "bytes": 1839681,
+      "voc_file": "pexels-photo-8123815.xml",
+      "voc_sha256": "1cd3b32b187c4c0d2509bc396abc060d9c3e6843065e02194353cb46229a9865",
+      "original_head_box_xyxy": [
+        4788.0,
+        443.0,
+        5497.0,
+        1330.0
+      ],
+      "head_box_xyxy": [
+        4752,
+        398,
+        5533,
+        1375
+      ],
+      "locator_match_max_error_640": 0.5225296442687863
+    },
+    {
+      "photo_id": 8218836,
+      "file_name": "pexels-photo-8218836.jpeg",
+      "mirror_image_id": 3867,
+      "mirror_head_annotation_id": 36238,
+      "mirror_head_box": [
+        533,
+        272,
+        107,
+        112
+      ],
+      "candidate_stratum": "no_glasses",
+      "head_area": 11984,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-8218836.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-8218836.xml&datasetVersionNumber=1",
+      "image_size": [
+        3751,
+        5627
+      ],
+      "sha256": "9fd16570b9bfdc1c4b9be2a4c89bb6ff2cc8726fd95ee6d16728288637c301dc",
+      "bytes": 1218766,
+      "voc_file": "pexels-photo-8218836.xml",
+      "voc_sha256": "83e5d628d370f314273ec77c6920c1ad0a5586603c604dbac9c8e09323421327",
+      "original_head_box_xyxy": [
+        3124.0,
+        2393.0,
+        3751.0,
+        3378.0
+      ],
+      "head_box_xyxy": [
+        3092,
+        2343,
+        3751,
+        3428
+      ],
+      "locator_match_max_error_640": 0.17344944019902186
+    },
+    {
+      "photo_id": 8292847,
+      "file_name": "pexels-photo-8292847.jpeg",
+      "mirror_image_id": 4067,
+      "mirror_head_annotation_id": 38247,
+      "mirror_head_box": [
+        376,
+        71,
+        97.5,
+        201.5
+      ],
+      "candidate_stratum": "other_glasses",
+      "head_area": 19646.25,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-8292847.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-8292847.xml&datasetVersionNumber=1",
+      "image_size": [
+        3687,
+        2458
+      ],
+      "sha256": "f9e0448470f45afc435b35900bf61fb58ecf520208a955d8c6c156d4cac6c4f0",
+      "bytes": 650905,
+      "voc_file": "pexels-photo-8292847.xml",
+      "voc_sha256": "ed7601ad2d5bc6057226a8f3ba38fdc5ae89eb63dec2d9785bb5c0845f949d71",
+      "original_head_box_xyxy": [
+        2168.0,
+        274.0,
+        2731.0,
+        1047.0
+      ],
+      "head_box_xyxy": [
+        2139,
+        235,
+        2760,
+        1086
+      ],
+      "locator_match_max_error_640": 0.34255492270138177
+    },
+    {
+      "photo_id": 8411433,
+      "file_name": "pexels-photo-8411433.jpeg",
+      "mirror_image_id": 2155,
+      "mirror_head_annotation_id": 20261,
+      "mirror_head_box": [
+        133,
+        45,
+        114.5,
+        224
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 25648.0,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-8411433.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-8411433.xml&datasetVersionNumber=1",
+      "image_size": [
+        7360,
+        4912
+      ],
+      "sha256": "58fd3f0c94dda4efaff51c218390bb0ede761e8234ebdc6f1a1ee3be52cfda9b",
+      "bytes": 3536935,
+      "voc_file": "pexels-photo-8411433.xml",
+      "voc_sha256": "1987577c3e88421b693198eb7f1dae2960d020e18346367c3cf05e50c2efaa23",
+      "original_head_box_xyxy": [
+        1525.0,
+        345.0,
+        2840.0,
+        2065.0
+      ],
+      "head_box_xyxy": [
+        1459,
+        259,
+        2906,
+        2151
+      ],
+      "locator_match_max_error_640": 0.39130434782609314
+    },
+    {
+      "photo_id": 8554293,
+      "file_name": "pexels-photo-8554293.jpeg",
+      "mirror_image_id": 569,
+      "mirror_head_annotation_id": 5446,
+      "mirror_head_box": [
+        141,
+        169,
+        182,
+        134.5
+      ],
+      "candidate_stratum": "other_glasses",
+      "head_area": 24479.0,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-8554293.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-8554293.xml&datasetVersionNumber=1",
+      "image_size": [
+        4214,
+        6321
+      ],
+      "sha256": "4f2841a9e06f10187d7ba189a86fc14000ae8b9777292f7673f4906a3dcfdcd5",
+      "bytes": 844829,
+      "voc_file": "pexels-photo-8554293.xml",
+      "voc_sha256": "ace63082114d7fe06c3a91d5d7516a74c7561e73793bd73230f2fe76cc907615",
+      "original_head_box_xyxy": [
+        924.0,
+        1668.0,
+        2124.0,
+        2998.0
+      ],
+      "head_box_xyxy": [
+        864,
+        1601,
+        2184,
+        3065
+      ],
+      "locator_match_max_error_640": 0.6677740863787562
+    },
+    {
+      "photo_id": 8682798,
+      "file_name": "pexels-photo-8682798.jpeg",
+      "mirror_image_id": 816,
+      "mirror_head_annotation_id": 7926,
+      "mirror_head_box": [
+        306,
+        59,
+        78,
+        130.5
+      ],
+      "candidate_stratum": "other_glasses",
+      "head_area": 10179.0,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-8682798.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-8682798.xml&datasetVersionNumber=1",
+      "image_size": [
+        5296,
+        3531
+      ],
+      "sha256": "a618c725ce280f726e614b7fe8a2b96168c790a4188ef7f7673c41c49d767dd1",
+      "bytes": 1210519,
+      "voc_file": "pexels-photo-8682798.xml",
+      "voc_sha256": "3214b60fbd9cb5bab64a1ff1231f0001c06d53572f6319f3c19059b2e426b809",
+      "original_head_box_xyxy": [
+        2527.0,
+        328.0,
+        3171.0,
+        1047.0
+      ],
+      "head_box_xyxy": [
+        2494,
+        292,
+        3204,
+        1083
+      ],
+      "locator_match_max_error_640": 0.6223564954682388
+    },
+    {
+      "photo_id": 8691848,
+      "file_name": "pexels-photo-8691848.jpeg",
+      "mirror_image_id": 5487,
+      "mirror_head_annotation_id": 51597,
+      "mirror_head_box": [
+        228,
+        149,
+        79,
+        108.5
+      ],
+      "candidate_stratum": "other_glasses",
+      "head_area": 8571.5,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-8691848.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-8691848.xml&datasetVersionNumber=1",
+      "image_size": [
+        4923,
+        3282
+      ],
+      "sha256": "020e0d3fa47868422aaeefe840fbdfdd0cde088bf6610f8c66cbf1fa6917d9bb",
+      "bytes": 1034360,
+      "voc_file": "pexels-photo-8691848.xml",
+      "voc_sha256": "f547c332dbb1cf4654ddc5964c28ec69e5afb7a9814548b6603620a19f368ddf",
+      "original_head_box_xyxy": [
+        1752.0,
+        764.0,
+        2360.0,
+        1321.0
+      ],
+      "head_box_xyxy": [
+        1721,
+        736,
+        2391,
+        1349
+      ],
+      "locator_match_max_error_640": 0.23644119439367728
+    },
+    {
+      "photo_id": 8837596,
+      "file_name": "pexels-photo-8837596.jpeg",
+      "mirror_image_id": 5429,
+      "mirror_head_annotation_id": 51065,
+      "mirror_head_box": [
+        152,
+        267,
+        88.5,
+        74.5
+      ],
+      "candidate_stratum": "no_glasses",
+      "head_area": 6593.25,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-8837596.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-8837596.xml&datasetVersionNumber=1",
+      "image_size": [
+        4000,
+        6000
+      ],
+      "sha256": "bc04950c961027ecdffd951c17f0589dee4c5563ccb59f658c242a7b415f1082",
+      "bytes": 2210525,
+      "voc_file": "pexels-photo-8837596.xml",
+      "voc_sha256": "41a160bef70dab14e8e6bd2bde70264f04dd108c2e198afe0b49460a68274063",
+      "original_head_box_xyxy": [
+        951.0,
+        2499.0,
+        1503.0,
+        3197.0
+      ],
+      "head_box_xyxy": [
+        923,
+        2464,
+        1531,
+        3232
+      ],
+      "locator_match_max_error_640": 0.4399999999999977
+    },
+    {
+      "photo_id": 8938644,
+      "file_name": "pexels-photo-8938644.jpeg",
+      "mirror_image_id": 341,
+      "mirror_head_annotation_id": 3057,
+      "mirror_head_box": [
+        454,
+        125,
+        140,
+        177
+      ],
+      "candidate_stratum": "no_glasses",
+      "head_area": 24780,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-8938644.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-8938644.xml&datasetVersionNumber=1",
+      "image_size": [
+        5709,
+        3811
+      ],
+      "sha256": "018fcd3cde3fcf0f365e63d97233116c6206138e92d47a2f4bb050d1bb0499fa",
+      "bytes": 2240170,
+      "voc_file": "pexels-photo-8938644.xml",
+      "voc_sha256": "093198eef1e823c1d0b10cd86c0a28e8ea1ee440071756a4c5f600b434993020",
+      "original_head_box_xyxy": [
+        4044.0,
+        741.0,
+        5292.0,
+        1794.0
+      ],
+      "head_box_xyxy": [
+        3981,
+        688,
+        5355,
+        1847
+      ],
+      "locator_match_max_error_640": 0.6526537046768226
+    },
+    {
+      "photo_id": 8992676,
+      "file_name": "pexels-photo-8992676.jpeg",
+      "mirror_image_id": 4582,
+      "mirror_head_annotation_id": 43350,
+      "mirror_head_box": [
+        212,
+        0,
+        72,
+        98
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 7056,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-8992676.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-8992676.xml&datasetVersionNumber=1",
+      "image_size": [
+        5472,
+        3648
+      ],
+      "sha256": "222a03e6e00892f27befe4ad8fb5c110067f940535307b22328332ceb4628299",
+      "bytes": 2574885,
+      "voc_file": "pexels-photo-8992676.xml",
+      "voc_sha256": "82b1b3df8ba18e4dbe478bbe881dc93a476a353d80e4a89bc50e2e2ca84ac5ec",
+      "original_head_box_xyxy": [
+        1812.0,
+        0.0,
+        2429.0,
+        559.0
+      ],
+      "head_box_xyxy": [
+        1781,
+        0,
+        2460,
+        587
+      ],
+      "locator_match_max_error_640": 0.16374269005848419
+    },
+    {
+      "photo_id": 9034242,
+      "file_name": "pexels-photo-9034242.jpeg",
+      "mirror_image_id": 5142,
+      "mirror_head_annotation_id": 48528,
+      "mirror_head_box": [
+        490,
+        239,
+        94,
+        134.5
+      ],
+      "candidate_stratum": "no_glasses",
+      "head_area": 12643.0,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-9034242.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-9034242.xml&datasetVersionNumber=1",
+      "image_size": [
+        5692,
+        3795
+      ],
+      "sha256": "ce8054275c2090004f2b874aad0a04f40d1a4cd0172d8337aa24dc72f20732ed",
+      "bytes": 1017428,
+      "voc_file": "pexels-photo-9034242.xml",
+      "voc_sha256": "3da1298157a53eec7906559e4066bce102d86e68f22e9ee792f24acf5fe09c1e",
+      "original_head_box_xyxy": [
+        4354.0,
+        1414.0,
+        5188.0,
+        2213.0
+      ],
+      "head_box_xyxy": [
+        4312,
+        1374,
+        5230,
+        2253
+      ],
+      "locator_match_max_error_640": 0.538866930171281
+    },
+    {
+      "photo_id": 9057191,
+      "file_name": "pexels-photo-9057191.jpeg",
+      "mirror_image_id": 5549,
+      "mirror_head_annotation_id": 52109,
+      "mirror_head_box": [
+        387,
+        0,
+        226,
+        293
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 66218,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-9057191.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-9057191.xml&datasetVersionNumber=1",
+      "image_size": [
+        4561,
+        2912
+      ],
+      "sha256": "eb00d0919c6169a201fe4e96b59a78efcbcde60d18c03645da3fa9949efa7479",
+      "bytes": 1506626,
+      "voc_file": "pexels-photo-9057191.xml",
+      "voc_sha256": "840c8661f52953ec55126ce2eaa0b21c58ab659c886744b39f1200b324f0f09b",
+      "original_head_box_xyxy": [
+        2754.0,
+        1.0,
+        4365.0,
+        1334.0
+      ],
+      "head_box_xyxy": [
+        2673,
+        0,
+        4446,
+        1401
+      ],
+      "locator_match_max_error_640": 0.5584301688226105
+    },
+    {
+      "photo_id": 9301194,
+      "file_name": "pexels-photo-9301194.jpeg",
+      "mirror_image_id": 4051,
+      "mirror_head_annotation_id": 38098,
+      "mirror_head_box": [
+        183,
+        84,
+        98.5,
+        202
+      ],
+      "candidate_stratum": "no_glasses",
+      "head_area": 19897.0,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-9301194.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-9301194.xml&datasetVersionNumber=1",
+      "image_size": [
+        5862,
+        3908
+      ],
+      "sha256": "0e097d4650001ef22e52e3823387226aead4c7a209c334acd4241837469b0896",
+      "bytes": 872069,
+      "voc_file": "pexels-photo-9301194.xml",
+      "voc_sha256": "0a27a933434b6cfe191f769e3bdafb998d18e9b715010b2fa8ea275873238d42",
+      "original_head_box_xyxy": [
+        1676.0,
+        512.0,
+        2579.0,
+        1744.0
+      ],
+      "head_box_xyxy": [
+        1630,
+        450,
+        2625,
+        1806
+      ],
+      "locator_match_max_error_640": 0.23950870010236258
+    },
+    {
+      "photo_id": 9328720,
+      "file_name": "pexels-photo-9328720.jpeg",
+      "mirror_image_id": 1972,
+      "mirror_head_annotation_id": 18519,
+      "mirror_head_box": [
+        321,
+        159,
+        109,
+        87.5
+      ],
+      "candidate_stratum": "no_glasses",
+      "head_area": 9537.5,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-9328720.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-9328720.xml&datasetVersionNumber=1",
+      "image_size": [
+        4160,
+        6240
+      ],
+      "sha256": "452a828ee8cb2f18fff92618eb66be6f3e7172c877ae655c969fc02d2ed4fc35",
+      "bytes": 4038774,
+      "voc_file": "pexels-photo-9328720.xml",
+      "voc_sha256": "1ca18f1b60c6da4868b67c31f1f628b48a3851196de5c75fe7b647e07376cef9",
+      "original_head_box_xyxy": [
+        2088.0,
+        1545.0,
+        2796.0,
+        2400.0
+      ],
+      "head_box_xyxy": [
+        2052,
+        1502,
+        2832,
+        2443
+      ],
+      "locator_match_max_error_640": 0.5384615384615472
+    },
+    {
+      "photo_id": 9622957,
+      "file_name": "pexels-photo-9622957.jpeg",
+      "mirror_image_id": 5538,
+      "mirror_head_annotation_id": 52004,
+      "mirror_head_box": [
+        246,
+        153,
+        73,
+        70.5
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 5146.5,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-9622957.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-9622957.xml&datasetVersionNumber=1",
+      "image_size": [
+        3551,
+        5327
+      ],
+      "sha256": "a23549f9b9fcbda5bdfec5e5898cfab71b0ddc69d4ce4bbe15f968b22656aeaa",
+      "bytes": 1431368,
+      "voc_file": "pexels-photo-9622957.xml",
+      "voc_sha256": "400c3b920c85928fb10958d221fc3d3267287963aed6efbc914f4a0bf7f64c13",
+      "original_head_box_xyxy": [
+        1362.0,
+        1275.0,
+        1767.0,
+        1862.0
+      ],
+      "head_box_xyxy": [
+        1341,
+        1245,
+        1788,
+        1892
+      ],
+      "locator_match_max_error_640": 0.5254857786538878
+    },
+    {
+      "photo_id": 9762083,
+      "file_name": "pexels-photo-9762083.jpeg",
+      "mirror_image_id": 5041,
+      "mirror_head_annotation_id": 47494,
+      "mirror_head_box": [
+        176,
+        99,
+        90,
+        189
+      ],
+      "candidate_stratum": "no_glasses",
+      "head_area": 17010,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-9762083.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-9762083.xml&datasetVersionNumber=1",
+      "image_size": [
+        3000,
+        2000
+      ],
+      "sha256": "092c3547414d02891e2718691e941807ee03c7ae760472cd643f4e4b27dc69a3",
+      "bytes": 476467,
+      "voc_file": "pexels-photo-9762083.xml",
+      "voc_sha256": "2d0b3fc79386237d7512ec9aafe4ffef51330e0b393c12a1434804f848d0f09c",
+      "original_head_box_xyxy": [
+        822.0,
+        309.0,
+        1245.0,
+        900.0
+      ],
+      "head_box_xyxy": [
+        800,
+        279,
+        1267,
+        930
+      ],
+      "locator_match_max_error_640": 0.6399999999999864
+    },
+    {
+      "photo_id": 9850431,
+      "file_name": "pexels-photo-9850431.jpeg",
+      "mirror_image_id": 1921,
+      "mirror_head_annotation_id": 18031,
+      "mirror_head_box": [
+        238,
+        215,
+        62.5,
+        45.5
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 2843.75,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-9850431.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-9850431.xml&datasetVersionNumber=1",
+      "image_size": [
+        2974,
+        4461
+      ],
+      "sha256": "78ae60ff9dacba4ae3da5f7355700dc2b581033eff22b20322c123a7419bbfbb",
+      "bytes": 1008247,
+      "voc_file": "pexels-photo-9850431.xml",
+      "voc_sha256": "8a4515a1c7cb79c9f300c47abbc58ce2016d7a875268b4264836620a226c3dd5",
+      "original_head_box_xyxy": [
+        1107.0,
+        1497.0,
+        1397.0,
+        1815.0
+      ],
+      "head_box_xyxy": [
+        1092,
+        1481,
+        1412,
+        1831
+      ],
+      "locator_match_max_error_640": 0.2320107599193193
+    },
+    {
+      "photo_id": 9875406,
+      "file_name": "pexels-photo-9875406.jpeg",
+      "mirror_image_id": 2961,
+      "mirror_head_annotation_id": 27787,
+      "mirror_head_box": [
+        224,
+        220,
+        76.5,
+        69.5
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 5316.75,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-9875406.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-9875406.xml&datasetVersionNumber=1",
+      "image_size": [
+        3888,
+        5184
+      ],
+      "sha256": "bb15eb153215a993707a2c60b43a47fe2d998e5d3edddb736c5dc426f524a582",
+      "bytes": 1154300,
+      "voc_file": "pexels-photo-9875406.xml",
+      "voc_sha256": "70733b02eb39b460dd66c2119fe03a95cd410ed3e827b5a875e1f145ae550e9c",
+      "original_head_box_xyxy": [
+        1362.0,
+        1786.0,
+        1826.0,
+        2349.0
+      ],
+      "head_box_xyxy": [
+        1338,
+        1757,
+        1850,
+        2378
+      ],
+      "locator_match_max_error_640": 0.49382716049382225
+    },
+    {
+      "photo_id": 9875418,
+      "file_name": "pexels-photo-9875418.jpeg",
+      "mirror_image_id": 813,
+      "mirror_head_annotation_id": 7896,
+      "mirror_head_box": [
+        324,
+        59,
+        71.5,
+        141
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 10081.5,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-9875418.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-9875418.xml&datasetVersionNumber=1",
+      "image_size": [
+        5184,
+        3888
+      ],
+      "sha256": "c929a77745c14b4eae08624ada9bdc0a14fb8e3b841e87bc29aabce95abe538a",
+      "bytes": 1770677,
+      "voc_file": "pexels-photo-9875418.xml",
+      "voc_sha256": "e7c89405ab82a630ea1d1fcc8155ac402c0b169676e746c6f4d3fa527d39769e",
+      "original_head_box_xyxy": [
+        2628.0,
+        357.0,
+        3206.0,
+        1214.0
+      ],
+      "head_box_xyxy": [
+        2599,
+        314,
+        3235,
+        1257
+      ],
+      "locator_match_max_error_640": 0.4444444444444571
+    },
+    {
+      "photo_id": 10347138,
+      "file_name": "pexels-photo-10347138.jpeg",
+      "mirror_image_id": 2687,
+      "mirror_head_annotation_id": 25247,
+      "mirror_head_box": [
+        321,
+        122,
+        87.5,
+        161.5
+      ],
+      "candidate_stratum": "no_glasses",
+      "head_area": 14131.25,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-10347138.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-10347138.xml&datasetVersionNumber=1",
+      "image_size": [
+        6240,
+        4160
+      ],
+      "sha256": "f790ea1c608d03efdbf9442bc1992284dd3e878ac64d2f2c9e53a452a51900c0",
+      "bytes": 1923403,
+      "voc_file": "pexels-photo-10347138.xml",
+      "voc_sha256": "776dd0f55de2e94c7aa92a4d4bf574695882be8af8395c20a0f7b239eae9b477",
+      "original_head_box_xyxy": [
+        3125.0,
+        795.0,
+        3980.0,
+        1844.0
+      ],
+      "head_box_xyxy": [
+        3082,
+        742,
+        4023,
+        1897
+      ],
+      "locator_match_max_error_640": 0.4871794871795032
+    },
+    {
+      "photo_id": 10375949,
+      "file_name": "pexels-photo-10375949.jpeg",
+      "mirror_image_id": 2386,
+      "mirror_head_annotation_id": 22414,
+      "mirror_head_box": [
+        82,
+        206,
+        117,
+        167.5
+      ],
+      "candidate_stratum": "no_glasses",
+      "head_area": 19597.5,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-10375949.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-10375949.xml&datasetVersionNumber=1",
+      "image_size": [
+        6113,
+        4076
+      ],
+      "sha256": "e877123db89118ec3aa48581a3a66e564446d8c606beb13a8c8aa07ca23656d1",
+      "bytes": 1205298,
+      "voc_file": "pexels-photo-10375949.xml",
+      "voc_sha256": "114585c57b51633f7fae235a4684c619b10de0b7548ce025275030410eb2db75",
+      "original_head_box_xyxy": [
+        779.0,
+        1313.0,
+        1895.0,
+        2381.0
+      ],
+      "head_box_xyxy": [
+        723,
+        1259,
+        1951,
+        2435
+      ],
+      "locator_match_max_error_640": 0.44266317683624834
+    },
+    {
+      "photo_id": 10871712,
+      "file_name": "pexels-photo-10871712.jpeg",
+      "mirror_image_id": 3231,
+      "mirror_head_annotation_id": 30306,
+      "mirror_head_box": [
+        312,
+        69,
+        70.5,
+        141.5
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 9975.75,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-10871712.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-10871712.xml&datasetVersionNumber=1",
+      "image_size": [
+        5328,
+        4000
+      ],
+      "sha256": "3316fc493af65d053367552243e38e3a9aee53b5c0069ef1c45feb7501b158be",
+      "bytes": 1272923,
+      "voc_file": "pexels-photo-10871712.xml",
+      "voc_sha256": "62ceb3a7883df2963b92409b1068e8a9b810950cf134c30159edc3d8be96587a",
+      "original_head_box_xyxy": [
+        2600.0,
+        430.0,
+        3185.0,
+        1314.0
+      ],
+      "head_box_xyxy": [
+        2570,
+        385,
+        3215,
+        1359
+      ],
+      "locator_match_max_error_640": 0.31231231231231504
+    },
+    {
+      "photo_id": 10922989,
+      "file_name": "pexels-photo-10922989.jpeg",
+      "mirror_image_id": 5425,
+      "mirror_head_annotation_id": 51004,
+      "mirror_head_box": [
+        377,
+        71,
+        78.5,
+        139.5
+      ],
+      "candidate_stratum": "no_glasses",
+      "head_area": 10950.75,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-10922989.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-10922989.xml&datasetVersionNumber=1",
+      "image_size": [
+        6016,
+        3384
+      ],
+      "sha256": "46efae1a3b4aa9c415cab4d497dd6d4b71ec2aac6a8198f10d24e7b640882f57",
+      "bytes": 2228366,
+      "voc_file": "pexels-photo-10922989.xml",
+      "voc_sha256": "3b4106e6598d0e8d5103596131c342263c65744ce869ccfa2d0b9ba31206e795",
+      "original_head_box_xyxy": [
+        3542.0,
+        377.0,
+        4278.0,
+        1115.0
+      ],
+      "head_box_xyxy": [
+        3505,
+        340,
+        4315,
+        1152
+      ],
+      "locator_match_max_error_640": 0.30023640661937634
+    },
+    {
+      "photo_id": 11712738,
+      "file_name": "pexels-photo-11712738.jpeg",
+      "mirror_image_id": 1009,
+      "mirror_head_annotation_id": 9739,
+      "mirror_head_box": [
+        0,
+        294,
+        76,
+        82.5
+      ],
+      "candidate_stratum": "no_glasses",
+      "head_area": 6270.0,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-11712738.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-11712738.xml&datasetVersionNumber=1",
+      "image_size": [
+        2456,
+        3850
+      ],
+      "sha256": "5ba46fbeaa518254bcae21e1bc8e172762f3fc3ad80ca15b7dadc203cac799f3",
+      "bytes": 855779,
+      "voc_file": "pexels-photo-11712738.xml",
+      "voc_sha256": "09dac5d88c7a6e39e951dca74c456c3c5150b1df7ddd8cb75a0a05a3ef358847",
+      "original_head_box_xyxy": [
+        0.0,
+        1769.0,
+        291.0,
+        2266.0
+      ],
+      "head_box_xyxy": [
+        0,
+        1744,
+        306,
+        2291
+      ],
+      "locator_match_max_error_640": 0.16938110749185853
+    },
+    {
+      "photo_id": 11765538,
+      "file_name": "pexels-photo-11765538.jpeg",
+      "mirror_image_id": 3948,
+      "mirror_head_annotation_id": 37149,
+      "mirror_head_box": [
+        192,
+        135,
+        99,
+        163.5
+      ],
+      "candidate_stratum": "no_glasses",
+      "head_area": 16186.5,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-11765538.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-11765538.xml&datasetVersionNumber=1",
+      "image_size": [
+        2592,
+        1728
+      ],
+      "sha256": "e4f249abc22bd01621ecabadc1480c824e69ac0bccdadbd968b44e5136c9c7bb",
+      "bytes": 255904,
+      "voc_file": "pexels-photo-11765538.xml",
+      "voc_sha256": "ac533baeb672fffcb4e60eb76d00802374ac02e04fa449b1e57cf5e3a97eef3e",
+      "original_head_box_xyxy": [
+        776.0,
+        363.0,
+        1176.0,
+        805.0
+      ],
+      "head_box_xyxy": [
+        756,
+        340,
+        1196,
+        828
+      ],
+      "locator_match_max_error_640": 0.5555555555555429
+    },
+    {
+      "photo_id": 12572225,
+      "file_name": "pexels-photo-12572225.jpeg",
+      "mirror_image_id": 4263,
+      "mirror_head_annotation_id": 40115,
+      "mirror_head_box": [
+        273,
+        145,
+        154.5,
+        141.5
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 21861.75,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-12572225.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-12572225.xml&datasetVersionNumber=1",
+      "image_size": [
+        3024,
+        4032
+      ],
+      "sha256": "748876fe7ab2c7202d07371894ebe5d9de40a815445cec6dbdab4932fb51875d",
+      "bytes": 1434651,
+      "voc_file": "pexels-photo-12572225.xml",
+      "voc_sha256": "0f5c09877f1c0f90cf0268ead536bd2bca2bed1d5939b217e04561e2d9ba1fb8",
+      "original_head_box_xyxy": [
+        1290.0,
+        916.0,
+        2021.0,
+        1807.0
+      ],
+      "head_box_xyxy": [
+        1253,
+        871,
+        2058,
+        1852
+      ],
+      "locator_match_max_error_640": 0.39682539682539186
+    },
+    {
+      "photo_id": 12599544,
+      "file_name": "pexels-photo-12599544.jpeg",
+      "mirror_image_id": 255,
+      "mirror_head_annotation_id": 2261,
+      "mirror_head_box": [
+        445,
+        43,
+        93,
+        193
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 17949,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-12599544.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-12599544.xml&datasetVersionNumber=1",
+      "image_size": [
+        4530,
+        2446
+      ],
+      "sha256": "b4f8b4b909bef34ea1bb2232b130df0e717e6a76504c6a9f7a53a188f44e6408",
+      "bytes": 469299,
+      "voc_file": "pexels-photo-12599544.xml",
+      "voc_sha256": "214f49aa6f1932b41f43692738329cca9865c13b90b07f091abbc5483ccc6831",
+      "original_head_box_xyxy": [
+        3149.0,
+        165.0,
+        3808.0,
+        903.0
+      ],
+      "head_box_xyxy": [
+        3116,
+        128,
+        3841,
+        940
+      ],
+      "locator_match_max_error_640": 0.17252657399836835
+    },
+    {
+      "photo_id": 12759924,
+      "file_name": "pexels-photo-12759924.jpeg",
+      "mirror_image_id": 3784,
+      "mirror_head_annotation_id": 35572,
+      "mirror_head_box": [
+        428,
+        83,
+        97.5,
+        158
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 15405.0,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-12759924.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-12759924.xml&datasetVersionNumber=1",
+      "image_size": [
+        5300,
+        3533
+      ],
+      "sha256": "894e8a7e90bf83b39357a4e4a52dbcc9255bf7929c81e857e69762ecc33ec607",
+      "bytes": 930630,
+      "voc_file": "pexels-photo-12759924.xml",
+      "voc_sha256": "08ddf25d1a4b600a300f84168786dc7b6d00c26cd78dfd4e6e7b6fa03b3b58d1",
+      "original_head_box_xyxy": [
+        3547.0,
+        457.0,
+        4354.0,
+        1330.0
+      ],
+      "head_box_xyxy": [
+        3506,
+        413,
+        4395,
+        1374
+      ],
+      "locator_match_max_error_640": 0.31698113207545475
+    },
+    {
+      "photo_id": 12911180,
+      "file_name": "pexels-photo-12911180.jpeg",
+      "mirror_image_id": 5074,
+      "mirror_head_annotation_id": 47807,
+      "mirror_head_box": [
+        383,
+        182,
+        257,
+        136
+      ],
+      "candidate_stratum": "no_glasses",
+      "head_area": 34952,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-12911180.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-12911180.xml&datasetVersionNumber=1",
+      "image_size": [
+        4000,
+        6000
+      ],
+      "sha256": "1bceab1594f803a682d4529cafee6f4d33d75b2f531e42e3d0fbc5413be0e619",
+      "bytes": 1082022,
+      "voc_file": "pexels-photo-12911180.xml",
+      "voc_sha256": "e3ffa2917b2c7b2cdd83a926ff0f26c60e8aeda911860e3b7f3104b1c7730e19",
+      "original_head_box_xyxy": [
+        2398.0,
+        1706.0,
+        4000.0,
+        2980.0
+      ],
+      "head_box_xyxy": [
+        2317,
+        1642,
+        4000,
+        3044
+      ],
+      "locator_match_max_error_640": 0.6800000000000068
+    },
+    {
+      "photo_id": 12950420,
+      "file_name": "pexels-photo-12950420.jpeg",
+      "mirror_image_id": 4743,
+      "mirror_head_annotation_id": 44910,
+      "mirror_head_box": [
+        257,
+        74,
+        211.5,
+        188.5
+      ],
+      "candidate_stratum": "no_glasses",
+      "head_area": 39867.75,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-12950420.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-12950420.xml&datasetVersionNumber=1",
+      "image_size": [
+        3872,
+        6000
+      ],
+      "sha256": "2d7ad5911dd6f63db47858218766a4de9dcf382d4060fd17fb04e0cd1457934a",
+      "bytes": 1925783,
+      "voc_file": "pexels-photo-12950420.xml",
+      "voc_sha256": "2e2b870d3573610085984ca0b141702d71829af686f351d470ce9f1529a089b7",
+      "original_head_box_xyxy": [
+        1558.0,
+        696.0,
+        2837.0,
+        2465.0
+      ],
+      "head_box_xyxy": [
+        1494,
+        607,
+        2901,
+        2554
+      ],
+      "locator_match_max_error_640": 0.5206611570247901
+    },
+    {
+      "photo_id": 12983497,
+      "file_name": "pexels-photo-12983497.jpeg",
+      "mirror_image_id": 4378,
+      "mirror_head_annotation_id": 41379,
+      "mirror_head_box": [
+        318,
+        62,
+        90.5,
+        197.5
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 17873.75,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-12983497.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-12983497.xml&datasetVersionNumber=1",
+      "image_size": [
+        4582,
+        3055
+      ],
+      "sha256": "8fac928d0b19f15845052ed83849a85447db15445a602c278c267a0a8585309f",
+      "bytes": 998322,
+      "voc_file": "pexels-photo-12983497.xml",
+      "voc_sha256": "fbecc12d1fd2df72022e82cb634bef7e99184b41d9991ad59c26b93e891f13ec",
+      "original_head_box_xyxy": [
+        2276.0,
+        296.0,
+        2925.0,
+        1239.0
+      ],
+      "head_box_xyxy": [
+        2243,
+        248,
+        2958,
+        1287
+      ],
+      "locator_match_max_error_640": 0.15037101702313294
+    },
+    {
+      "photo_id": 13408861,
+      "file_name": "pexels-photo-13408861.jpeg",
+      "mirror_image_id": 3249,
+      "mirror_head_annotation_id": 30472,
+      "mirror_head_box": [
+        187,
+        299,
+        63,
+        43.5
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 2740.5,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-13408861.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-13408861.xml&datasetVersionNumber=1",
+      "image_size": [
+        4000,
+        6000
+      ],
+      "sha256": "54a4f1cc7c22b591333bb235f59008ae8a8267f1a17e53d52a73f54560dadd8a",
+      "bytes": 4558189,
+      "voc_file": "pexels-photo-13408861.xml",
+      "voc_sha256": "86c7078e0ce46eab9fecfb9ff21a855b9fa8836bbef48f89f1d32e7719dc4217",
+      "original_head_box_xyxy": [
+        1169.0,
+        2808.0,
+        1563.0,
+        3215.0
+      ],
+      "head_box_xyxy": [
+        1149,
+        2787,
+        1583,
+        3236
+      ],
+      "locator_match_max_error_640": 0.5200000000000387
+    },
+    {
+      "photo_id": 13569603,
+      "file_name": "pexels-photo-13569603.jpeg",
+      "mirror_image_id": 372,
+      "mirror_head_annotation_id": 3437,
+      "mirror_head_box": [
+        147,
+        189,
+        41.5,
+        87.5
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 3631.25,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-13569603.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-13569603.xml&datasetVersionNumber=1",
+      "image_size": [
+        3556,
+        2000
+      ],
+      "sha256": "a3ba1dd26e0f0461c4f0b859ad8ffd83c7459498633bddae0c3c95be667648fe",
+      "bytes": 631282,
+      "voc_file": "pexels-photo-13569603.xml",
+      "voc_sha256": "43ca6b42dcdec9457d2c15e772ebf00885e2bebf1d0e8974f25a2ac900d1d597",
+      "original_head_box_xyxy": [
+        817.0,
+        589.0,
+        1048.0,
+        863.0
+      ],
+      "head_box_xyxy": [
+        805,
+        575,
+        1060,
+        877
+      ],
+      "locator_match_max_error_640": 0.5200000000000102
+    },
+    {
+      "photo_id": 13881188,
+      "file_name": "pexels-photo-13881188.jpeg",
+      "mirror_image_id": 1182,
+      "mirror_head_annotation_id": 11204,
+      "mirror_head_box": [
+        161,
+        227,
+        71.5,
+        174
+      ],
+      "candidate_stratum": "other_glasses",
+      "head_area": 12441.0,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-13881188.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-13881188.xml&datasetVersionNumber=1",
+      "image_size": [
+        4897,
+        3267
+      ],
+      "sha256": "c909401641afb94249d33d32d121dc1050f09ca58883b32bfbb480d471e0f4ba",
+      "bytes": 1082731,
+      "voc_file": "pexels-photo-13881188.xml",
+      "voc_sha256": "230f27177b23d47aac202e29cf9fa222cb73938271662883eeffcce5fee052e2",
+      "original_head_box_xyxy": [
+        1230.0,
+        1157.0,
+        1776.0,
+        2044.0
+      ],
+      "head_box_xyxy": [
+        1202,
+        1112,
+        1804,
+        2089
+      ],
+      "locator_match_max_error_640": 0.34557698194061004
+    },
+    {
+      "photo_id": 14008091,
+      "file_name": "pexels-photo-14008091.jpeg",
+      "mirror_image_id": 3993,
+      "mirror_head_annotation_id": 37552,
+      "mirror_head_box": [
+        328,
+        239,
+        49.5,
+        84
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 4158.0,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-14008091.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-14008091.xml&datasetVersionNumber=1",
+      "image_size": [
+        2800,
+        1837
+      ],
+      "sha256": "c9e9b784728dd201f47101a4f4182f346573ed7ffc25ea57c3bc82845cbb268a",
+      "bytes": 578194,
+      "voc_file": "pexels-photo-14008091.xml",
+      "voc_sha256": "96deb5f807ff2dd5f65d1fb41878b4255a468dffe442999a648cc57227c35eea",
+      "original_head_box_xyxy": [
+        1435.0,
+        684.0,
+        1651.0,
+        925.0
+      ],
+      "head_box_xyxy": [
+        1424,
+        671,
+        1662,
+        938
+      ],
+      "locator_match_max_error_640": 0.6984213391399123
+    },
+    {
+      "photo_id": 14189340,
+      "file_name": "pexels-photo-14189340.jpeg",
+      "mirror_image_id": 3025,
+      "mirror_head_annotation_id": 28454,
+      "mirror_head_box": [
+        263,
+        142,
+        100.5,
+        108
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 10854.0,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-14189340.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-14189340.xml&datasetVersionNumber=1",
+      "image_size": [
+        3648,
+        5472
+      ],
+      "sha256": "f17a99625ea981da761c5e18196d1076deb6373745d3ab13aec3460648f6c0d5",
+      "bytes": 1300137,
+      "voc_file": "pexels-photo-14189340.xml",
+      "voc_sha256": "40d8ffd870c452873e7b7eb79b13fd3159f4d1934474dc631888efe630a0b38d",
+      "original_head_box_xyxy": [
+        1499.0,
+        1210.0,
+        2071.0,
+        2132.0
+      ],
+      "head_box_xyxy": [
+        1470,
+        1163,
+        2100,
+        2179
+      ],
+      "locator_match_max_error_640": 0.47953216374267527
+    },
+    {
+      "photo_id": 14189341,
+      "file_name": "pexels-photo-14189341.jpeg",
+      "mirror_image_id": 2212,
+      "mirror_head_annotation_id": 20694,
+      "mirror_head_box": [
+        263,
+        147,
+        137.5,
+        145
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 19937.5,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-14189341.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-14189341.xml&datasetVersionNumber=1",
+      "image_size": [
+        3648,
+        5472
+      ],
+      "sha256": "bcba3ae466c24b04232b5e719090dc681cf29028de3181169c3131a7a4cc7f7d",
+      "bytes": 1203696,
+      "voc_file": "pexels-photo-14189341.xml",
+      "voc_sha256": "233d5324e7fb4cb93d5399fd8b907d7d006fba7784bd94b82943db4cab5d9d09",
+      "original_head_box_xyxy": [
+        1498.0,
+        1253.0,
+        2281.0,
+        2492.0
+      ],
+      "head_box_xyxy": [
+        1458,
+        1191,
+        2321,
+        2554
+      ],
+      "locator_match_max_error_640": 0.4502923976608031
+    },
+    {
+      "photo_id": 14473241,
+      "file_name": "pexels-photo-14473241.jpeg",
+      "mirror_image_id": 4673,
+      "mirror_head_annotation_id": 44310,
+      "mirror_head_box": [
+        213,
+        44,
+        49,
+        99
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 4851,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-14473241.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-14473241.xml&datasetVersionNumber=1",
+      "image_size": [
+        7360,
+        4912
+      ],
+      "sha256": "83edf3c1bf019d9bf0fcd1ca10c5729f042b3bba1a9730feb086bb8222d60c6b",
+      "bytes": 6368701,
+      "voc_file": "pexels-photo-14473241.xml",
+      "voc_sha256": "90f2107e7624794ff0a268c53d5b698e35a93e1534dbb5dcaf0270f2960e1fa9",
+      "original_head_box_xyxy": [
+        2443.0,
+        336.0,
+        3007.0,
+        1094.0
+      ],
+      "head_box_xyxy": [
+        2414,
+        298,
+        3036,
+        1132
+      ],
+      "locator_match_max_error_640": 0.5652173913043441
+    },
+    {
+      "photo_id": 14614021,
+      "file_name": "pexels-photo-14614021.jpeg",
+      "mirror_image_id": 5050,
+      "mirror_head_annotation_id": 47571,
+      "mirror_head_box": [
+        252,
+        308,
+        52.5,
+        80.5
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 4226.25,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-14614021.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-14614021.xml&datasetVersionNumber=1",
+      "image_size": [
+        6000,
+        4000
+      ],
+      "sha256": "418477692535692145aa96fdd1d9ac674f4c7e147df35955cf90363ca589af64",
+      "bytes": 1690689,
+      "voc_file": "pexels-photo-14614021.xml",
+      "voc_sha256": "c5162850a1493341044484ba46b3cdcb994b4ac46764ac1dbdbb54ee97fa9880",
+      "original_head_box_xyxy": [
+        2361.0,
+        1925.0,
+        2854.0,
+        2429.0
+      ],
+      "head_box_xyxy": [
+        2336,
+        1899,
+        2879,
+        2455
+      ],
+      "locator_match_max_error_640": 0.1599999999999966
+    },
+    {
+      "photo_id": 14831678,
+      "file_name": "pexels-photo-14831678.jpeg",
+      "mirror_image_id": 825,
+      "mirror_head_annotation_id": 8033,
+      "mirror_head_box": [
+        56,
+        229,
+        93,
+        115
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 10695,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-14831678.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-14831678.xml&datasetVersionNumber=1",
+      "image_size": [
+        6720,
+        4480
+      ],
+      "sha256": "4ab487b0cb5aec87a307b6a2c4357030f985fba6fc3df1bc0e3684ca1b54f72c",
+      "bytes": 3404189,
+      "voc_file": "pexels-photo-14831678.xml",
+      "voc_sha256": "d021579ca3a62113db7052260bbf6b4559f5366683750c5407cf8b14b51884f1",
+      "original_head_box_xyxy": [
+        583.0,
+        1598.0,
+        1561.0,
+        2404.0
+      ],
+      "head_box_xyxy": [
+        534,
+        1557,
+        1610,
+        2445
+      ],
+      "locator_match_max_error_640": 0.7142857142857224
+    },
+    {
+      "photo_id": 15200454,
+      "file_name": "pexels-photo-15200454.jpeg",
+      "mirror_image_id": 1095,
+      "mirror_head_annotation_id": 10471,
+      "mirror_head_box": [
+        183,
+        64,
+        259.5,
+        255.5
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 66302.25,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-15200454.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-15200454.xml&datasetVersionNumber=1",
+      "image_size": [
+        4000,
+        6000
+      ],
+      "sha256": "c3b3da4e5242684d1e8ec0edf0ca931fb98ae1b750e9644d77235bc2250d6790",
+      "bytes": 1787042,
+      "voc_file": "pexels-photo-15200454.xml",
+      "voc_sha256": "17ac2a590614f91444c7b47f7c32ec6a2d574140ee3dff50bac22f5d7a8c43c1",
+      "original_head_box_xyxy": [
+        1144.0,
+        599.0,
+        2765.0,
+        2993.0
+      ],
+      "head_box_xyxy": [
+        1062,
+        479,
+        2847,
+        3113
+      ],
+      "locator_match_max_error_640": 0.13999999999998636
+    },
+    {
+      "photo_id": 15947456,
+      "file_name": "pexels-photo-15947456.jpeg",
+      "mirror_image_id": 3139,
+      "mirror_head_annotation_id": 29512,
+      "mirror_head_box": [
+        123,
+        195,
+        89.5,
+        148
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 13246.0,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-15947456.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-15947456.xml&datasetVersionNumber=1",
+      "image_size": [
+        5764,
+        3843
+      ],
+      "sha256": "8ac1d4e55772663febe7c0ab2275256b3f37790a88a990f73a43d9f09128c270",
+      "bytes": 2313436,
+      "voc_file": "pexels-photo-15947456.xml",
+      "voc_sha256": "714cb7d169830b46a0fd44dc1b32f9187d36c328f178ff13500d874e0bf613d8",
+      "original_head_box_xyxy": [
+        1106.0,
+        1172.0,
+        1910.0,
+        2060.0
+      ],
+      "head_box_xyxy": [
+        1065,
+        1127,
+        1951,
+        2105
+      ],
+      "locator_match_max_error_640": 0.22866065232476274
+    },
+    {
+      "photo_id": 16139708,
+      "file_name": "pexels-photo-16139708.jpeg",
+      "mirror_image_id": 1,
+      "mirror_head_annotation_id": 5,
+      "mirror_head_box": [
+        182,
+        6,
+        217.5,
+        280
+      ],
+      "candidate_stratum": "no_glasses",
+      "head_area": 60900.0,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-16139708.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-16139708.xml&datasetVersionNumber=1",
+      "image_size": [
+        4000,
+        5000
+      ],
+      "sha256": "12223759df8167cf3ef5429b4440d8e1d91855f44d6ca6b859265530e3198489",
+      "bytes": 1662239,
+      "voc_file": "pexels-photo-16139708.xml",
+      "voc_sha256": "6f742e073e218740ee5f4b08adcd54e8c8a0a32bfec978030592041d166b3db4",
+      "original_head_box_xyxy": [
+        1139.0,
+        44.0,
+        2497.0,
+        2231.0
+      ],
+      "head_box_xyxy": [
+        1071,
+        0,
+        2565,
+        2341
+      ],
+      "locator_match_max_error_640": 0.36799999999999944
+    },
+    {
+      "photo_id": 16552846,
+      "file_name": "pexels-photo-16552846.jpeg",
+      "mirror_image_id": 2585,
+      "mirror_head_annotation_id": 24169,
+      "mirror_head_box": [
+        257,
+        33,
+        132,
+        233
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 30756,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-16552846.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-16552846.xml&datasetVersionNumber=1",
+      "image_size": [
+        4743,
+        3794
+      ],
+      "sha256": "44f773ccd573b59cb06e7e340fc97eaf69600fa01ddf59d412be83854754c82c",
+      "bytes": 1420111,
+      "voc_file": "pexels-photo-16552846.xml",
+      "voc_sha256": "ad0eb03b4e9386f500ae4d0504cbb05403652e4ff8177aaa84aea08570a443bb",
+      "original_head_box_xyxy": [
+        1899.0,
+        193.0,
+        2878.0,
+        1573.0
+      ],
+      "head_box_xyxy": [
+        1850,
+        124,
+        2927,
+        1642
+      ],
+      "locator_match_max_error_640": 0.7571157495256102
+    },
+    {
+      "photo_id": 16793933,
+      "file_name": "pexels-photo-16793933.jpeg",
+      "mirror_image_id": 136,
+      "mirror_head_annotation_id": 1243,
+      "mirror_head_box": [
+        245,
+        153,
+        93,
+        168
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 15624,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-16793933.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-16793933.xml&datasetVersionNumber=1",
+      "image_size": [
+        6000,
+        4000
+      ],
+      "sha256": "f50b8af52eba9b8c7d8cb09e8f206de896a0f605004ef658bd23e97b82766c69",
+      "bytes": 1655357,
+      "voc_file": "pexels-photo-16793933.xml",
+      "voc_sha256": "7a7484472e88a16e3b8d3e41d72336e96c174818f1865088f0c4377d8a77b491",
+      "original_head_box_xyxy": [
+        2299.0,
+        953.0,
+        3171.0,
+        2004.0
+      ],
+      "head_box_xyxy": [
+        2255,
+        900,
+        3215,
+        2057
+      ],
+      "locator_match_max_error_640": 0.5200000000000102
+    },
+    {
+      "photo_id": 17710270,
+      "file_name": "pexels-photo-17710270.jpeg",
+      "mirror_image_id": 4612,
+      "mirror_head_annotation_id": 43814,
+      "mirror_head_box": [
+        321,
+        0,
+        125,
+        276.5
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 34562.5,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-17710270.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-17710270.xml&datasetVersionNumber=1",
+      "image_size": [
+        6240,
+        3512
+      ],
+      "sha256": "59eca9889391fe66f4dcb00851ff63a3ee35176a095f679dc7f3828678f73e55",
+      "bytes": 990038,
+      "voc_file": "pexels-photo-17710270.xml",
+      "voc_sha256": "2b7d8dd20015a8d6e5627d208a0e470f92b34ce505311d40e4432d11c47225fa",
+      "original_head_box_xyxy": [
+        3126.0,
+        1.0,
+        4345.0,
+        1519.0
+      ],
+      "head_box_xyxy": [
+        3065,
+        0,
+        4406,
+        1595
+      ],
+      "locator_match_max_error_640": 0.3846153846153584
+    },
+    {
+      "photo_id": 17842695,
+      "file_name": "pexels-photo-17842695.jpeg",
+      "mirror_image_id": 2707,
+      "mirror_head_annotation_id": 25403,
+      "mirror_head_box": [
+        0,
+        31,
+        307.5,
+        462
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 142065.0,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-17842695.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-17842695.xml&datasetVersionNumber=1",
+      "image_size": [
+        5760,
+        3840
+      ],
+      "sha256": "5c815178ab4ec08b2de3f4ea699fe3a8763b91ff615b9d7302dab6856b883ead",
+      "bytes": 745758,
+      "voc_file": "pexels-photo-17842695.xml",
+      "voc_sha256": "d3d9a6963aa30d6707d9d43a168d62190d08968e32887a41b6784881ee16e852",
+      "original_head_box_xyxy": [
+        1.0,
+        186.0,
+        2767.0,
+        2958.0
+      ],
+      "head_box_xyxy": [
+        0,
+        47,
+        2906,
+        3097
+      ],
+      "locator_match_max_error_640": 0.16666666666662877
+    },
+    {
+      "photo_id": 17878579,
+      "file_name": "pexels-photo-17878579.jpeg",
+      "mirror_image_id": 677,
+      "mirror_head_annotation_id": 6515,
+      "mirror_head_box": [
+        287,
+        182,
+        55,
+        44.5
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 2447.5,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-17878579.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-17878579.xml&datasetVersionNumber=1",
+      "image_size": [
+        3648,
+        5472
+      ],
+      "sha256": "ba084b24f2f8d6667e039e68ee3dad4f536633ba5d877a0a97b1bc7c0c5ea2d8",
+      "bytes": 1519563,
+      "voc_file": "pexels-photo-17878579.xml",
+      "voc_sha256": "f9fdaa23483dc28d13dbead598f52f1622cac502eb9ebaba7f79b64655ad7f92",
+      "original_head_box_xyxy": [
+        1637.0,
+        1552.0,
+        1951.0,
+        1933.0
+      ],
+      "head_box_xyxy": [
+        1621,
+        1532,
+        1967,
+        1953
+      ],
+      "locator_match_max_error_640": 0.47953216374267527
+    },
+    {
+      "photo_id": 18079568,
+      "file_name": "pexels-photo-18079568.jpeg",
+      "mirror_image_id": 470,
+      "mirror_head_annotation_id": 4384,
+      "mirror_head_box": [
+        212,
+        347,
+        49,
+        60
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 2940,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-18079568.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-18079568.xml&datasetVersionNumber=1",
+      "image_size": [
+        3802,
+        4197
+      ],
+      "sha256": "016056e46aee1fe4b2028ab3de70ea95ce272491fce7d306c8225d6d5697a5d8",
+      "bytes": 1649844,
+      "voc_file": "pexels-photo-18079568.xml",
+      "voc_sha256": "e753bdaacefa10e704b6ede5f5c95c7d64352da629bebc03e20528f4d5303f7f",
+      "original_head_box_xyxy": [
+        1260.0,
+        2277.0,
+        1551.0,
+        2669.0
+      ],
+      "head_box_xyxy": [
+        1245,
+        2257,
+        1566,
+        2689
+      ],
+      "locator_match_max_error_640": 0.22396950202525545
+    },
+    {
+      "photo_id": 18111488,
+      "file_name": "pexels-photo-18111488.jpeg",
+      "mirror_image_id": 3109,
+      "mirror_head_annotation_id": 29198,
+      "mirror_head_box": [
+        302,
+        262,
+        42.5,
+        81
+      ],
+      "candidate_stratum": "industrial_glasses",
+      "head_area": 3442.5,
+      "source_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=images%2Fpexels-photo-18111488.jpeg&datasetVersionNumber=1",
+      "source_annotation_url": "https://www.kaggle.com/api/v1/datasets/download/mugheesahmad/sh17-dataset-for-ppe-detection?fileName=voc_labels%2Fpexels-photo-18111488.xml&datasetVersionNumber=1",
+      "image_size": [
+        6240,
+        4160
+      ],
+      "sha256": "d4071a0e2596ae8e6fe20a209429c2e1672c199dbcd993204fd75ecac300934d",
+      "bytes": 1894801,
+      "voc_file": "pexels-photo-18111488.xml",
+      "voc_sha256": "1a09e8ec648ed264857af9ffc80f112a6f93e61fbf6328f11e5775e44935e86f",
+      "original_head_box_xyxy": [
+        2945.0,
+        1703.0,
+        3359.0,
+        2228.0
+      ],
+      "head_box_xyxy": [
+        2924,
+        1676,
+        3380,
+        2255
+      ],
+      "locator_match_max_error_640": 0.2307692307692264
+    }
+  ],
+  "errors": [],
+  "visual_review_completed": false,
+  "training_ready": false
+}

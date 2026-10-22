@@ -1,0 +1,2257 @@
+{
+  "format_version": 1,
+  "reviewer": "Codex visual review",
+  "source_images": 140,
+  "context_visual_review_completed": true,
+  "head_crop_review_completed": true,
+  "review_scope": "All nine original-scene/head preview contact sheets actually viewed; ambiguous samples additionally opened individually. Final PNGs are checked against exact original RGB crop pixels.",
+  "policy_unchanged_from": "docs/data_sources/goggles_v2_review.json",
+  "counts": {
+    "wearing_goggles": 18,
+    "not_wearing_goggles": 92,
+    "excluded": 30
+  },
+  "grouping_limitations": "Old numeric source buckets excluded; new same-series and conservative visual-context families merged. No identity recognition or independent second reviewer. Unknown photographer/person relations remain.",
+  "items": [
+    {
+      "id": "sh17_p209230",
+      "review_index": 0,
+      "photo_id": 209230,
+      "source_sha256": "28eeb5b329d63a398e30fd9027edff493c3971b236115c0f292233ddd48d6b37",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "protective_eyewear_covers_eyes",
+      "group": "sh17_series_20",
+      "box_xyxy": [
+        2019,
+        149,
+        2574,
+        804
+      ]
+    },
+    {
+      "id": "sh17_p209271",
+      "review_index": 1,
+      "photo_id": 209271,
+      "source_sha256": "024232614c07bb5b67c846a59f99a25a21a3cd2398b04a2e3c3f682874f1f992",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "protective_eyewear_covers_eyes",
+      "group": "sh17_series_20",
+      "box_xyxy": [
+        893,
+        306,
+        1260,
+        820
+      ]
+    },
+    {
+      "id": "sh17_p375903",
+      "review_index": 2,
+      "photo_id": 375903,
+      "source_sha256": "97e4e80b4fb5c71636a59bdd9e330af73b029f5b1066602bddc673d873d421d9",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "sunglasses",
+      "group": "sh17_series_37",
+      "box_xyxy": [
+        978,
+        0,
+        1814,
+        1000
+      ]
+    },
+    {
+      "id": "sh17_p618613",
+      "review_index": 3,
+      "photo_id": 618613,
+      "source_sha256": "8011ab747edb58f951488dedfa14238ea77d6a2cd9a9c41e95e53628c2c7447e",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_61",
+      "box_xyxy": [
+        2094,
+        0,
+        3015,
+        1188
+      ]
+    },
+    {
+      "id": "sh17_p848205",
+      "review_index": 4,
+      "photo_id": 848205,
+      "source_sha256": "06a3f42c4e7affebb3fe63c71658fee8e2c9c8e3ecfb64079c3d02a48c6663a7",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_84",
+      "box_xyxy": [
+        1605,
+        0,
+        3352,
+        2205
+      ]
+    },
+    {
+      "id": "sh17_p2668638",
+      "review_index": 5,
+      "photo_id": 2668638,
+      "source_sha256": "c5158b963ffbb8e64deffeac1d45c2f0dc4a72c2b333920e156ba48a68b2ffec",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "eyewear_on_head",
+      "group": "sh17_series_266",
+      "box_xyxy": [
+        1423,
+        1389,
+        1976,
+        2163
+      ]
+    },
+    {
+      "id": "sh17_p3097103",
+      "review_index": 6,
+      "photo_id": 3097103,
+      "source_sha256": "12ad7b800fa256eda410562ad563ef516a6558710e88da880d96b1ba898e167e",
+      "decision": "exclude",
+      "label": null,
+      "reason": "incomplete_head_or_eye_region",
+      "group": "sh17_series_309",
+      "box_xyxy": [
+        0,
+        1929,
+        478,
+        2624
+      ]
+    },
+    {
+      "id": "sh17_p3184423",
+      "review_index": 7,
+      "photo_id": 3184423,
+      "source_sha256": "68655a495c014dd1de2733ce53e7491bd7c725c55c25ebcc9c4ea985fc2987f0",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_318",
+      "box_xyxy": [
+        2196,
+        774,
+        2856,
+        1649
+      ]
+    },
+    {
+      "id": "sh17_p3680959",
+      "review_index": 8,
+      "photo_id": 3680959,
+      "source_sha256": "329971ce970750bc1eaa24bc11158434a5e7a3c9fba1a3fc64b00926d8dd7103",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "protective_eyewear_covers_eyes",
+      "group": "sh17_series_368",
+      "box_xyxy": [
+        2772,
+        345,
+        3529,
+        1386
+      ]
+    },
+    {
+      "id": "sh17_p3724482",
+      "review_index": 9,
+      "photo_id": 3724482,
+      "source_sha256": "7439b186b385d95928892785c01bf2f7ea0bc9cf8d71a4672c58474c16d85c07",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "no_protective_eyewear",
+      "group": "sh17_series_372",
+      "box_xyxy": [
+        1400,
+        1362,
+        2112,
+        2479
+      ]
+    },
+    {
+      "id": "sh17_p3736109",
+      "review_index": 10,
+      "photo_id": 3736109,
+      "source_sha256": "34d575891baa650dc25ad5cb34b83fac6e68ea48d18938b1041ddb88fbafb327",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "protective_eyewear_covers_eyes",
+      "group": "sh17_series_373",
+      "box_xyxy": [
+        1449,
+        305,
+        2191,
+        1223
+      ]
+    },
+    {
+      "id": "sh17_p3772616",
+      "review_index": 11,
+      "photo_id": 3772616,
+      "source_sha256": "3702ca03f1357fb832f48f92a6816a0d1f50b97447f2e28b3be5d6d7861aadcf",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_377",
+      "box_xyxy": [
+        2995,
+        126,
+        5093,
+        3551
+      ]
+    },
+    {
+      "id": "sh17_p3808818",
+      "review_index": 12,
+      "photo_id": 3808818,
+      "source_sha256": "db7c2c335e4fe442c70449fa15ef93868227424c209816473dc98acac93648a4",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_380",
+      "box_xyxy": [
+        3208,
+        1168,
+        4251,
+        2493
+      ]
+    },
+    {
+      "id": "sh17_p3811829",
+      "review_index": 13,
+      "photo_id": 3811829,
+      "source_sha256": "8d9ff2d1069d406297cb9f74dbac4eea5a27df384bec32e932b7bc4336553485",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_381",
+      "box_xyxy": [
+        1515,
+        1206,
+        2625,
+        2643
+      ]
+    },
+    {
+      "id": "sh17_p3814539",
+      "review_index": 14,
+      "photo_id": 3814539,
+      "source_sha256": "2e6f6e7768ef4463d251a0e25e28b933d82301d90ac4c57a506a74e50c1bd495",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_381",
+      "box_xyxy": [
+        4180,
+        0,
+        6055,
+        2432
+      ]
+    },
+    {
+      "id": "sh17_p3825413",
+      "review_index": 15,
+      "photo_id": 3825413,
+      "source_sha256": "5edc53938325f4d790b1a617a6e42a70b9a835516350b1f28be7c0e3a936ec9b",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "protective_eyewear_covers_eyes",
+      "group": "sh17_series_382",
+      "box_xyxy": [
+        1992,
+        2423,
+        2553,
+        3100
+      ]
+    },
+    {
+      "id": "sh17_p3825434",
+      "review_index": 16,
+      "photo_id": 3825434,
+      "source_sha256": "52d30418c33ec92d706da9794be7d86875ea92a55541c3bfec52bff07cdb2f8f",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "protective_eyewear_covers_eyes",
+      "group": "sh17_series_382",
+      "box_xyxy": [
+        1029,
+        0,
+        1974,
+        653
+      ]
+    },
+    {
+      "id": "sh17_p3912369",
+      "review_index": 17,
+      "photo_id": 3912369,
+      "source_sha256": "726d8e81b749046acacd8c873f33c4f82db80586db272714a665156ae75d76f3",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_391",
+      "box_xyxy": [
+        4659,
+        1238,
+        5863,
+        2719
+      ]
+    },
+    {
+      "id": "sh17_p3992928",
+      "review_index": 18,
+      "photo_id": 3992928,
+      "source_sha256": "e903f2e550d7cb20aaa6c0bd4ed7817b8f0808a9a4b79b323f8e2630f40402a0",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_399",
+      "box_xyxy": [
+        2963,
+        652,
+        3811,
+        1550
+      ]
+    },
+    {
+      "id": "sh17_p4050363",
+      "review_index": 19,
+      "photo_id": 4050363,
+      "source_sha256": "7ab977c65d2a8dacec69bfe393f96aa883d95adfb3f4d562a0caedca9b6039ff",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_405",
+      "box_xyxy": [
+        1144,
+        2221,
+        2359,
+        3700
+      ]
+    },
+    {
+      "id": "sh17_p4173288",
+      "review_index": 20,
+      "photo_id": 4173288,
+      "source_sha256": "9fae6bf6945a1b5c6fd293186f0e666eb56947af26058473870549a7b58e8924",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "no_protective_eyewear",
+      "group": "sh17_series_417",
+      "box_xyxy": [
+        3373,
+        739,
+        4341,
+        1846
+      ]
+    },
+    {
+      "id": "sh17_p4423420",
+      "review_index": 21,
+      "photo_id": 4423420,
+      "source_sha256": "2acdbf3b559c208bb634168609a8c01edabebdbf34b93dcaad4e9c5a4f5808d4",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_not_judgeable",
+      "group": "sh17_series_442",
+      "box_xyxy": [
+        177,
+        368,
+        370,
+        615
+      ]
+    },
+    {
+      "id": "sh17_p4467586",
+      "review_index": 22,
+      "photo_id": 4467586,
+      "source_sha256": "dbcd9957be99d53682b15a6e5038d59a925fc1b9cbe8967d039fcc763a43b14e",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_446",
+      "box_xyxy": [
+        1024,
+        0,
+        4384,
+        3189
+      ]
+    },
+    {
+      "id": "sh17_p4560078",
+      "review_index": 23,
+      "photo_id": 4560078,
+      "source_sha256": "545408487bc69ea5c168aa6f99c410900f2e23995f1784adbf7bd368a5cdd4c2",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "no_protective_eyewear",
+      "group": "sh17_series_456",
+      "box_xyxy": [
+        1727,
+        718,
+        4000,
+        2467
+      ]
+    },
+    {
+      "id": "sh17_p4687174",
+      "review_index": 24,
+      "photo_id": 4687174,
+      "source_sha256": "d911c3e2fc347715ab782f82977d7bb6c24ac3810a87baa7fcc34c61f9b6ad0f",
+      "decision": "exclude",
+      "label": null,
+      "reason": "incomplete_head_or_eye_region",
+      "group": "sh17_series_468",
+      "box_xyxy": [
+        267,
+        0,
+        2517,
+        1217
+      ]
+    },
+    {
+      "id": "sh17_p4732346",
+      "review_index": 25,
+      "photo_id": 4732346,
+      "source_sha256": "005c0540f6bfcd78bffde316a9adc21470dc1c607a9522713eaf543d9105eb84",
+      "decision": "exclude",
+      "label": null,
+      "reason": "uncertain_eyewear_or_blur",
+      "group": "sh17_series_473",
+      "box_xyxy": [
+        1592,
+        2367,
+        1829,
+        2752
+      ]
+    },
+    {
+      "id": "sh17_p4754261",
+      "review_index": 26,
+      "photo_id": 4754261,
+      "source_sha256": "b448c3206a261110d5291d3327b11a6befd44af2c01b8f289ea8493df028b786",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "sunglasses",
+      "group": "sh17_series_475",
+      "box_xyxy": [
+        3260,
+        678,
+        4391,
+        1656
+      ]
+    },
+    {
+      "id": "sh17_p4872056",
+      "review_index": 27,
+      "photo_id": 4872056,
+      "source_sha256": "096ce05e3560404181bd570b22c92d0768f8810105d958ce5bb7b6d37b1ff47e",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_487",
+      "box_xyxy": [
+        3055,
+        0,
+        4982,
+        1980
+      ]
+    },
+    {
+      "id": "sh17_p4904448",
+      "review_index": 28,
+      "photo_id": 4904448,
+      "source_sha256": "0a1db0fb57028cada4ec9174b240a19f5c513a2493a56ddd7fa01398ad6d4a33",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "sunglasses",
+      "group": "sh17_series_490",
+      "box_xyxy": [
+        1345,
+        1691,
+        3556,
+        3589
+      ]
+    },
+    {
+      "id": "sh17_p4956909",
+      "review_index": 29,
+      "photo_id": 4956909,
+      "source_sha256": "ae70b6c79d955d686fd96473459f87bccd64c5714cc02ffe64ab827d100bea3b",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "eyewear_on_head",
+      "group": "sh17_series_495",
+      "box_xyxy": [
+        1860,
+        825,
+        2327,
+        1315
+      ]
+    },
+    {
+      "id": "sh17_p4968556",
+      "review_index": 30,
+      "photo_id": 4968556,
+      "source_sha256": "65126f364911131e2dfcb656d7b1cb5ba0fe2a3305819b540284caa4cabf2e47",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_496",
+      "box_xyxy": [
+        216,
+        0,
+        2002,
+        700
+      ]
+    },
+    {
+      "id": "sh17_p4968560",
+      "review_index": 31,
+      "photo_id": 4968560,
+      "source_sha256": "c9a6add682365b2d35ee5217910333d5034ba9e3d56b7d941645e4a54a2c9998",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_496",
+      "box_xyxy": [
+        1038,
+        0,
+        2886,
+        1371
+      ]
+    },
+    {
+      "id": "sh17_p4981775",
+      "review_index": 32,
+      "photo_id": 4981775,
+      "source_sha256": "dcbce7e1589c1d4ba3d24244c63288c4f400e8016775e7409093e6df54c60eff",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "protective_eyewear_covers_eyes",
+      "group": "sh17_painting_white_room_conservative",
+      "box_xyxy": [
+        1362,
+        697,
+        2929,
+        2451
+      ]
+    },
+    {
+      "id": "sh17_p4981781",
+      "review_index": 33,
+      "photo_id": 4981781,
+      "source_sha256": "f9caf14f563de28cf8208ce020f8c47a8245e87de9b949561e307e3672e360ee",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_not_judgeable",
+      "group": "sh17_series_498",
+      "box_xyxy": [
+        1800,
+        1913,
+        2819,
+        3203
+      ]
+    },
+    {
+      "id": "sh17_p5061273",
+      "review_index": 34,
+      "photo_id": 5061273,
+      "source_sha256": "ae547b12eeb2854f43f98662bc9d5d0e098b8adfe2a732957c39c7a2bbbd6bb0",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "no_protective_eyewear",
+      "group": "sh17_series_506",
+      "box_xyxy": [
+        2436,
+        498,
+        3276,
+        1773
+      ]
+    },
+    {
+      "id": "sh17_p5089184",
+      "review_index": 35,
+      "photo_id": 5089184,
+      "source_sha256": "3dec1e15dcc77774688ba4d7251bb9f14986fc7fcbac477a9c5df07c67d9bdb6",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "no_protective_eyewear",
+      "group": "sh17_series_508",
+      "box_xyxy": [
+        549,
+        0,
+        1609,
+        1300
+      ]
+    },
+    {
+      "id": "sh17_p5186372",
+      "review_index": 36,
+      "photo_id": 5186372,
+      "source_sha256": "1d486635cff5fb25f904b3e90d3be52724bdabf2f653e0fea1898741b0f9f2c9",
+      "decision": "exclude",
+      "label": null,
+      "reason": "second_head_in_crop",
+      "group": "sh17_series_518",
+      "box_xyxy": [
+        4015,
+        0,
+        6082,
+        1410
+      ]
+    },
+    {
+      "id": "sh17_p5207088",
+      "review_index": 37,
+      "photo_id": 5207088,
+      "source_sha256": "e19d9fb39fe6a9d920cfc7506b6f06e8ea8f5b2b04eaca7665cdec89b029a8fd",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_medical_portrait_520_521_conservative",
+      "box_xyxy": [
+        1651,
+        585,
+        3288,
+        2441
+      ]
+    },
+    {
+      "id": "sh17_p5214968",
+      "review_index": 38,
+      "photo_id": 5214968,
+      "source_sha256": "b23a18dab083bfa7cfa0d1f64ad5769938766270fa31bd5dcd2e994d62dae2ca",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_medical_portrait_520_521_conservative",
+      "box_xyxy": [
+        1546,
+        444,
+        3114,
+        2312
+      ]
+    },
+    {
+      "id": "sh17_p5215009",
+      "review_index": 39,
+      "photo_id": 5215009,
+      "source_sha256": "636d8ee48a3ab22bc90f8a9f1ddb4e592f3342b1689eb966977bd73bcc6fd9ff",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_medical_portrait_520_521_conservative",
+      "box_xyxy": [
+        1317,
+        1027,
+        2586,
+        2673
+      ]
+    },
+    {
+      "id": "sh17_p5273661",
+      "review_index": 40,
+      "photo_id": 5273661,
+      "source_sha256": "3b4fd76c16ea8f65a1cd7a156c743ed6f4524ca219761bbe3c9f0a6262bf3c7c",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_527",
+      "box_xyxy": [
+        1880,
+        575,
+        3148,
+        2477
+      ]
+    },
+    {
+      "id": "sh17_p5302895",
+      "review_index": 41,
+      "photo_id": 5302895,
+      "source_sha256": "507e6a3f233e7aed7bfbc1b8c1f2cc3d71880d9baf851db7b353009c685e73ed",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "no_protective_eyewear",
+      "group": "sh17_series_530",
+      "box_xyxy": [
+        2778,
+        69,
+        3746,
+        1951
+      ]
+    },
+    {
+      "id": "sh17_p5409668",
+      "review_index": 42,
+      "photo_id": 5409668,
+      "source_sha256": "7ed0e685e6267f1170ec7b76b9c516bcefe24d8b61ee1bef65e6101f10e28499",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "no_protective_eyewear",
+      "group": "sh17_series_540",
+      "box_xyxy": [
+        1567,
+        0,
+        2396,
+        833
+      ]
+    },
+    {
+      "id": "sh17_p5413988",
+      "review_index": 43,
+      "photo_id": 5413988,
+      "source_sha256": "4809dea8dbff80e1172146810b409c49b91de473ebdfe722d42395b993e8799e",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "no_protective_eyewear",
+      "group": "sh17_series_541",
+      "box_xyxy": [
+        1141,
+        0,
+        1845,
+        465
+      ]
+    },
+    {
+      "id": "sh17_p5439398",
+      "review_index": 44,
+      "photo_id": 5439398,
+      "source_sha256": "3ec52d9d6134de5c021f5bc8c55a5262468e8a0f0aca97dfa729354a191c5eaf",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_543",
+      "box_xyxy": [
+        2025,
+        2067,
+        2503,
+        2802
+      ]
+    },
+    {
+      "id": "sh17_p5452298",
+      "review_index": 45,
+      "photo_id": 5452298,
+      "source_sha256": "cbecb5e6d30a51ca9ef9e03ec9377f59c45efc0bf817fd5ead48a953d3169a1c",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_545",
+      "box_xyxy": [
+        1156,
+        0,
+        3125,
+        1919
+      ]
+    },
+    {
+      "id": "sh17_p5493654",
+      "review_index": 46,
+      "photo_id": 5493654,
+      "source_sha256": "9e466c42f03cc659c1d315f9ef447a62742a94e2cb6b56d8312c43f6b5138da7",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "protective_eyewear_covers_eyes",
+      "group": "sh17_painting_white_room_conservative",
+      "box_xyxy": [
+        2524,
+        1410,
+        3476,
+        2474
+      ]
+    },
+    {
+      "id": "sh17_p5619452",
+      "review_index": 47,
+      "photo_id": 5619452,
+      "source_sha256": "a54dfbf6c5d0fb654786530e914b542dae33b1a43e04d52e3aab46d4c9bc3258",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_561",
+      "box_xyxy": [
+        3403,
+        391,
+        4854,
+        2269
+      ]
+    },
+    {
+      "id": "sh17_p5619458",
+      "review_index": 48,
+      "photo_id": 5619458,
+      "source_sha256": "cc59e6990e36e1705ee01e696c4ab689ab072155520a2dc04836de58c2659686",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_561",
+      "box_xyxy": [
+        2032,
+        1519,
+        2932,
+        2604
+      ]
+    },
+    {
+      "id": "sh17_p5647259",
+      "review_index": 49,
+      "photo_id": 5647259,
+      "source_sha256": "ef4db3d70202fe7ef6189b2b00d908ac395cf2b29ddb269485ec9d0c98e07139",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "sunglasses",
+      "group": "sh17_series_564",
+      "box_xyxy": [
+        834,
+        558,
+        1875,
+        1866
+      ]
+    },
+    {
+      "id": "sh17_p5750131",
+      "review_index": 50,
+      "photo_id": 5750131,
+      "source_sha256": "b6a3148b8f7f57dd2596bd07d51e839481d24d5d4d5689f492bec20111b66ce3",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "no_protective_eyewear",
+      "group": "sh17_series_575",
+      "box_xyxy": [
+        1348,
+        1973,
+        2061,
+        2889
+      ]
+    },
+    {
+      "id": "sh17_p5835344",
+      "review_index": 51,
+      "photo_id": 5835344,
+      "source_sha256": "3e13e6fc82ac3090d3d646625c222520a90a19d9751fcc9c019b92428c1d0ce3",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_583",
+      "box_xyxy": [
+        1990,
+        533,
+        4286,
+        2786
+      ]
+    },
+    {
+      "id": "sh17_p5894265",
+      "review_index": 52,
+      "photo_id": 5894265,
+      "source_sha256": "aefe1c1becb2b9cafb26064da96ae7820cd344496686bb815c36763f76452b26",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "no_protective_eyewear",
+      "group": "sh17_series_589",
+      "box_xyxy": [
+        775,
+        2135,
+        1551,
+        3204
+      ]
+    },
+    {
+      "id": "sh17_p5915140",
+      "review_index": 53,
+      "photo_id": 5915140,
+      "source_sha256": "e3494fa44c1e7aedbae808e83498b8251738f5248bd062e48f952c197e679bfe",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_591",
+      "box_xyxy": [
+        1495,
+        390,
+        3048,
+        2763
+      ]
+    },
+    {
+      "id": "sh17_p5922212",
+      "review_index": 54,
+      "photo_id": 5922212,
+      "source_sha256": "e1be30d8b935fac1b6b8a780e4a911b0596a01fff70c0b4a50591ba10d84bcfa",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_592",
+      "box_xyxy": [
+        2005,
+        1993,
+        2759,
+        3055
+      ]
+    },
+    {
+      "id": "sh17_p5940704",
+      "review_index": 55,
+      "photo_id": 5940704,
+      "source_sha256": "060dfdce8f61b9923d2ab41cb7af7881e9287864048c43591a560cac6bbcfa63",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_594",
+      "box_xyxy": [
+        89,
+        628,
+        990,
+        1803
+      ]
+    },
+    {
+      "id": "sh17_p5953543",
+      "review_index": 56,
+      "photo_id": 5953543,
+      "source_sha256": "5a4875b965aba832d300afabadbdc33a13ed66430e0fb1c7f72f5d59af329c42",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_595",
+      "box_xyxy": [
+        2148,
+        1030,
+        3217,
+        2501
+      ]
+    },
+    {
+      "id": "sh17_p5953570",
+      "review_index": 57,
+      "photo_id": 5953570,
+      "source_sha256": "d556ef662bb9b6901e2de4c9f8466ad3d2d906ee83683a4356812e5f8be76037",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_595",
+      "box_xyxy": [
+        2481,
+        0,
+        4030,
+        939
+      ]
+    },
+    {
+      "id": "sh17_p6100028",
+      "review_index": 58,
+      "photo_id": 6100028,
+      "source_sha256": "9a82f979c3ae9c7b72cc922d534ca498a9419f78068c3f38e6ab0ead14ae4391",
+      "decision": "exclude",
+      "label": null,
+      "reason": "uncertain_eyewear_or_blur",
+      "group": "sh17_series_610",
+      "box_xyxy": [
+        935,
+        2037,
+        1170,
+        2314
+      ]
+    },
+    {
+      "id": "sh17_p6147025",
+      "review_index": 59,
+      "photo_id": 6147025,
+      "source_sha256": "1330888f8e458f670d7ec46ae5fd47a2c38e3968ce56ce03f49819f324e2cb98",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_614",
+      "box_xyxy": [
+        0,
+        2276,
+        776,
+        3099
+      ]
+    },
+    {
+      "id": "sh17_p6285151",
+      "review_index": 60,
+      "photo_id": 6285151,
+      "source_sha256": "21d9c2124e086d0bb79c725944c73f8c4cf711634fe5144e45598b18575913f0",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "no_protective_eyewear",
+      "group": "sh17_series_628",
+      "box_xyxy": [
+        3395,
+        307,
+        4221,
+        1507
+      ]
+    },
+    {
+      "id": "sh17_p6322359",
+      "review_index": 61,
+      "photo_id": 6322359,
+      "source_sha256": "a6b56e6ec71ce798d287b8aecee7aaaa9864a9ac088341fc3d8cb5dae6a85898",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_632",
+      "box_xyxy": [
+        2292,
+        2600,
+        2952,
+        3563
+      ]
+    },
+    {
+      "id": "sh17_p6405670",
+      "review_index": 62,
+      "photo_id": 6405670,
+      "source_sha256": "cd3e1118a80661942fc2b2d85174a2f06d6e4958415129ad9ca0fded3dae04e6",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "no_protective_eyewear",
+      "group": "sh17_series_640",
+      "box_xyxy": [
+        2761,
+        1387,
+        3396,
+        2100
+      ]
+    },
+    {
+      "id": "sh17_p6474349",
+      "review_index": 63,
+      "photo_id": 6474349,
+      "source_sha256": "a650d14535e5435022cbcb615e81bd6d9cc79aa36ed083a26142382fb2b7cdd9",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_not_judgeable",
+      "group": "sh17_series_647",
+      "box_xyxy": [
+        2043,
+        1651,
+        2492,
+        2124
+      ]
+    },
+    {
+      "id": "sh17_p6611408",
+      "review_index": 64,
+      "photo_id": 6611408,
+      "source_sha256": "3357a99d5afcd33e3677814b6fc348cf00e15e687f859c5accc4d53900181d94",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "no_protective_eyewear",
+      "group": "sh17_series_661",
+      "box_xyxy": [
+        1306,
+        674,
+        1942,
+        1628
+      ]
+    },
+    {
+      "id": "sh17_p6693642",
+      "review_index": 65,
+      "photo_id": 6693642,
+      "source_sha256": "fea32eaac8fc70bae8c55dc8bc0b9fabc16e0d1599c339f3822714896568919c",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_669",
+      "box_xyxy": [
+        2819,
+        260,
+        3800,
+        1833
+      ]
+    },
+    {
+      "id": "sh17_p6720541",
+      "review_index": 66,
+      "photo_id": 6720541,
+      "source_sha256": "c16de71a5387d859c06726c427f60dc10258efce5bde1285e44cc77bdd1edb28",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "no_protective_eyewear",
+      "group": "sh17_series_672",
+      "box_xyxy": [
+        2473,
+        240,
+        3170,
+        1271
+      ]
+    },
+    {
+      "id": "sh17_p6774143",
+      "review_index": 67,
+      "photo_id": 6774143,
+      "source_sha256": "b02269ee6f3b8c795e6af3d6beddb905ce22761627fa0d276612899d7ab1a801",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_not_judgeable",
+      "group": "sh17_series_677",
+      "box_xyxy": [
+        849,
+        1623,
+        1782,
+        2716
+      ]
+    },
+    {
+      "id": "sh17_p6914349",
+      "review_index": 68,
+      "photo_id": 6914349,
+      "source_sha256": "1b3cf5651842c78f32d3f7536fb028a4d8a84089b764bd2d2a350305d4bb0e6b",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_691",
+      "box_xyxy": [
+        1132,
+        1310,
+        2556,
+        2622
+      ]
+    },
+    {
+      "id": "sh17_p7006693",
+      "review_index": 69,
+      "photo_id": 7006693,
+      "source_sha256": "43820c54be2e18fae5fd94248288392446c9243c28d6bba0c7e136738830fcf1",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "no_protective_eyewear",
+      "group": "sh17_series_700",
+      "box_xyxy": [
+        2607,
+        455,
+        3403,
+        1466
+      ]
+    },
+    {
+      "id": "sh17_p7019765",
+      "review_index": 70,
+      "photo_id": 7019765,
+      "source_sha256": "a091dff0929a8c61326dede2c6beb056195ed4d8ac3492bd66d374cb2750caa2",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "protective_eyewear_covers_eyes",
+      "group": "sh17_series_701",
+      "box_xyxy": [
+        2768,
+        42,
+        3422,
+        809
+      ]
+    },
+    {
+      "id": "sh17_p7019768",
+      "review_index": 71,
+      "photo_id": 7019768,
+      "source_sha256": "2d573135f1cf1b8a9c78f5ac9f1983f07061635b9ab8c73749d6485b25a268a1",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "protective_eyewear_covers_eyes",
+      "group": "sh17_series_701",
+      "box_xyxy": [
+        1684,
+        1442,
+        2285,
+        2290
+      ]
+    },
+    {
+      "id": "sh17_p7023922",
+      "review_index": 72,
+      "photo_id": 7023922,
+      "source_sha256": "2459dfc26a67991142c972b39fd8733c85b1bdae372dae818c2fb0e00f71384c",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "protective_eyewear_covers_eyes",
+      "group": "sh17_series_702",
+      "box_xyxy": [
+        1475,
+        349,
+        2174,
+        1264
+      ]
+    },
+    {
+      "id": "sh17_p7147645",
+      "review_index": 73,
+      "photo_id": 7147645,
+      "source_sha256": "6677f74051c7776cb07c478fe07ece8b4e1152da1134e2d48e39be640f7786db",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "no_protective_eyewear",
+      "group": "sh17_series_714",
+      "box_xyxy": [
+        3159,
+        1350,
+        4006,
+        2267
+      ]
+    },
+    {
+      "id": "sh17_p7222230",
+      "review_index": 74,
+      "photo_id": 7222230,
+      "source_sha256": "968b451c576c0f31b135d39358a098715ad8012c6e201382b6d224f4f941f75d",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_not_judgeable",
+      "group": "sh17_series_722",
+      "box_xyxy": [
+        108,
+        556,
+        750,
+        1274
+      ]
+    },
+    {
+      "id": "sh17_p7388965",
+      "review_index": 75,
+      "photo_id": 7388965,
+      "source_sha256": "87057b40171dffa770d72ccd8a8225793448ab825c629c07d8566c60a840fafe",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "no_protective_eyewear",
+      "group": "sh17_series_738",
+      "box_xyxy": [
+        512,
+        278,
+        1499,
+        1527
+      ]
+    },
+    {
+      "id": "sh17_p7446761",
+      "review_index": 76,
+      "photo_id": 7446761,
+      "source_sha256": "791c10c7f3c4c8d618605988757612f5efbba81759f3cfcd957acbe05d3ef4b4",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_not_judgeable",
+      "group": "sh17_series_744",
+      "box_xyxy": [
+        3832,
+        0,
+        5041,
+        1482
+      ]
+    },
+    {
+      "id": "sh17_p7446996",
+      "review_index": 77,
+      "photo_id": 7446996,
+      "source_sha256": "c310fba36a8bde705c55e804c8b3333c1ec25b1e9837c94d33aeaaf3c16fab7f",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_744",
+      "box_xyxy": [
+        3730,
+        195,
+        4793,
+        1353
+      ]
+    },
+    {
+      "id": "sh17_p7461112",
+      "review_index": 78,
+      "photo_id": 7461112,
+      "source_sha256": "8f4fff33e83d2616f6f52c5c889027fad2fa51500e4ba157c1e4eec41829ddc1",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_not_judgeable",
+      "group": "sh17_series_746",
+      "box_xyxy": [
+        4840,
+        699,
+        5463,
+        1369
+      ]
+    },
+    {
+      "id": "sh17_p7518805",
+      "review_index": 79,
+      "photo_id": 7518805,
+      "source_sha256": "51d5a3c5ba571991aa6ecd2fcf3bd437dc82e94c694a78303bd75fe3b0e8b16b",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_not_judgeable",
+      "group": "sh17_series_751",
+      "box_xyxy": [
+        3176,
+        893,
+        3968,
+        2785
+      ]
+    },
+    {
+      "id": "sh17_p7519285",
+      "review_index": 80,
+      "photo_id": 7519285,
+      "source_sha256": "21fce7b2da3d7acb1c76b0c230e545e677cb883938027dbb835a1a9f714eaa27",
+      "decision": "exclude",
+      "label": null,
+      "reason": "uncertain_eyewear_or_blur",
+      "group": "sh17_series_751",
+      "box_xyxy": [
+        1554,
+        2,
+        2978,
+        1861
+      ]
+    },
+    {
+      "id": "sh17_p7533369",
+      "review_index": 81,
+      "photo_id": 7533369,
+      "source_sha256": "9fc82bc64feb827d7c0f0c7e80a6c3fd3777bc03273193df7093410b3a97ac41",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_753",
+      "box_xyxy": [
+        3608,
+        239,
+        4536,
+        1662
+      ]
+    },
+    {
+      "id": "sh17_p7579188",
+      "review_index": 82,
+      "photo_id": 7579188,
+      "source_sha256": "daff0cbee11c633b8eb967c8a1ede1fb1961ed72675e6a17756f9e8631ff8b08",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_not_judgeable",
+      "group": "sh17_series_757",
+      "box_xyxy": [
+        0,
+        1398,
+        1041,
+        3312
+      ]
+    },
+    {
+      "id": "sh17_p7643760",
+      "review_index": 83,
+      "photo_id": 7643760,
+      "source_sha256": "a324abb2c08e91814381753376ffeb40785fb977d64a064822ea278827fd9fdc",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_764",
+      "box_xyxy": [
+        2207,
+        564,
+        2949,
+        1663
+      ]
+    },
+    {
+      "id": "sh17_p7675999",
+      "review_index": 84,
+      "photo_id": 7675999,
+      "source_sha256": "296fdd6619e17c20a474bee54765f9eb27f010340499a82c1c3a900d7deca9c1",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "no_protective_eyewear",
+      "group": "sh17_series_767",
+      "box_xyxy": [
+        1569,
+        1164,
+        2751,
+        2780
+      ]
+    },
+    {
+      "id": "sh17_p7681564",
+      "review_index": 85,
+      "photo_id": 7681564,
+      "source_sha256": "d779085a8f8c74b3ff549025ab68672af26dcf69379ab025c8ca803e771b3666",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_768",
+      "box_xyxy": [
+        2459,
+        3169,
+        3343,
+        4297
+      ]
+    },
+    {
+      "id": "sh17_p7698835",
+      "review_index": 86,
+      "photo_id": 7698835,
+      "source_sha256": "35c0ba9be5f1c017582a41e4a1b232151ad8b4e9353bc471acfa04d2591f0db2",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_769",
+      "box_xyxy": [
+        0,
+        1468,
+        974,
+        2664
+      ]
+    },
+    {
+      "id": "sh17_p7739856",
+      "review_index": 87,
+      "photo_id": 7739856,
+      "source_sha256": "44fae0f6b97b9e6d0eb991feba86f36cb40448f1503b8307cd7435a2a087f218",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_not_judgeable",
+      "group": "sh17_series_773",
+      "box_xyxy": [
+        2592,
+        1753,
+        2997,
+        2355
+      ]
+    },
+    {
+      "id": "sh17_p7805067",
+      "review_index": 88,
+      "photo_id": 7805067,
+      "source_sha256": "9ea60c237f3a04195a87de24863ddbb1b25677eefe88065c2b2456c9e9842b4b",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_780",
+      "box_xyxy": [
+        4012,
+        414,
+        5185,
+        1840
+      ]
+    },
+    {
+      "id": "sh17_p7888818",
+      "review_index": 89,
+      "photo_id": 7888818,
+      "source_sha256": "3419dbb37b0bf2d495d300b4be52d7cf74c555217bc8d01d375a020e2b330759",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_788",
+      "box_xyxy": [
+        1718,
+        2705,
+        2387,
+        3583
+      ]
+    },
+    {
+      "id": "sh17_p8123815",
+      "review_index": 90,
+      "photo_id": 8123815,
+      "source_sha256": "3df550f7b4eff5e213cd5341ebc35d05f9faa4e0ad35ae07b8cc4c6d71c2566c",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_812",
+      "box_xyxy": [
+        4752,
+        398,
+        5533,
+        1375
+      ]
+    },
+    {
+      "id": "sh17_p8218836",
+      "review_index": 91,
+      "photo_id": 8218836,
+      "source_sha256": "9fd16570b9bfdc1c4b9be2a4c89bb6ff2cc8726fd95ee6d16728288637c301dc",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_not_judgeable",
+      "group": "sh17_series_821",
+      "box_xyxy": [
+        3092,
+        2343,
+        3751,
+        3428
+      ]
+    },
+    {
+      "id": "sh17_p8292847",
+      "review_index": 92,
+      "photo_id": 8292847,
+      "source_sha256": "f9e0448470f45afc435b35900bf61fb58ecf520208a955d8c6c156d4cac6c4f0",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_829",
+      "box_xyxy": [
+        2139,
+        235,
+        2760,
+        1086
+      ]
+    },
+    {
+      "id": "sh17_p8411433",
+      "review_index": 93,
+      "photo_id": 8411433,
+      "source_sha256": "58fd3f0c94dda4efaff51c218390bb0ede761e8234ebdc6f1a1ee3be52cfda9b",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_not_judgeable",
+      "group": "sh17_series_841",
+      "box_xyxy": [
+        1459,
+        259,
+        2906,
+        2151
+      ]
+    },
+    {
+      "id": "sh17_p8554293",
+      "review_index": 94,
+      "photo_id": 8554293,
+      "source_sha256": "4f2841a9e06f10187d7ba189a86fc14000ae8b9777292f7673f4906a3dcfdcd5",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_855",
+      "box_xyxy": [
+        864,
+        1601,
+        2184,
+        3065
+      ]
+    },
+    {
+      "id": "sh17_p8682798",
+      "review_index": 95,
+      "photo_id": 8682798,
+      "source_sha256": "a618c725ce280f726e614b7fe8a2b96168c790a4188ef7f7673c41c49d767dd1",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_868",
+      "box_xyxy": [
+        2494,
+        292,
+        3204,
+        1083
+      ]
+    },
+    {
+      "id": "sh17_p8691848",
+      "review_index": 96,
+      "photo_id": 8691848,
+      "source_sha256": "020e0d3fa47868422aaeefe840fbdfdd0cde088bf6610f8c66cbf1fa6917d9bb",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_869",
+      "box_xyxy": [
+        1721,
+        736,
+        2391,
+        1349
+      ]
+    },
+    {
+      "id": "sh17_p8837596",
+      "review_index": 97,
+      "photo_id": 8837596,
+      "source_sha256": "bc04950c961027ecdffd951c17f0589dee4c5563ccb59f658c242a7b415f1082",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "no_protective_eyewear",
+      "group": "sh17_series_883",
+      "box_xyxy": [
+        923,
+        2464,
+        1531,
+        3232
+      ]
+    },
+    {
+      "id": "sh17_p8938644",
+      "review_index": 98,
+      "photo_id": 8938644,
+      "source_sha256": "018fcd3cde3fcf0f365e63d97233116c6206138e92d47a2f4bb050d1bb0499fa",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "no_protective_eyewear",
+      "group": "sh17_series_893",
+      "box_xyxy": [
+        3981,
+        688,
+        5355,
+        1847
+      ]
+    },
+    {
+      "id": "sh17_p8992676",
+      "review_index": 99,
+      "photo_id": 8992676,
+      "source_sha256": "222a03e6e00892f27befe4ad8fb5c110067f940535307b22328332ceb4628299",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "protective_eyewear_covers_eyes",
+      "group": "sh17_series_899",
+      "box_xyxy": [
+        1781,
+        0,
+        2460,
+        587
+      ]
+    },
+    {
+      "id": "sh17_p9034242",
+      "review_index": 100,
+      "photo_id": 9034242,
+      "source_sha256": "ce8054275c2090004f2b874aad0a04f40d1a4cd0172d8337aa24dc72f20732ed",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "no_protective_eyewear",
+      "group": "sh17_series_903",
+      "box_xyxy": [
+        4312,
+        1374,
+        5230,
+        2253
+      ]
+    },
+    {
+      "id": "sh17_p9057191",
+      "review_index": 101,
+      "photo_id": 9057191,
+      "source_sha256": "eb00d0919c6169a201fe4e96b59a78efcbcde60d18c03645da3fa9949efa7479",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "protective_eyewear_covers_eyes",
+      "group": "sh17_series_905",
+      "box_xyxy": [
+        2673,
+        0,
+        4446,
+        1401
+      ]
+    },
+    {
+      "id": "sh17_p9301194",
+      "review_index": 102,
+      "photo_id": 9301194,
+      "source_sha256": "0e097d4650001ef22e52e3823387226aead4c7a209c334acd4241837469b0896",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "no_protective_eyewear",
+      "group": "sh17_series_930",
+      "box_xyxy": [
+        1630,
+        450,
+        2625,
+        1806
+      ]
+    },
+    {
+      "id": "sh17_p9328720",
+      "review_index": 103,
+      "photo_id": 9328720,
+      "source_sha256": "452a828ee8cb2f18fff92618eb66be6f3e7172c877ae655c969fc02d2ed4fc35",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_not_judgeable",
+      "group": "sh17_series_932",
+      "box_xyxy": [
+        2052,
+        1502,
+        2832,
+        2443
+      ]
+    },
+    {
+      "id": "sh17_p9622957",
+      "review_index": 104,
+      "photo_id": 9622957,
+      "source_sha256": "a23549f9b9fcbda5bdfec5e5898cfab71b0ddc69d4ce4bbe15f968b22656aeaa",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "eyewear_on_head",
+      "group": "sh17_series_962",
+      "box_xyxy": [
+        1341,
+        1245,
+        1788,
+        1892
+      ]
+    },
+    {
+      "id": "sh17_p9762083",
+      "review_index": 105,
+      "photo_id": 9762083,
+      "source_sha256": "092c3547414d02891e2718691e941807ee03c7ae760472cd643f4e4b27dc69a3",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "no_protective_eyewear",
+      "group": "sh17_series_976",
+      "box_xyxy": [
+        800,
+        279,
+        1267,
+        930
+      ]
+    },
+    {
+      "id": "sh17_p9850431",
+      "review_index": 106,
+      "photo_id": 9850431,
+      "source_sha256": "78ae60ff9dacba4ae3da5f7355700dc2b581033eff22b20322c123a7419bbfbb",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_985",
+      "box_xyxy": [
+        1092,
+        1481,
+        1412,
+        1831
+      ]
+    },
+    {
+      "id": "sh17_p9875406",
+      "review_index": 107,
+      "photo_id": 9875406,
+      "source_sha256": "bb15eb153215a993707a2c60b43a47fe2d998e5d3edddb736c5dc426f524a582",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "protective_eyewear_covers_eyes",
+      "group": "sh17_series_987",
+      "box_xyxy": [
+        1338,
+        1757,
+        1850,
+        2378
+      ]
+    },
+    {
+      "id": "sh17_p9875418",
+      "review_index": 108,
+      "photo_id": 9875418,
+      "source_sha256": "c929a77745c14b4eae08624ada9bdc0a14fb8e3b841e87bc29aabce95abe538a",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "protective_eyewear_covers_eyes",
+      "group": "sh17_series_987",
+      "box_xyxy": [
+        2599,
+        314,
+        3235,
+        1257
+      ]
+    },
+    {
+      "id": "sh17_p10347138",
+      "review_index": 109,
+      "photo_id": 10347138,
+      "source_sha256": "f790ea1c608d03efdbf9442bc1992284dd3e878ac64d2f2c9e53a452a51900c0",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "no_protective_eyewear",
+      "group": "sh17_series_1034",
+      "box_xyxy": [
+        3082,
+        742,
+        4023,
+        1897
+      ]
+    },
+    {
+      "id": "sh17_p10375949",
+      "review_index": 110,
+      "photo_id": 10375949,
+      "source_sha256": "e877123db89118ec3aa48581a3a66e564446d8c606beb13a8c8aa07ca23656d1",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "no_protective_eyewear",
+      "group": "sh17_series_1037",
+      "box_xyxy": [
+        723,
+        1259,
+        1951,
+        2435
+      ]
+    },
+    {
+      "id": "sh17_p10871712",
+      "review_index": 111,
+      "photo_id": 10871712,
+      "source_sha256": "3316fc493af65d053367552243e38e3a9aee53b5c0069ef1c45feb7501b158be",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_1087",
+      "box_xyxy": [
+        2570,
+        385,
+        3215,
+        1359
+      ]
+    },
+    {
+      "id": "sh17_p10922989",
+      "review_index": 112,
+      "photo_id": 10922989,
+      "source_sha256": "46efae1a3b4aa9c415cab4d497dd6d4b71ec2aac6a8198f10d24e7b640882f57",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_not_judgeable",
+      "group": "sh17_series_1092",
+      "box_xyxy": [
+        3505,
+        340,
+        4315,
+        1152
+      ]
+    },
+    {
+      "id": "sh17_p11712738",
+      "review_index": 113,
+      "photo_id": 11712738,
+      "source_sha256": "5ba46fbeaa518254bcae21e1bc8e172762f3fc3ad80ca15b7dadc203cac799f3",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_not_judgeable",
+      "group": "sh17_series_1171",
+      "box_xyxy": [
+        0,
+        1744,
+        306,
+        2291
+      ]
+    },
+    {
+      "id": "sh17_p11765538",
+      "review_index": 114,
+      "photo_id": 11765538,
+      "source_sha256": "e4f249abc22bd01621ecabadc1480c824e69ac0bccdadbd968b44e5136c9c7bb",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_not_judgeable",
+      "group": "sh17_series_1176",
+      "box_xyxy": [
+        756,
+        340,
+        1196,
+        828
+      ]
+    },
+    {
+      "id": "sh17_p12572225",
+      "review_index": 115,
+      "photo_id": 12572225,
+      "source_sha256": "748876fe7ab2c7202d07371894ebe5d9de40a815445cec6dbdab4932fb51875d",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_1257",
+      "box_xyxy": [
+        1253,
+        871,
+        2058,
+        1852
+      ]
+    },
+    {
+      "id": "sh17_p12599544",
+      "review_index": 116,
+      "photo_id": 12599544,
+      "source_sha256": "b4f8b4b909bef34ea1bb2232b130df0e717e6a76504c6a9f7a53a188f44e6408",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_1259",
+      "box_xyxy": [
+        3116,
+        128,
+        3841,
+        940
+      ]
+    },
+    {
+      "id": "sh17_p12759924",
+      "review_index": 117,
+      "photo_id": 12759924,
+      "source_sha256": "894e8a7e90bf83b39357a4e4a52dbcc9255bf7929c81e857e69762ecc33ec607",
+      "decision": "exclude",
+      "label": null,
+      "reason": "uncertain_eyewear_or_blur",
+      "group": "sh17_series_1275",
+      "box_xyxy": [
+        3506,
+        413,
+        4395,
+        1374
+      ]
+    },
+    {
+      "id": "sh17_p12911180",
+      "review_index": 118,
+      "photo_id": 12911180,
+      "source_sha256": "1bceab1594f803a682d4529cafee6f4d33d75b2f531e42e3d0fbc5413be0e619",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "no_protective_eyewear",
+      "group": "sh17_series_1291",
+      "box_xyxy": [
+        2317,
+        1642,
+        4000,
+        3044
+      ]
+    },
+    {
+      "id": "sh17_p12950420",
+      "review_index": 119,
+      "photo_id": 12950420,
+      "source_sha256": "2d7ad5911dd6f63db47858218766a4de9dcf382d4060fd17fb04e0cd1457934a",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "no_protective_eyewear",
+      "group": "sh17_series_1295",
+      "box_xyxy": [
+        1494,
+        607,
+        2901,
+        2554
+      ]
+    },
+    {
+      "id": "sh17_p12983497",
+      "review_index": 120,
+      "photo_id": 12983497,
+      "source_sha256": "8fac928d0b19f15845052ed83849a85447db15445a602c278c267a0a8585309f",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_1298",
+      "box_xyxy": [
+        2243,
+        248,
+        2958,
+        1287
+      ]
+    },
+    {
+      "id": "sh17_p13408861",
+      "review_index": 121,
+      "photo_id": 13408861,
+      "source_sha256": "54a4f1cc7c22b591333bb235f59008ae8a8267f1a17e53d52a73f54560dadd8a",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_1340",
+      "box_xyxy": [
+        1149,
+        2787,
+        1583,
+        3236
+      ]
+    },
+    {
+      "id": "sh17_p13569603",
+      "review_index": 122,
+      "photo_id": 13569603,
+      "source_sha256": "a3ba1dd26e0f0461c4f0b859ad8ffd83c7459498633bddae0c3c95be667648fe",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_not_judgeable",
+      "group": "sh17_series_1356",
+      "box_xyxy": [
+        805,
+        575,
+        1060,
+        877
+      ]
+    },
+    {
+      "id": "sh17_p13881188",
+      "review_index": 123,
+      "photo_id": 13881188,
+      "source_sha256": "c909401641afb94249d33d32d121dc1050f09ca58883b32bfbb480d471e0f4ba",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_1388",
+      "box_xyxy": [
+        1202,
+        1112,
+        1804,
+        2089
+      ]
+    },
+    {
+      "id": "sh17_p14008091",
+      "review_index": 124,
+      "photo_id": 14008091,
+      "source_sha256": "c9e9b784728dd201f47101a4f4182f346573ed7ffc25ea57c3bc82845cbb268a",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_not_judgeable",
+      "group": "sh17_series_1400",
+      "box_xyxy": [
+        1424,
+        671,
+        1662,
+        938
+      ]
+    },
+    {
+      "id": "sh17_p14189340",
+      "review_index": 125,
+      "photo_id": 14189340,
+      "source_sha256": "f17a99625ea981da761c5e18196d1076deb6373745d3ab13aec3460648f6c0d5",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "sunglasses",
+      "group": "sh17_series_1418",
+      "box_xyxy": [
+        1470,
+        1163,
+        2100,
+        2179
+      ]
+    },
+    {
+      "id": "sh17_p14189341",
+      "review_index": 126,
+      "photo_id": 14189341,
+      "source_sha256": "bcba3ae466c24b04232b5e719090dc681cf29028de3181169c3131a7a4cc7f7d",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "sunglasses",
+      "group": "sh17_series_1418",
+      "box_xyxy": [
+        1458,
+        1191,
+        2321,
+        2554
+      ]
+    },
+    {
+      "id": "sh17_p14473241",
+      "review_index": 127,
+      "photo_id": 14473241,
+      "source_sha256": "83edf3c1bf019d9bf0fcd1ca10c5729f042b3bba1a9730feb086bb8222d60c6b",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_not_judgeable",
+      "group": "sh17_series_1447",
+      "box_xyxy": [
+        2414,
+        298,
+        3036,
+        1132
+      ]
+    },
+    {
+      "id": "sh17_p14614021",
+      "review_index": 128,
+      "photo_id": 14614021,
+      "source_sha256": "418477692535692145aa96fdd1d9ac674f4c7e147df35955cf90363ca589af64",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_not_judgeable",
+      "group": "sh17_series_1461",
+      "box_xyxy": [
+        2336,
+        1899,
+        2879,
+        2455
+      ]
+    },
+    {
+      "id": "sh17_p14831678",
+      "review_index": 129,
+      "photo_id": 14831678,
+      "source_sha256": "4ab487b0cb5aec87a307b6a2c4357030f985fba6fc3df1bc0e3684ca1b54f72c",
+      "decision": "exclude",
+      "label": null,
+      "reason": "uncertain_eyewear_or_blur",
+      "group": "sh17_series_1483",
+      "box_xyxy": [
+        534,
+        1557,
+        1610,
+        2445
+      ]
+    },
+    {
+      "id": "sh17_p15200454",
+      "review_index": 130,
+      "photo_id": 15200454,
+      "source_sha256": "c3b3da4e5242684d1e8ec0edf0ca931fb98ae1b750e9644d77235bc2250d6790",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "protective_eyewear_covers_eyes",
+      "group": "sh17_series_1520",
+      "box_xyxy": [
+        1062,
+        479,
+        2847,
+        3113
+      ]
+    },
+    {
+      "id": "sh17_p15947456",
+      "review_index": 131,
+      "photo_id": 15947456,
+      "source_sha256": "8ac1d4e55772663febe7c0ab2275256b3f37790a88a990f73a43d9f09128c270",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_1594",
+      "box_xyxy": [
+        1065,
+        1127,
+        1951,
+        2105
+      ]
+    },
+    {
+      "id": "sh17_p16139708",
+      "review_index": 132,
+      "photo_id": 16139708,
+      "source_sha256": "12223759df8167cf3ef5429b4440d8e1d91855f44d6ca6b859265530e3198489",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "no_protective_eyewear",
+      "group": "sh17_series_1613",
+      "box_xyxy": [
+        1071,
+        0,
+        2565,
+        2341
+      ]
+    },
+    {
+      "id": "sh17_p16552846",
+      "review_index": 133,
+      "photo_id": 16552846,
+      "source_sha256": "44f773ccd573b59cb06e7e340fc97eaf69600fa01ddf59d412be83854754c82c",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "protective_eyewear_covers_eyes",
+      "group": "sh17_series_1655",
+      "box_xyxy": [
+        1850,
+        124,
+        2927,
+        1642
+      ]
+    },
+    {
+      "id": "sh17_p16793933",
+      "review_index": 134,
+      "photo_id": 16793933,
+      "source_sha256": "f50b8af52eba9b8c7d8cb09e8f206de896a0f605004ef658bd23e97b82766c69",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_not_judgeable",
+      "group": "sh17_series_1679",
+      "box_xyxy": [
+        2255,
+        900,
+        3215,
+        2057
+      ]
+    },
+    {
+      "id": "sh17_p17710270",
+      "review_index": 135,
+      "photo_id": 17710270,
+      "source_sha256": "59eca9889391fe66f4dcb00851ff63a3ee35176a095f679dc7f3828678f73e55",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_1771",
+      "box_xyxy": [
+        3065,
+        0,
+        4406,
+        1595
+      ]
+    },
+    {
+      "id": "sh17_p17842695",
+      "review_index": 136,
+      "photo_id": 17842695,
+      "source_sha256": "5c815178ab4ec08b2de3f4ea699fe3a8763b91ff615b9d7302dab6856b883ead",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "protective_eyewear_covers_eyes",
+      "group": "sh17_series_1784",
+      "box_xyxy": [
+        0,
+        47,
+        2906,
+        3097
+      ]
+    },
+    {
+      "id": "sh17_p17878579",
+      "review_index": 137,
+      "photo_id": 17878579,
+      "source_sha256": "ba084b24f2f8d6667e039e68ee3dad4f536633ba5d877a0a97b1bc7c0c5ea2d8",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_not_judgeable",
+      "group": "sh17_series_1787",
+      "box_xyxy": [
+        1621,
+        1532,
+        1967,
+        1953
+      ]
+    },
+    {
+      "id": "sh17_p18079568",
+      "review_index": 138,
+      "photo_id": 18079568,
+      "source_sha256": "016056e46aee1fe4b2028ab3de70ea95ce272491fce7d306c8225d6d5697a5d8",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "sunglasses",
+      "group": "sh17_series_1807",
+      "box_xyxy": [
+        1245,
+        2257,
+        1566,
+        2689
+      ]
+    },
+    {
+      "id": "sh17_p18111488",
+      "review_index": 139,
+      "photo_id": 18111488,
+      "source_sha256": "d4071a0e2596ae8e6fe20a209429c2e1672c199dbcd993204fd75ecac300934d",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "sh17_series_1811",
+      "box_xyxy": [
+        2924,
+        1676,
+        3380,
+        2255
+      ]
+    }
+  ]
+}

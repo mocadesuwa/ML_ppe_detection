@@ -184,6 +184,22 @@ class ClassificationDataTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "Invalid lr"):
             training_plan(path)
 
+    def test_uniform_class_weights_and_source_sampling_are_explicit(self):
+        import yaml
+        path, plan = self.runtime_config()
+        plan.update(epochs=30, patience=8, lr=.0003, weight_decay=.0001, optimizer="AdamW", workers=0,
+                    class_weighting="none", sampling="source_group_balanced", name="fixture_run",
+                    project=str(self.root / "training"), preflight=str(self.root / "preflight.json"))
+        path.write_text(yaml.safe_dump(plan), encoding="utf-8")
+        validated, _ = training_plan(path)
+        self.assertEqual(validated["class_weights"], [1.0, 1.0])
+        self.assertEqual(validated["sampling"], "source_group_balanced")
+        for field, value in (("sampling", "unknown"), ("class_weighting", "from_test")):
+            changed = dict(plan, **{field: value})
+            path.write_text(yaml.safe_dump(changed), encoding="utf-8")
+            with self.subTest(field=field), self.assertRaises(ValueError):
+                training_plan(path)
+
 
 if __name__ == "__main__":
     unittest.main()
