@@ -1,0 +1,4260 @@
+{
+  "format_version": 1,
+  "reviewer": "Codex visual review",
+  "user_confirmed_output": "state_only_no_box",
+  "user_confirmed_policy": true,
+  "raw_image_count": 180,
+  "candidate_object_count": 226,
+  "counts": {
+    "wearing_goggles": 46,
+    "not_wearing_goggles": 145,
+    "excluded": 35
+  },
+  "context_visual_review_completed": true,
+  "head_crop_review_completed": true,
+  "policy": {
+    "task": "head_image_binary_classification",
+    "classes": [
+      "not_wearing_goggles",
+      "wearing_goggles"
+    ],
+    "wearing": "Visibly identifiable protective eyewear correctly covers both eyes. No certification of protective rating is inferred.",
+    "not_wearing": "No protective eyewear, ordinary eyeglasses, sunglasses, or eyewear on forehead/head.",
+    "excluded": "Uncertain type, invisible/occluded eye region, motion blur, incomplete head, or eye box below 48x24 native pixels where applicable.",
+    "crop": "PPEs eye-derived explicit box x-.25w,y-.9w,x+1.25w,y+1.05w, bounds limited to image, followed by full visual crop inspection. SH17 original VOC head expanded 5%, visually checked. Minimum crop short side 64; no enhancement or offline augmentation. Minor original hair/helmet edge clipping is allowed only when forehead, eyes, eyewear and chin remain usable; a second visible head is excluded.",
+    "grouping": "All PPEs frames in one factory group; SH17 visually related series joined, nearby source IDs conservatively joined; no face identification or embedding. Unavailable original photographer/identity metadata remains a limitation."
+  },
+  "items": [
+    {
+      "id": "ppes_a75",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp416_jpg.rf.01bcf68d74022eb55073daab5e6207c9.jpg",
+      "source_sha256": "eaf4ad55c48cc1f81c2cbda05342ea3ece7cf9dbd6dd9cc23ab19ec9069d4049",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 75,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        471,
+        457,
+        594,
+        616
+      ]
+    },
+    {
+      "id": "ppes_a328",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp683_jpg.rf.05dfaf511e848e4bdf3d7a47c0d439d4.jpg",
+      "source_sha256": "cea67a837c4cb2d76a2eabe60ff9d8c69c846d1bdcbdd7bd4358d63af8719307",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 328,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        470,
+        428,
+        600,
+        597
+      ]
+    },
+    {
+      "id": "ppes_a361",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp456_jpg.rf.06ebab2fcba4e6d21f18ddc4ec01c298.jpg",
+      "source_sha256": "3ebf66eb6fa73fb2d1c5aae4603140b9f4dc7b19200ad4004e6998ee10638ecb",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 361,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        479,
+        456,
+        592,
+        603
+      ]
+    },
+    {
+      "id": "ppes_a420",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp409_jpg.rf.066880e2397f43d6e8da3b75b9b170de.jpg",
+      "source_sha256": "af69936ec2655a8b261be5b576f8a6be86b0c087d750d5bbb8d4cf26bb0e699c",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 420,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        474,
+        448,
+        594,
+        604
+      ]
+    },
+    {
+      "id": "ppes_a439",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp508_jpg.rf.080f7a5bda999ed99a0b1d89f46ba369.jpg",
+      "source_sha256": "22a8e3e4eb6b6f70b7ddcef7e6211f3a82dd5e283fa060f1d76075162899b67e",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 439,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        486,
+        437,
+        615,
+        604
+      ]
+    },
+    {
+      "id": "ppes_a626",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1698_jpg.rf.0b74eaf4ffe47f695a25e6a428c6f096.jpg",
+      "source_sha256": "a7185e865d6f07e09dd48c96fbd3ebd1467b3db6df9f9505cfbf80586c36572e",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 626,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        194,
+        199,
+        295,
+        331
+      ]
+    },
+    {
+      "id": "ppes_a627",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1698_jpg.rf.0b74eaf4ffe47f695a25e6a428c6f096.jpg",
+      "source_sha256": "a7185e865d6f07e09dd48c96fbd3ebd1467b3db6df9f9505cfbf80586c36572e",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 627,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "eyewear_on_forehead_or_head",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        908,
+        130,
+        1031,
+        289
+      ]
+    },
+    {
+      "id": "ppes_a678",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp1993_jpg.rf.0bdfe9c2fca6b6b39fc3ca3e2d021e8a.jpg",
+      "source_sha256": "0eb1d7d1f335878c4158be081385cd3ad821816e5397fe63c340c338cb2032b0",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 678,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        465,
+        434,
+        613,
+        626
+      ]
+    },
+    {
+      "id": "ppes_a730",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp1760_jpg.rf.0d2ca99d4f08890500f627223e28f3d6.jpg",
+      "source_sha256": "631fc9abca8837281c76735c2a85b77ce4d330b11b4b437cd5645e8f69b367c5",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 730,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        485,
+        462,
+        596,
+        605
+      ]
+    },
+    {
+      "id": "ppes_a1083",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp634_jpg.rf.140be2f49c503194d5236590679fecec.jpg",
+      "source_sha256": "32b8d98b52bad6ed72d722befb0fd8848448a2ddf13e2b6c375cf597873e6fb6",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 1083,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        496,
+        461,
+        620,
+        622
+      ]
+    },
+    {
+      "id": "ppes_a1084",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp634_jpg.rf.140be2f49c503194d5236590679fecec.jpg",
+      "source_sha256": "32b8d98b52bad6ed72d722befb0fd8848448a2ddf13e2b6c375cf597873e6fb6",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 1084,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        1118,
+        368,
+        1223,
+        504
+      ]
+    },
+    {
+      "id": "ppes_a1184",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp1552_jpg.rf.159abd767e6fb06c39394b7365956edb.jpg",
+      "source_sha256": "ee63c623b25d813e5bf722f3d547c3d07344ab60428f203a76186c818c716cea",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 1184,
+      "source_label": "no_goggles",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_height_below_24",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        926,
+        316,
+        1016,
+        433
+      ]
+    },
+    {
+      "id": "ppes_a1185",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp1552_jpg.rf.159abd767e6fb06c39394b7365956edb.jpg",
+      "source_sha256": "ee63c623b25d813e5bf722f3d547c3d07344ab60428f203a76186c818c716cea",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 1185,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        454,
+        426,
+        603,
+        620
+      ]
+    },
+    {
+      "id": "ppes_a1186",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp1552_jpg.rf.159abd767e6fb06c39394b7365956edb.jpg",
+      "source_sha256": "ee63c623b25d813e5bf722f3d547c3d07344ab60428f203a76186c818c716cea",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 1186,
+      "source_label": "no_goggles",
+      "decision": "exclude",
+      "label": null,
+      "reason": "secondary_head_in_crop",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        954,
+        354,
+        1109,
+        556
+      ]
+    },
+    {
+      "id": "ppes_a1318",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1620_jpg.rf.1793faba46ff24915e2a292bd1b085fb.jpg",
+      "source_sha256": "66471fda9a17a32570c84fcbcf02ead88371aab60ca5772e88a22af7f6969bf8",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 1318,
+      "source_label": "goggles",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_uncertain_or_occluded",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        155,
+        218,
+        248,
+        338
+      ]
+    },
+    {
+      "id": "ppes_a1369",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1188_jpg.rf.18d04279f7718f3c461e393674211ded.jpg",
+      "source_sha256": "d89560b85629ec8778d1c6b3b27bd2c989b325ef17f8968542c58de241a3cec6",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 1369,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        895,
+        129,
+        1008,
+        276
+      ]
+    },
+    {
+      "id": "ppes_a1382",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1399_jpg.rf.1903d84ebd7fae17b42df73e8445a202.jpg",
+      "source_sha256": "c0c80fdcfd9755252af6afb8416ab2395cb638e469c9d2d57a3c471334d862ee",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 1382,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        170,
+        208,
+        270,
+        338
+      ]
+    },
+    {
+      "id": "ppes_a1383",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1399_jpg.rf.1903d84ebd7fae17b42df73e8445a202.jpg",
+      "source_sha256": "c0c80fdcfd9755252af6afb8416ab2395cb638e469c9d2d57a3c471334d862ee",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 1383,
+      "source_label": "no_goggles",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_uncertain_or_occluded",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        377,
+        153,
+        478,
+        285
+      ]
+    },
+    {
+      "id": "ppes_a1384",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1399_jpg.rf.1903d84ebd7fae17b42df73e8445a202.jpg",
+      "source_sha256": "c0c80fdcfd9755252af6afb8416ab2395cb638e469c9d2d57a3c471334d862ee",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 1384,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        903,
+        143,
+        1015,
+        288
+      ]
+    },
+    {
+      "id": "ppes_a1439",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp1245_jpg.rf.1a8ca7c916a5425ede999edb782f548e.jpg",
+      "source_sha256": "10c780e6c81a3806f5e3a6a20c8532ed1f1989ce90e34227e00a82e4d1def9ba",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 1439,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        465,
+        415,
+        594,
+        582
+      ]
+    },
+    {
+      "id": "ppes_a1480",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing118_jpg.rf.1af30f247de363d8e87833457eaae1df.jpg",
+      "source_sha256": "0e4d4df250598b0d0ae44323fa3a23c75830dfb8c63a9ace90ca1fdc51930594",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 1480,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        196,
+        217,
+        289,
+        337
+      ]
+    },
+    {
+      "id": "ppes_a1481",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing118_jpg.rf.1af30f247de363d8e87833457eaae1df.jpg",
+      "source_sha256": "0e4d4df250598b0d0ae44323fa3a23c75830dfb8c63a9ace90ca1fdc51930594",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 1481,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        347,
+        120,
+        437,
+        237
+      ]
+    },
+    {
+      "id": "ppes_a1482",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing118_jpg.rf.1af30f247de363d8e87833457eaae1df.jpg",
+      "source_sha256": "0e4d4df250598b0d0ae44323fa3a23c75830dfb8c63a9ace90ca1fdc51930594",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 1482,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "eyewear_on_forehead_or_head",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        862,
+        109,
+        970,
+        250
+      ]
+    },
+    {
+      "id": "ppes_a1590",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp1413_jpg.rf.1ca3b095b7a69f96361b41f856d4609b.jpg",
+      "source_sha256": "87d16d58307b332a261ecb7ca8cfd4492ad0eb8942468affaf2eaf759c0a9168",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 1590,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        464,
+        406,
+        589,
+        569
+      ]
+    },
+    {
+      "id": "ppes_a1652",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1362_jpg.rf.1dda9e186017d021fc3f153d59e8f13a.jpg",
+      "source_sha256": "848c5e1d964d0a3e21edf66fc20a42ced05c1120fd53af963e25de3d35ba2c57",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 1652,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        921,
+        101,
+        1044,
+        260
+      ]
+    },
+    {
+      "id": "ppes_a1653",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1362_jpg.rf.1dda9e186017d021fc3f153d59e8f13a.jpg",
+      "source_sha256": "848c5e1d964d0a3e21edf66fc20a42ced05c1120fd53af963e25de3d35ba2c57",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 1653,
+      "source_label": "no_goggles",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_uncertain_or_occluded",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        168,
+        163,
+        285,
+        314
+      ]
+    },
+    {
+      "id": "ppes_a1664",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp276_jpg.rf.1e079324d73fbbc6731a1df0a1de23b7.jpg",
+      "source_sha256": "d013ada1dbabcd281a93b4fd80e6f144933e00bfcf2280007addcbbdf03f9709",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 1664,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        503,
+        444,
+        614,
+        587
+      ]
+    },
+    {
+      "id": "ppes_a1708",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1646_jpg.rf.1ee1299e90134e1005e749d7c40817cc.jpg",
+      "source_sha256": "2f706e71d09b70a5c7282edc49549792a6ef2744abca00209be77495b3f03032",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 1708,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "eyewear_on_forehead_or_head",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        835,
+        90,
+        985,
+        285
+      ]
+    },
+    {
+      "id": "ppes_a1811",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp1601_jpg.rf.2095fc2c6428593faa081b298f7b2cc2.jpg",
+      "source_sha256": "82cab8c392cdc25bacb6328d56dca855f11332581a6392d11596c70831a320e1",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 1811,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        474,
+        448,
+        606,
+        621
+      ]
+    },
+    {
+      "id": "ppes_a1843",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp110_jpg.rf.20cb0c28c0dd0169405c6be3918b4be8.jpg",
+      "source_sha256": "0d7fb0f9c18d61a67b6d415dd5be2c8f41267065b1a9c7a74be9ea15ea1724df",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 1843,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "eyewear_on_forehead_or_head",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        450,
+        451,
+        561,
+        594
+      ]
+    },
+    {
+      "id": "ppes_a2059",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp733_jpg.rf.254e0c4c4ed6b961283f702de7f68eb8.jpg",
+      "source_sha256": "beb9646d10a5e33e5a7d6b3af677609b79f245201526a4414e1277799ba7fa9b",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 2059,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        459,
+        399,
+        613,
+        599
+      ]
+    },
+    {
+      "id": "ppes_a2232",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp1512_jpg.rf.28def90522702206c1932ff7f2d10207.jpg",
+      "source_sha256": "9e53b0ef709e13cb3994a16cf202b7ef4a04fa7e3de65f75e1f877ed3147067a",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 2232,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        461,
+        450,
+        593,
+        623
+      ]
+    },
+    {
+      "id": "ppes_a2951",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1217_jpg.rf.36b32bdc185e8bf71b5bc2529671f9ea.jpg",
+      "source_sha256": "8fd8a85ca6aee88807266ce2aaae9c8aae9a9946faf0a734db4a310ad6fea312",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 2951,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        910,
+        136,
+        1010,
+        266
+      ]
+    },
+    {
+      "id": "ppes_a2983",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp1429_jpg.rf.372b53e5e3d9fec9c0ffe5bba213528b.jpg",
+      "source_sha256": "2aa82f83339017b4f56f3c868b647e0922383eaca2a2fae06b2793f3326d1fab",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 2983,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        463,
+        408,
+        592,
+        575
+      ]
+    },
+    {
+      "id": "ppes_a3020",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1154_jpg.rf.377b7e140cdab50eab4b912d68c4a1d1.jpg",
+      "source_sha256": "f622a5f450f1ccfb137436c90235ef51e87e5d0c2e6d0a16c119b89388969a39",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 3020,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        925,
+        105,
+        1049,
+        266
+      ]
+    },
+    {
+      "id": "ppes_a3272",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing529_jpg.rf.3bc22500d7fc32fb5607a78f798b845c.jpg",
+      "source_sha256": "7df01fb2e59fff5bdeb31238fc3a3f0282e5bb3f4ec6eee9ebf7575f60faec18",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 3272,
+      "source_label": "goggles",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_uncertain_or_occluded",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        862,
+        129,
+        957,
+        253
+      ]
+    },
+    {
+      "id": "ppes_a3273",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing529_jpg.rf.3bc22500d7fc32fb5607a78f798b845c.jpg",
+      "source_sha256": "7df01fb2e59fff5bdeb31238fc3a3f0282e5bb3f4ec6eee9ebf7575f60faec18",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 3273,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        172,
+        199,
+        271,
+        327
+      ]
+    },
+    {
+      "id": "ppes_a3298",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp1415_jpg.rf.3c48d3980af46a246e3e9b39a2258120.jpg",
+      "source_sha256": "ded6d6ff439474e9e8f583b3624ce29daf482cd7d762447569d75fc6b7437df5",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 3298,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        463,
+        404,
+        594,
+        575
+      ]
+    },
+    {
+      "id": "ppes_a3311",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp696_jpg.rf.3d2940ca120104eee035090ef6c87058.jpg",
+      "source_sha256": "4fb48f8cb9aadccd2b2bcff049d6ca5601d65bc2465901cce141c1e5e5d00b3a",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 3311,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        470,
+        452,
+        607,
+        630
+      ]
+    },
+    {
+      "id": "ppes_a3394",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp62_jpg.rf.3e8e7cae9c29ed7b2f9f98dac9f56a63.jpg",
+      "source_sha256": "f92581d2b1e8d872b7e0b86f15ecd5602cebd6c0f79357939586a0fb71e61718",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 3394,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        861,
+        387,
+        985,
+        548
+      ]
+    },
+    {
+      "id": "ppes_a3554",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing760_jpg.rf.41b595ace8fc51846ac6a50048ab4aef.jpg",
+      "source_sha256": "b65a1773ba86c32a8cf0716f65046a9d54c93effc7331ccb17bc0b84ac703c0a",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 3554,
+      "source_label": "goggles",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_uncertain_or_occluded",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        877,
+        132,
+        972,
+        256
+      ]
+    },
+    {
+      "id": "ppes_a3647",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing130_jpg.rf.43d3dbe5479b1cf14081987348843bf9.jpg",
+      "source_sha256": "b088e9a844d5181c231c6a588b86a504740cf098d6a671b1c7265dd52d5ebff8",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 3647,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "eyewear_on_forehead_or_head",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        846,
+        84,
+        976,
+        253
+      ]
+    },
+    {
+      "id": "ppes_a3648",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing130_jpg.rf.43d3dbe5479b1cf14081987348843bf9.jpg",
+      "source_sha256": "b088e9a844d5181c231c6a588b86a504740cf098d6a671b1c7265dd52d5ebff8",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 3648,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        332,
+        80,
+        467,
+        255
+      ]
+    },
+    {
+      "id": "ppes_a3649",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing130_jpg.rf.43d3dbe5479b1cf14081987348843bf9.jpg",
+      "source_sha256": "b088e9a844d5181c231c6a588b86a504740cf098d6a671b1c7265dd52d5ebff8",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 3649,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        175,
+        235,
+        293,
+        388
+      ]
+    },
+    {
+      "id": "ppes_a3662",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp654_jpg.rf.436ce0cbcd90bfe477b247ca751bfa0d.jpg",
+      "source_sha256": "c3766abe6f0fa2de16e9db439cc20f9d5f8e0ffc94443d5c140c5fe712afbce7",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 3662,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        495,
+        449,
+        626,
+        620
+      ]
+    },
+    {
+      "id": "ppes_a3663",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp654_jpg.rf.436ce0cbcd90bfe477b247ca751bfa0d.jpg",
+      "source_sha256": "c3766abe6f0fa2de16e9db439cc20f9d5f8e0ffc94443d5c140c5fe712afbce7",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 3663,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        1111,
+        385,
+        1210,
+        513
+      ]
+    },
+    {
+      "id": "ppes_a3768",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp4_jpg.rf.4548594abec40bf0317d8c1d1dfbfd6b.jpg",
+      "source_sha256": "3c5201e6684f2e1c071ea104209d43eb8050c5e8aaf0c4c5bf8b46783a2a0821",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 3768,
+      "source_label": "no_goggles",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_uncertain_or_occluded",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        508,
+        395,
+        631,
+        554
+      ]
+    },
+    {
+      "id": "ppes_a3769",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp4_jpg.rf.4548594abec40bf0317d8c1d1dfbfd6b.jpg",
+      "source_sha256": "3c5201e6684f2e1c071ea104209d43eb8050c5e8aaf0c4c5bf8b46783a2a0821",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 3769,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        880,
+        496,
+        975,
+        620
+      ]
+    },
+    {
+      "id": "ppes_a3911",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp655_jpg.rf.487b5057677e62307730c00ce0206b48.jpg",
+      "source_sha256": "d8004fcabf061e91eede053ce77f3eacc2aa373c621551c08803c29c3f89e2d2",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 3911,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        1118,
+        377,
+        1220,
+        511
+      ]
+    },
+    {
+      "id": "ppes_a3912",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp655_jpg.rf.487b5057677e62307730c00ce0206b48.jpg",
+      "source_sha256": "d8004fcabf061e91eede053ce77f3eacc2aa373c621551c08803c29c3f89e2d2",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 3912,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        473,
+        438,
+        617,
+        626
+      ]
+    },
+    {
+      "id": "ppes_a3965",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp736_jpg.rf.49ac31417d72bcdf531ab894f3133f1c.jpg",
+      "source_sha256": "077c3966d41da4980117402b9b017b22679f51f1b3513489d4f25b5838c3d5ed",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 3965,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        488,
+        421,
+        626,
+        601
+      ]
+    },
+    {
+      "id": "ppes_a3988",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1883_jpg.rf.497cbdcb2e5c8e428bbe2256d980fefa.jpg",
+      "source_sha256": "22ea648b7e7e59f52a875c2c7c5ed51d888ab7c7e161cc82ffb6358fc8d7a234",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 3988,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        192,
+        181,
+        316,
+        342
+      ]
+    },
+    {
+      "id": "ppes_a4199",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1045_jpg.rf.4dbff7e538a93dd195524ccedaea4a84.jpg",
+      "source_sha256": "4a48d913f961fee917bdfc37c77c0d2daddee790199c1e08b62b3e3da09d0b20",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 4199,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "eyewear_on_forehead_or_head",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        214,
+        202,
+        316,
+        336
+      ]
+    },
+    {
+      "id": "ppes_a4416",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1053_jpg.rf.53761e5ede345938a9950cf69a318c06.jpg",
+      "source_sha256": "bbec33f2330d82042f9d723ee6f2ea8eabdc2c43cdd6159689285f35ba10c265",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 4416,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        918,
+        180,
+        1037,
+        335
+      ]
+    },
+    {
+      "id": "ppes_a4530",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp1546_jpg.rf.5573aef59223a072fe64750b21a8a60e.jpg",
+      "source_sha256": "600576f421ee851b6237fcbc60e275e85634d5f0b872968abf94af35d9207f61",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 4530,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        446,
+        432,
+        581,
+        607
+      ]
+    },
+    {
+      "id": "ppes_a4904",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1603_jpg.rf.5c652b984913374a384182f09f413b51.jpg",
+      "source_sha256": "de94bfd1f0d2505aa7ff0b0b6f304c1abb9f1a2b03b1f651989aa91c8d791e00",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 4904,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        354,
+        81,
+        477,
+        240
+      ]
+    },
+    {
+      "id": "ppes_a4905",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1603_jpg.rf.5c652b984913374a384182f09f413b51.jpg",
+      "source_sha256": "de94bfd1f0d2505aa7ff0b0b6f304c1abb9f1a2b03b1f651989aa91c8d791e00",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 4905,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "eyewear_on_forehead_or_head",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        881,
+        97,
+        1007,
+        262
+      ]
+    },
+    {
+      "id": "ppes_a4906",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1603_jpg.rf.5c652b984913374a384182f09f413b51.jpg",
+      "source_sha256": "de94bfd1f0d2505aa7ff0b0b6f304c1abb9f1a2b03b1f651989aa91c8d791e00",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 4906,
+      "source_label": "goggles",
+      "decision": "exclude",
+      "label": null,
+      "reason": "blur_or_uncertain_eyewear_type_after_crop_review",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        189,
+        211,
+        306,
+        362
+      ]
+    },
+    {
+      "id": "ppes_a5133",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp173_jpg.rf.5fbd871b2e37554624ec7b7be25d19d3.jpg",
+      "source_sha256": "711e2e4e7c4ee827de753a213f173afc5f64745ee0808a9f75dc8dcf29d5ec87",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 5133,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        482,
+        436,
+        587,
+        572
+      ]
+    },
+    {
+      "id": "ppes_a5134",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp173_jpg.rf.5fbd871b2e37554624ec7b7be25d19d3.jpg",
+      "source_sha256": "711e2e4e7c4ee827de753a213f173afc5f64745ee0808a9f75dc8dcf29d5ec87",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 5134,
+      "source_label": "no_goggles",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_uncertain_or_occluded",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        1041,
+        375,
+        1136,
+        499
+      ]
+    },
+    {
+      "id": "ppes_a5233",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1254_jpg.rf.61e06df056c9bb59057ca488227d4d32.jpg",
+      "source_sha256": "6f3b5b3fdf00bb5aac5261edb73cf1e68d846ff6ecf003586434adcfb5aaea68",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 5233,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        915,
+        95,
+        1040,
+        258
+      ]
+    },
+    {
+      "id": "ppes_a5234",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1254_jpg.rf.61e06df056c9bb59057ca488227d4d32.jpg",
+      "source_sha256": "6f3b5b3fdf00bb5aac5261edb73cf1e68d846ff6ecf003586434adcfb5aaea68",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 5234,
+      "source_label": "no_goggles",
+      "decision": "exclude",
+      "label": null,
+      "reason": "secondary_head_in_crop",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        165,
+        183,
+        273,
+        324
+      ]
+    },
+    {
+      "id": "ppes_a5310",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp531_jpg.rf.6376daf4ec644c577ff8c1174344970f.jpg",
+      "source_sha256": "60f6d936bc733c08833de62914cc8f26210897264e7f2076640ecbe89be92a95",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 5310,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        465,
+        458,
+        596,
+        629
+      ]
+    },
+    {
+      "id": "ppes_a5311",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp531_jpg.rf.6376daf4ec644c577ff8c1174344970f.jpg",
+      "source_sha256": "60f6d936bc733c08833de62914cc8f26210897264e7f2076640ecbe89be92a95",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 5311,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        1122,
+        408,
+        1222,
+        538
+      ]
+    },
+    {
+      "id": "ppes_a5503",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1206_jpg.rf.66e60542fa902ebb6a61c20468b1e483.jpg",
+      "source_sha256": "0aac05ffbcab2a5064765cec99ee4b2bc9947f28fe67d2e82368d7919b853710",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 5503,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        886,
+        145,
+        1010,
+        306
+      ]
+    },
+    {
+      "id": "ppes_a5610",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1709_jpg.rf.68522cf5bba418e3395dfe5f03ec223c.jpg",
+      "source_sha256": "2551dc40a6ef019941d0725b855a0cd72e59f54a574300aa9f2411295f1dc9a2",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 5610,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "eyewear_on_forehead_or_head",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        894,
+        112,
+        1006,
+        257
+      ]
+    },
+    {
+      "id": "ppes_a5611",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1709_jpg.rf.68522cf5bba418e3395dfe5f03ec223c.jpg",
+      "source_sha256": "2551dc40a6ef019941d0725b855a0cd72e59f54a574300aa9f2411295f1dc9a2",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 5611,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        185,
+        209,
+        287,
+        343
+      ]
+    },
+    {
+      "id": "ppes_a5766",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1159_jpg.rf.6acefa2a934bbf0615c7d4cd26e174c1.jpg",
+      "source_sha256": "21dde6b71d63624630a1ecd26435f484d5d02a7ccd97074acbf3f771e7a67c4e",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 5766,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        883,
+        116,
+        1000,
+        267
+      ]
+    },
+    {
+      "id": "ppes_a5837",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1317_jpg.rf.6c8a22632005862ddeddd20234236f5a.jpg",
+      "source_sha256": "b3b4e546f08e3bf1b9241dc26e4a8ac89118156c04f99f52a905dfbc2de15c08",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 5837,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        922,
+        110,
+        1030,
+        251
+      ]
+    },
+    {
+      "id": "ppes_a5838",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1317_jpg.rf.6c8a22632005862ddeddd20234236f5a.jpg",
+      "source_sha256": "b3b4e546f08e3bf1b9241dc26e4a8ac89118156c04f99f52a905dfbc2de15c08",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 5838,
+      "source_label": "no_goggles",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_uncertain_or_occluded",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        136,
+        207,
+        236,
+        337
+      ]
+    },
+    {
+      "id": "ppes_a6254",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1617_jpg.rf.744cf97c0ddba90bac28a26025d56b78.jpg",
+      "source_sha256": "48197af09116fbb948acb94675fc3240af58143ce023a591c7d55e4e0534be68",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 6254,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "eyewear_on_forehead_or_head",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        873,
+        84,
+        991,
+        237
+      ]
+    },
+    {
+      "id": "ppes_a6255",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1617_jpg.rf.744cf97c0ddba90bac28a26025d56b78.jpg",
+      "source_sha256": "48197af09116fbb948acb94675fc3240af58143ce023a591c7d55e4e0534be68",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 6255,
+      "source_label": "goggles",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_uncertain_or_occluded",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        209,
+        201,
+        320,
+        344
+      ]
+    },
+    {
+      "id": "ppes_a6286",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1689_jpg.rf.74966a99c20e9b066a51e1b3a6005d35.jpg",
+      "source_sha256": "dc47f74a3c4872aee5d95d9e6e8a87c09182d69c526d2c0dbdb28d62e9fd8394",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 6286,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "eyewear_on_forehead_or_head",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        897,
+        72,
+        1011,
+        221
+      ]
+    },
+    {
+      "id": "ppes_a6287",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1689_jpg.rf.74966a99c20e9b066a51e1b3a6005d35.jpg",
+      "source_sha256": "dc47f74a3c4872aee5d95d9e6e8a87c09182d69c526d2c0dbdb28d62e9fd8394",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 6287,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        192,
+        203,
+        288,
+        329
+      ]
+    },
+    {
+      "id": "ppes_a6305",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp252_jpg.rf.7564cb1f73b27d8b67b37d05b5ad920b.jpg",
+      "source_sha256": "66901e601716b8ad678d48067bb021ebdc0a298d3b75641c0ae87e8eba8cb6ca",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 6305,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        510,
+        447,
+        615,
+        583
+      ]
+    },
+    {
+      "id": "ppes_a6321",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing51_jpg.rf.75da9841cd34a0b0cb6e929148476e9a.jpg",
+      "source_sha256": "d92a7cc839a40f90f2445e41ad0c244f251440e040f1b2fb3fd2917abd6509da",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 6321,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        204,
+        199,
+        309,
+        335
+      ]
+    },
+    {
+      "id": "ppes_a6322",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing51_jpg.rf.75da9841cd34a0b0cb6e929148476e9a.jpg",
+      "source_sha256": "d92a7cc839a40f90f2445e41ad0c244f251440e040f1b2fb3fd2917abd6509da",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 6322,
+      "source_label": "goggles",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_uncertain_or_occluded",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        858,
+        77,
+        989,
+        248
+      ]
+    },
+    {
+      "id": "ppes_a6532",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp1934_jpg.rf.7ad14fd5385d8cca8bfe9e47df15f702.jpg",
+      "source_sha256": "34208746c516e310ea244a8a487d6d51ce29e50cdbc219e7db1e472259bba754",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 6532,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        506,
+        466,
+        624,
+        619
+      ]
+    },
+    {
+      "id": "ppes_a6609",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp1742_jpg.rf.7c4f6afaaa9d8a0bf0d4a559bcfb8023.jpg",
+      "source_sha256": "8315557f018de5c40811802589b308267e3a8f0ab2afe0a3c695ffe57ce42a2d",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 6609,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        482,
+        455,
+        584,
+        589
+      ]
+    },
+    {
+      "id": "ppes_a6670",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1786_jpg.rf.7d79db352d24f808612400588d218473.jpg",
+      "source_sha256": "e85db7d0862ec8bed7c2f5c150cffbbf5487c5cec9cdecf53be7c2910f34223b",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 6670,
+      "source_label": "goggles",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_uncertain_or_occluded",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        923,
+        68,
+        1047,
+        229
+      ]
+    },
+    {
+      "id": "ppes_a6675",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp1768_jpg.rf.7d998b50b736742306c71999c82d69fc.jpg",
+      "source_sha256": "1916764a92bcbf82f92cd99840f7d8040e2e9e98c13cc5f4d14ac35889435773",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 6675,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        486,
+        449,
+        597,
+        592
+      ]
+    },
+    {
+      "id": "ppes_a7124",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1223_jpg.rf.855412a9eed91b837287fafc84210f4c.jpg",
+      "source_sha256": "aa2194cdb7c4b17630fd7044445f18396825b4d54a09c3760ebb4090a6dedf10",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 7124,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        832,
+        127,
+        926,
+        249
+      ]
+    },
+    {
+      "id": "ppes_a7171",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp1943_jpg.rf.866956c74e4cee71ad6ccdc8767c9ddd.jpg",
+      "source_sha256": "e9c789bdea2c8a821b347f159743af8e3e1a08c729e4d14eb822675435aa93f2",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 7171,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        499,
+        461,
+        617,
+        614
+      ]
+    },
+    {
+      "id": "ppes_a7192",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1276_jpg.rf.872dee80db13268db96edef388069de6.jpg",
+      "source_sha256": "c770a55afce7c383df4c996817ff1b599b5657ff698dc471e55f41e64429782e",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 7192,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        863,
+        103,
+        968,
+        239
+      ]
+    },
+    {
+      "id": "ppes_a7275",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1682_jpg.rf.888c02cf797b1140ce65f27291cbec07.jpg",
+      "source_sha256": "6524820a7eb42bf0bc870cf4724e2668f830f31bc963b8b9ee19525b5e671ac3",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 7275,
+      "source_label": "goggles",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_uncertain_or_occluded",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        178,
+        218,
+        295,
+        369
+      ]
+    },
+    {
+      "id": "ppes_a7276",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1682_jpg.rf.888c02cf797b1140ce65f27291cbec07.jpg",
+      "source_sha256": "6524820a7eb42bf0bc870cf4724e2668f830f31bc963b8b9ee19525b5e671ac3",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 7276,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        344,
+        95,
+        455,
+        238
+      ]
+    },
+    {
+      "id": "ppes_a7450",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1845_jpg.rf.8b47cb19548e7b5a06855123cacc570d.jpg",
+      "source_sha256": "b6246b73c85e328925a68829f5b71b3af388b9a8dc3e6a637c9d81d5e56279b9",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 7450,
+      "source_label": "goggles",
+      "decision": "exclude",
+      "label": null,
+      "reason": "blur_or_uncertain_eyewear_type_after_crop_review",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        173,
+        201,
+        299,
+        366
+      ]
+    },
+    {
+      "id": "ppes_a7463",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp1883_jpg.rf.8b81d7d96497ed620170ce9ac94391ac.jpg",
+      "source_sha256": "b86df1ea5c247fed2c2727da6a732d4e074f68ef92e6330f1dde74025696b318",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 7463,
+      "source_label": "no_goggles",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_uncertain_or_occluded",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        489,
+        464,
+        631,
+        648
+      ]
+    },
+    {
+      "id": "ppes_a7479",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp1129_jpg.rf.8b9c67940758fb7c32731acd8a3d42df.jpg",
+      "source_sha256": "a7d7166c68ca59fe000db248fe4069cc5b6359a79af4476e705f91987a9dd46f",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 7479,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "eyewear_on_forehead_or_head",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        470,
+        461,
+        594,
+        622
+      ]
+    },
+    {
+      "id": "ppes_a7647",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing116_jpg.rf.8e5b5cc54812cff91daf760b74b74c58.jpg",
+      "source_sha256": "8374461e8218a994600541dfd2b8b9422943c0b69acef67547c242e516d51feb",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 7647,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        332,
+        89,
+        468,
+        265
+      ]
+    },
+    {
+      "id": "ppes_a7648",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing116_jpg.rf.8e5b5cc54812cff91daf760b74b74c58.jpg",
+      "source_sha256": "8374461e8218a994600541dfd2b8b9422943c0b69acef67547c242e516d51feb",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 7648,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        861,
+        87,
+        991,
+        256
+      ]
+    },
+    {
+      "id": "ppes_a7649",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing116_jpg.rf.8e5b5cc54812cff91daf760b74b74c58.jpg",
+      "source_sha256": "8374461e8218a994600541dfd2b8b9422943c0b69acef67547c242e516d51feb",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 7649,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        196,
+        217,
+        295,
+        345
+      ]
+    },
+    {
+      "id": "ppes_a7989",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp973_jpg.rf.9542f3fe0125370c08a09392a338d27c.jpg",
+      "source_sha256": "d51b00efa4d36e160429e24207ca88772485914f53f60beffd419c649fc3ecae",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 7989,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        470,
+        433,
+        600,
+        602
+      ]
+    },
+    {
+      "id": "ppes_a8205",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp125_jpg.rf.9879ebfd0d90d58db0fb6d178c5db5e7.jpg",
+      "source_sha256": "1bfbe7a67a94ed2ccaa6e97b2e89edde7223d4cad783c449904125384abfc13d",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 8205,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        540,
+        434,
+        695,
+        636
+      ]
+    },
+    {
+      "id": "ppes_a8258",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp1559_jpg.rf.99deddf401a9456d3c60239355e3cf63.jpg",
+      "source_sha256": "22e4bb8629042b7d2baadac158029e98173d4ae4173d2a96081baa88394da8c7",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 8258,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        958,
+        344,
+        1107,
+        538
+      ]
+    },
+    {
+      "id": "ppes_a8259",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp1559_jpg.rf.99deddf401a9456d3c60239355e3cf63.jpg",
+      "source_sha256": "22e4bb8629042b7d2baadac158029e98173d4ae4173d2a96081baa88394da8c7",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 8259,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        466,
+        415,
+        601,
+        590
+      ]
+    },
+    {
+      "id": "ppes_a8299",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1740_jpg.rf.9a72f92faa275ce56c9e78acdc67a567.jpg",
+      "source_sha256": "202e735a776afbcf2c015259a22b2ebb13e91bb2744a6f77012c79e30bdcc9ea",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 8299,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "eyewear_on_forehead_or_head",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        873,
+        70,
+        999,
+        235
+      ]
+    },
+    {
+      "id": "ppes_a8300",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1740_jpg.rf.9a72f92faa275ce56c9e78acdc67a567.jpg",
+      "source_sha256": "202e735a776afbcf2c015259a22b2ebb13e91bb2744a6f77012c79e30bdcc9ea",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 8300,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        200,
+        225,
+        295,
+        349
+      ]
+    },
+    {
+      "id": "ppes_a8721",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing40_jpg.rf.a2766cdf822659005f4450835584f74a.jpg",
+      "source_sha256": "0cbf0e5b08873bc697bad9a7a758c9e6b588d670db9da226904278d7e1ef5d3e",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 8721,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        861,
+        98,
+        972,
+        241
+      ]
+    },
+    {
+      "id": "ppes_a8722",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing40_jpg.rf.a2766cdf822659005f4450835584f74a.jpg",
+      "source_sha256": "0cbf0e5b08873bc697bad9a7a758c9e6b588d670db9da226904278d7e1ef5d3e",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 8722,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        176,
+        231,
+        266,
+        348
+      ]
+    },
+    {
+      "id": "ppes_a8767",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing204_jpg.rf.a39627d2e5f83fe137a82cc787a0e28e.jpg",
+      "source_sha256": "12bfa7b66aa614f6c50c25b3fda11df2611e9c9c591c4b448b571fb41acf4cd3",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 8767,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        197,
+        224,
+        275,
+        326
+      ]
+    },
+    {
+      "id": "ppes_a8768",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing204_jpg.rf.a39627d2e5f83fe137a82cc787a0e28e.jpg",
+      "source_sha256": "12bfa7b66aa614f6c50c25b3fda11df2611e9c9c591c4b448b571fb41acf4cd3",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 8768,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        897,
+        87,
+        993,
+        213
+      ]
+    },
+    {
+      "id": "ppes_a8786",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp653_jpg.rf.a2e332b5ee9495eeb0edfeb4f0434236.jpg",
+      "source_sha256": "40fb21126f893b888e2824dd2eb854094514df54528a7115a7569448decca36f",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 8786,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        1100,
+        365,
+        1217,
+        516
+      ]
+    },
+    {
+      "id": "ppes_a8787",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp653_jpg.rf.a2e332b5ee9495eeb0edfeb4f0434236.jpg",
+      "source_sha256": "40fb21126f893b888e2824dd2eb854094514df54528a7115a7569448decca36f",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 8787,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        480,
+        436,
+        612,
+        609
+      ]
+    },
+    {
+      "id": "ppes_a8937",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1049_jpg.rf.a667f176ceaea3b9ab4e0214116aa1f5.jpg",
+      "source_sha256": "5e93f496e72f9484545d8efc736f0db8f42d3ed7b39d490b4e3ee93ac3a57310",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 8937,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        898,
+        121,
+        1027,
+        288
+      ]
+    },
+    {
+      "id": "ppes_a8938",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1049_jpg.rf.a667f176ceaea3b9ab4e0214116aa1f5.jpg",
+      "source_sha256": "5e93f496e72f9484545d8efc736f0db8f42d3ed7b39d490b4e3ee93ac3a57310",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 8938,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "eyewear_on_forehead_or_head",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        159,
+        198,
+        266,
+        337
+      ]
+    },
+    {
+      "id": "ppes_a8957",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing165_jpg.rf.a6671d848de9e9a0f542ce42e23f1dec.jpg",
+      "source_sha256": "816e0fe1a1274d42d0c347213c1a22919507bd7ba150838840c9314915454232",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 8957,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        872,
+        93,
+        979,
+        232
+      ]
+    },
+    {
+      "id": "ppes_a8958",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing165_jpg.rf.a6671d848de9e9a0f542ce42e23f1dec.jpg",
+      "source_sha256": "816e0fe1a1274d42d0c347213c1a22919507bd7ba150838840c9314915454232",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 8958,
+      "source_label": "no_goggles",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_height_below_24",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        350,
+        120,
+        449,
+        248
+      ]
+    },
+    {
+      "id": "ppes_a8970",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp1169_jpg.rf.a68c3301a4f731caa726fd30a0843d7a.jpg",
+      "source_sha256": "e93520ab02f1bd8ed7414886634e3a047338672c5b85e1fb6d843a2db578ce8f",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 8970,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        471,
+        411,
+        614,
+        597
+      ]
+    },
+    {
+      "id": "ppes_a9039",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1347_jpg.rf.a879e90e909e0cbab322f912cf09e5aa.jpg",
+      "source_sha256": "bff4d9db28a8dc8b5dcdab15e43474e16395091e914a842460d391b066775a9f",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 9039,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        154,
+        178,
+        261,
+        317
+      ]
+    },
+    {
+      "id": "ppes_a9040",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1347_jpg.rf.a879e90e909e0cbab322f912cf09e5aa.jpg",
+      "source_sha256": "bff4d9db28a8dc8b5dcdab15e43474e16395091e914a842460d391b066775a9f",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 9040,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        917,
+        134,
+        1022,
+        270
+      ]
+    },
+    {
+      "id": "ppes_a9440",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing204_jpg.rf.b2644ee178d1a56d2e46996bf86fa11c.jpg",
+      "source_sha256": "18d630c3375937fb3ccc60b8ada5b766b305935e1ccf013ca2913bd8067fc526",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 9440,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        197,
+        224,
+        275,
+        326
+      ]
+    },
+    {
+      "id": "ppes_a9441",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing204_jpg.rf.b2644ee178d1a56d2e46996bf86fa11c.jpg",
+      "source_sha256": "18d630c3375937fb3ccc60b8ada5b766b305935e1ccf013ca2913bd8067fc526",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 9441,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        897,
+        87,
+        993,
+        213
+      ]
+    },
+    {
+      "id": "ppes_a9578",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing622_jpg.rf.b40c9e9bbd57502e48ab5081e77caadd.jpg",
+      "source_sha256": "afb9c879141944c6f39df965130095e4307df4ec23ee5cf4fe9d7243f5f83bac",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 9578,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        222,
+        160,
+        336,
+        309
+      ]
+    },
+    {
+      "id": "ppes_a9579",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing622_jpg.rf.b40c9e9bbd57502e48ab5081e77caadd.jpg",
+      "source_sha256": "afb9c879141944c6f39df965130095e4307df4ec23ee5cf4fe9d7243f5f83bac",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 9579,
+      "source_label": "goggles",
+      "decision": "exclude",
+      "label": null,
+      "reason": "uncertain_eyewear_type_after_crop_review",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        935,
+        120,
+        1042,
+        259
+      ]
+    },
+    {
+      "id": "ppes_a9924",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1837_jpg.rf.bb73c8fb588176aa8bbff98a7f60d7ba.jpg",
+      "source_sha256": "454c274641416cfb895888842de4d44d634210e214c85c185a67e98407d523ca",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 9924,
+      "source_label": "goggles",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_uncertain_or_occluded",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        197,
+        191,
+        315,
+        344
+      ]
+    },
+    {
+      "id": "ppes_a10325",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing285_jpg.rf.c23916a8e7bd141dd0e7ef0c70fd1aa7.jpg",
+      "source_sha256": "24670a7dff3735f9bb660779a4a79778c5d4f9191e047ea2b9f0aa3956be0775",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 10325,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "eyewear_on_forehead_or_head",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        871,
+        62,
+        1000,
+        229
+      ]
+    },
+    {
+      "id": "ppes_a10326",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing285_jpg.rf.c23916a8e7bd141dd0e7ef0c70fd1aa7.jpg",
+      "source_sha256": "24670a7dff3735f9bb660779a4a79778c5d4f9191e047ea2b9f0aa3956be0775",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 10326,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        404,
+        114,
+        511,
+        253
+      ]
+    },
+    {
+      "id": "ppes_a10346",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1817_jpg.rf.c2c77952b614cde6384fb19e06a6061e.jpg",
+      "source_sha256": "4fc451b906ab8adb1696dd199ac51df48092cab36f7be6b0675abf0eb859927a",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 10346,
+      "source_label": "goggles",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_uncertain_or_occluded",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        931,
+        82,
+        1048,
+        233
+      ]
+    },
+    {
+      "id": "ppes_a10515",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp884_jpg.rf.c626468f10217e70af7b6369a298be5e.jpg",
+      "source_sha256": "d1d1176e321d1ebe3f2b556a5d83ff1e0dd6eef670b464a0e3e2cc32fcff4d5f",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 10515,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        475,
+        479,
+        589,
+        628
+      ]
+    },
+    {
+      "id": "ppes_a10619",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1688_jpg.rf.c86da72e2a19a4d5d274c9dc24315729.jpg",
+      "source_sha256": "47e9b5d07da31ce8d421d35d26d86f58bb29a20f79c3f3111a9f7269a8db603b",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 10619,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        188,
+        196,
+        289,
+        328
+      ]
+    },
+    {
+      "id": "ppes_a10620",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1688_jpg.rf.c86da72e2a19a4d5d274c9dc24315729.jpg",
+      "source_sha256": "47e9b5d07da31ce8d421d35d26d86f58bb29a20f79c3f3111a9f7269a8db603b",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 10620,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        353,
+        94,
+        465,
+        239
+      ]
+    },
+    {
+      "id": "ppes_a10665",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1013_jpg.rf.c92ea13306c467e89ffb8927bc1f36e4.jpg",
+      "source_sha256": "3fb9f78f24dd0740b9c6152b295234a6c3b728322a210271f40e5d70988a1aa1",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 10665,
+      "source_label": "no_goggles",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_uncertain_or_occluded",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        318,
+        139,
+        417,
+        267
+      ]
+    },
+    {
+      "id": "ppes_a10869",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp1317_jpg.rf.ccdb3d836e9d6e3783a37bcf981fd71e.jpg",
+      "source_sha256": "292393f83094836fb8ed169ad33f7198135857052271aada22a1694c0f6131e5",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 10869,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        478,
+        401,
+        621,
+        587
+      ]
+    },
+    {
+      "id": "ppes_a10908",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp332_jpg.rf.cd812a4c89e3c49468ed3455b2589b62.jpg",
+      "source_sha256": "c9166dc0b6ad4645b625b68d2c1f1a8d8c9ab09aee4b377bf0c114c3299889f1",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 10908,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        497,
+        467,
+        599,
+        601
+      ]
+    },
+    {
+      "id": "ppes_a10955",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp422_jpg.rf.cf0a57d6b53916652e6cea21ce37bdfd.jpg",
+      "source_sha256": "ab01667ff9bfbb3843d2e3642a509ad5e0885816f485ce6a33c77910c9e602ce",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 10955,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        471,
+        453,
+        590,
+        608
+      ]
+    },
+    {
+      "id": "ppes_a11076",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp1735_jpg.rf.d15cbd9f980dc1ae06d1897644311332.jpg",
+      "source_sha256": "ed6a8e104e649e33e76f7a20a2b377e4757eef1cdcbcee2c8a84d1dcf326981f",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 11076,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        477,
+        450,
+        607,
+        619
+      ]
+    },
+    {
+      "id": "ppes_a11271",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing809_jpg.rf.d4c2e085c41964b85211cab36221957b.jpg",
+      "source_sha256": "ed13c714d2520de9e58914ffe8a6e329a24eb19e2905c8d1f84d3b92d34326f2",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 11271,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        830,
+        115,
+        932,
+        249
+      ]
+    },
+    {
+      "id": "ppes_a11610",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing247_jpg.rf.db3884d62d0f04921251066507721e34.jpg",
+      "source_sha256": "8d5a6e507f0436a3ca3690946c178768d59371010e2a1fa376e3becc5bfef0e8",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 11610,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "eyewear_on_forehead_or_head",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        880,
+        77,
+        991,
+        220
+      ]
+    },
+    {
+      "id": "ppes_a11974",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp1942_jpg.rf.e21eec82c3722bf22a57f1454d4fb498.jpg",
+      "source_sha256": "4ef54355b0e6ea9568a715ae2c14dc413b3d4c0b324b14b74ceda11284d9eb20",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 11974,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        483,
+        449,
+        612,
+        616
+      ]
+    },
+    {
+      "id": "ppes_a11979",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp1251_jpg.rf.e24fb4ed55a9f729c095d0f0c36fcec0.jpg",
+      "source_sha256": "9bab52763cff5509182454228afd836428381a548bd953d4f8ce74da9b049cfb",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 11979,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        463,
+        402,
+        595,
+        575
+      ]
+    },
+    {
+      "id": "ppes_a12037",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1937_jpg.rf.e365f2746a87e86cd6ab424542c6fb3e.jpg",
+      "source_sha256": "57e8328b18c0738719faf38b831ce54b806bc2ccda7e5c0c044ffea6f5e776b4",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 12037,
+      "source_label": "goggles",
+      "decision": "exclude",
+      "label": null,
+      "reason": "uncertain_eye_region_and_head_context_after_crop_review",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        168,
+        153,
+        316,
+        345
+      ]
+    },
+    {
+      "id": "ppes_a12250",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1458_jpg.rf.e7092c7cad360da9e3bb2431aa88854b.jpg",
+      "source_sha256": "1c8b41bd3e682501eeb220cc22213146d7513dbf87af4beb037d8e4faf483e3b",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 12250,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        188,
+        187,
+        290,
+        321
+      ]
+    },
+    {
+      "id": "ppes_a12251",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1458_jpg.rf.e7092c7cad360da9e3bb2431aa88854b.jpg",
+      "source_sha256": "1c8b41bd3e682501eeb220cc22213146d7513dbf87af4beb037d8e4faf483e3b",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 12251,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        868,
+        125,
+        991,
+        284
+      ]
+    },
+    {
+      "id": "ppes_a12354",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp1853_jpg.rf.e9ce9c26bae95fa1f0e4edac52d9740b.jpg",
+      "source_sha256": "e2bcabf622e1dd5e642134cf9f39c5fcbcb97a7bdd5b869e56a9358322ec1146",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 12354,
+      "source_label": "no_goggles",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_uncertain_or_occluded",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        468,
+        463,
+        600,
+        636
+      ]
+    },
+    {
+      "id": "ppes_a12367",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing132_jpg.rf.e9e290be8eddafcec77a6e3c8cf6e3ec.jpg",
+      "source_sha256": "fc1170621cc230872850bdc32dca2e468071906a4cfdc0f29332627dae798f08",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 12367,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "eyewear_on_forehead_or_head",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        850,
+        95,
+        967,
+        246
+      ]
+    },
+    {
+      "id": "ppes_a12368",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing132_jpg.rf.e9e290be8eddafcec77a6e3c8cf6e3ec.jpg",
+      "source_sha256": "fc1170621cc230872850bdc32dca2e468071906a4cfdc0f29332627dae798f08",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 12368,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        346,
+        108,
+        447,
+        240
+      ]
+    },
+    {
+      "id": "ppes_a12369",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing132_jpg.rf.e9e290be8eddafcec77a6e3c8cf6e3ec.jpg",
+      "source_sha256": "fc1170621cc230872850bdc32dca2e468071906a4cfdc0f29332627dae798f08",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 12369,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        229,
+        212,
+        334,
+        348
+      ]
+    },
+    {
+      "id": "ppes_a12792",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1321_jpg.rf.f2593f4a331c38ed6b16aac9685d55d1.jpg",
+      "source_sha256": "2878bde9c2c01c6c899cb34cbb7c16ee33b890144eb270feec9d0036b3586347",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 12792,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        909,
+        115,
+        1008,
+        243
+      ]
+    },
+    {
+      "id": "ppes_a12793",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1321_jpg.rf.f2593f4a331c38ed6b16aac9685d55d1.jpg",
+      "source_sha256": "2878bde9c2c01c6c899cb34cbb7c16ee33b890144eb270feec9d0036b3586347",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 12793,
+      "source_label": "no_goggles",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_uncertain_or_occluded",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        155,
+        205,
+        267,
+        350
+      ]
+    },
+    {
+      "id": "ppes_a12963",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp1449_jpg.rf.f50fa0d413673c9fc4cd4b12b5de164f.jpg",
+      "source_sha256": "5ef96fd7f730e28f489de0e1e5f9c7eba324e7c8d1a80447248f3c8007276e32",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 12963,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        486,
+        410,
+        623,
+        588
+      ]
+    },
+    {
+      "id": "ppes_a13151",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp622_jpg.rf.f82ffe560763598685e27d9c4acabb31.jpg",
+      "source_sha256": "67eccee55373698e30695ccb12d21e07a078e7dfc1fc3db7b8c8375792f22623",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 13151,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        1115,
+        373,
+        1222,
+        512
+      ]
+    },
+    {
+      "id": "ppes_a13152",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp622_jpg.rf.f82ffe560763598685e27d9c4acabb31.jpg",
+      "source_sha256": "67eccee55373698e30695ccb12d21e07a078e7dfc1fc3db7b8c8375792f22623",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 13152,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        486,
+        417,
+        634,
+        609
+      ]
+    },
+    {
+      "id": "ppes_a13366",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/kp1301_jpg.rf.fbdb8dc364445d078803a8b273295317.jpg",
+      "source_sha256": "a2b598486d0eb331ab90280e2a47150e3105987b98d0e68ed946e544ec37744c",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 13366,
+      "source_label": "goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        493,
+        433,
+        605,
+        578
+      ]
+    },
+    {
+      "id": "ppes_a13519",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1057_jpg.rf.fe76fd7dfa26a41ba1fda3cb5915dade.jpg",
+      "source_sha256": "0e55c60a942ef29479aa4a0a5ea8abfe83f7b25fd4bb093021db81d37ccf9dd6",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 13519,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "eyewear_on_forehead_or_head",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        109,
+        206,
+        235,
+        371
+      ]
+    },
+    {
+      "id": "ppes_a13520",
+      "source": "dataset/goggles/ppes_v7_review_100_20261022/images/packing1057_jpg.rf.fe76fd7dfa26a41ba1fda3cb5915dade.jpg",
+      "source_sha256": "0e55c60a942ef29479aa4a0a5ea8abfe83f7b25fd4bb093021db81d37ccf9dd6",
+      "source_dataset": "PPEs_v7",
+      "source_annotation_id": 13520,
+      "source_label": "no_goggles",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "ppes_factory_site_01",
+      "box_xyxy": [
+        990,
+        83,
+        1080,
+        200
+      ]
+    },
+    {
+      "id": "sh17_p3760930",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-3760930.jpeg",
+      "source_sha256": "d091ddc5fb0d7e466328c21567b7e1528f9d38576d20e078dcdeffeaa5779530",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 3760930,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-3760930.xml",
+      "source_annotation_sha256": "7351d07ef6ce4e2fc6fd2f63304681edb3fbd2473cb68b235397399255e40df3",
+      "source_label": "no_glasses_annotation",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "sh17_photo_series_376",
+      "box_xyxy": [
+        995,
+        730,
+        2132,
+        2280
+      ]
+    },
+    {
+      "id": "sh17_p3846269",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-3846269.jpeg",
+      "source_sha256": "cf798f4143255caedcd595fec3235acc32eafe0290b550d24de34ee584ae0fe1",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 3846269,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-3846269.xml",
+      "source_annotation_sha256": "1226b54dfb9135121010107239bb397422bc23c472574653838cd7ed4eb93bb0",
+      "source_label": "glasses_present",
+      "decision": "exclude",
+      "label": null,
+      "reason": "secondary_face_at_crop_edge",
+      "group": "sh17_photo_series_384",
+      "box_xyxy": [
+        1899,
+        2895,
+        3277,
+        4672
+      ]
+    },
+    {
+      "id": "sh17_p3873872",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-3873872.jpeg",
+      "source_sha256": "90eb9e44dba375d3b28cc9d3163b1617b32d5a365bcea6e822f9eec5e7851e02",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 3873872,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-3873872.xml",
+      "source_annotation_sha256": "24b5d47ebd9d9cad899dd4c226a952c68bbc3ffd951b178ca9f98ee23a89e074",
+      "source_label": "glasses_present",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses_or_sunglasses",
+      "group": "sh17_photo_series_387",
+      "box_xyxy": [
+        1224,
+        389,
+        2074,
+        1508
+      ]
+    },
+    {
+      "id": "sh17_p3931391",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-3931391.jpeg",
+      "source_sha256": "4c9d9ddd9dd173dfd64865aa7eb0f3ece6b7c1cb2dcdcd91a261a79fb6c01f05",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 3931391,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-3931391.xml",
+      "source_annotation_sha256": "731ccc4496ed3c5cd2fd015cfe4d89ee2fefc79753045a1d1367064c1ba1b8d6",
+      "source_label": "glasses_present",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses_or_sunglasses",
+      "group": "sh17_photo_series_393",
+      "box_xyxy": [
+        3902,
+        1163,
+        5018,
+        2324
+      ]
+    },
+    {
+      "id": "sh17_p3966786",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-3966786.jpeg",
+      "source_sha256": "6130186d76fc3130941f4d8e4521ed62261d3d7186be60e13dc72031ed8b4c7f",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 3966786,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-3966786.xml",
+      "source_annotation_sha256": "92074731f0f8df88e6d2e60e488dc47923a091c05ab6dda82f7bd5fbb192e41b",
+      "source_label": "no_glasses_annotation",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "sh17_photo_series_396",
+      "box_xyxy": [
+        954,
+        267,
+        1511,
+        953
+      ]
+    },
+    {
+      "id": "sh17_p3975673",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-3975673.jpeg",
+      "source_sha256": "3f240bbc1055d94d28fb541a82425f8a91b7d4302296f0e1fe8543ab7d9c822e",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 3975673,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-3975673.xml",
+      "source_annotation_sha256": "a8acc1394b256ee75a561d3fe0115360535f3100d11d4782073a71a5c13a765b",
+      "source_label": "no_glasses_annotation",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "sh17_photo_series_397",
+      "box_xyxy": [
+        903,
+        1055,
+        1681,
+        1925
+      ]
+    },
+    {
+      "id": "sh17_p4195344",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-4195344.jpeg",
+      "source_sha256": "497d7fb13d5249337405c073d2a081f9aae8b134988d527eea57508d26ba3cb8",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 4195344,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-4195344.xml",
+      "source_annotation_sha256": "630fc4282bdb1913c5783351559def6d8266ff370532f2eb2077a864036118f0",
+      "source_label": "no_glasses_annotation",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "sh17_photo_series_419",
+      "box_xyxy": [
+        1133,
+        1266,
+        2029,
+        2504
+      ]
+    },
+    {
+      "id": "sh17_p4254157",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-4254157.jpeg",
+      "source_sha256": "4da79086672021d053a37611883a0bcc75bcdd7aac0779256597872a25a95d09",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 4254157,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-4254157.xml",
+      "source_annotation_sha256": "5e8bc5b7d7f57d193bb36f2c65d327398661f530b9a67025b905126bced76acd",
+      "source_label": "no_glasses_annotation",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "sh17_photo_series_425",
+      "box_xyxy": [
+        3466,
+        0,
+        4573,
+        1191
+      ]
+    },
+    {
+      "id": "sh17_p4350169",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-4350169.jpeg",
+      "source_sha256": "d9d6d4b89cde366e53ae7c847151752ffae95dc6509fd80b58d19e12ed62e23b",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 4350169,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-4350169.xml",
+      "source_annotation_sha256": "2e0704971e993a2415fe467ff34463b670c14abbb8f736d2fa33f68fc859e070",
+      "source_label": "glasses_present",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses_or_sunglasses",
+      "group": "sh17_photo_series_435",
+      "box_xyxy": [
+        2413,
+        827,
+        3121,
+        1585
+      ]
+    },
+    {
+      "id": "sh17_p4476634",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-4476634.jpeg",
+      "source_sha256": "70c2e0bcedb7cfa6a5d96c05508704d3c845db54cc14fe3d144fcf7de8f5929d",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 4476634,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-4476634.xml",
+      "source_annotation_sha256": "0f24f93848b7c275d0e185d71b65dc1a83f5a227f3f1f30d47a77360db39cfd3",
+      "source_label": "glasses_present",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses_or_sunglasses",
+      "group": "sh17_photo_series_447",
+      "box_xyxy": [
+        2590,
+        416,
+        4077,
+        2277
+      ]
+    },
+    {
+      "id": "sh17_p4489706",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-4489706.jpeg",
+      "source_sha256": "a39be71d6d781e1bce68fcfb9d1e8bac0d30606cd3b266cf1cb23c39d0af175b",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 4489706,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-4489706.xml",
+      "source_annotation_sha256": "fff047bc19255d2404fe3308bace963cd5f95ce77140fcd137227f9da3c923fb",
+      "source_label": "no_glasses_annotation",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "sh17_photo_series_448",
+      "box_xyxy": [
+        1097,
+        2372,
+        2217,
+        3713
+      ]
+    },
+    {
+      "id": "sh17_p4492080",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-4492080.jpeg",
+      "source_sha256": "4aa399c768af027d60201e985255fab9bc704ff4135724092cd94dc570444cf2",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 4492080,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-4492080.xml",
+      "source_annotation_sha256": "1ff68cab637531085d8b5745d6378f1d3ec01ec065084c0d88cd67ac032be76c",
+      "source_label": "no_glasses_annotation",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "sh17_photo_series_449",
+      "box_xyxy": [
+        3535,
+        870,
+        4847,
+        2532
+      ]
+    },
+    {
+      "id": "sh17_p4559770",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-4559770.jpeg",
+      "source_sha256": "f687f3a2bc627742693ebea0570fac8c17891ed32db0c4e27e661f08c9f6c0fc",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 4559770,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-4559770.xml",
+      "source_annotation_sha256": "c05b7ad1191212a2293b2ff21e049772ec7d143b14856bf4968b69686720e5ae",
+      "source_label": "no_glasses_annotation",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "sh17_photo_series_455",
+      "box_xyxy": [
+        2370,
+        0,
+        4142,
+        1604
+      ]
+    },
+    {
+      "id": "sh17_p4621935",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-4621935.jpeg",
+      "source_sha256": "d005156843caf7db25f611cb81d25c0f72c9c04a435037214a173f0bf10075ee",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 4621935,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-4621935.xml",
+      "source_annotation_sha256": "f2273140ade47d24f7d86db8cc3ab67d231db5afa5f75cb584db7b6f7588a439",
+      "source_label": "no_glasses_annotation",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_uncertain_or_occluded",
+      "group": "sh17_photo_series_462",
+      "box_xyxy": [
+        1134,
+        0,
+        2333,
+        1628
+      ]
+    },
+    {
+      "id": "sh17_p4888892",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-4888892.jpeg",
+      "source_sha256": "459cd73fda4277fae7bf68c26b0617111e2954ca6570becd8be13a0fb38f8609",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 4888892,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-4888892.xml",
+      "source_annotation_sha256": "0aedd86a193dd4576d02d528d1c07076c61458c5f1ee5142f33b1394a65fc0b7",
+      "source_label": "no_glasses_annotation",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_uncertain_or_occluded",
+      "group": "sh17_photo_series_488",
+      "box_xyxy": [
+        1718,
+        948,
+        2684,
+        2173
+      ]
+    },
+    {
+      "id": "sh17_p5234519",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-5234519.jpeg",
+      "source_sha256": "0b17d5595cb52f8c08d6629bdf0f9f4299e37b61769d6e830148017a5981c134",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 5234519,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-5234519.xml",
+      "source_annotation_sha256": "1140495987025bb1c2bde8da0e9fac3fb019b69eeddb50c91b03e7add0a4ae8c",
+      "source_label": "glasses_present",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses_or_sunglasses",
+      "group": "sh17_photo_series_523",
+      "box_xyxy": [
+        692,
+        774,
+        1251,
+        1518
+      ]
+    },
+    {
+      "id": "sh17_p5668846",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-5668846.jpeg",
+      "source_sha256": "31a983635258c4c3d3a3f0e730fcad22a89b381c501f294d3f0d1184633afb2a",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 5668846,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-5668846.xml",
+      "source_annotation_sha256": "1115d0a300ae4507a8da23618bede5ce11877ee4333899b41239990abc0b5ef7",
+      "source_label": "no_glasses_annotation",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "sh17_photo_series_566",
+      "box_xyxy": [
+        1785,
+        872,
+        3214,
+        2335
+      ]
+    },
+    {
+      "id": "sh17_p5684437",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-5684437.jpeg",
+      "source_sha256": "5deaf8d8898be1e77e8ad67e501fd0f8875f6ca38ed5dab1bd607a5fedb40478",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 5684437,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-5684437.xml",
+      "source_annotation_sha256": "360f7fbec75bcd733364891d6cdafa08bb32419f72a84291663d0b3bc848c27d",
+      "source_label": "glasses_present",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses_or_sunglasses",
+      "group": "sh17_photo_series_568",
+      "box_xyxy": [
+        1514,
+        777,
+        2564,
+        2497
+      ]
+    },
+    {
+      "id": "sh17_p5699499",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-5699499.jpeg",
+      "source_sha256": "573726dbb0c896d3401a8a6207e67ff143ec0750f9e5e0bc3539064ada314006",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 5699499,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-5699499.xml",
+      "source_annotation_sha256": "67f8f742474df6b9d0ac278eba03e9d75c515f0c4bcb6ae2b971fb4543f7a6b9",
+      "source_label": "no_glasses_annotation",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "sh17_photo_series_569",
+      "box_xyxy": [
+        1498,
+        640,
+        2838,
+        2285
+      ]
+    },
+    {
+      "id": "sh17_p5726812",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-5726812.jpeg",
+      "source_sha256": "7b9c64991574808eff4dcd2ae682b23a30a3e03728a002f943c59089f8c05c43",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 5726812,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-5726812.xml",
+      "source_annotation_sha256": "836b1f07550307a91754bfb8bcda217fde2ab3b0642b223c3b9017f696db419d",
+      "source_label": "glasses_present",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "sh17_photo_series_572",
+      "box_xyxy": [
+        1542,
+        0,
+        2781,
+        1386
+      ]
+    },
+    {
+      "id": "sh17_p5845971",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-5845971.jpeg",
+      "source_sha256": "dd783b821b519adee244585dfb179afe967165d48984422c6384aee028eede9a",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 5845971,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-5845971.xml",
+      "source_annotation_sha256": "1ceb46493aee10be7b6dd3b35c790f4884b684f47dc40f50b59a61cbef81f703",
+      "source_label": "glasses_present",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_uncertain_or_occluded",
+      "group": "sh17_photo_series_584",
+      "box_xyxy": [
+        691,
+        1159,
+        1495,
+        2046
+      ]
+    },
+    {
+      "id": "sh17_p5973994",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-5973994.jpeg",
+      "source_sha256": "48a789c6206d743c1b7b5e3aeba08c88a9214c27a7689178a16989dc81205e4b",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 5973994,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-5973994.xml",
+      "source_annotation_sha256": "da12753bcf4a56f245191979fc712c1341758188b8a7a877e4fe14795131134b",
+      "source_label": "glasses_present",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses_or_sunglasses",
+      "group": "sh17_photo_series_597",
+      "box_xyxy": [
+        1134,
+        0,
+        2740,
+        2588
+      ]
+    },
+    {
+      "id": "sh17_p6129686",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-6129686.jpeg",
+      "source_sha256": "a2280fad47a2cc6dcf9cffa41087801be570399ef6f4142522587d6e0a7960ce",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 6129686,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-6129686.xml",
+      "source_annotation_sha256": "609005bcee5d574956f49c341e51a98971ec08afa68d1612e1f3938f0dbbc3c9",
+      "source_label": "no_glasses_annotation",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_uncertain_or_occluded",
+      "group": "sh17_photo_series_612",
+      "box_xyxy": [
+        2833,
+        0,
+        4255,
+        803
+      ]
+    },
+    {
+      "id": "sh17_p6169857",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-6169857.jpeg",
+      "source_sha256": "d41a2db888a10a80b1b21e9313b41cf7f883514066d7ab24b75070fb127a91a6",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 6169857,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-6169857.xml",
+      "source_annotation_sha256": "ede071e182540e294bc3984f8c0897b5a83f4806a0a07d2b27837ae029844d10",
+      "source_label": "glasses_present",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses_or_sunglasses",
+      "group": "sh17_photo_series_616",
+      "box_xyxy": [
+        1764,
+        117,
+        2493,
+        1022
+      ]
+    },
+    {
+      "id": "sh17_p6197036",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-6197036.jpeg",
+      "source_sha256": "a2f826218b87c59536d206ab759ff8656ba037a9b92a64fe5052b90f49e6c503",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 6197036,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-6197036.xml",
+      "source_annotation_sha256": "42474169911f9aba86d64613a1a7e5a8b806d4f0328f37679dbacaff7782960f",
+      "source_label": "no_glasses_annotation",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "sh17_photo_series_619",
+      "box_xyxy": [
+        1343,
+        739,
+        2316,
+        1590
+      ]
+    },
+    {
+      "id": "sh17_p6205607",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-6205607.jpeg",
+      "source_sha256": "ffe2a4e4b020271ff5a67bc5895a3aeaffa766129bb580371fc1331ef060b91e",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 6205607,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-6205607.xml",
+      "source_annotation_sha256": "048d4e333e53d20661ec1a47d80134542b48baa568d4bc212542ad385ad885bd",
+      "source_label": "no_glasses_annotation",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "sh17_photo_series_620",
+      "box_xyxy": [
+        2077,
+        818,
+        3370,
+        2509
+      ]
+    },
+    {
+      "id": "sh17_p6248948",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-6248948.jpeg",
+      "source_sha256": "c1fd765c8e0f6d4695d2bb24ab7368eb5e2e0e93c19adef59a6fc5550cd274e2",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 6248948,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-6248948.xml",
+      "source_annotation_sha256": "5519ab4aeb4d0e197e094cd5fe2f650d8dbba7ac2e16a69796bf0417f4f4147c",
+      "source_label": "no_glasses_annotation",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "sh17_photo_series_624",
+      "box_xyxy": [
+        2021,
+        1903,
+        2937,
+        2937
+      ]
+    },
+    {
+      "id": "sh17_p6341589",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-6341589.jpeg",
+      "source_sha256": "143123d944097595546817a002c6e3ae1c2b440c6812d1c1b898ee443eebdf7c",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 6341589,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-6341589.xml",
+      "source_annotation_sha256": "a6cc23ef5d5e07e9862e8eee9133db0188fd7ea74b315c863a444e5c297eb582",
+      "source_label": "no_glasses_annotation",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_uncertain_or_occluded",
+      "group": "sh17_photo_series_634",
+      "box_xyxy": [
+        1337,
+        728,
+        2588,
+        1956
+      ]
+    },
+    {
+      "id": "sh17_p6766231",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-6766231.jpeg",
+      "source_sha256": "202002110b9e35f27949b13ed82fe54cc3c02b672f0ab38d43c4910ba73ec90f",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 6766231,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-6766231.xml",
+      "source_annotation_sha256": "ef0a7fa7d00362e2235e2827f0de9e85c1a5e41c03cc306bb7d519335419a86b",
+      "source_label": "glasses_present",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses_or_sunglasses",
+      "group": "sh17_photo_series_676",
+      "box_xyxy": [
+        1579,
+        594,
+        2905,
+        2655
+      ]
+    },
+    {
+      "id": "sh17_p6790108",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-6790108.jpeg",
+      "source_sha256": "00dfe2f5410800d7e55c6e01222c8512c819c933f3b2f7056cefb62356734652",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 6790108,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-6790108.xml",
+      "source_annotation_sha256": "5e472aae56c0ec48eac4640b1d3e055ec8f7370fd064a7ee21ae44826e144761",
+      "source_label": "glasses_present",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "sh17_photo_series_679",
+      "box_xyxy": [
+        1797,
+        214,
+        2312,
+        934
+      ]
+    },
+    {
+      "id": "sh17_p6850465",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-6850465.jpeg",
+      "source_sha256": "b520ca4c726b528ad7b1e31751d655289c65b9d9724682141dad53527cbf6a8d",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 6850465,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-6850465.xml",
+      "source_annotation_sha256": "6128727a7703f552ec73abc49221d8b785ed2687f7d03c05d295629c4f6012bd",
+      "source_label": "no_glasses_annotation",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "sh17_photo_series_685",
+      "box_xyxy": [
+        2706,
+        73,
+        3619,
+        1339
+      ]
+    },
+    {
+      "id": "sh17_p7180966",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-7180966.jpeg",
+      "source_sha256": "17f64297cc826cedd910b22ce347519c63ee431021e3cc98e121dd90f0985975",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 7180966,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-7180966.xml",
+      "source_annotation_sha256": "3dcd56c5823f09d762da5f5afbee50ce7afc942be1b5b72c0ed26c6b016d3b7c",
+      "source_label": "no_glasses_annotation",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "sh17_photo_series_718",
+      "box_xyxy": [
+        1385,
+        1527,
+        2426,
+        2776
+      ]
+    },
+    {
+      "id": "sh17_p7550433",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-7550433.jpeg",
+      "source_sha256": "69821be1add10f12a01aea9292e527cb57eab29e1e2790ed81a0457223e9f314",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 7550433,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-7550433.xml",
+      "source_annotation_sha256": "bd392cb931622fb8e21e6141f9324016fd75f9141ae75474917463957ef54c38",
+      "source_label": "glasses_present",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses_or_sunglasses",
+      "group": "sh17_photo_series_755",
+      "box_xyxy": [
+        1145,
+        1248,
+        1691,
+        1969
+      ]
+    },
+    {
+      "id": "sh17_p7652185",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-7652185.jpeg",
+      "source_sha256": "5e396e910d26d5e4a739bed1aa89c9b43a10f5125676d6f35b10ccd6e136b007",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 7652185,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-7652185.xml",
+      "source_annotation_sha256": "3baa1415c9b4bf538cc2e3c82b0e9f4fdfce578ea9dba6af99a706cc8d081c53",
+      "source_label": "glasses_present",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses_or_sunglasses",
+      "group": "sh17_photo_series_765",
+      "box_xyxy": [
+        4451,
+        1083,
+        5350,
+        2323
+      ]
+    },
+    {
+      "id": "sh17_p7728403",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-7728403.jpeg",
+      "source_sha256": "11fb23c858220084921a25d63919455f0f9464736f25fe1c4843da70c432448b",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 7728403,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-7728403.xml",
+      "source_annotation_sha256": "b4a4b28cd389e44b4beddda11f1e5dde9c041a07ca34d43d0e22b31df4f3983a",
+      "source_label": "no_glasses_annotation",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "sh17_photo_series_772",
+      "box_xyxy": [
+        1347,
+        0,
+        2808,
+        1813
+      ]
+    },
+    {
+      "id": "sh17_p7793697",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-7793697.jpeg",
+      "source_sha256": "ba99286696fb5bce22ddec9bd55b7b01403aaa426359b0e70050dc1114311976",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 7793697,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-7793697.xml",
+      "source_annotation_sha256": "12e834f08986f661769292e7247e73f9d9b2ac12f3871779ef53f1d6f066f93c",
+      "source_label": "no_glasses_annotation",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "sh17_photo_series_779",
+      "box_xyxy": [
+        3225,
+        513,
+        3995,
+        1476
+      ]
+    },
+    {
+      "id": "sh17_p7971199",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-7971199.jpeg",
+      "source_sha256": "e1be8906323bf34c75595699a4b01ae5c826d9c6a3996d219966bad1c7cde092",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 7971199,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-7971199.xml",
+      "source_annotation_sha256": "eeccd0d2c13e36034ee99d7cf64edc3246dedd4a64c1fb201c5bc4e3aa5c8012",
+      "source_label": "glasses_present",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses_or_sunglasses",
+      "group": "sh17_photo_series_797",
+      "box_xyxy": [
+        3745,
+        1994,
+        4944,
+        3522
+      ]
+    },
+    {
+      "id": "sh17_p8101646",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-8101646.jpeg",
+      "source_sha256": "b59831ec0f74433172220169ba48ffa034ed8a486f9332eb9ed848d5c2ce0056",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 8101646,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-8101646.xml",
+      "source_annotation_sha256": "245ba2bb6f59bf589028c4005cd1c5b633120bf01f0caabf171619125db873f2",
+      "source_label": "glasses_present",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses_or_sunglasses",
+      "group": "sh17_photo_series_810",
+      "box_xyxy": [
+        3915,
+        1016,
+        4991,
+        2264
+      ]
+    },
+    {
+      "id": "sh17_p8192188",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-8192188.jpeg",
+      "source_sha256": "03e3550aa3fc451f9c3cc3f885434b328d26d0e37a1ee20785e5c91451f8d581",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 8192188,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-8192188.xml",
+      "source_annotation_sha256": "42d716077be4189ace0bc1e5fc6b326dafcbe7f2fe9bf8a04f49c0c64086c677",
+      "source_label": "glasses_present",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses_or_sunglasses",
+      "group": "sh17_photo_series_819",
+      "box_xyxy": [
+        1854,
+        46,
+        3171,
+        1476
+      ]
+    },
+    {
+      "id": "sh17_p8204351",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-8204351.jpeg",
+      "source_sha256": "a92da4f110a5a94069118f78169414c3103184c09e1bc76b75360b5a55d834f8",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 8204351,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-8204351.xml",
+      "source_annotation_sha256": "1348c1c30ae28479be1bc29be4ee30cd982095aa20e779854c84bc5d18e706e8",
+      "source_label": "glasses_present",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses_or_sunglasses",
+      "group": "sh17_photo_series_820",
+      "box_xyxy": [
+        1799,
+        1080,
+        2954,
+        2796
+      ]
+    },
+    {
+      "id": "sh17_p8278914",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-8278914.jpeg",
+      "source_sha256": "cfd0cd6d8fc6bb77efeca88db6e9126f3004329cd6a47362fbead69ae32501ce",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 8278914,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-8278914.xml",
+      "source_annotation_sha256": "cebc0eed1ab08085f8d6a7358dda0c29c2af36248e832aea0a83d4bb1e7494e0",
+      "source_label": "glasses_present",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses_or_sunglasses",
+      "group": "sh17_photo_series_827",
+      "box_xyxy": [
+        1006,
+        233,
+        2081,
+        1627
+      ]
+    },
+    {
+      "id": "sh17_p8353786",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-8353786.jpeg",
+      "source_sha256": "bc8fc3c2433d41f37b21526d2e44aedf6dbf1137a24a337d17675b887d00d2ff",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 8353786,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-8353786.xml",
+      "source_annotation_sha256": "5e51aa8a82a87ab67c3b78a2d071d48ebae9ce7a629889687218d67fba8509f4",
+      "source_label": "no_glasses_annotation",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "sh17_photo_series_835",
+      "box_xyxy": [
+        2766,
+        834,
+        3484,
+        1837
+      ]
+    },
+    {
+      "id": "sh17_p8376339",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-8376339.jpeg",
+      "source_sha256": "8d818cd93062544d443c32771d55a1fa1204936d4fd353474c8e7a3b9b71b792",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 8376339,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-8376339.xml",
+      "source_annotation_sha256": "19ef5bcf7ebe39c8e093e2c6b744473daa480e7b87d4d1feb6add944e523e5d0",
+      "source_label": "glasses_present",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses_or_sunglasses",
+      "group": "sh17_photo_series_837",
+      "box_xyxy": [
+        1317,
+        1840,
+        2307,
+        3267
+      ]
+    },
+    {
+      "id": "sh17_p8761657",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-8761657.jpeg",
+      "source_sha256": "56af2bafc1ca2ec897768c8012eb713e2f25c1ccf182e58507fef4eca87ac13e",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 8761657,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-8761657.xml",
+      "source_annotation_sha256": "bf9a1bdce48c174c613412cab52a07740270e71c5c777c3015de1e430e55c3d1",
+      "source_label": "no_glasses_annotation",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "sh17_photo_series_876",
+      "box_xyxy": [
+        4344,
+        1040,
+        5283,
+        1971
+      ]
+    },
+    {
+      "id": "sh17_p8821022",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-8821022.jpeg",
+      "source_sha256": "f45cdc5ac5c077c15c9775e44a3c9c20c1d9513a43f45939b859812049e46dc4",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 8821022,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-8821022.xml",
+      "source_annotation_sha256": "718e6848d8319f9aad0d3d815f5ae960ef58b2c4c91807ad03e8264e46893001",
+      "source_label": "no_glasses_annotation",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "sh17_photo_series_882",
+      "box_xyxy": [
+        1608,
+        310,
+        3126,
+        1919
+      ]
+    },
+    {
+      "id": "sh17_p8853538",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-8853538.jpeg",
+      "source_sha256": "a3cf2bcb2f1a9c4930cf1478985ef6219a74aa5f9c4a3ce0dba904c5141050ec",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 8853538,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-8853538.xml",
+      "source_annotation_sha256": "48ae33346da2f205a89deebbc177bca433a385cfae7e7e6f23c13d2749616fca",
+      "source_label": "glasses_present",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses_or_sunglasses",
+      "group": "sh17_photo_series_885",
+      "box_xyxy": [
+        1186,
+        1221,
+        1679,
+        2024
+      ]
+    },
+    {
+      "id": "sh17_p8942110",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-8942110.jpeg",
+      "source_sha256": "280ccc5e8041d416f4b385d554c32d9a5056c476865ca8b719821f032f7d5ce0",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 8942110,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-8942110.xml",
+      "source_annotation_sha256": "7654f9b6cb0e3b471c427ec44a3e8b67a40861f7166102cf841aead9432f5827",
+      "source_label": "no_glasses_annotation",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "sh17_photo_series_894",
+      "box_xyxy": [
+        960,
+        639,
+        1972,
+        1770
+      ]
+    },
+    {
+      "id": "sh17_p8961619",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-8961619.jpeg",
+      "source_sha256": "29d7baa627c01c91a307023360e99ae66743bd0f2183e2ca7182a74e20b573e6",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 8961619,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-8961619.xml",
+      "source_annotation_sha256": "22f61af0aaad82c38d3e3804701dd96a087352e332969041ff43b7ac396515bf",
+      "source_label": "glasses_present",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "sh17_photo_series_896",
+      "box_xyxy": [
+        1160,
+        263,
+        2465,
+        2052
+      ]
+    },
+    {
+      "id": "sh17_p8985607",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-8985607.jpeg",
+      "source_sha256": "50e201f1c9362287815b03ea0c2d704b3e4caa76dca498ea34ee13cc4e43712e",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 8985607,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-8985607.xml",
+      "source_annotation_sha256": "b3a1d6219e8a71cd5157ead16703c2521ad303d223b5c7dde4ebafe74ef2105f",
+      "source_label": "glasses_present",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "sh17_photo_series_898",
+      "box_xyxy": [
+        3226,
+        0,
+        4520,
+        1194
+      ]
+    },
+    {
+      "id": "sh17_p9062781",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-9062781.jpeg",
+      "source_sha256": "4fc98c30e71fe79c576866ebda1d0928b0f6b15f0b3295a0de518999bc4b439e",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 9062781,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-9062781.xml",
+      "source_annotation_sha256": "60c569eec3ad6241c1c92d5c05ce47f49bf372da6de1852bd5d916c2d34e3e01",
+      "source_label": "glasses_present",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses_or_sunglasses",
+      "group": "sh17_photo_series_906",
+      "box_xyxy": [
+        2511,
+        946,
+        3310,
+        2010
+      ]
+    },
+    {
+      "id": "sh17_p9077353",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-9077353.jpeg",
+      "source_sha256": "7b52623f2a9374edaa44a3ab701bde055d411949d793ed0db188bf834b8e9423",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 9077353,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-9077353.xml",
+      "source_annotation_sha256": "7ce3c008fee8a4c5ae47a70058da981de3b821ee42da9560c779863ec310714f",
+      "source_label": "no_glasses_annotation",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "sh17_photo_series_907",
+      "box_xyxy": [
+        3975,
+        618,
+        4925,
+        1804
+      ]
+    },
+    {
+      "id": "sh17_p9242803",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-9242803.jpeg",
+      "source_sha256": "e8b4a9ad226ae08bb1f668f33c950485e34bf2830cc7de0167bcf90e8a6dedab",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 9242803,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-9242803.xml",
+      "source_annotation_sha256": "2c51ac5d1b186b1375fde7e73d0e7c71bbdd851736cade7f78e44025efccf95a",
+      "source_label": "glasses_present",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "sh17_photo_series_924",
+      "box_xyxy": [
+        2674,
+        650,
+        3338,
+        1301
+      ]
+    },
+    {
+      "id": "sh17_p9350386",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-9350386.jpeg",
+      "source_sha256": "ab62758534a73ce1fab052d14dc51ad98b5cc34117ca3bd74a218a98a9cf5f62",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 9350386,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-9350386.xml",
+      "source_annotation_sha256": "c743a954e2eea3b472e7ad1aa6271fea9eabd083b2c753a96c40b2920fb59eaa",
+      "source_label": "glasses_present",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "sh17_photo_series_935",
+      "box_xyxy": [
+        1697,
+        353,
+        2404,
+        1320
+      ]
+    },
+    {
+      "id": "sh17_p9363129",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-9363129.jpeg",
+      "source_sha256": "ac19c79a10e3f431b30938f61466075082e76176385975d021624728fcdfae8b",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 9363129,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-9363129.xml",
+      "source_annotation_sha256": "15c8f6235ca9e6bdc1b37302f7946c254e66dc0e991370f8ec834346ff87b2a0",
+      "source_label": "no_glasses_annotation",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "sh17_photo_series_936",
+      "box_xyxy": [
+        3038,
+        290,
+        4006,
+        1608
+      ]
+    },
+    {
+      "id": "sh17_p12741849",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-12741849.jpeg",
+      "source_sha256": "11e3240fddc8d5dc7babe65a2dde9c2ed08799ced89aedce8fe37d3a214497c7",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 12741849,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-12741849.xml",
+      "source_annotation_sha256": "e83fe14c8dc5b6a246237776895168e53236353a68d94e105cbc0576f4bc96b8",
+      "source_label": "glasses_present",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_uncertain_or_occluded",
+      "group": "sh17_photo_series_1274",
+      "box_xyxy": [
+        1331,
+        80,
+        2180,
+        1199
+      ]
+    },
+    {
+      "id": "sh17_p12902859",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-12902859.jpeg",
+      "source_sha256": "46111f61785a3f0f743e4f761f4ebdbf9d397e50ccdc96a502335908b3b2037b",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 12902859,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-12902859.xml",
+      "source_annotation_sha256": "10291a4df672d3eb6db01802bb975ad76a3b746e1d9cf68097001d7318d0a7e5",
+      "source_label": "no_glasses_annotation",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "sh17_photo_series_1290",
+      "box_xyxy": [
+        2730,
+        521,
+        3553,
+        1576
+      ]
+    },
+    {
+      "id": "sh17_p13801618",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-13801618.jpeg",
+      "source_sha256": "899adf37f828ac6ef32a113fa7af54ba8145931035fea49f3ee044d88f080da1",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 13801618,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-13801618.xml",
+      "source_annotation_sha256": "2c74f2ae60ef6eb17d4021d91604437af93aa273c7155ee4bca812836fd1044f",
+      "source_label": "no_glasses_annotation",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "sh17_photo_series_1380",
+      "box_xyxy": [
+        1549,
+        1951,
+        2247,
+        3048
+      ]
+    },
+    {
+      "id": "sh17_p14596539",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-14596539.jpeg",
+      "source_sha256": "960c683a6c0e898e894e94fa1a48bc48a52b7a08e08d0996b1160d508d005f25",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 14596539,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-14596539.xml",
+      "source_annotation_sha256": "909abe780a86a4e3006b99dc34fc0348a25828aa671e84aba0bf5b2fbe4df0fd",
+      "source_label": "glasses_present",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses_or_sunglasses",
+      "group": "sh17_photo_series_1459",
+      "box_xyxy": [
+        1502,
+        357,
+        2402,
+        1585
+      ]
+    },
+    {
+      "id": "sh17_p15141536",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-15141536.jpeg",
+      "source_sha256": "48ca03ca1868ce188a43b7e758815004b612876fc81fdcb1481c2df592e0fad5",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 15141536,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-15141536.xml",
+      "source_annotation_sha256": "623573191649403b9e12e5d08a72168425888117f9b6e05060e4c1f928ab3742",
+      "source_label": "no_glasses_annotation",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "visible_eye_region_without_protective_eyewear",
+      "group": "sh17_photo_series_1514",
+      "box_xyxy": [
+        802,
+        763,
+        1249,
+        1390
+      ]
+    },
+    {
+      "id": "sh17_p16943669",
+      "source": "dataset/goggles/sh17_original_60_20261022/images/pexels-photo-16943669.jpeg",
+      "source_sha256": "2598dfd232c3594bd9b327cc9b2e0c805b7855cd42bc163a86f9f2b46ebfbb09",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 16943669,
+      "source_annotation_file": "dataset/goggles/sh17_original_60_20261022/voc/pexels-photo-16943669.xml",
+      "source_annotation_sha256": "35ca5d27b7221141c1d7ad5c90a5f89ca424012f1750218db989b3e5148fdb56",
+      "source_label": "glasses_present",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses_or_sunglasses",
+      "group": "sh17_photo_series_1694",
+      "box_xyxy": [
+        1475,
+        1045,
+        2351,
+        2449
+      ]
+    },
+    {
+      "id": "sh17_p1108101",
+      "source": "dataset/goggles/sh17_original_20_extra_20261022/images/pexels-photo-1108101.jpeg",
+      "source_sha256": "7007fb4c8c875e964be829610604ec8fe1c83a7eccee5ed3bad765f4ddad6287",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 1108101,
+      "source_annotation_file": "dataset/goggles/sh17_original_20_extra_20261022/voc/pexels-photo-1108101.xml",
+      "source_annotation_sha256": "c08caae86de6318f45797164dfb73d5702529f95656ce4042c015ffd09c90378",
+      "source_label": "glasses_present",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "sh17_photo_series_110",
+      "box_xyxy": [
+        2401,
+        244,
+        3285,
+        1333
+      ]
+    },
+    {
+      "id": "sh17_p3379761",
+      "source": "dataset/goggles/sh17_original_20_extra_20261022/images/pexels-photo-3379761.jpeg",
+      "source_sha256": "a98f28948ed12de599b62997ac9733393d966527e6e132f2631cc5ebecac079c",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 3379761,
+      "source_annotation_file": "dataset/goggles/sh17_original_20_extra_20261022/voc/pexels-photo-3379761.xml",
+      "source_annotation_sha256": "ee22f91397bed29892410f2ab002cb7efcc5a43e19618c504bfca6e2ed8a3552",
+      "source_label": "glasses_present",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_uncertain_or_occluded",
+      "group": "sh17_photo_series_337",
+      "box_xyxy": [
+        1049,
+        467,
+        2118,
+        1339
+      ]
+    },
+    {
+      "id": "sh17_p3846000",
+      "source": "dataset/goggles/sh17_original_20_extra_20261022/images/pexels-photo-3846000.jpeg",
+      "source_sha256": "f11e21d40ab4bd07ac383093477f012297329ee84472f060ccfee2da8f5c6214",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 3846000,
+      "source_annotation_file": "dataset/goggles/sh17_original_20_extra_20261022/voc/pexels-photo-3846000.xml",
+      "source_annotation_sha256": "8927ca1e52f36e5dd80bcd575a6cf84e9adadf3a48fb05678c0fab4a6cb37f79",
+      "source_label": "glasses_present",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses_or_sunglasses",
+      "group": "sh17_photo_series_384",
+      "box_xyxy": [
+        2006,
+        249,
+        2571,
+        924
+      ]
+    },
+    {
+      "id": "sh17_p3869180",
+      "source": "dataset/goggles/sh17_original_20_extra_20261022/images/pexels-photo-3869180.jpeg",
+      "source_sha256": "6486cf2b1a62ea4f3cd59c3d8c33a23109cdd917ed9aaeb7c57d02d02b9db748",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 3869180,
+      "source_annotation_file": "dataset/goggles/sh17_original_20_extra_20261022/voc/pexels-photo-3869180.xml",
+      "source_annotation_sha256": "21f12e07272c462936b89bc9040b9461e05bc9f634c54d095661f26aaa6e07b7",
+      "source_label": "glasses_present",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses_or_sunglasses",
+      "group": "sh17_photo_series_386",
+      "box_xyxy": [
+        3054,
+        130,
+        3831,
+        1084
+      ]
+    },
+    {
+      "id": "sh17_p4031523",
+      "source": "dataset/goggles/sh17_original_20_extra_20261022/images/pexels-photo-4031523.jpeg",
+      "source_sha256": "7bd6f086cbe1629ed5799a4d8b434111ccfe5cf30deac95f31e4f346da728d30",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 4031523,
+      "source_annotation_file": "dataset/goggles/sh17_original_20_extra_20261022/voc/pexels-photo-4031523.xml",
+      "source_annotation_sha256": "96d728ebd1cabab1d3844eff8f39dba2f367e47be1fac9b5cb81b3e495ad4b60",
+      "source_label": "glasses_present",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "sh17_medical_profile_series",
+      "box_xyxy": [
+        4110,
+        0,
+        8192,
+        3884
+      ]
+    },
+    {
+      "id": "sh17_p4226257",
+      "source": "dataset/goggles/sh17_original_20_extra_20261022/images/pexels-photo-4226257.jpeg",
+      "source_sha256": "39519956b3dec452282880798b1f38862c7ccf3b276d65fbf0ea063c34e6fb92",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 4226257,
+      "source_annotation_file": "dataset/goggles/sh17_original_20_extra_20261022/voc/pexels-photo-4226257.xml",
+      "source_annotation_sha256": "13522e67bad34eebc38ce25a8d077781dff991979c65a2a8ae41a19745297c09",
+      "source_label": "glasses_present",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses_or_sunglasses",
+      "group": "sh17_medical_profile_series",
+      "box_xyxy": [
+        4292,
+        0,
+        6240,
+        2412
+      ]
+    },
+    {
+      "id": "sh17_p4240580",
+      "source": "dataset/goggles/sh17_original_20_extra_20261022/images/pexels-photo-4240580.jpeg",
+      "source_sha256": "8b8da2f0acbb021a1eaf9108464efe4eb8bc39c15e918964a06ab5e211ceda85",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 4240580,
+      "source_annotation_file": "dataset/goggles/sh17_original_20_extra_20261022/voc/pexels-photo-4240580.xml",
+      "source_annotation_sha256": "34553cd8a9a9a0e64fa41d9f53d9c0e5590a5e6173171eda77a54feac9d09b21",
+      "source_label": "glasses_present",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses_or_sunglasses",
+      "group": "sh17_photo_series_424",
+      "box_xyxy": [
+        2103,
+        546,
+        3422,
+        2315
+      ]
+    },
+    {
+      "id": "sh17_p5466163",
+      "source": "dataset/goggles/sh17_original_20_extra_20261022/images/pexels-photo-5466163.jpeg",
+      "source_sha256": "93537cb4e9dc163e2712552e64fcb60d428488b3ce9436e8e69711cfb58828fb",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 5466163,
+      "source_annotation_file": "dataset/goggles/sh17_original_20_extra_20261022/voc/pexels-photo-5466163.xml",
+      "source_annotation_sha256": "a58d9295d289e77bfe71a26f3c26de9a9d5f0956e07e150335f3463e4569a88e",
+      "source_label": "glasses_present",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "sh17_photo_series_546",
+      "box_xyxy": [
+        1674,
+        2217,
+        2331,
+        3065
+      ]
+    },
+    {
+      "id": "sh17_p5726838",
+      "source": "dataset/goggles/sh17_original_20_extra_20261022/images/pexels-photo-5726838.jpeg",
+      "source_sha256": "3fc6f76d20678cff973bcbe6a2c4d1887383d56c1d1736325617b15bb5c9cdb0",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 5726838,
+      "source_annotation_file": "dataset/goggles/sh17_original_20_extra_20261022/voc/pexels-photo-5726838.xml",
+      "source_annotation_sha256": "923e1280169e6aab1a682dbeedd69ad803f93789fab752b25eb31510c7192937",
+      "source_label": "glasses_present",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "sh17_photo_series_572",
+      "box_xyxy": [
+        3741,
+        0,
+        6144,
+        2346
+      ]
+    },
+    {
+      "id": "sh17_p5974275",
+      "source": "dataset/goggles/sh17_original_20_extra_20261022/images/pexels-photo-5974275.jpeg",
+      "source_sha256": "902d443e678884780cb3e92fefafa7f94df9586c37a12fe76e2f63d30227e9b0",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 5974275,
+      "source_annotation_file": "dataset/goggles/sh17_original_20_extra_20261022/voc/pexels-photo-5974275.xml",
+      "source_annotation_sha256": "8fe46a1aebcfc504bb44c987cd269c0d32ec074ce73c833d5b1c06be017d7efa",
+      "source_label": "glasses_present",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses_or_sunglasses",
+      "group": "sh17_photo_series_597",
+      "box_xyxy": [
+        2241,
+        0,
+        3792,
+        2070
+      ]
+    },
+    {
+      "id": "sh17_p5998474",
+      "source": "dataset/goggles/sh17_original_20_extra_20261022/images/pexels-photo-5998474.jpeg",
+      "source_sha256": "5e5404abe19e3a735e932f1306be22f3823c57bb5774aa46cdfdbfabd70f73d2",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 5998474,
+      "source_annotation_file": "dataset/goggles/sh17_original_20_extra_20261022/voc/pexels-photo-5998474.xml",
+      "source_annotation_sha256": "62a77e32fa133f9af83b4d8ffacea25bf4e8b6f9dfa1c62451ce58be8e71f055",
+      "source_label": "glasses_present",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses_or_sunglasses",
+      "group": "sh17_photo_series_599",
+      "box_xyxy": [
+        974,
+        291,
+        2899,
+        2508
+      ]
+    },
+    {
+      "id": "sh17_p6790033",
+      "source": "dataset/goggles/sh17_original_20_extra_20261022/images/pexels-photo-6790033.jpeg",
+      "source_sha256": "ddd931fef0489558cba739d54223939ed5d2b122a377b930d45bf91fa1dd901c",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 6790033,
+      "source_annotation_file": "dataset/goggles/sh17_original_20_extra_20261022/voc/pexels-photo-6790033.xml",
+      "source_annotation_sha256": "d4a6bb20b89ad31fa66d395bb3ddde46afec1f2ecab9cade1e6d0e2adc12be45",
+      "source_label": "glasses_present",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "sh17_photo_series_679",
+      "box_xyxy": [
+        1865,
+        660,
+        2787,
+        1964
+      ]
+    },
+    {
+      "id": "sh17_p7651922",
+      "source": "dataset/goggles/sh17_original_20_extra_20261022/images/pexels-photo-7651922.jpeg",
+      "source_sha256": "0e81c08f849ea224eabb89108a305be99b7ac73574cbc5e1830a8e58126d46bb",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 7651922,
+      "source_annotation_file": "dataset/goggles/sh17_original_20_extra_20261022/voc/pexels-photo-7651922.xml",
+      "source_annotation_sha256": "23586267f29e4f8f9297c641a7a9cd21ece358d74e90f975c7cf4dd2d29dad60",
+      "source_label": "glasses_present",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses_or_sunglasses",
+      "group": "sh17_photo_series_765",
+      "box_xyxy": [
+        1395,
+        1284,
+        2219,
+        2391
+      ]
+    },
+    {
+      "id": "sh17_p7904478",
+      "source": "dataset/goggles/sh17_original_20_extra_20261022/images/pexels-photo-7904478.jpeg",
+      "source_sha256": "cc05cc960981c5abbb97d9a32470bd9fdd0c8c4cf61a6f960d9743d67ace9e74",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 7904478,
+      "source_annotation_file": "dataset/goggles/sh17_original_20_extra_20261022/voc/pexels-photo-7904478.xml",
+      "source_annotation_sha256": "01cc86ac63e3afb306a8e64bd6cd2dfbab42baf9e27f5e8b4b2e247e0e387ce8",
+      "source_label": "glasses_present",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "sh17_photo_series_790",
+      "box_xyxy": [
+        791,
+        0,
+        2161,
+        1541
+      ]
+    },
+    {
+      "id": "sh17_p8067777",
+      "source": "dataset/goggles/sh17_original_20_extra_20261022/images/pexels-photo-8067777.jpeg",
+      "source_sha256": "5bef67fc7432c6764a25893c12f2a6740b696d11e50300c62a2799944b69f3ea",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 8067777,
+      "source_annotation_file": "dataset/goggles/sh17_original_20_extra_20261022/voc/pexels-photo-8067777.xml",
+      "source_annotation_sha256": "5d400a4d63e89f9aa6575e9db8752c00daea435af431d2d5ef5db99264fa246e",
+      "source_label": "glasses_present",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses_or_sunglasses",
+      "group": "sh17_photo_series_806",
+      "box_xyxy": [
+        1010,
+        2108,
+        1972,
+        3698
+      ]
+    },
+    {
+      "id": "sh17_p8538696",
+      "source": "dataset/goggles/sh17_original_20_extra_20261022/images/pexels-photo-8538696.jpeg",
+      "source_sha256": "39530e25997f4e1c8f60210e7004cddc4b9457c0988d504a0abbd95cb2e5ef6c",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 8538696,
+      "source_annotation_file": "dataset/goggles/sh17_original_20_extra_20261022/voc/pexels-photo-8538696.xml",
+      "source_annotation_sha256": "fd88806f07117839431af050c6e5d7f4430f22ac3bdc0ca935a9ff64ffbf60f9",
+      "source_label": "glasses_present",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses_or_sunglasses",
+      "group": "sh17_photo_series_853",
+      "box_xyxy": [
+        1394,
+        2613,
+        2619,
+        4146
+      ]
+    },
+    {
+      "id": "sh17_p8961695",
+      "source": "dataset/goggles/sh17_original_20_extra_20261022/images/pexels-photo-8961695.jpeg",
+      "source_sha256": "b4cc0e0e72e7812d86f584c3773bc0f7a3c293d93f5283e7a23f261f6393f727",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 8961695,
+      "source_annotation_file": "dataset/goggles/sh17_original_20_extra_20261022/voc/pexels-photo-8961695.xml",
+      "source_annotation_sha256": "fb33c4401e12452219ae37c20bc64c7d2a56f3720aca785145d7f69cd31c7f54",
+      "source_label": "glasses_present",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "sh17_photo_series_896",
+      "box_xyxy": [
+        4692,
+        479,
+        6478,
+        2250
+      ]
+    },
+    {
+      "id": "sh17_p9242855",
+      "source": "dataset/goggles/sh17_original_20_extra_20261022/images/pexels-photo-9242855.jpeg",
+      "source_sha256": "e0bec532f101d40f1b790bd79afecf525559646b0744258c2b518c795d13a8cb",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 9242855,
+      "source_annotation_file": "dataset/goggles/sh17_original_20_extra_20261022/voc/pexels-photo-9242855.xml",
+      "source_annotation_sha256": "179ca28b8945e20a7b96ec4e17d8d83a1cd3a047e1ba89b2ff9e0633d459e981",
+      "source_label": "glasses_present",
+      "decision": "keep",
+      "label": "wearing_goggles",
+      "reason": "visible_protective_eyewear_covers_eyes",
+      "group": "sh17_photo_series_924",
+      "box_xyxy": [
+        239,
+        414,
+        918,
+        1154
+      ]
+    },
+    {
+      "id": "sh17_p15057432",
+      "source": "dataset/goggles/sh17_original_20_extra_20261022/images/pexels-photo-15057432.jpeg",
+      "source_sha256": "caf9e0a22d60af2c1de55fd461d292c78c43bbfb81cae53ce28a0cb826b7996e",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 15057432,
+      "source_annotation_file": "dataset/goggles/sh17_original_20_extra_20261022/voc/pexels-photo-15057432.xml",
+      "source_annotation_sha256": "dd63b4a29cadba2457a6eb5f24b56350f41c069ce7404bb48c9ccfb4232baa92",
+      "source_label": "glasses_present",
+      "decision": "exclude",
+      "label": null,
+      "reason": "eye_region_uncertain_or_occluded",
+      "group": "sh17_photo_series_1505",
+      "box_xyxy": [
+        913,
+        0,
+        2888,
+        2063
+      ]
+    },
+    {
+      "id": "sh17_p18477780",
+      "source": "dataset/goggles/sh17_original_20_extra_20261022/images/pexels-photo-18477780.jpeg",
+      "source_sha256": "45c25262e34885231fe9db4e2bea1b731326eee6b210c84723032bac154d79e8",
+      "source_dataset": "SH17_v1",
+      "source_photo_id": 18477780,
+      "source_annotation_file": "dataset/goggles/sh17_original_20_extra_20261022/voc/pexels-photo-18477780.xml",
+      "source_annotation_sha256": "b9a1622a1a933551e742ac1f8d271d5cc1f53a6cfc42a75a1d36dc993dd40c8d",
+      "source_label": "glasses_present",
+      "decision": "keep",
+      "label": "not_wearing_goggles",
+      "reason": "ordinary_eyeglasses_or_sunglasses",
+      "group": "sh17_photo_series_1847",
+      "box_xyxy": [
+        1301,
+        0,
+        2778,
+        1886
+      ]
+    }
+  ],
+  "final_crop_review_scope": "All 198 draft head crops visually inspected; 7 additionally excluded, 191 remaining boxes unchanged.",
+  "draft_head_plan": "docs/data_sources/goggles_v1_head_plan.json",
+  "final_head_plan": "docs/data_sources/goggles_v2_head_plan.json"
+}

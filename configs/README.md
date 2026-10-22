@@ -1,15 +1,12 @@
 # 护目镜任务配置
 
-输出形式、类别及头像裁剪规则尚未定稿，当前不提供未经确认的默认训练方案。
+用户已确认头像二分类，只输出佩戴状态、不输出框。当前配置为[goggles_classification_v1.yaml](goggles_classification_v1.yaml)，绑定最终数据指纹、ImageNet初始权重完整哈希及预检报告。规则和结果见[数据处理方案](../docs/data_processing_plan.md)。
 
-[head_crops.example.json](head_crops.example.json)提供显式头像框清单格式，路径和坐标只是示例；复制并按实际核查结果填写后使用。它不是已确认的佩戴标签或训练配置，详见[头像准备接口](../docs/head_crops.md)。
+```powershell
+python -m src.classification_data check --data dataset/goggles/classification_v2_20261022
+python -m src.train_classification --config configs/goggles_classification_v1.yaml --dry-run
+```
 
-- 数据准备、训练及预检：显式提供`--config`。
-- 检测数据核查、质量核查记录及评价：显式提供`--data`。
-- 预测与评价：显式提供`--weights`。
-- 原始VOC数据核查：显式提供`--raw`、`--classes`和`--output`。
-- 头像准备：显式提供`--manifest`和新`--output`，可先`--dry-run`检查计划。
-- 头像完整性核查：`src.check_head_crops --crops`只读检查，不生成质量通过记录。
-- 头像分组计划：`src.split_head_crops`显式提供`--crops`、`--classes`和新`--output`，可先`--dry-run`；类别仍须实际确认，不使用示例中性标签替代。
+分类训练入口默认与`--dry-run`均只检查和打印计划；未来真实训练必须显式提供`--start`，并已有当前配置/数据/权重匹配的无梯度报告。本轮没有启动训练。不要使用通用检测入口`src.train`训练这套头像分类数据。
 
-任务契约明确后在此建立护目镜配置，绑定独立数据版本。类别含义应依据实际样本和标注规范确定，不以测试中的中性标签代替业务类别。
+[head_crops.example.json](head_crops.example.json)仍是显式头像框格式示例，中性标签不是业务标签。实际最终框见[头像清单v2](../docs/data_sources/goggles_v2_head_plan.json)，实际质量记录绑定头像指纹。来源图像、头像、划分目录及初始权重只在本地，未随Git提交。

@@ -1,0 +1,12 @@
+{
+  "filename": "weights/mobilenet_v3_small-047dcff4.pth",
+  "source_url": "https://download.pytorch.org/models/mobilenet_v3_small-047dcff4.pth",
+  "publisher": "PyTorch / Torchvision",
+  "model": "mobilenet_v3_small",
+  "weights_enum": "MobileNet_V3_Small_Weights.IMAGENET1K_V1",
+  "bytes": 10306551,
+  "sha256": "047dcff4addef86ea5bc2eff13c9614dc11f47ab1160d0a71a25e7db994f4e1f",
+  "publisher_sha256_prefix": "047dcff4",
+  "publisher_prefix_matched": true,
+  "role": "ImageNet initial weights, not a trained goggles classifier"
+}

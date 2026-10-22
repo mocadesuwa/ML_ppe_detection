@@ -1,19 +1,19 @@
 # 护目镜项目环境说明
 
-更新日期：2026-10-22。本轮使用已有系统Python的标准库与Pillow获取并核查候选原图，没有安装依赖、检查GPU或运行任务模型。2026-10-14的回归是历史验证，不是本轮重跑。
+更新日期：2026-10-22。本轮未安装、升级依赖，也未修改系统Python或项目虚拟环境。
 
-- 通用数据和回归主要使用已有Pillow、PyYAML及Python标准库。
-- 模型后端仍包含PyTorch、Ultralytics等依赖；最终任务明确后再核对所需模型与环境。
-- 依赖要求见[requirements.txt](../requirements.txt)，历史精确锁定见[requirements-lock.txt](../requirements-lock.txt)。锁定文件不代表本轮已复查模型运行环境。
-- 已有通用初始权重来源记录见[initial_weights.json](initial_weights.json)，不代表护目镜训练权重或最终选型。
-- 用户已授权按需安装依赖；新增依赖仅装入项目虚拟环境，不安装到系统Python。本轮已有依赖够用，未创建、升级或修改环境。
+| 项目 | 本轮实际检查 |
+| --- | --- |
+| 解释器 | 项目.venv，Python 3.14.0 |
+| PyTorch / Torchvision | 2.11.0+cu128 / 0.26.0+cu128 |
+| Pillow / PyYAML | 12.3.0 / 6.0.3 |
+| GPU | NVIDIA GeForce RTX 3060 Laptop GPU，6 GB |
+| CUDA | 可用，基础矩阵运算通过 |
+| 分类数据与前向 | 16×3×224×224→16×2，两类均加载；eval/inference_mode，无梯度，无参数或缓冲区变化 |
+| 前向峰值已分配显存 | 约54.72 MiB，不代表训练显存 |
 
-当前可查看入口帮助及运行累计回归：
+完整环境报告保存在本地`results/environment_goggles_classification_20261022.json`，真实无梯度证据为`results/preflight_goggles_v1/report.json`；可同步摘要见[训练前状态](pretraining_status.json)。原图准备和回归使用已有系统Python/Pillow，真实模型前向使用项目虚拟环境。
 
-```powershell
-python tests/run_regression.py
-python -m src.environment --help
-python scripts/preflight_training.py --help
-```
+新增依赖按用户授权仅安装到项目虚拟环境，不安装到系统Python。历史依赖清单见[requirements.txt](../requirements.txt)及[锁定文件](../requirements-lock.txt)；本轮未修改它们。当前模型初始权重来源见[分类初始权重](initial_classification_weights.json)，旧[通用检测权重](initial_weights.json)不用于本次分类。
 
-无梯度前向不能证明训练显存、反向传播或护目镜效果。本轮仅推进小规模数据集检索、获取及核查；模型检查和训练未运行。
+本轮没有反向传播、优化器构建/更新或训练；GPU前向不能证明实际训练内存、检查点保存或任务效果。

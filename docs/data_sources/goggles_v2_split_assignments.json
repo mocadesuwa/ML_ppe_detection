@@ -1,0 +1,1594 @@
+{
+  "format_version": 1,
+  "purpose": "Frozen classification membership; local paths omitted, original local plan hash retained.",
+  "local_split_plan_sha256": "847fefe60b8ee83c94d5f6e8060b85709fec201adecf461c27c27b29634836e7",
+  "crop_fingerprint": "6dd6e6dee0908fc7f837bca0302b67af86e411e7f691c21a75c9464d5f6b657e",
+  "seed": 42,
+  "requested_ratios": {
+    "train": 0.7,
+    "val": 0.15,
+    "test": 0.15
+  },
+  "independent_explicit_groups": 65,
+  "source_domain_adjustment": {
+    "purpose": "Before any training, ensure both target classes from SH17 occur in train while preserving whole groups, split sizes, and all PPEs frames in train.",
+    "seed": 42,
+    "moves": [
+      {
+        "into_train": "sh17_photo_series_572",
+        "previous_split": "val",
+        "negative_groups_swapped_out": [
+          "sh17_photo_series_566",
+          "sh17_photo_series_523"
+        ]
+      },
+      {
+        "into_train": "sh17_photo_series_679",
+        "previous_split": "test",
+        "negative_groups_swapped_out": [
+          "sh17_photo_series_568",
+          "sh17_photo_series_755"
+        ]
+      }
+    ]
+  },
+  "counts": {
+    "train": {
+      "crops": 133,
+      "labels": {
+        "not_wearing_goggles": 97,
+        "wearing_goggles": 36
+      }
+    },
+    "val": {
+      "crops": 29,
+      "labels": {
+        "not_wearing_goggles": 24,
+        "wearing_goggles": 5
+      }
+    },
+    "test": {
+      "crops": 29,
+      "labels": {
+        "wearing_goggles": 5,
+        "not_wearing_goggles": 24
+      }
+    }
+  },
+  "splits": {
+    "train": [
+      {
+        "id": "ppes_a10325",
+        "output_file": "images/ppes_a10325.png",
+        "output_sha256": "0f0a81d056f823d02d38cb9d4e86b214b2318027b6264fcaadcc0c4547f88655",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a10326",
+        "output_file": "images/ppes_a10326.png",
+        "output_sha256": "84b3427567e4b73d986e460e57d7ccb9b410bcecb5e52165953495a801e42c7c",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a10515",
+        "output_file": "images/ppes_a10515.png",
+        "output_sha256": "a1256d29459cdda7d9714203dddea3b95e50a5b23ecf339d8d9e0b1de0317768",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a10619",
+        "output_file": "images/ppes_a10619.png",
+        "output_sha256": "a43e761d2c719787ace525db0a4a5646a4b4c434ded9a969f10af9b3f0298d2f",
+        "label": "wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a10620",
+        "output_file": "images/ppes_a10620.png",
+        "output_sha256": "9052f71f83795c2e9588a0bd7c630a0a99ea078ea6014068a43f79f61174617f",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a1083",
+        "output_file": "images/ppes_a1083.png",
+        "output_sha256": "75ba47874c2b81c954ae32759cf0c2c204e22e4955cc1059f1b2c8b2da0d5557",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a1084",
+        "output_file": "images/ppes_a1084.png",
+        "output_sha256": "0d87a98ef85eb4b55cf05286395f6858e3420a9addf616aaa6d4fcfb7d45c2f8",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a10869",
+        "output_file": "images/ppes_a10869.png",
+        "output_sha256": "834aa4fd7219d631850de1a8b6f370d5d79323977faa9a8ae9e99375a213881a",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a10908",
+        "output_file": "images/ppes_a10908.png",
+        "output_sha256": "3f6bc52e3bf1c50d10bcf1dea6be6dee51d9b3fbbb698a72ed1fd3cee6bd7297",
+        "label": "wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a10955",
+        "output_file": "images/ppes_a10955.png",
+        "output_sha256": "e98ca29a1cd46bdedcaeab8839c3eaac0c7a7ea28541f50b2891f15d6c0bf852",
+        "label": "wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a11076",
+        "output_file": "images/ppes_a11076.png",
+        "output_sha256": "7b804a03b1036faccc4b23a21285601b5c88d8aff4ab9ee15d7c579b9941d889",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a11271",
+        "output_file": "images/ppes_a11271.png",
+        "output_sha256": "70753b285edf4f62553f82fb53845e10d3d9ab6a05b116897b67e293b0de4225",
+        "label": "wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a11610",
+        "output_file": "images/ppes_a11610.png",
+        "output_sha256": "4325546149381c33574155c362942043302783ca9225595a0189fbb9a3f3bf43",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a1185",
+        "output_file": "images/ppes_a1185.png",
+        "output_sha256": "fadc3f474460991ea7601d8938599d3dd48f432528371f2eb473e435de77e4ed",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a11974",
+        "output_file": "images/ppes_a11974.png",
+        "output_sha256": "593ab756687a0a073402bf77e0d13f757ac8a081a7ac5c0f86446230142224f2",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a11979",
+        "output_file": "images/ppes_a11979.png",
+        "output_sha256": "2fc7a705db96a6657c9ddb3f220bdba13d7b3fcae5757ef45059986c2dd1edc6",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a12250",
+        "output_file": "images/ppes_a12250.png",
+        "output_sha256": "e84cdef1831481c3368a55534fcee6e81d7fcb8a8eeceb8f27523e1c3cd5307b",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a12251",
+        "output_file": "images/ppes_a12251.png",
+        "output_sha256": "46ec6861997350f279e568a35c77c2a0d0afb0b5befd96527a6c45d1541ada4e",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a12367",
+        "output_file": "images/ppes_a12367.png",
+        "output_sha256": "7e792a76aba2be494446fbaa0c02a8396eb91568944ab0687fb60d80f2c5b4e6",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a12368",
+        "output_file": "images/ppes_a12368.png",
+        "output_sha256": "3bfb47efdc4cf07c53c01816e22b851f7f9b27b8e3b31f923c97a587bdf0a8e7",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a12369",
+        "output_file": "images/ppes_a12369.png",
+        "output_sha256": "f58287ab598ed5d7c0dfe1ef26eea6895e09449fb86c0b6525b06638121d683a",
+        "label": "wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a12792",
+        "output_file": "images/ppes_a12792.png",
+        "output_sha256": "f87df04dbaaf647f6d7d22d5d819ad30d495ba4006a8e160e065eb2e3758a267",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a12963",
+        "output_file": "images/ppes_a12963.png",
+        "output_sha256": "0f537d4abbd746b0753095398d678fde7a3b41994a560a2e262d9696f9aeca2d",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a13151",
+        "output_file": "images/ppes_a13151.png",
+        "output_sha256": "67c12d8bfb82cdb2d5f21da9ab2973bad3a75f54f047b05952f2ce3bef4c4f0a",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a13152",
+        "output_file": "images/ppes_a13152.png",
+        "output_sha256": "78a10d09f1c78ab53460b06bd5bfc5af821be4bd657a2c2fc3bf6730f53924a3",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a13366",
+        "output_file": "images/ppes_a13366.png",
+        "output_sha256": "e117e6ab3a4063b4d9f38a21df846ea0067f8d6d15bf3b7f0f17f5ab25eb5324",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a13519",
+        "output_file": "images/ppes_a13519.png",
+        "output_sha256": "437cd63bf91f70d18c795e172b1cc64527ef7d6ee91db6f23a303537096860bf",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a13520",
+        "output_file": "images/ppes_a13520.png",
+        "output_sha256": "37d5437048716620275f9a79b86de1757f30c673b8633e8dd85eeff019db32e6",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a1369",
+        "output_file": "images/ppes_a1369.png",
+        "output_sha256": "f92fca76d7d8e15a3015e690b0ce9bf451d8b4d85d4d928ab52fdffdd0abb670",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a1382",
+        "output_file": "images/ppes_a1382.png",
+        "output_sha256": "2bf038fb0e78b997cfebab5aff92cf1a93885a2c516f7279ba9c9512d28c51db",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a1384",
+        "output_file": "images/ppes_a1384.png",
+        "output_sha256": "180637a7ff631fa8597756a106219168a5bafceeac9016f42f953ce5eca9aa85",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a1439",
+        "output_file": "images/ppes_a1439.png",
+        "output_sha256": "390bfae2db8924f72e399ba9fa0e290f7a1dff0de4b3187dffc3a238af9e623c",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a1480",
+        "output_file": "images/ppes_a1480.png",
+        "output_sha256": "84004f1760d5423dd068d9014cec7c7b977039b7fbccaa9e12a08dcaa7cad508",
+        "label": "wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a1481",
+        "output_file": "images/ppes_a1481.png",
+        "output_sha256": "608a1c1c429648c861c1aca014014f37cc7da606ed37361cc3f8e246203470ef",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a1482",
+        "output_file": "images/ppes_a1482.png",
+        "output_sha256": "b19afd5f3739a5d38c750b135223a20e2a301d37063a5ba225b27b3535f3338a",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a1590",
+        "output_file": "images/ppes_a1590.png",
+        "output_sha256": "99970ab51deb19ad1d37b6a1b52dfbeee07bbe162927a841f0c76896fbad2171",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a1652",
+        "output_file": "images/ppes_a1652.png",
+        "output_sha256": "4d49cfdacf692a7d0227b156745a239ce4011059f3e023fa51522aea515e8612",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a1664",
+        "output_file": "images/ppes_a1664.png",
+        "output_sha256": "2bf37517cb1cbfed4487c85400fff0fb940f20d62dd57edf31299d8d6872ee65",
+        "label": "wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a1708",
+        "output_file": "images/ppes_a1708.png",
+        "output_sha256": "bbbd938f1c9d5cdc32a74103223bf2ca0b6b35c91714cb53d15b349d270e98ac",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a1811",
+        "output_file": "images/ppes_a1811.png",
+        "output_sha256": "38d4112254d2956c5416a300e5982e3a68f993a4cc57acb2b87e201155b99f00",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a1843",
+        "output_file": "images/ppes_a1843.png",
+        "output_sha256": "acd7dbba088472cac512b793ddcb5ee10e2fcb33ca3ada9e8e969e5c66345e00",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a2059",
+        "output_file": "images/ppes_a2059.png",
+        "output_sha256": "e8ed859b33fd1f5860f09380ec9425314b076e59b34a31d3ab258bdc35169ecd",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a2232",
+        "output_file": "images/ppes_a2232.png",
+        "output_sha256": "d50ed63296c6af181aa7bc2986747f1a360e6cabc764dd1818d3a4db77e5f3df",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a2951",
+        "output_file": "images/ppes_a2951.png",
+        "output_sha256": "a17578b533d8804aacc86b6a3cd6f0e36e0f38293fb02ded063482daf5f6f5f1",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a2983",
+        "output_file": "images/ppes_a2983.png",
+        "output_sha256": "09126951ba3bd578eb9646111b5c1fbf7efbb85a25d021254a19362171dde0f7",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a3020",
+        "output_file": "images/ppes_a3020.png",
+        "output_sha256": "d7fa112e1d085141faaf64f4103a2b44529463dc12e808130f0ac07d16db07e5",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a3273",
+        "output_file": "images/ppes_a3273.png",
+        "output_sha256": "58ae677a2180a33b4e8ecbfa0f55e039f59d7c0be3af5fa52651736e2fed2293",
+        "label": "wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a328",
+        "output_file": "images/ppes_a328.png",
+        "output_sha256": "ca9062fa0dcccda85b96aa65007768e5c4e06d1415cd894c56b2f51847bd4bf4",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a3298",
+        "output_file": "images/ppes_a3298.png",
+        "output_sha256": "e5facc6ee496b0541f9577aa5f47aa84c44534e17aaef6b0805242f6759b9168",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a3311",
+        "output_file": "images/ppes_a3311.png",
+        "output_sha256": "d0cec05a1ede1d33de6b8e0f05979f8f90dd73955ca76605b89b4195d8ca140a",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a3394",
+        "output_file": "images/ppes_a3394.png",
+        "output_sha256": "07c915d409c4aad3cfe52183a9a24455cce2bb1e85afc01cee78eebdfa3811df",
+        "label": "wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a361",
+        "output_file": "images/ppes_a361.png",
+        "output_sha256": "e8901fdca463e61c2872c81edf6696cf29737c055c0c680122b936983149084b",
+        "label": "wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a3647",
+        "output_file": "images/ppes_a3647.png",
+        "output_sha256": "f81f7c41d7d88dde36b31be685046a713e8b2df9e770ee4468cb1504cea3c93d",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a3648",
+        "output_file": "images/ppes_a3648.png",
+        "output_sha256": "a686654e04544ebb1212b93ce8d0c70dfe4f179e759505c36f1bf177478db56b",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a3649",
+        "output_file": "images/ppes_a3649.png",
+        "output_sha256": "9483636337e2aa716309a78f8b659f68e2e019a08fa62232c0b943dd53bb1ab6",
+        "label": "wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a3662",
+        "output_file": "images/ppes_a3662.png",
+        "output_sha256": "34b5739de36f71f8501b596a259b6dc7e1a1156518beb03a6b4180fbeb30d901",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a3663",
+        "output_file": "images/ppes_a3663.png",
+        "output_sha256": "e7dd0421aedda04673539484e1b997e5131034b2c1dad8bc84a10fcae87b3f6f",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a3769",
+        "output_file": "images/ppes_a3769.png",
+        "output_sha256": "8aa41aaeef0e7634051a75543e1dad9372305df884ef23e6d9e9f9cf1906e076",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a3911",
+        "output_file": "images/ppes_a3911.png",
+        "output_sha256": "fe348383dc6e536f63af3d2c7a492084cac712eeee48e97ac1545ad267792705",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a3912",
+        "output_file": "images/ppes_a3912.png",
+        "output_sha256": "d78dc00208b66cf312b38c6767a51c6ff0e39ab4fa2b0258bcafac604eac5d5a",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a3965",
+        "output_file": "images/ppes_a3965.png",
+        "output_sha256": "56d1b483cd5e99e7e8b57d5480e86b03a75c6b4b7d161c2c50f4be81b702f6cb",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a3988",
+        "output_file": "images/ppes_a3988.png",
+        "output_sha256": "8bb3f7a1069bc739683287b7f1705c7dbfb456a97b0f8e4d67047f0886a739a4",
+        "label": "wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a4199",
+        "output_file": "images/ppes_a4199.png",
+        "output_sha256": "00dec234c0f4455e6da738a0a3ea39fa72b9dfa5d1edc9a7e4634ed32f9150e8",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a420",
+        "output_file": "images/ppes_a420.png",
+        "output_sha256": "98c13d6f5ba6fc58e2293bf05aa131415c37590a6ec92bfc8255712e434cacfb",
+        "label": "wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a439",
+        "output_file": "images/ppes_a439.png",
+        "output_sha256": "b412be99481e6fdf745047943133761f207bb30c36e31053fd6540b09aebc26c",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a4416",
+        "output_file": "images/ppes_a4416.png",
+        "output_sha256": "a0be8268083bca5bc3ce085f08ab74330200f0dbdbcc5eabd923208b372cc851",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a4530",
+        "output_file": "images/ppes_a4530.png",
+        "output_sha256": "a19fb9471c8a6039990aa45e60fd05ad0e3b6be7df5f1a8e5f30d9e1a2257576",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a4904",
+        "output_file": "images/ppes_a4904.png",
+        "output_sha256": "33ed1910ac56d31fefa15b914c58831d3b863c8439cccaba2b62cc5dd2e5071b",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a4905",
+        "output_file": "images/ppes_a4905.png",
+        "output_sha256": "208db3bba3fd4c70b38be94798b36d036deb2d879b8f5489b6108894b3667b77",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a5133",
+        "output_file": "images/ppes_a5133.png",
+        "output_sha256": "d21731af5a6d72e586ec915f62f57f87a8543f6a5ea78d350a562f73725f4b12",
+        "label": "wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a5233",
+        "output_file": "images/ppes_a5233.png",
+        "output_sha256": "9f5c7e6f406a134a102decb450d43fdd1a65bb0ac3125842d503b4a970f8670d",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a5310",
+        "output_file": "images/ppes_a5310.png",
+        "output_sha256": "c09fed3f240edfd654bd0eb1f185a6a8badfcf204672f66a6d166119a6d3f2c1",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a5311",
+        "output_file": "images/ppes_a5311.png",
+        "output_sha256": "7f49233e08202c16928dd7d96ab208558b38ed1bf62bd335357b420216d5b22d",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a5503",
+        "output_file": "images/ppes_a5503.png",
+        "output_sha256": "78777f8f91944b2a80b1faef00ec739a8c2219fa091101f3aaf9310fe7ef722f",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a5610",
+        "output_file": "images/ppes_a5610.png",
+        "output_sha256": "4dd52dc735d45c925bcb1ef6944b532b9d603404ebf5fc8c91b205e09bb7a5e7",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a5611",
+        "output_file": "images/ppes_a5611.png",
+        "output_sha256": "d5dff7fc38b95b3d92499f1e43447bcec68f2b1cb98f6b297a1dd6cf0de878af",
+        "label": "wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a5766",
+        "output_file": "images/ppes_a5766.png",
+        "output_sha256": "6fae8c92972f5ad84945b9604f6010e86660a2e91c964afaafb8dd708423cd8a",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a5837",
+        "output_file": "images/ppes_a5837.png",
+        "output_sha256": "5e8d69376aef313338ecd01b65f43d11deb16dea2a9345bbb7c59c5fda260ff2",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a6254",
+        "output_file": "images/ppes_a6254.png",
+        "output_sha256": "deb432456537453e1e700191f37774a8c27a26d030ade9e450c8fc04cc7adf80",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a626",
+        "output_file": "images/ppes_a626.png",
+        "output_sha256": "5ac560a1e0f675ab6c6c7b9a149ac6714e256a69c603642d51c5c5229d4ed4d6",
+        "label": "wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a627",
+        "output_file": "images/ppes_a627.png",
+        "output_sha256": "d0f5c494bce10f01c0db4f97196912d7c6064caad192da99d5ef030335875410",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a6286",
+        "output_file": "images/ppes_a6286.png",
+        "output_sha256": "0402c21ea879ab0b88f29f6c828942e281ccd77d1487c4e9f19aea78dfe17022",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a6287",
+        "output_file": "images/ppes_a6287.png",
+        "output_sha256": "733b81fa06060acf5d13c9c57c334ad9034b3d867fbc42b2c5d9fd534e9fcd43",
+        "label": "wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a6305",
+        "output_file": "images/ppes_a6305.png",
+        "output_sha256": "bd29e18f2fd95b9e72bf19e3eb36ce8959e6440136280137cf8389bb115e84b9",
+        "label": "wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a6321",
+        "output_file": "images/ppes_a6321.png",
+        "output_sha256": "12dff5d53158f745b28b50cce47d5955e039edbace3545f6bb783adfcc8ac3e4",
+        "label": "wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a6532",
+        "output_file": "images/ppes_a6532.png",
+        "output_sha256": "8f423182f5efebcd703c91f4bd2253f817420d065decdd953865b8427e31ba61",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a6609",
+        "output_file": "images/ppes_a6609.png",
+        "output_sha256": "5a0214a002713ab02d803c1af94333b9752b0b1549f3969496175162b705541e",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a6675",
+        "output_file": "images/ppes_a6675.png",
+        "output_sha256": "e06d04254af31f075f40042a8667e2c6ae3dda2577a25e9ae02c43edcb7c01ec",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a678",
+        "output_file": "images/ppes_a678.png",
+        "output_sha256": "2ebbe5e1a37717c8b5a6edb9499e44eb46d1663f89326a6f6c1fc9cff93ccedd",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a7124",
+        "output_file": "images/ppes_a7124.png",
+        "output_sha256": "3de7c24a815ddb74492bb3b3469831b74510964c66ce97f6da69a72c2f017432",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a7171",
+        "output_file": "images/ppes_a7171.png",
+        "output_sha256": "a1b6c0430154f4f4ca21a592ea9d163bf7d1442118264f60c165488251872298",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a7192",
+        "output_file": "images/ppes_a7192.png",
+        "output_sha256": "547c4391c8b852ce53514e53ccac8b2c1609375a6426d92ec8afcd9ad5395adf",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a7276",
+        "output_file": "images/ppes_a7276.png",
+        "output_sha256": "1ff6018af5a9c872fef4c9f9a002cb4ea44a6ed6ab62fff3cdfbf23cc5024d3e",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a730",
+        "output_file": "images/ppes_a730.png",
+        "output_sha256": "f838b10d0325c17823299b996688dd149f1dee3aba6afadf52cdfa4a81fc8bf5",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a7479",
+        "output_file": "images/ppes_a7479.png",
+        "output_sha256": "ee8b9ce3e2c262d9c701c077ce6c947c45720b5b36d07cc5997a4576e38df605",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a75",
+        "output_file": "images/ppes_a75.png",
+        "output_sha256": "ebf0ea89834b636785c71764e16680b668a6db86b2651b3b32a24f09b862ae2e",
+        "label": "wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a7647",
+        "output_file": "images/ppes_a7647.png",
+        "output_sha256": "9fc8a09997b41c80266fac65069178a87eee745f2f317876a667627d36eb1e1d",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a7648",
+        "output_file": "images/ppes_a7648.png",
+        "output_sha256": "caa9e45100e3442c4a370ec99b679a376e51fe8a80770f0d82556a0b32174146",
+        "label": "wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a7649",
+        "output_file": "images/ppes_a7649.png",
+        "output_sha256": "7feabd778c8ee1f5fbe235a3739deaf58ef1a9c46a95d3fc1d872314a885da7b",
+        "label": "wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a7989",
+        "output_file": "images/ppes_a7989.png",
+        "output_sha256": "dcfde1b25bfc13112ade1219796bfc2743ef8f006ea79c05335b36e0d6b6c81c",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a8205",
+        "output_file": "images/ppes_a8205.png",
+        "output_sha256": "ba9b8c7edce531b6cfede30fd588bf3e7b1959fe76af22513aada57fcac5468a",
+        "label": "wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a8258",
+        "output_file": "images/ppes_a8258.png",
+        "output_sha256": "9d6b6710d5e7e89db094de2ac508dc23c69536ce0993769b48d87a11ea7ef220",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a8259",
+        "output_file": "images/ppes_a8259.png",
+        "output_sha256": "afcf102c22c6542bab2cd76c1f93745512550830c21f89fe854094fd2be9a018",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a8299",
+        "output_file": "images/ppes_a8299.png",
+        "output_sha256": "dd87a2d9f54a65027f6cf1d7bc76d95a6b9f8073d4d190894254f07e14ffbe1e",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a8300",
+        "output_file": "images/ppes_a8300.png",
+        "output_sha256": "38b133d143c0ce385e33e6bca4c81d548b5d3466954ffa22b44b59abcea25156",
+        "label": "wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a8721",
+        "output_file": "images/ppes_a8721.png",
+        "output_sha256": "171a4331ce5b1978dfdd2dfb33b9698af93e989a285792fddc3d038c0464f4bd",
+        "label": "wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a8722",
+        "output_file": "images/ppes_a8722.png",
+        "output_sha256": "5c685fcc397c7d3165a15bd0dba6429ad747706e13c42f5407d4904c9781e414",
+        "label": "wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a8767",
+        "output_file": "images/ppes_a8767.png",
+        "output_sha256": "a000123f5155db45ee06048e8f80ab6cc08d3755be2b3afac5e7647136df0771",
+        "label": "wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a8768",
+        "output_file": "images/ppes_a8768.png",
+        "output_sha256": "e5b0376945a38a85cb29e1e6f19800b4b22a5e2953562cb8edfed81e7ae87476",
+        "label": "wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a8786",
+        "output_file": "images/ppes_a8786.png",
+        "output_sha256": "b83bfbda36d56e354d5a2b14ad846dd540026fead5a7df8730c0b3dca6685319",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a8787",
+        "output_file": "images/ppes_a8787.png",
+        "output_sha256": "9de389156c60ea230e9f659358935808c4324dc312299214c3951592e0623868",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a8937",
+        "output_file": "images/ppes_a8937.png",
+        "output_sha256": "dc5e0fa9fc9550ee5c46accc8eda49fcaa000269374712b01959dded8f4b230a",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a8938",
+        "output_file": "images/ppes_a8938.png",
+        "output_sha256": "dc6b8b647c3555440192a7ff767ab72ce8aac15e2b73c025ceea22e2888d4b83",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a8957",
+        "output_file": "images/ppes_a8957.png",
+        "output_sha256": "1220ea040d7228ac64f9a6b5b07eae75693cc0dc2147a8b028530c767c1b3730",
+        "label": "wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a8970",
+        "output_file": "images/ppes_a8970.png",
+        "output_sha256": "d608b82c4ba4fd3a92938d28b013d5087ad5b52b0954610738055d2772df91ba",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a9039",
+        "output_file": "images/ppes_a9039.png",
+        "output_sha256": "a9b7cd5bd6806bea156a3044698abdfb76302651cbcd3c529348f852eaba3dcf",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a9040",
+        "output_file": "images/ppes_a9040.png",
+        "output_sha256": "92a88f68fc4cf2e3e0760828977915c616ae573ebaabd138c6b108b92da06f5e",
+        "label": "not_wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a9440",
+        "output_file": "images/ppes_a9440.png",
+        "output_sha256": "7d7338f2508b814b9821b2dd8246e793c3cbd1c5d97f8dfb9b6cd5644f1fbb3b",
+        "label": "wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a9441",
+        "output_file": "images/ppes_a9441.png",
+        "output_sha256": "e8104080f93ecd6861e8a73694876abe2eaca95ba3db20a8fefc06352abd6c01",
+        "label": "wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "ppes_a9578",
+        "output_file": "images/ppes_a9578.png",
+        "output_sha256": "b4a7592fac6f1cea2bde2a699d92be6000d7b6db110fd3135de8a37708a6935e",
+        "label": "wearing_goggles",
+        "source_group": "ppes_factory_site_01",
+        "split_group": "ppes_a10325"
+      },
+      {
+        "id": "sh17_p18477780",
+        "output_file": "images/sh17_p18477780.png",
+        "output_sha256": "5f61d312187339db0a82ff5cfecc718d9535167c9970a9b450ab69cc899bdad8",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_1847",
+        "split_group": "sh17_p18477780"
+      },
+      {
+        "id": "sh17_p3873872",
+        "output_file": "images/sh17_p3873872.png",
+        "output_sha256": "bfd247e37ee271615533a786dabac403311b515a7f5e2c58e9d19f6fb9d6e64f",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_387",
+        "split_group": "sh17_p3873872"
+      },
+      {
+        "id": "sh17_p3931391",
+        "output_file": "images/sh17_p3931391.png",
+        "output_sha256": "303bb6294d4647c7d29d52a7ebfafd89621bee98a22f06dbea6cfe613cfc4187",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_393",
+        "split_group": "sh17_p3931391"
+      },
+      {
+        "id": "sh17_p3975673",
+        "output_file": "images/sh17_p3975673.png",
+        "output_sha256": "11e37c0d3ce53df137a1351cc9ab41920c2e819e2157952e1ee667eae1e72b10",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_397",
+        "split_group": "sh17_p3975673"
+      },
+      {
+        "id": "sh17_p4195344",
+        "output_file": "images/sh17_p4195344.png",
+        "output_sha256": "b6d2bd99f2c5ec847fdce0ee7ede56ef30ebb6ac3c19487471dfaa920bb36a43",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_419",
+        "split_group": "sh17_p4195344"
+      },
+      {
+        "id": "sh17_p4350169",
+        "output_file": "images/sh17_p4350169.png",
+        "output_sha256": "258a5c05f5392fef65cd45fb15b661887b39ab9eb263080c32ebda164b51de61",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_435",
+        "split_group": "sh17_p4350169"
+      },
+      {
+        "id": "sh17_p5726812",
+        "output_file": "images/sh17_p5726812.png",
+        "output_sha256": "684e7e8c3d41d9c62bf3b569746041ca5c55568d78435ee13f234fc419230311",
+        "label": "wearing_goggles",
+        "source_group": "sh17_photo_series_572",
+        "split_group": "sh17_p5726812"
+      },
+      {
+        "id": "sh17_p5726838",
+        "output_file": "images/sh17_p5726838.png",
+        "output_sha256": "7c6679beab41d84fdbc7284b8181bb26eeb936326f3695fbf8c19b9d190469da",
+        "label": "wearing_goggles",
+        "source_group": "sh17_photo_series_572",
+        "split_group": "sh17_p5726812"
+      },
+      {
+        "id": "sh17_p6790033",
+        "output_file": "images/sh17_p6790033.png",
+        "output_sha256": "895dc8c36bf3d0a9867ec7ec260102ba8bf81b441f3d374701d943388cbf28f9",
+        "label": "wearing_goggles",
+        "source_group": "sh17_photo_series_679",
+        "split_group": "sh17_p6790033"
+      },
+      {
+        "id": "sh17_p6790108",
+        "output_file": "images/sh17_p6790108.png",
+        "output_sha256": "5b62e6f58d3f1ca4ff8171884fcd9d76e0e86ba8deb5c09ec8bda4a7d6b8c6ba",
+        "label": "wearing_goggles",
+        "source_group": "sh17_photo_series_679",
+        "split_group": "sh17_p6790033"
+      },
+      {
+        "id": "sh17_p8067777",
+        "output_file": "images/sh17_p8067777.png",
+        "output_sha256": "5615eb8a7aa05445e8aa42f550cabf21af11e4bee45cb76852ae5915a3d5c436",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_806",
+        "split_group": "sh17_p8067777"
+      },
+      {
+        "id": "sh17_p8204351",
+        "output_file": "images/sh17_p8204351.png",
+        "output_sha256": "35794cc775c61f53a5315eedf5def71c50a93a436e074f17791f754a70291970",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_820",
+        "split_group": "sh17_p8204351"
+      },
+      {
+        "id": "sh17_p8376339",
+        "output_file": "images/sh17_p8376339.png",
+        "output_sha256": "ef4df5aae2401e708fa5f784403b5a2bb2c19a2ded3f2dbbf8cf810b2dc687f8",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_837",
+        "split_group": "sh17_p8376339"
+      }
+    ],
+    "val": [
+      {
+        "id": "sh17_p13801618",
+        "output_file": "images/sh17_p13801618.png",
+        "output_sha256": "192a6ba119ba903a3fe86d98999a7707d2bf4b52e8f06d0a7382d1cc46d1eb20",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_1380",
+        "split_group": "sh17_p13801618"
+      },
+      {
+        "id": "sh17_p14596539",
+        "output_file": "images/sh17_p14596539.png",
+        "output_sha256": "d9a1eeb9704381843760da7d1b3e536f89eb06c880824caef07eccddcb05d8bc",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_1459",
+        "split_group": "sh17_p14596539"
+      },
+      {
+        "id": "sh17_p15141536",
+        "output_file": "images/sh17_p15141536.png",
+        "output_sha256": "1d0efb96617253b9bb866c5aaa40c8c43874b50910560fdcad6c1e262e25d0b3",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_1514",
+        "split_group": "sh17_p15141536"
+      },
+      {
+        "id": "sh17_p3966786",
+        "output_file": "images/sh17_p3966786.png",
+        "output_sha256": "84d6dff9549c8b753609019252897b00928c61c5773758e67533843f7c22e56d",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_396",
+        "split_group": "sh17_p3966786"
+      },
+      {
+        "id": "sh17_p4031523",
+        "output_file": "images/sh17_p4031523.png",
+        "output_sha256": "dda572b81e62ac29c0ffd18a23ff8ff1d54887dcf90327033853bb990c8a0d0f",
+        "label": "wearing_goggles",
+        "source_group": "sh17_medical_profile_series",
+        "split_group": "sh17_p4031523"
+      },
+      {
+        "id": "sh17_p4226257",
+        "output_file": "images/sh17_p4226257.png",
+        "output_sha256": "d488603e89e4caf1232d72de57af60a2e8bfa10d32acb07296ea81d0f4d640c9",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_medical_profile_series",
+        "split_group": "sh17_p4031523"
+      },
+      {
+        "id": "sh17_p4240580",
+        "output_file": "images/sh17_p4240580.png",
+        "output_sha256": "a1c087ecfeacbfcfb6c93c79b45dd703b19672057a48b16a0509504f28fbd380",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_424",
+        "split_group": "sh17_p4240580"
+      },
+      {
+        "id": "sh17_p4254157",
+        "output_file": "images/sh17_p4254157.png",
+        "output_sha256": "916b6bad5f5f87fe6377769c4ab7fa9275b743dffc7c3ed9e4c887471617a86d",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_425",
+        "split_group": "sh17_p4254157"
+      },
+      {
+        "id": "sh17_p4476634",
+        "output_file": "images/sh17_p4476634.png",
+        "output_sha256": "5c5430298a9fb731e263346e07c0feb8413a922ad5096ca1977cca00b27c9f36",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_447",
+        "split_group": "sh17_p4476634"
+      },
+      {
+        "id": "sh17_p4559770",
+        "output_file": "images/sh17_p4559770.png",
+        "output_sha256": "0afc20617ea56ff48fb2d2a796d3506867220b851dd6e87424bd0ca981cd6dc6",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_455",
+        "split_group": "sh17_p4559770"
+      },
+      {
+        "id": "sh17_p5234519",
+        "output_file": "images/sh17_p5234519.png",
+        "output_sha256": "8760d8873d4634e76b5b03a2bcf5f34ddf6dbb328dde404f91e117b426fa3ecd",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_523",
+        "split_group": "sh17_p5234519"
+      },
+      {
+        "id": "sh17_p5668846",
+        "output_file": "images/sh17_p5668846.png",
+        "output_sha256": "fa49b35893ce0e2eb2af3ceda79589f0e1838f41a79731fd42a2895b9bac5cd5",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_566",
+        "split_group": "sh17_p5668846"
+      },
+      {
+        "id": "sh17_p5973994",
+        "output_file": "images/sh17_p5973994.png",
+        "output_sha256": "d8e551a0441abf0b9c39f545990d67e2ae21ded47420026c84124ff278be12b8",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_597",
+        "split_group": "sh17_p5973994"
+      },
+      {
+        "id": "sh17_p5974275",
+        "output_file": "images/sh17_p5974275.png",
+        "output_sha256": "4ec3e8228771fc88b343b2d1633d14babd52bb4186b47efd81e64427af3ab8b7",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_597",
+        "split_group": "sh17_p5973994"
+      },
+      {
+        "id": "sh17_p5998474",
+        "output_file": "images/sh17_p5998474.png",
+        "output_sha256": "d476b132b89d265b39cefa6ae19cec641ef41fd7fdbf59095022c85acb681f69",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_599",
+        "split_group": "sh17_p5998474"
+      },
+      {
+        "id": "sh17_p6169857",
+        "output_file": "images/sh17_p6169857.png",
+        "output_sha256": "718b69011797397a2b43e56dcac9dc12b70de4b57bc4050239725ad8320195e6",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_616",
+        "split_group": "sh17_p6169857"
+      },
+      {
+        "id": "sh17_p6248948",
+        "output_file": "images/sh17_p6248948.png",
+        "output_sha256": "4de4ff82de2f46ebd736b94a995ccb90ce02121009aecb79d7b08eb798cff57e",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_624",
+        "split_group": "sh17_p6248948"
+      },
+      {
+        "id": "sh17_p6850465",
+        "output_file": "images/sh17_p6850465.png",
+        "output_sha256": "9bd37120f76ca70c115f4e29c138e59dda96b85824d26aab850d184a92255108",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_685",
+        "split_group": "sh17_p6850465"
+      },
+      {
+        "id": "sh17_p7180966",
+        "output_file": "images/sh17_p7180966.png",
+        "output_sha256": "bd06bcf4d8f9ab57d067fcc8fb4f38fd9aa3b04e97ccadb9201d3c72dcc8ec7f",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_718",
+        "split_group": "sh17_p7180966"
+      },
+      {
+        "id": "sh17_p7904478",
+        "output_file": "images/sh17_p7904478.png",
+        "output_sha256": "a68bde2020f898130ee1536b62e8cd45dcdeedbbf5fafb6d09948f9ef5106ea6",
+        "label": "wearing_goggles",
+        "source_group": "sh17_photo_series_790",
+        "split_group": "sh17_p7904478"
+      },
+      {
+        "id": "sh17_p8101646",
+        "output_file": "images/sh17_p8101646.png",
+        "output_sha256": "e89ddc1d24c4cbc1586c75579907671e1a9d0dbfdd375735fa56a296979b3a9e",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_810",
+        "split_group": "sh17_p8101646"
+      },
+      {
+        "id": "sh17_p8538696",
+        "output_file": "images/sh17_p8538696.png",
+        "output_sha256": "65f68bb649e6c0e4a89958ba4c8d40ad259c9be12b7caaade9b15deef38f09d4",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_853",
+        "split_group": "sh17_p8538696"
+      },
+      {
+        "id": "sh17_p8821022",
+        "output_file": "images/sh17_p8821022.png",
+        "output_sha256": "226e141e1a13d04fc65c601db9553cd563522de77d87dfee911e7edb2c40d23d",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_882",
+        "split_group": "sh17_p8821022"
+      },
+      {
+        "id": "sh17_p8853538",
+        "output_file": "images/sh17_p8853538.png",
+        "output_sha256": "374d9ac118bfeb10325325c56e2c78b271ccd0f0286440caa2cc60bb17054f02",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_885",
+        "split_group": "sh17_p8853538"
+      },
+      {
+        "id": "sh17_p8942110",
+        "output_file": "images/sh17_p8942110.png",
+        "output_sha256": "7e1e7ce9d19f8de9545ed6b59f7f020d50fd89411a0d068380b724ab49cf152d",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_894",
+        "split_group": "sh17_p8942110"
+      },
+      {
+        "id": "sh17_p8961619",
+        "output_file": "images/sh17_p8961619.png",
+        "output_sha256": "0bdb49815e9fad96a2740264f545e4cd51d6737b04283f7674f11a92601a10ca",
+        "label": "wearing_goggles",
+        "source_group": "sh17_photo_series_896",
+        "split_group": "sh17_p8961619"
+      },
+      {
+        "id": "sh17_p8961695",
+        "output_file": "images/sh17_p8961695.png",
+        "output_sha256": "cc23fb558d274c31f1fba92855f18b59cff24c5cb267d229b58228d758cf0098",
+        "label": "wearing_goggles",
+        "source_group": "sh17_photo_series_896",
+        "split_group": "sh17_p8961619"
+      },
+      {
+        "id": "sh17_p8985607",
+        "output_file": "images/sh17_p8985607.png",
+        "output_sha256": "eaa1ed2574778ffa3d3c9d83a4224502d3c3a82961022058d2ee794ad90ca09c",
+        "label": "wearing_goggles",
+        "source_group": "sh17_photo_series_898",
+        "split_group": "sh17_p8985607"
+      },
+      {
+        "id": "sh17_p9363129",
+        "output_file": "images/sh17_p9363129.png",
+        "output_sha256": "35df738c3fe4f08f33ad802411795690f15cd263bf783711fac8cf59b26bbde5",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_936",
+        "split_group": "sh17_p9363129"
+      }
+    ],
+    "test": [
+      {
+        "id": "sh17_p1108101",
+        "output_file": "images/sh17_p1108101.png",
+        "output_sha256": "881f03b402b6629ab766c768604f208f25e698fefdb7badee1ac90c00da57b65",
+        "label": "wearing_goggles",
+        "source_group": "sh17_photo_series_110",
+        "split_group": "sh17_p1108101"
+      },
+      {
+        "id": "sh17_p12902859",
+        "output_file": "images/sh17_p12902859.png",
+        "output_sha256": "ccfee4102e9ae73974c063005b458b89b62b8e213c3b84dc44c5ac613df9b905",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_1290",
+        "split_group": "sh17_p12902859"
+      },
+      {
+        "id": "sh17_p16943669",
+        "output_file": "images/sh17_p16943669.png",
+        "output_sha256": "e39b842b16c91c82d3154da498c36e478858530718f2556d7085bf7b4de20b6d",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_1694",
+        "split_group": "sh17_p16943669"
+      },
+      {
+        "id": "sh17_p3760930",
+        "output_file": "images/sh17_p3760930.png",
+        "output_sha256": "d96bfa3a3f153a595af887dc1c3a11d2e64eb4144942833e0aa9d25ff9c82d2a",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_376",
+        "split_group": "sh17_p3760930"
+      },
+      {
+        "id": "sh17_p3846000",
+        "output_file": "images/sh17_p3846000.png",
+        "output_sha256": "a3a0dede17e8f133771df87e0f6420d11090b5b4cfc2658442b10b4aeaf79d8c",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_384",
+        "split_group": "sh17_p3846000"
+      },
+      {
+        "id": "sh17_p3869180",
+        "output_file": "images/sh17_p3869180.png",
+        "output_sha256": "0426fc6ea777822319b467e92e12a76a956686714b3ca620103946d8d9944be2",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_386",
+        "split_group": "sh17_p3869180"
+      },
+      {
+        "id": "sh17_p4489706",
+        "output_file": "images/sh17_p4489706.png",
+        "output_sha256": "ccb7dd36f329f1ab64faefc716191853ccd87ae5b7f5f96b09347ca4836b8f6a",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_448",
+        "split_group": "sh17_p4489706"
+      },
+      {
+        "id": "sh17_p4492080",
+        "output_file": "images/sh17_p4492080.png",
+        "output_sha256": "bbd44b1137dbccc20b704b49544fd651168fd4f5e82ec7c459fc3c46c1061385",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_449",
+        "split_group": "sh17_p4492080"
+      },
+      {
+        "id": "sh17_p5466163",
+        "output_file": "images/sh17_p5466163.png",
+        "output_sha256": "6eef5c8405ff84991e02a59202929ea356f2a086ea88493b1a8ca0f573c0b3bb",
+        "label": "wearing_goggles",
+        "source_group": "sh17_photo_series_546",
+        "split_group": "sh17_p5466163"
+      },
+      {
+        "id": "sh17_p5684437",
+        "output_file": "images/sh17_p5684437.png",
+        "output_sha256": "32cdc3a7db936d8f3dad85b8c87ac4b2f3d7198eda37c13854ae3191a919d270",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_568",
+        "split_group": "sh17_p5684437"
+      },
+      {
+        "id": "sh17_p5699499",
+        "output_file": "images/sh17_p5699499.png",
+        "output_sha256": "e4063db216dde6a5b1f1533b70f2439f3db373a53ad4e7f2df4d1e1deb8c3ec9",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_569",
+        "split_group": "sh17_p5699499"
+      },
+      {
+        "id": "sh17_p6197036",
+        "output_file": "images/sh17_p6197036.png",
+        "output_sha256": "cebc5a9013a777f459a743c523977951ae0c3d8eb2dec7ad21fc5c1023e4fef3",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_619",
+        "split_group": "sh17_p6197036"
+      },
+      {
+        "id": "sh17_p6205607",
+        "output_file": "images/sh17_p6205607.png",
+        "output_sha256": "3542aee8e999d8c7a7406f9be84b9d536f60e8829125c42b27e163e3c1f31bbc",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_620",
+        "split_group": "sh17_p6205607"
+      },
+      {
+        "id": "sh17_p6766231",
+        "output_file": "images/sh17_p6766231.png",
+        "output_sha256": "2548edcaada5d779b7c90ecc7738172d878cbb5133452585110d3d7317e08adf",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_676",
+        "split_group": "sh17_p6766231"
+      },
+      {
+        "id": "sh17_p7550433",
+        "output_file": "images/sh17_p7550433.png",
+        "output_sha256": "3b938dbdbaed9b8d27a61dde58a0c66716874bbb2192ccd6a6b6a5cf5aafd1e2",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_755",
+        "split_group": "sh17_p7550433"
+      },
+      {
+        "id": "sh17_p7651922",
+        "output_file": "images/sh17_p7651922.png",
+        "output_sha256": "690e4f1b5f8eb900975eedce30f87ee9a74bb7d2b7322eb34d9a2c4fd50342ff",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_765",
+        "split_group": "sh17_p7651922"
+      },
+      {
+        "id": "sh17_p7652185",
+        "output_file": "images/sh17_p7652185.png",
+        "output_sha256": "e3d3c28536831b7421b2f960e7473847835e9f2f2dd2da8f87539389ff45915c",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_765",
+        "split_group": "sh17_p7651922"
+      },
+      {
+        "id": "sh17_p7728403",
+        "output_file": "images/sh17_p7728403.png",
+        "output_sha256": "34feb04f634a5ed9fbf6a827fb1621d29bfd378507a0df4e4a80fc8bcea13ead",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_772",
+        "split_group": "sh17_p7728403"
+      },
+      {
+        "id": "sh17_p7793697",
+        "output_file": "images/sh17_p7793697.png",
+        "output_sha256": "0e876784d53d2cf39f8886a5e46c44c976e81043fe083ab17d5915044b607606",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_779",
+        "split_group": "sh17_p7793697"
+      },
+      {
+        "id": "sh17_p7971199",
+        "output_file": "images/sh17_p7971199.png",
+        "output_sha256": "6856d9c56a82dac01d63b96442163fa1f6d00233b5185bc8bd11b07184c16591",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_797",
+        "split_group": "sh17_p7971199"
+      },
+      {
+        "id": "sh17_p8192188",
+        "output_file": "images/sh17_p8192188.png",
+        "output_sha256": "040ce68b600bd112e256c9541c779a60c2935d58ff6d7ac7270a8a1e63caac60",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_819",
+        "split_group": "sh17_p8192188"
+      },
+      {
+        "id": "sh17_p8278914",
+        "output_file": "images/sh17_p8278914.png",
+        "output_sha256": "c7f2c2b226b3c1a896a02471b9dfd0802e93fe9aa68e06cc14a79f36326b212b",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_827",
+        "split_group": "sh17_p8278914"
+      },
+      {
+        "id": "sh17_p8353786",
+        "output_file": "images/sh17_p8353786.png",
+        "output_sha256": "e7d2d5eec39f51c37de80f4adf790865771b4572965754bdf12b4cb0c3fdb2e3",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_835",
+        "split_group": "sh17_p8353786"
+      },
+      {
+        "id": "sh17_p8761657",
+        "output_file": "images/sh17_p8761657.png",
+        "output_sha256": "fa02ec3a1ce3ca120d3997fe551c35eb668e2c3ddb512cdc3a9a551123d33cf3",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_876",
+        "split_group": "sh17_p8761657"
+      },
+      {
+        "id": "sh17_p9062781",
+        "output_file": "images/sh17_p9062781.png",
+        "output_sha256": "f4349f6d42c6d904b9e55e20a20b3505f65296c3dee5fadc4e12c6176e4e83f0",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_906",
+        "split_group": "sh17_p9062781"
+      },
+      {
+        "id": "sh17_p9077353",
+        "output_file": "images/sh17_p9077353.png",
+        "output_sha256": "af942d55ba70564345fc4a746423114033b9d7ae6f7b79adf9a28123936a20f5",
+        "label": "not_wearing_goggles",
+        "source_group": "sh17_photo_series_907",
+        "split_group": "sh17_p9077353"
+      },
+      {
+        "id": "sh17_p9242803",
+        "output_file": "images/sh17_p9242803.png",
+        "output_sha256": "6cf58561eee2125cb6542875025fbeff02899c687d88ceac7914ade33e217d8d",
+        "label": "wearing_goggles",
+        "source_group": "sh17_photo_series_924",
+        "split_group": "sh17_p9242803"
+      },
+      {
+        "id": "sh17_p9242855",
+        "output_file": "images/sh17_p9242855.png",
+        "output_sha256": "b40bd2e343ae7f493cf8ecf25e67b5dcf90a0a610de9e84b35c4b51b8a85003e",
+        "label": "wearing_goggles",
+        "source_group": "sh17_photo_series_924",
+        "split_group": "sh17_p9242803"
+      },
+      {
+        "id": "sh17_p9350386",
+        "output_file": "images/sh17_p9350386.png",
+        "output_sha256": "767ad9de897e9a345114fc2cf99f84ab5bb431412a155e46a423f4faf87957b0",
+        "label": "wearing_goggles",
+        "source_group": "sh17_photo_series_935",
+        "split_group": "sh17_p9350386"
+      }
+    ]
+  }
+}

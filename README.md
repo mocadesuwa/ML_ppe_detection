@@ -1,51 +1,46 @@
 # 实验室护目镜佩戴识别
 
-机器学习课程实践项目：对**静态头部裁剪头像**识别护目镜佩戴情况。是否需要位置框仍待确认，最终分类/目标检测路线、类别及裁剪细则见[需求清单](docs/goggles_requirements.md)。
+机器学习课程实践项目：对**静态头部裁剪头像进行二分类**，只输出佩戴状态，不输出位置框。用户已确认：防护镜正确覆盖眼部为佩戴；普通眼镜、太阳镜、额头佩戴为未佩戴；无法判断的排除。
 
-当前是**头像数据准备版**：已支持显式头部框裁剪、逐像素完整性核查和按来源组生成划分计划，保留哈希追溯。2026-10-22已检索候选来源并获取100张PPEs v7原图及原标注，作为待复核小样本，详见[数据选择记录](docs/data_selection.md)。尚无训练就绪的护目镜头像数据、训练模型或指标。图片入口目前保留检测后端，最终模型尚未确定。
+当前已完成**小样本训练前准备**，尚未训练。180张候选原图复核226个对象，最终保留191张头像：佩戴46、未佩戴145。固定来源组划分为训练133、验证29、测试29，详见[数据处理方案](docs/data_processing_plan.md)和[训练前状态](docs/pretraining_status.json)。
 
-## 当前目录
+| 集合 | 未佩戴 | 佩戴 | 合计 |
+| --- | ---: | ---: | ---: |
+| train | 97 | 36 | 133 |
+| val | 24 | 5 | 29 |
+| test | 24 | 5 | 29 |
 
-| 位置 | 用途 |
-| --- | --- |
-| [src/](src/) | 本地数据导入、显式类别源数据核查、数据准备、训练/评价与图片预测 |
-| [scripts/](scripts/) | 相似图片候选与无梯度预检，须显式指定输入 |
-| [configs/](configs/README.md) | 护目镜配置位置，任务契约明确后建立 |
-| [tests/](tests/) | 使用中性标签、临时合成数据和假模型的通用回归 |
-| [docs/framework_review.md](docs/framework_review.md) | 当前代码职责和图片结果格式 |
-| [docs/goggles_baseline.md](docs/goggles_baseline.md) | 护目镜第一版实施方案与待确认项 |
-| [docs/head_crops.md](docs/head_crops.md) | 头像裁剪、只读核查、分组划分计划与来源记录 |
-| [docs/data_selection.md](docs/data_selection.md) | 护目镜数据选择、头像和划分规则 |
-| [docs/experiment_record.md](docs/experiment_record.md) | 护目镜实验记录模板，未填写实测结果 |
+所有工厂连续帧保持同组进入训练集；训练集也包含SH17的两类样本。验证、测试使用其他SH17来源组，显式来源组跨集合为0。每个评价集只有5个正例，这是小样本准备版，未证明护目镜识别效果或人员完全独立。
 
-每轮操作记录见[独立日志](docs/change_logs/README.md)，版本摘要见[CHANGELOG](CHANGELOG.md)。历史记录用于审计，当前实现以本页和需求文档为准。
-
-## 基础入口
-
-在项目根目录使用已有依赖的系统Python：
+## 当前入口
 
 ```powershell
 python tests/run_regression.py
-python -m src.import_data --help
-python -m src.source_review --help
-python -m src.prepare_head_crops --help
-python -m src.check_head_crops --help
-python -m src.split_head_crops --help
-python -m src.predict --help
+python -m src.classification_data check --data dataset/goggles/classification_v2_20261022
+python -m src.train_classification --config configs/goggles_classification_v1.yaml --dry-run
 ```
 
-数据导入只接受显式提供的本地ZIP和来源记录，不联网。源数据核查须显式提供类别；图片预测只接受JPG/JPEG、PNG、BMP和静态WebP，逐张处理，不递归目录。详细参数查看各入口的`--help`。
+分类训练入口默认只核查并打印计划，真实训练必须另外显式提供`--start`，且要求当前配置、数据和初始权重已有匹配的预检报告。**本轮没有调用`--start`**，没有梯度更新、训练权重或效果指标。已有`src.train`、`src.evaluate`、`src.predict`是通用检测后端，不用于本次头像分类。
 
-运行无模型的合成头像演示（使用新目录名）：
+需要重新做无梯度检查时使用已有虚拟环境和新的证据目录：
 
 ```powershell
-python -X utf8 scripts/demo_head_crops.py --output .cache/head_crop_demo
+.venv/Scripts/python.exe -X utf8 scripts/preflight_classification.py --config configs/goggles_classification_v1.yaml --output results/preflight_goggles_v1_recheck
 ```
 
-2026-10-14的177项累计回归通过。当天真实命令行用12张合成头像验证完整性核查、dry-run和固定分组划分：6组分为8/2/2张，来源组跨集合为0。演示与测试使用合成图像和中性标签，不能当作护目镜识别效果；本轮未修改程序，未重复运行该回归。
+本轮实际使用RTX 3060 Laptop GPU运行16张训练头像的前向，输入16×3×224×224、输出16×2，包含两个类别；参数和缓冲区保持不变，梯度更新0，未构建优化器。189项累计回归通过。训练内存、反向传播、实际训练入口的拟合和最终测试指标未运行。
 
-核查入口只读，分组入口仅发布绑定头像指纹的计划，不生成模型专用标注；缺失标签、重复头像标签冲突或独立来源组不足时会报错。两个入口均保留人工核查未完成状态，详细规则见[头像准备接口](docs/head_crops.md)。
+## 文件与数据
 
-当前仍需明确位置框、类别含义、头像来源与裁剪规则。首批100张只保留上游对象标注，未转换为头像标签，未裁剪、重标注或划分；抽查发现眼镜类型疑难和重复场景，不能直接作为实验室护目镜训练真值。原图及本地核查材料在Git忽略的`dataset/goggles/`中；来源、哈希和核查摘要可追溯。本轮不训练；需要新增依赖时按用户要求安装在项目虚拟环境中，本次未安装。
+| 位置 | 用途 |
+| --- | --- |
+| [docs/data_processing_plan.md](docs/data_processing_plan.md) | 已执行的清洗、标签、裁剪、来源组、划分和训练前方案 |
+| [docs/pretraining_status.json](docs/pretraining_status.json) | 本轮计数、指纹、实际预检和限制摘要 |
+| [configs/goggles_classification_v1.yaml](configs/goggles_classification_v1.yaml) | 当前分类数据、初始权重、训练参数与预检绑定 |
+| [docs/data_sources/](docs/data_sources/) | 原始来源、逐对象决定、显式裁剪计划和质量记录 |
+| [docs/head_crops.md](docs/head_crops.md) | 通用显式头像裁剪与完整性核查接口 |
+| [docs/framework_review.md](docs/framework_review.md) | 当前程序职责与训练边界 |
 
-远程同步沿用用户授权，仅提交代码与文档，不上传真实头像、原图或权重；保留独立提交、日志和初版标签`v0.1.0`。这不表示完整模型已完成。本轮结果见[小样本数据日志](docs/change_logs/2026-10-22-01-small-dataset-research.md)，前轮程序验证见[第05轮日志](docs/change_logs/2026-10-14-05-head-integrity-splits.md)。
+本地正式数据为`dataset/goggles/classification_v2_20261022/`，对应头像`heads_v2_20261022/`和划分`splits_v2_20261022/`。原图、头像、中间预览、完整运行报告、缓存和权重均被Git忽略；只同步代码、配置、来源哈希与文档。v1试裁剪/初始划分保留为中间审计证据，不是当前训练数据。
+
+本轮无需安装依赖；新增依赖按用户要求仅安装到项目虚拟环境。独立记录见[本轮日志](docs/change_logs/2026-10-22-02-data-preparation-pretraining.md)，版本摘要见[CHANGELOG](CHANGELOG.md)。保留独立提交和初版标签`v0.1.0`，按已有授权普通push同步GitHub。

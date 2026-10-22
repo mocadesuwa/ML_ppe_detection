@@ -1,0 +1,100 @@
+{
+  "format_version": 1,
+  "status": "ready_before_training",
+  "training_started": false,
+  "gradient_updates": 0,
+  "raw_images": 180,
+  "candidate_objects": 226,
+  "accepted_heads": 191,
+  "excluded_objects": 35,
+  "classes": [
+    "not_wearing_goggles",
+    "wearing_goggles"
+  ],
+  "label_counts": {
+    "not_wearing_goggles": 145,
+    "wearing_goggles": 46
+  },
+  "split_counts": {
+    "train": {
+      "not_wearing_goggles": 97,
+      "wearing_goggles": 36
+    },
+    "val": {
+      "not_wearing_goggles": 24,
+      "wearing_goggles": 5
+    },
+    "test": {
+      "wearing_goggles": 5,
+      "not_wearing_goggles": 24
+    }
+  },
+  "source_domain_counts": {
+    "train": {
+      "PPEs_v7": {
+        "not_wearing_goggles": 88,
+        "wearing_goggles": 32
+      },
+      "SH17_v1": {
+        "not_wearing_goggles": 9,
+        "wearing_goggles": 4
+      }
+    },
+    "val": {
+      "SH17_v1": {
+        "not_wearing_goggles": 24,
+        "wearing_goggles": 5
+      }
+    },
+    "test": {
+      "SH17_v1": {
+        "wearing_goggles": 5,
+        "not_wearing_goggles": 24
+      }
+    }
+  },
+  "source_group_cross_split_count": 0,
+  "cross_group_dhash_le3_or_phash_le6_candidate_pairs": 0,
+  "dataset_fingerprint": "b9176dd923d011a63f7373e126d0997f9959c2e324debc20117140013250e7af",
+  "crop_fingerprint": "6dd6e6dee0908fc7f837bca0302b67af86e411e7f691c21a75c9464d5f6b657e",
+  "config_sha256": "684930141a23062fd25c4d718302d5f0dc9dab91259910999253ff84737b8517",
+  "initial_weights_sha256": "047dcff4addef86ea5bc2eff13c9614dc11f47ab1160d0a71a25e7db994f4e1f",
+  "input_shape": [
+    16,
+    3,
+    224,
+    224
+  ],
+  "output_shape": [
+    16,
+    2
+  ],
+  "device": "cuda:0",
+  "inference_peak_allocated_mib": 54.7158203125,
+  "parameters_and_buffers_unchanged": true,
+  "optimizer_constructed": false,
+  "training_transform_checked": true,
+  "both_classes_in_preflight_batch": true,
+  "validation_or_test_model_forward": false,
+  "class_weights_from_train_only": [
+    0.6855670103092784,
+    1.8472222222222223
+  ],
+  "regression_tests": 189,
+  "regression_result": "PASS",
+  "default_training_entry_plans_only": true,
+  "matching_preflight_gate_verified_without_start": true,
+  "training_entry": "python -m src.train_classification --config configs/goggles_classification_v1.yaml --dry-run",
+  "final_data_directory": "dataset/goggles/classification_v2_20261022",
+  "final_head_directory": "dataset/goggles/heads_v2_20261022",
+  "final_split_plan": "dataset/goggles/splits_v2_20261022/splits_manifest.json",
+  "preflight_local_report": "results/preflight_goggles_v1/report.json",
+  "limitations": [
+    "Assistant visual review, no independent second annotator agreement study.",
+    "Each validation/test split has only 5 positives; this is a small pilot dataset.",
+    "PPEs factory frames stay together in training; held-out sets use independent SH17 source families.",
+    "No biometric identity verification; unavailable original identity/photographer relationships remain uncertain.",
+    "No training, backward pass, optimizer step, learned goggles checkpoint, accuracy or test metrics; inference memory does not establish training memory."
+  ],
+  "explicit_reviewed_source_groups": 65
+}
