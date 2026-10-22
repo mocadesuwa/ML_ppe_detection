@@ -1,5 +1,6 @@
 task: classification
 model: mobilenet_v3_small
+mode: baseline
 data: dataset/goggles/classification_v2_20261022
 dataset_fingerprint: b9176dd923d011a63f7373e126d0997f9959c2e324debc20117140013250e7af
 classes:
@@ -19,6 +20,6 @@ lr: 0.0003
 weight_decay: 0.0001
 class_weighting: inverse_train_frequency
 workers: 0
-preflight: results/preflight_goggles_v1/report.json
+preflight: results/preflight_goggles_v2/report.json
 project: results/classification
 name: goggles_v1_baseline

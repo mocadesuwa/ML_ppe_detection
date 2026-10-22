@@ -14,6 +14,9 @@
 | `src/split_head_crops.py` | 显式标签、同源/重复头像合组、可复现划分计划，不生成模型格式 |
 | `src/classification_data.py` | 显式审查/来源域绑定、ImageFolder导出、冻结目录/哈希/标签/同源跨集合核查 |
 | `src/train_classification.py` | 当前分类训练计划；默认/`--dry-run`不训练，`--start`额外检查匹配预检后才构建训练模型/优化器 |
+| `src/classification_model.py` | 分类检查点契约、完成运行/最佳权重绑定、两类指标与概率输出检查 |
+| `src/evaluate_classification.py` | 分类验证/最终测试、逐图分数与错误记录，最终测试仅允许完成的基线且防止重复尝试 |
+| `src/predict_classification.py` | 已裁剪静态头像的类别预测，逐图JSONL与输入/权重完整性检查 |
 | `src/prepare_dataset.py` | VOC到YOLO转换、去重、来源分组与固定划分 |
 | `src/check_dataset.py` | 检测标签、清单和划分校验，生成标注抽查拼图 |
 | `src/review_dataset.py` | 记录实际人工核查并绑定数据指纹 |
@@ -27,6 +30,8 @@
 | `scripts/demo_head_crops.py` | 纯合成头像流程演示，不生成业务标签或训练数据 |
 
 当前护目镜使用独立分类路径，不强行把头像标签转换为检测框。既有VOC/YOLO转换、`src.train`、`src.evaluate`、`src.predict`保留通用检测约束，不用于本次头像分类。当前真实分类训练/评价尚未执行，不能把旧后端当作护目镜模型成果。
+
+用户最新授权按[分类训练流程](classification_training_workflow.md)推进：先短跑验证真实更新、冻结骨干与检查点重载，再执行基线，最后一次冻结测试。分类入口已补齐，损失日志按类别权重分母累计；新增回归与真实运行证据分别记录，不把入口存在视为运行通过。
 
 ## 当前分类路径
 
