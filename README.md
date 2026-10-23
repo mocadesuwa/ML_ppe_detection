@@ -14,7 +14,7 @@
 | val | 38 | 9 | 47 |
 | 新test | 18 | 6 | 24 |
 
-2026-10-23继续推进[类别与来源联合均衡对照](docs/goggles_joint_sampling_plan.md)，以解决仅按来源组抽样降低正例占比的问题；当前模型仍是v2_control，第三轮结果完成后单独记录。
+2026-10-23已完成[类别与来源联合均衡对照](docs/goggles_joint_sampling_report.md)：短跑26次更新后，唯一候选运行10轮130次更新；验证macro-F1为0.8321、佩戴Recall55.56%，低于原方案的0.8494、66.67%，继续保留v2_control。另逐图核查100张新来源，因眼镜语义不符及重复/增强问题未并入；原数据和两组测试继续冻结，本轮没有新的独立测试结果。
 
 所有工厂连续帧保持同组进入训练集；训练集也包含SH17的两类样本。训练来源组增至72，佩戴样本覆盖8组；新test有20组，6个佩戴样本来自4组。已知来源组无交叉，新test与旧全部191张在ID、分组、原图/头像字节及像素上无已知重叠；未知人物/摄影者关系仍有限制。
 
@@ -53,6 +53,7 @@ python -m src.train_classification --config configs/goggles_classification_v2_co
 | [docs/goggles_training_report.md](docs/goggles_training_report.md) | 第一轮基线及旧29张测试结果，保留历史 |
 | [docs/goggles_improvement_report.md](docs/goggles_improvement_report.md) | 第二轮三组对照、选模、相同新测试的比较与取舍 |
 | [docs/goggles_improvement_status.json](docs/goggles_improvement_status.json) | 当前运行、最佳权重、指标与完整证据SHA摘要 |
+| [docs/goggles_joint_sampling_report.md](docs/goggles_joint_sampling_report.md) | 第三轮未入选的对照结果与新来源筛除原因 |
 | [configs/goggles_classification_v2_control.yaml](configs/goggles_classification_v2_control.yaml) | 当前选定方案的数据、初始权重、参数与匹配预检 |
 | [docs/data_sources/](docs/data_sources/) | 原始来源、逐对象决定、显式裁剪计划和质量记录 |
 | [docs/head_crops.md](docs/head_crops.md) | 通用显式头像裁剪与完整性核查接口 |

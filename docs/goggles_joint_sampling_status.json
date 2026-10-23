@@ -1,0 +1,128 @@
+{
+  "format_version": 1,
+  "recorded_at": "2026-10-23T15:57:01.944228+00:00",
+  "status": "bounded_round_complete",
+  "source_code_commit": "b2cd009",
+  "dataset_fingerprint": "5859b079a61f07f9436f5a7c75383d9c8854fe73fb98c0211cb4045643ae550c",
+  "selected_by_validation": "control",
+  "current_released_model": "goggles_v2_control",
+  "test_result_is_still_the_prior_frozen_report": true,
+  "control_validation": {
+    "image_count": 47,
+    "accuracy": 0.9148936170212766,
+    "macro_f1": 0.8493589743589743,
+    "per_class": [
+      {
+        "class_id": 0,
+        "name": "not_wearing_goggles",
+        "support": 38,
+        "precision": 0.925,
+        "recall": 0.9736842105263158,
+        "f1": 0.9487179487179487
+      },
+      {
+        "class_id": 1,
+        "name": "wearing_goggles",
+        "support": 9,
+        "precision": 0.8571428571428571,
+        "recall": 0.6666666666666666,
+        "f1": 0.75
+      }
+    ],
+    "confusion_matrix": [
+      [
+        37,
+        1
+      ],
+      [
+        3,
+        6
+      ]
+    ],
+    "confusion_matrix_axes": "rows=true, columns=predicted",
+    "zero_division": 0
+  },
+  "joint_validation": {
+    "image_count": 47,
+    "accuracy": 0.9148936170212766,
+    "macro_f1": 0.8321428571428571,
+    "per_class": [
+      {
+        "class_id": 0,
+        "name": "not_wearing_goggles",
+        "support": 38,
+        "precision": 0.9047619047619048,
+        "recall": 1.0,
+        "f1": 0.95
+      },
+      {
+        "class_id": 1,
+        "name": "wearing_goggles",
+        "support": 9,
+        "precision": 1.0,
+        "recall": 0.5555555555555556,
+        "f1": 0.7142857142857143
+      }
+    ],
+    "confusion_matrix": [
+      [
+        38,
+        0
+      ],
+      [
+        4,
+        5
+      ]
+    ],
+    "confusion_matrix_axes": "rows=true, columns=predicted",
+    "zero_division": 0
+  },
+  "joint_run": {
+    "best_epoch": 2,
+    "gradient_updates": 130,
+    "frozen_features_unchanged": true,
+    "classifier_updated": true,
+    "checkpoint_reload_verified": true,
+    "elapsed_seconds": 387.56012430000555,
+    "peak_allocated_mib": 76.5322265625,
+    "best_weights_sha256": "9bb3dc55d7bc314ffb971121000f5fd37e79ce60f05a20db7278d228a972312a"
+  },
+  "joint_epochs": 10,
+  "smoke_updates": 26,
+  "training_started": true,
+  "new_test_evaluated": false,
+  "old_tests_repeated": false,
+  "old_artifacts_unchanged": true,
+  "old_artifact_count": 33,
+  "new_source": {
+    "original_images": 100,
+    "original_image_bytes": 15695007,
+    "candidate_counts": {
+      "excluded": 54,
+      "not_wearing_goggles": 44,
+      "wearing_goggles": 2
+    },
+    "rooftop_sequence_candidates": 52,
+    "adopted_for_training_or_test": false
+  },
+  "evidence_sha256": {
+    "docs/goggles_joint_sampling_protocol.json": "552265da6f8c709e101b97a3616669c35e0c721ef6bc490c322592a442d12ed0",
+    "docs/goggles_joint_sampling_selection.json": "ceab2f01b23d2d983cea4c8ac071779d2be81e949ea13ab31d0f077d4bf3dcec",
+    "configs/goggles_classification_v3_joint.yaml": "92edee67c9cea09c9437a848f3e3989c76839ee7af5623dd32b9767c64077a65",
+    "configs/goggles_classification_v3_joint_smoke.yaml": "217e3ef99b52069429567b1926876ca00438703c7ac1e449fc7f91110b357e79",
+    "results/classification/goggles_v3_joint/experiment.json": "3e479292bf5dc3e051b39fc2aaec454eb6ee4feb21d78d48b532b8a52d40d3e7",
+    "results/classification/goggles_v3_joint/best.pt": "9bb3dc55d7bc314ffb971121000f5fd37e79ce60f05a20db7278d228a972312a",
+    "results/classification/goggles_v3_joint_smoke/experiment.json": "04a4502546ff065008eb60d037a9456fa8f27474210dc6ad85cc791287887218",
+    "results/classification/goggles_v3_joint_smoke/best.pt": "15a018e8ff2f25ebf87e621c2c94b40c0312e30d57a21350f69209fc6f99bcc7",
+    "results/preflight_goggles_v3_joint/report.json": "cadb2a88d0ae986e4e27d1e6dbdb14e45d3166b3efd2e2fdda6d62afb6f393c8",
+    "results/preflight_goggles_v3_joint_smoke/report.json": "5b95ebb451918dc55f859145dad01900f5cef7325ee2823e8bf17e5d008032b5",
+    "docs/data_sources/construction_ppe_review_100_20261023.json": "451aa6f9c0df3dde23e1a728e119befce4139f6c39981306278a259d7c5c57a4",
+    "docs/data_sources/construction_ppe_state_review_20261023.json": "af2d2e45111b828c3ecf9db4d0919c572edffe2562ba0427fa1e607788cf8481"
+  },
+  "gradient_or_dependency_install_not_implied_by_regression": true,
+  "limitations": [
+    "Validation only; no new independent held-out accuracy or recall claim.",
+    "Only 9 validation positives; no second annotator or actual laboratory data.",
+    "No more seeds, thresholds or parameter trials this round."
+  ]
+}

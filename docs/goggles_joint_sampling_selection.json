@@ -1,0 +1,81 @@
+{
+  "format_version": 1,
+  "selected_at": "2026-10-23T15:57:01.943036+00:00",
+  "source_code_commit": "b2cd009",
+  "protocol_sha256": "552265da6f8c709e101b97a3616669c35e0c721ef6bc490c322592a442d12ed0",
+  "selection_rule": "Keep control unless joint best-epoch validation macro-F1 is higher (or equal with higher wearing recall) and wearing recall is not below control. No extra seeds, hyperparameter trials or threshold changes this round.",
+  "selected_by_validation": "control",
+  "new_candidate_selected": false,
+  "old_validation": {
+    "epoch": 3,
+    "train_loss": 0.412223884452295,
+    "val_loss": 0.34649095636733035,
+    "val_accuracy": 0.9148936170212766,
+    "val_macro_f1": 0.8493589743589743,
+    "val_confusion_matrix": [
+      [
+        37,
+        1
+      ],
+      [
+        3,
+        6
+      ]
+    ],
+    "val_per_class": [
+      {
+        "class_id": 0,
+        "name": "not_wearing_goggles",
+        "support": 38,
+        "precision": 0.925,
+        "recall": 0.9736842105263158,
+        "f1": 0.9487179487179487
+      },
+      {
+        "class_id": 1,
+        "name": "wearing_goggles",
+        "support": 9,
+        "precision": 0.8571428571428571,
+        "recall": 0.6666666666666666,
+        "f1": 0.75
+      }
+    ]
+  },
+  "joint_validation": {
+    "epoch": 2,
+    "train_loss": 0.35268986084271425,
+    "val_loss": 0.31443341234897043,
+    "val_accuracy": 0.9148936170212766,
+    "val_macro_f1": 0.8321428571428571,
+    "val_confusion_matrix": [
+      [
+        38,
+        0
+      ],
+      [
+        4,
+        5
+      ]
+    ],
+    "val_per_class": [
+      {
+        "class_id": 0,
+        "name": "not_wearing_goggles",
+        "support": 38,
+        "precision": 0.9047619047619048,
+        "recall": 1.0,
+        "f1": 0.95
+      },
+      {
+        "class_id": 1,
+        "name": "wearing_goggles",
+        "support": 9,
+        "precision": 1.0,
+        "recall": 0.5555555555555556,
+        "f1": 0.7142857142857143
+      }
+    ]
+  },
+  "no_test_forward_for_selection": true,
+  "fresh_test_not_run": "New source review failed to provide a sufficiently independent, well-defined two-class evaluation set."
+}

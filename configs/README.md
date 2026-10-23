@@ -10,14 +10,14 @@
 | [v2_smoke](goggles_classification_v2_smoke.yaml) | 第二轮两轮短跑，验证更新、冻结与重载 | v3，272张 |
 | [v1](goggles_classification_v1.yaml) | 第一轮基线，保留模型来源和旧评价绑定 | v2，191张 |
 | [smoke_v1](goggles_classification_smoke_v1.yaml) | 第一轮短跑历史记录 | v2，191张 |
-| [v3_joint](goggles_classification_v3_joint.yaml) | 第三轮联合类别/来源组均衡候选，尚待按验证规则决定 | 原v3，272张 |
-| [v3_joint_smoke](goggles_classification_v3_joint_smoke.yaml) | 第三轮联合均衡两轮短跑 | 原v3，272张 |
+| [v3_joint](goggles_classification_v3_joint.yaml) | 第三轮联合均衡对照已完成，验证未入选，当前仍选control | 原v3，272张 |
+| [v3_joint_smoke](goggles_classification_v3_joint_smoke.yaml) | 第三轮两轮短跑已通过26次更新及冻结/重载检查 | 原v3，272张 |
 
 ```powershell
 python -m src.classification_data check --data dataset/goggles/classification_v3_20261022
 python -m src.train_classification --config configs/goggles_classification_v2_control.yaml --dry-run
 ```
 
-分类训练入口默认与`--dry-run`均只检查和打印计划。真实训练必须显式提供`--start`并通过匹配预检；前两轮实验已完成，第三轮按[锁定方案](../docs/goggles_joint_sampling_plan.md)推进。输出目录不能覆盖，新实验需新配置、新预检和新的独立保留评价。
+分类训练入口默认与`--dry-run`均只检查和打印计划。真实训练必须显式提供`--start`并通过匹配预检；三轮实验均已完成，第三轮未替换control，详见[实际结果](../docs/goggles_joint_sampling_report.md)。输出目录不能覆盖，新实验需新配置、新预检和新的独立保留评价。
 
 [head_crops.example.json](head_crops.example.json)是显式头像框格式示例，中性标签仅供演示。当前实际框见[头像清单v3](../docs/data_sources/goggles_v3_head_plan.json)，审核见[v3质量记录](../docs/data_sources/goggles_v3_quality_review.json)；二者均绑定冻结数据。来源图像、头像、划分目录及权重只在本地，未随Git提交。
