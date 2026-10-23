@@ -11,6 +11,36 @@ MODEL = "mobilenet_v3_small"
 PREPROCESSING = "head_pad224_imagenet_v1"
 
 
+def feature_blocks_to_train(plan: dict) -> int:
+    if not isinstance(plan, dict):
+        raise ValueError("Training scope must be an object")
+    blocks = plan.get("train_last_blocks", 0)
+    if type(blocks) is not int or not 0 <= blocks <= 12:
+        raise ValueError("train_last_blocks must be an integer from 0 to 12; the feature stem stays frozen")
+    if plan.get("freeze_backbone") is not (blocks == 0):
+        raise ValueError("freeze_backbone must agree with train_last_blocks")
+    return blocks
+
+
+def configure_trainable_features(network, blocks: int) -> None:
+    if type(blocks) is not int or not 0 <= blocks < len(network.features):
+        raise ValueError("Keep at least one feature block frozen")
+    network.features.requires_grad_(False)
+    if blocks:
+        network.features[-blocks:].requires_grad_(True)
+    network.classifier.requires_grad_(True)
+    network.features.eval()  # Autograd remains enabled for the tail; BatchNorm statistics stay fixed.
+
+
+def feature_buffers_hash(network) -> str:
+    import hashlib
+    digest = hashlib.sha256()
+    for name, tensor in network.named_buffers():
+        digest.update(name.encode("utf-8"))
+        digest.update(tensor.detach().cpu().numpy().tobytes())
+    return digest.hexdigest()
+
+
 def classification_metrics(matrix: list[list[int]], classes: list[str]) -> dict:
     size = len(classes)
     if (not size or len(matrix) != size or any(len(row) != size for row in matrix)
@@ -50,10 +80,23 @@ def validate_checkpoint_metadata(checkpoint: dict, classes: list[str] | None = N
 
 def completed_training_record(weights: Path) -> dict:
     record = read_json(weights.parent / "experiment.json")
+    strategy = record.get("training_strategy", "head_only")
+    if strategy == "head_only":
+        parameters = record.get("parameters", {})
+        scope_verified = (record.get("frozen_features_unchanged") is True
+                          and isinstance(parameters, dict) and parameters.get("train_last_blocks", 0) == 0
+                          and parameters.get("freeze_backbone", True) is True)
+    elif strategy == "partial_finetune":
+        blocks = feature_blocks_to_train(record.get("parameters", {}))
+        scope_verified = (blocks > 0 and record.get("frozen_features_unchanged") is False
+                          and all(record.get(key) is True for key in ("frozen_feature_prefix_unchanged",
+                                  "trainable_features_updated", "feature_buffers_unchanged")))
+    else:
+        scope_verified = False
     if (record.get("task") != "classification" or record.get("status") != "complete"
             or record.get("mode") not in ("smoke", "baseline") or weights.name != "best.pt"
             or record.get("best_weights_sha256") != sha256(weights)
-            or not record.get("checkpoint_reload_verified") or not record.get("frozen_features_unchanged")
+            or not record.get("checkpoint_reload_verified") or not scope_verified
             or not record.get("classifier_updated")):
         raise ValueError("Weights must match the verified best checkpoint of a completed classifier run")
     return record

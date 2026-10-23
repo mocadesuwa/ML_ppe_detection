@@ -11,6 +11,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from src.classification_data import inspect_dataset
 from src.common import load_yaml, local_caches, project_path, select_device, sha256, utc_now, write_json
 from src.environment import inspect_environment
+from src.classification_model import completed_training_record, configure_trainable_features, feature_blocks_to_train, load_classifier
 
 
 def validate_runtime_plan(path: Path) -> tuple[dict, dict]:
@@ -23,8 +24,9 @@ def validate_runtime_plan(path: Path) -> tuple[dict, dict]:
     for name in ("imgsz", "batch", "seed"):
         if type(plan[name]) is not int or plan[name] < (0 if name == "seed" else 1):
             raise ValueError(f"Invalid integer parameter: {name}")
-    if plan["imgsz"] != 224 or plan.get("freeze_backbone") is not True:
-        raise ValueError("The reviewed plan uses 224px inputs and a frozen feature backbone")
+    blocks = feature_blocks_to_train(plan)
+    if plan["imgsz"] != 224:
+        raise ValueError("The reviewed plan uses 224px inputs")
     plan["data"] = str(project_path(plan["data"]))
     plan["weights"] = str(project_path(plan["weights"]))
     checked = inspect_dataset(Path(plan["data"]))
@@ -36,6 +38,19 @@ def validate_runtime_plan(path: Path) -> tuple[dict, dict]:
         raise FileNotFoundError("Provide recorded local classification weights; preflight never downloads")
     if sha256(Path(plan["weights"])) != plan["weights_sha256"]:
         raise ValueError("Initial classification weights changed")
+    if blocks:
+        for key in ("init_checkpoint", "init_checkpoint_sha256"):
+            if not isinstance(plan.get(key), str) or not plan[key].strip():
+                raise ValueError(f"Partial fine-tuning requires explicit {key}")
+        plan["init_checkpoint"] = str(project_path(plan["init_checkpoint"]))
+        initial = Path(plan["init_checkpoint"])
+        parent = completed_training_record(initial)
+        if (sha256(initial) != plan["init_checkpoint_sha256"] or parent["mode"] != "baseline"
+                or parent.get("dataset_fingerprint") != checked["dataset_fingerprint"]
+                or parent.get("parameters", {}).get("classes") != plan["classes"]):
+            raise ValueError("Fine-tuning initializer must match a completed baseline and the same data/classes")
+    elif any(key in plan for key in ("init_checkpoint", "init_checkpoint_sha256", "backbone_lr", "max_grad_norm")):
+        raise ValueError("Fine-tuning options require train_last_blocks > 0")
     return plan, checked
 
 
@@ -97,11 +112,20 @@ def run(config: Path, output: Path) -> dict:
     if augmented.shape != (3, 224, 224) or not torch.isfinite(augmented).all():
         raise ValueError("Invalid training-only transform output")
     torch.manual_seed(plan["seed"])
-    network = mobilenet_v3_small(weights=None)
-    network.load_state_dict(torch.load(plan["weights"], map_location="cpu", weights_only=True), strict=True)
-    network.classifier[-1] = torch.nn.Linear(network.classifier[-1].in_features, len(mapping))
-    for parameter in network.features.parameters():
-        parameter.requires_grad_(False)
+    blocks = feature_blocks_to_train(plan)
+    initializer_digest = None
+    if blocks:
+        initial = Path(plan["init_checkpoint"])
+        parent = completed_training_record(initial)
+        initializer_digest = sha256(initial.parent / "experiment.json")
+        network, checkpoint = load_classifier(initial, "cpu", classes=plan["classes"], dataset_fingerprint=checked["dataset_fingerprint"])
+        if checkpoint.get("config_sha256") != parent["config_sha256"] or checkpoint.get("mode") != "baseline":
+            raise ValueError("Fine-tuning checkpoint metadata differs from its completed record")
+    else:
+        network = mobilenet_v3_small(weights=None)
+        network.load_state_dict(torch.load(plan["weights"], map_location="cpu", weights_only=True), strict=True)
+        network.classifier[-1] = torch.nn.Linear(network.classifier[-1].in_features, len(mapping))
+    configure_trainable_features(network, blocks)
     network.to(torch_device).eval()
     initial_state = state_hash(network)
     if torch_device != "cpu":
@@ -118,13 +142,18 @@ def run(config: Path, output: Path) -> dict:
     if (after["dataset_fingerprint"] != checked["dataset_fingerprint"]
             or sha256(Path(plan["weights"])) != plan["weights_sha256"] or sha256(config) != config_digest):
         raise RuntimeError("Data, weights or configuration changed during preflight")
+    if blocks and (sha256(Path(plan["init_checkpoint"])) != plan["init_checkpoint_sha256"]
+                   or sha256(Path(plan["init_checkpoint"]).parent / "experiment.json") != initializer_digest):
+        raise RuntimeError("Fine-tuning initializer changed during preflight")
     report = {"checked_at": utc_now(), "status": "ready_before_training", "training_started": False,
               "gradient_updates": 0, "optimizer_constructed": False, "parameters_and_buffers_unchanged": True,
               "dataset": checked, "environment": environment, "class_to_idx": mapping,
               "config_sha256": config_digest, "initial_weights_sha256": plan["weights_sha256"],
               "input_shape": list(images.shape), "output_shape": list(logits.shape), "device": torch_device,
               "loaded_train_class_ids": labels.tolist(), "training_transform_checked": True,
-              "pretrained_role": "ImageNet initialization with a new, untrained two-class head",
+              "train_last_blocks": blocks, "initial_classifier_checkpoint_sha256": plan.get("init_checkpoint_sha256"),
+              "initializer_record_sha256": initializer_digest,
+              "pretrained_role": "Completed task checkpoint; tail will be trainable only after explicit start" if blocks else "ImageNet initialization with a new, untrained two-class head",
               "validation_or_test_model_forward": False,
               "inference_peak_allocated_mib": None if torch_device == "cpu" else torch.cuda.max_memory_allocated(device) / 1024**2,
               "limitations": "No backward, optimizer, fitting, validation selection or test metrics; forward memory does not establish training memory."}

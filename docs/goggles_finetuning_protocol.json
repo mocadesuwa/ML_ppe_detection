@@ -1,0 +1,107 @@
+{
+  "format_version": 1,
+  "created_at": "2026-10-23T16:18:18.822051+00:00",
+  "status": "locked_before_training",
+  "dataset_fingerprint": "5859b079a61f07f9436f5a7c75383d9c8854fe73fb98c0211cb4045643ae550c",
+  "data_unchanged": true,
+  "initializer": "results/classification/goggles_v2_control/best.pt",
+  "initializer_sha256": "c66432ef67e71efb9341c7aceed7a2291e1f45cf4de313548ad3d9a03c6be8d7",
+  "smoke": {
+    "config": "configs/goggles_classification_v4_smoke.yaml",
+    "config_sha256": "b4f667a47949a8eb85d524a2c6430091ed3e31b7750566de2c8aa73900742616",
+    "expected_updates": 26
+  },
+  "candidates": [
+    {
+      "id": "tail2",
+      "config": "configs/goggles_classification_v4_tail2.yaml",
+      "config_sha256": "b76aab0a964768c66834df536629765f4a6ef9895c2866d17fd51d336cf8febe",
+      "train_last_blocks": 2
+    },
+    {
+      "id": "tail4",
+      "config": "configs/goggles_classification_v4_tail4.yaml",
+      "config_sha256": "35d6a6932ec6abfd6bf951c65c6a314ce230304a0ce031ebb0e656922ac87642",
+      "train_last_blocks": 4
+    }
+  ],
+  "control_validation": {
+    "epoch": 3,
+    "train_loss": 0.412223884452295,
+    "val_loss": 0.34649095636733035,
+    "val_accuracy": 0.9148936170212766,
+    "val_macro_f1": 0.8493589743589743,
+    "val_confusion_matrix": [
+      [
+        37,
+        1
+      ],
+      [
+        3,
+        6
+      ]
+    ],
+    "val_per_class": [
+      {
+        "class_id": 0,
+        "name": "not_wearing_goggles",
+        "support": 38,
+        "precision": 0.925,
+        "recall": 0.9736842105263158,
+        "f1": 0.9487179487179487
+      },
+      {
+        "class_id": 1,
+        "name": "wearing_goggles",
+        "support": 9,
+        "precision": 0.8571428571428571,
+        "recall": 0.6666666666666666,
+        "f1": 0.75
+      }
+    ]
+  },
+  "selection_rule": "Require validation macro-F1 strictly above control and wearing recall at least control; among eligible candidates maximize macro-F1, then wearing recall, then accuracy, then earlier candidate order. Otherwise retain control.",
+  "limits": "Two fixed candidates, seed42, at most20 epochs each, patience5; no threshold search or further trials this round.",
+  "verification": "Frozen feature prefix unchanged, trainable tail and classifier updated, all feature BatchNorm buffers unchanged, finite clipped gradients, best checkpoint reload verified.",
+  "old_artifacts_sha256": {
+    "results/classification/goggles_v1_baseline/benchmark_5859b079a61f07f9436f5a7c75383d9c8854fe73fb98c0211cb4045643ae550c.json": "32b3cc2aad2823c6b321a9e9a00f3fa2e13e12ec147855c3a390e6e5bcb52a67",
+    "results/classification/goggles_v1_baseline/best.pt": "ab649ad5020a80e9f0edcd00a9fe75e808b4ed3e3df2d29bc6a4d0e06f4737eb",
+    "results/classification/goggles_v1_baseline/experiment.json": "e852080db3582303b1d4cf8fb44def3b0d5e98814aabd4d3c37429ebb778c8ae",
+    "results/classification/goggles_v1_baseline/final_test.json": "7a42a3b882aeb36f3f55e387fa64e191fcb68ff9ead439a40d5a9ce5ae5c80ba",
+    "results/classification/goggles_v1_smoke/best.pt": "4061d65dffd1cf638fadfe57d4f4044c8d23b801e3d83da3c6f35a5e38599b52",
+    "results/classification/goggles_v1_smoke/experiment.json": "07cc1f033e7cc3484243082d72143306a0905e2f3f3a45267e3e99a603657359",
+    "results/classification/goggles_v2_control/best.pt": "c66432ef67e71efb9341c7aceed7a2291e1f45cf4de313548ad3d9a03c6be8d7",
+    "results/classification/goggles_v2_control/experiment.json": "58ad66d31b77247f1505de25266ab8e671bdaf6f4106e812593d31c425846546",
+    "results/classification/goggles_v2_control/final_test.json": "274a206484b731fe567691ca9b7627d3452266353e8efd372409387d11538c44",
+    "results/classification/goggles_v2_groups/best.pt": "7a7578ab4cebb689bcf6e74afa90aef2c6d40a05974f5cc104901284db3ab4c2",
+    "results/classification/goggles_v2_groups/experiment.json": "151cd27549de3f6a0ea9cfff6e26ba3edc42a90bc6a5d6c9f4892670ec5e17b9",
+    "results/classification/goggles_v2_smoke/best.pt": "f05fe82cb212c870034a7f0f05ba2e70858b638df6c11f03e95c291cf2d9ea0d",
+    "results/classification/goggles_v2_smoke/experiment.json": "934b3679798662c83c692437c001f88a14df39c99fe88c694ee467bb4a659e66",
+    "results/classification/goggles_v2_uniform/best.pt": "855738b3067e961447a6bffe71756e48ad41e7431d1eae27b08e2da264228ceb",
+    "results/classification/goggles_v2_uniform/experiment.json": "49ab06bc386577d84908beca28b031ab74903e0f933174b1c2ea5fbc571d18c8",
+    "results/classification/goggles_v3_joint/best.pt": "9bb3dc55d7bc314ffb971121000f5fd37e79ce60f05a20db7278d228a972312a",
+    "results/classification/goggles_v3_joint/experiment.json": "3e479292bf5dc3e051b39fc2aaec454eb6ee4feb21d78d48b532b8a52d40d3e7",
+    "results/classification/goggles_v3_joint_smoke/best.pt": "15a018e8ff2f25ebf87e621c2c94b40c0312e30d57a21350f69209fc6f99bcc7",
+    "results/classification/goggles_v3_joint_smoke/experiment.json": "04a4502546ff065008eb60d037a9456fa8f27474210dc6ad85cc791287887218",
+    "results/classification_evaluations/goggles_v1_final_test/metrics.json": "dd308ec68e83ff951d09d45cca1aaa7271999b2d30e8dd65e7f8c7d0060649c7",
+    "results/classification_evaluations/goggles_v1_final_test/run.json": "dd308ec68e83ff951d09d45cca1aaa7271999b2d30e8dd65e7f8c7d0060649c7",
+    "results/classification_evaluations/goggles_v1_on_v3_benchmark/metrics.json": "1298ccf99c86ca1c69cd55efe94aa8f98ae3e8671042b373dfa1ae5ec9fd553c",
+    "results/classification_evaluations/goggles_v1_on_v3_benchmark/run.json": "1298ccf99c86ca1c69cd55efe94aa8f98ae3e8671042b373dfa1ae5ec9fd553c",
+    "results/classification_evaluations/goggles_v1_validation/metrics.json": "6d3b7b135a9dac42d78b22909a80fd891277701e6ce1996f901a3a5d380d82fd",
+    "results/classification_evaluations/goggles_v1_validation/run.json": "6d3b7b135a9dac42d78b22909a80fd891277701e6ce1996f901a3a5d380d82fd",
+    "results/classification_evaluations/goggles_v2_selected_test/metrics.json": "2d4accd1371e0a6c726a805745a94c97279e10fcf695d2192feab86d914031ac",
+    "results/classification_evaluations/goggles_v2_selected_test/run.json": "2d4accd1371e0a6c726a805745a94c97279e10fcf695d2192feab86d914031ac",
+    "results/classification_evaluations/goggles_v2_selected_validation/metrics.json": "126ebfbc9485fae5bf6000c4ae4af7b7ee745c403742a8e09195c30c8667ec61",
+    "results/classification_evaluations/goggles_v2_selected_validation/run.json": "126ebfbc9485fae5bf6000c4ae4af7b7ee745c403742a8e09195c30c8667ec61",
+    "results/classification_predictions/goggles_v1_directory/predictions.jsonl": "1510ec8dfa1e6630e2059bbb188da82e5d1ae010fb62a49b0a6c4da871922f1a",
+    "results/classification_predictions/goggles_v1_directory/run.json": "53eafb9368381e800f79e12723dee3d32aab73390e4cf7405e85e7342b94fab3",
+    "results/classification_predictions/goggles_v1_single/predictions.jsonl": "f00de7784c0ee06e57d913d493313ee7b65294299f764f118b0de7429ca5f3d9",
+    "results/classification_predictions/goggles_v1_single/run.json": "cdf5e45df5e215301944a1d860c5fa85c154ebc564df7249c11c84cadf1d651e",
+    "results/classification_predictions/goggles_v2_examples/predictions.jsonl": "11db87638d15bf4c49b99817e0674bc3f923bd50d8745fb5c1df021ddcee2215",
+    "results/classification_predictions/goggles_v2_examples/run.json": "bbc96466c9d9ca409f44ab6703e3333174405c7e9ffc0f306326390e5c14e764",
+    "dataset/goggles/classification_v2_20261022/manifest.json": "5e376b473f45abc2b2a26c69b5c52cbb18838f15c6cef8330a10a3dd2535ee7d",
+    "dataset/goggles/classification_v3_20261022/manifest.json": "a6d9184554f3e370432f89fc6a5e0522c5ac256120b076fc599228ad60bd4615"
+  },
+  "test_policy": "No forward on sealed old29 or24 tests; any improvement claim here is validation only without a new independent benchmark.",
+  "frontend": "Local drag-and-drop static head-image classifier; no external upload or automatic dataset inclusion."
+}

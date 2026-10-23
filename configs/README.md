@@ -12,6 +12,8 @@
 | [smoke_v1](goggles_classification_smoke_v1.yaml) | 第一轮短跑历史记录 | v2，191张 |
 | [v3_joint](goggles_classification_v3_joint.yaml) | 第三轮联合均衡对照已完成，验证未入选，当前仍选control | 原v3，272张 |
 | [v3_joint_smoke](goggles_classification_v3_joint_smoke.yaml) | 第三轮两轮短跑已通过26次更新及冻结/重载检查 | 原v3，272张 |
+| [v4_tail2](goggles_classification_v4_tail2.yaml)、[v4_tail4](goggles_classification_v4_tail4.yaml) | 第四轮从control检查点微调最后2/4个特征模块，尚待验证选择 | 原v3，272张 |
+| [v4_smoke](goggles_classification_v4_smoke.yaml) | 第四轮最深解冻范围的两轮短跑 | 原v3，272张 |
 
 ```powershell
 python -m src.classification_data check --data dataset/goggles/classification_v3_20261022

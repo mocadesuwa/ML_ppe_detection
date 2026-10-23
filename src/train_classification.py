@@ -10,7 +10,8 @@ from pathlib import Path
 
 from scripts.preflight_classification import build_transform, state_hash, validate_runtime_plan
 from .classification_data import inspect_dataset, read_json
-from .classification_model import MODEL, PREPROCESSING, classification_metrics, load_classifier
+from .classification_model import (MODEL, PREPROCESSING, classification_metrics, completed_training_record,
+                                   configure_trainable_features, feature_blocks_to_train, feature_buffers_hash, load_classifier)
 from .common import local_caches, project_path, publish_path, run_directory, select_device, sha256, utc_now, validate_run_name, write_json
 
 
@@ -26,6 +27,13 @@ def training_plan(config: Path) -> tuple[dict, dict]:
         value = plan.get(key)
         if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value) or value < 0 or key == "lr" and value == 0:
             raise ValueError(f"Invalid {key}")
+    if feature_blocks_to_train(plan):
+        for key in ("backbone_lr", "max_grad_norm"):
+            value = plan.get(key)
+            if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value) or value <= 0:
+                raise ValueError(f"Partial fine-tuning requires a positive finite {key}")
+        if plan["backbone_lr"] > plan["lr"]:
+            raise ValueError("backbone_lr must not exceed the classifier learning rate")
     if plan.get("optimizer") != "AdamW" or type(plan.get("workers")) is not int or plan["workers"] != 0:
         raise ValueError("The first plan uses AdamW and workers=0")
     if plan.get("class_weighting") not in ("inverse_train_frequency", "none"):
@@ -55,6 +63,11 @@ def require_preflight(config: Path, plan: dict, checked: dict) -> None:
             or report.get("initial_weights_sha256") != plan["weights_sha256"]
             or report.get("dataset", {}).get("dataset_fingerprint") != checked["dataset_fingerprint"]):
         raise ValueError("Run an inference-only preflight for this exact config/data/weight version first")
+    blocks = feature_blocks_to_train(plan)
+    if blocks and (report.get("train_last_blocks") != blocks
+                   or report.get("initial_classifier_checkpoint_sha256") != plan["init_checkpoint_sha256"]
+                   or report.get("initializer_record_sha256") != sha256(Path(plan["init_checkpoint"]).parent / "experiment.json")):
+        raise ValueError("Fine-tuning preflight must match the initializer and trainable scope")
 
 
 def macro_f1(matrix: list[list[int]]) -> float:
@@ -94,7 +107,9 @@ def start(config: Path, plan: dict, checked: dict) -> dict:
     if project == data or data in project.parents:
         raise ValueError("Training evidence must be outside frozen data")
     directory = run_directory(project, plan["name"])
+    blocks = feature_blocks_to_train(plan)
     record = {"format_version": 1, "status": "running", "mode": plan["mode"], "started_at": utc_now(), "task": "classification", "parameters": plan,
+              "training_strategy": "partial_finetune" if blocks else "head_only",
               "dataset_fingerprint": checked["dataset_fingerprint"], "config_sha256": sha256(config),
               "training_started": True, "test_evaluated": False, "epochs": [], "gradient_updates": 0}
     record["code_sha256"] = {str(path.relative_to(project_path("."))).replace("\\", "/"): sha256(path)
@@ -114,7 +129,8 @@ def start(config: Path, plan: dict, checked: dict) -> dict:
         device = select_device(plan["device"])
         device = "cpu" if device == "cpu" else f"cuda:{device}"
         record["environment"] = {"torch": torch.__version__, "torchvision": torchvision.__version__,
-                                 "device": device, "gpu": None if device == "cpu" else torch.cuda.get_device_name(device)}
+                                 "device": device, "gpu": None if device == "cpu" else torch.cuda.get_device_name(device),
+                                 "cpu_threads": torch.get_num_threads()}
         datasets = {subset: ImageFolder(data / subset, transform=build_transform(subset == "train")) for subset in ("train", "val")}
         mapping = {name: index for index, name in enumerate(plan["classes"])}
         if any(dataset.class_to_idx != mapping for dataset in datasets.values()):
@@ -136,15 +152,32 @@ def start(config: Path, plan: dict, checked: dict) -> dict:
         loaders = {"train": DataLoader(datasets["train"], batch_size=plan["batch"], shuffle=sampler is None,
                                         sampler=sampler, num_workers=0, generator=generator),
                    "val": DataLoader(datasets["val"], batch_size=plan["batch"], shuffle=False, num_workers=0)}
-        network = mobilenet_v3_small(weights=None)
-        network.load_state_dict(torch.load(plan["weights"], map_location="cpu", weights_only=True), strict=True)
-        network.classifier[-1] = torch.nn.Linear(network.classifier[-1].in_features, len(mapping))
-        network.features.requires_grad_(False)
+        if blocks:
+            initial = Path(plan["init_checkpoint"])
+            parent = completed_training_record(initial)
+            network, checkpoint = load_classifier(initial, "cpu", classes=plan["classes"], dataset_fingerprint=checked["dataset_fingerprint"])
+            if checkpoint.get("config_sha256") != parent["config_sha256"] or checkpoint.get("mode") != "baseline":
+                raise ValueError("Fine-tuning checkpoint differs from its completed baseline record")
+            record["initializer_checkpoint_sha256"] = sha256(initial)
+            record["initializer_record_sha256"] = sha256(initial.parent / "experiment.json")
+        else:
+            network = mobilenet_v3_small(weights=None)
+            network.load_state_dict(torch.load(plan["weights"], map_location="cpu", weights_only=True), strict=True)
+            network.classifier[-1] = torch.nn.Linear(network.classifier[-1].in_features, len(mapping))
+        configure_trainable_features(network, blocks)
         network.to(device)
         features_before, classifier_before = state_hash(network.features), state_hash(network.classifier)
+        frozen_prefix = network.features[:-blocks] if blocks else network.features
+        prefix_before, buffers_before = state_hash(frozen_prefix), feature_buffers_hash(network.features)
+        tail_before = state_hash(network.features[-blocks:]) if blocks else None
         class_weights = torch.tensor(plan["class_weights"], device=device)
         criterion = torch.nn.CrossEntropyLoss(weight=class_weights)
-        optimizer = torch.optim.AdamW(network.classifier.parameters(), lr=plan["lr"], weight_decay=plan["weight_decay"])
+        parameters = [{"params": list(network.classifier.parameters()), "lr": plan["lr"]}]
+        if blocks:
+            parameters.append({"params": [p for p in network.features.parameters() if p.requires_grad], "lr": plan["backbone_lr"]})
+        optimizer = torch.optim.AdamW(parameters, lr=plan["lr"], weight_decay=plan["weight_decay"])
+        trainable = [p for p in network.parameters() if p.requires_grad]
+        record["optimizer_group_lrs"] = [group["lr"] for group in optimizer.param_groups]
         if device != "cpu":
             torch.cuda.reset_peak_memory_stats(device)
         record["trainable_parameters"] = sum(value.numel() for value in network.parameters() if value.requires_grad)
@@ -152,8 +185,8 @@ def start(config: Path, plan: dict, checked: dict) -> dict:
         best_probe = None
         for epoch in range(1, plan["epochs"] + 1):
             network.train()
-            network.features.eval()  # Frozen feature BatchNorm buffers must also stay frozen.
-            loss_sum, loss_weight = 0.0, 0.0
+            network.features.eval()  # Keep every feature BatchNorm statistic fixed, including the trainable tail.
+            loss_sum, loss_weight, largest_norm = 0.0, 0.0, 0.0
             for images, labels in loaders["train"]:
                 images, labels = images.to(device), labels.to(device)
                 optimizer.zero_grad(set_to_none=True)
@@ -161,6 +194,9 @@ def start(config: Path, plan: dict, checked: dict) -> dict:
                 if not torch.isfinite(loss):
                     raise RuntimeError("Non-finite training loss")
                 loss.backward()
+                if blocks:
+                    norm = torch.nn.utils.clip_grad_norm_(trainable, plan["max_grad_norm"], error_if_nonfinite=True)
+                    largest_norm = max(largest_norm, float(norm.item()))
                 optimizer.step()
                 loss_sum, loss_weight = weighted_loss_totals(float(loss.item()), float(class_weights[labels].sum().item()),
                                                            loss_sum, loss_weight)
@@ -186,6 +222,8 @@ def start(config: Path, plan: dict, checked: dict) -> dict:
                                      "val_loss": val_loss / len(datasets["val"]), "val_accuracy": metrics["accuracy"],
                                      "val_macro_f1": score, "val_confusion_matrix": matrix,
                                      "val_per_class": metrics["per_class"]})
+            if blocks:
+                record["epochs"][-1]["max_grad_norm_before_clip"] = largest_norm
             if score > best:
                 best, stale = score, 0
                 best_probe = probe
@@ -206,8 +244,14 @@ def start(config: Path, plan: dict, checked: dict) -> dict:
                 break
         record["frozen_features_unchanged"] = state_hash(network.features) == features_before
         record["classifier_updated"] = state_hash(network.classifier) != classifier_before
-        if not record["frozen_features_unchanged"] or not record["classifier_updated"]:
-            raise RuntimeError("Frozen features changed or classifier did not update")
+        record["frozen_feature_prefix_unchanged"] = state_hash(frozen_prefix) == prefix_before
+        record["feature_buffers_unchanged"] = feature_buffers_hash(network.features) == buffers_before
+        record["trainable_features_updated"] = blocks > 0 and state_hash(network.features[-blocks:]) != tail_before
+        scope_ok = (not record["frozen_features_unchanged"] and record["trainable_features_updated"]
+                    if blocks else record["frozen_features_unchanged"])
+        if (not scope_ok or not record["classifier_updated"] or not record["frozen_feature_prefix_unchanged"]
+                or not record["feature_buffers_unchanged"]):
+            raise RuntimeError("Training violated the frozen prefix/BatchNorm or failed to update trainable parameters")
         reloaded, checkpoint = load_classifier(directory / "best.pt", device, classes=plan["classes"],
                                               dataset_fingerprint=checked["dataset_fingerprint"])
         with torch.inference_mode():
@@ -218,6 +262,9 @@ def start(config: Path, plan: dict, checked: dict) -> dict:
         if (inspect_dataset(data)["dataset_fingerprint"] != checked["dataset_fingerprint"]
                 or sha256(Path(plan["weights"])) != plan["weights_sha256"] or sha256(config) != record["config_sha256"]):
             raise RuntimeError("Data, initial weights or config changed during training")
+        if blocks and (sha256(Path(plan["init_checkpoint"])) != record["initializer_checkpoint_sha256"]
+                       or sha256(Path(plan["init_checkpoint"]).parent / "experiment.json") != record["initializer_record_sha256"]):
+            raise RuntimeError("Fine-tuning initializer changed during training")
         record.update(status="complete", completed_at=utc_now(), best_weights_sha256=sha256(directory / "best.pt"))
     except BaseException as error:
         record.update(status="failed", completed_at=utc_now(), error=str(error))
