@@ -31,8 +31,10 @@ def training_plan(config: Path) -> tuple[dict, dict]:
     if plan.get("class_weighting") not in ("inverse_train_frequency", "none"):
         raise ValueError("Class weighting must be inverse_train_frequency or none")
     plan.setdefault("sampling", "shuffle")
-    if plan["sampling"] not in ("shuffle", "source_group_balanced"):
-        raise ValueError("Sampling must be shuffle or source_group_balanced")
+    if plan["sampling"] not in ("shuffle", "source_group_balanced", "class_source_group_balanced"):
+        raise ValueError("Unknown classifier sampling strategy")
+    if plan["sampling"] == "class_source_group_balanced" and plan["class_weighting"] != "none":
+        raise ValueError("Class-balanced sampling requires class_weighting=none to avoid double balancing")
     if not isinstance(plan.get("name"), str):
         raise ValueError("A run name is required")
     validate_run_name(plan["name"])
@@ -66,10 +68,21 @@ def weighted_loss_totals(batch_loss: float, batch_weight: float, numerator: floa
     return numerator + batch_loss * batch_weight, denominator + batch_weight
 
 
-def source_group_sampling_weights(sample_ids: list[str], rows: list[dict]) -> list[float]:
+def source_group_sampling_weights(sample_ids: list[str], rows: list[dict], *, balance_classes: bool = False) -> list[float]:
     by_id = {row["id"]: row["group"] for row in rows}
     if len(by_id) != len(rows) or len(sample_ids) != len(set(sample_ids)) or set(sample_ids) != set(by_id):
         raise ValueError("Sampler must cover exactly the frozen training IDs")
+    if balance_classes:
+        if not rows or any(not isinstance(row.get("label"), str) or not row["label"].strip() for row in rows):
+            raise ValueError("Class-balanced sampling requires explicit training labels")
+        labels = {row["id"]: row["label"] for row in rows}
+        pairs = Counter((row["label"], row["group"]) for row in rows)
+        groups_per_class = Counter(label for label, group in pairs)
+        if len(groups_per_class) < 2:
+            raise ValueError("Class-balanced sampling requires at least two classes")
+        # Each class has mass 1, shared equally across its source groups, then its images.
+        return [1.0 / (groups_per_class[labels[identifier]] * pairs[labels[identifier], by_id[identifier]])
+                for identifier in sample_ids]
     counts = Counter(by_id.values())
     return [1.0 / counts[by_id[identifier]] for identifier in sample_ids]
 
@@ -108,12 +121,18 @@ def start(config: Path, plan: dict, checked: dict) -> dict:
             raise ValueError("ImageFolder class mapping differs from plan")
         generator = torch.Generator().manual_seed(plan["seed"])
         sampler = None
-        if plan["sampling"] == "source_group_balanced":
+        if plan["sampling"] != "shuffle":
             rows = read_json(data / "manifest.json")["splits"]["train"]
-            weights = source_group_sampling_weights([Path(path).stem for path, _ in datasets["train"].samples], rows)
+            sample_ids = [Path(path).stem for path, _ in datasets["train"].samples]
+            weights = source_group_sampling_weights(sample_ids, rows,
+                                                     balance_classes=plan["sampling"] == "class_source_group_balanced")
             sampler = WeightedRandomSampler(weights, len(weights), replacement=True, generator=generator)
             record["sampling"] = {"strategy": plan["sampling"], "source_groups": len({row["group"] for row in rows}),
                                   "draws_per_epoch": len(weights), "replacement": True}
+            labels_by_id = {row["id"]: row["label"] for row in rows}
+            record["sampling"]["expected_class_fractions"] = {
+                label: sum(weight for identifier, weight in zip(sample_ids, weights) if labels_by_id[identifier] == label) / sum(weights)
+                for label in plan["classes"]}
         loaders = {"train": DataLoader(datasets["train"], batch_size=plan["batch"], shuffle=sampler is None,
                                         sampler=sampler, num_workers=0, generator=generator),
                    "val": DataLoader(datasets["val"], batch_size=plan["batch"], shuffle=False, num_workers=0)}

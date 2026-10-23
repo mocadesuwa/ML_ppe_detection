@@ -1,0 +1,70 @@
+{
+  "format_version": 1,
+  "created_at": "2026-10-23T15:35:42.557020+00:00",
+  "status": "locked_before_training",
+  "dataset_fingerprint": "5859b079a61f07f9436f5a7c75383d9c8854fe73fb98c0211cb4045643ae550c",
+  "purpose": "Test joint class/source sampling without changing data, backbone, threshold, epochs or learning rate.",
+  "candidates": [
+    {
+      "id": "joint",
+      "config": "configs/goggles_classification_v3_joint.yaml",
+      "config_sha256": "92edee67c9cea09c9437a848f3e3989c76839ee7af5623dd32b9767c64077a65"
+    }
+  ],
+  "smoke": {
+    "config": "configs/goggles_classification_v3_joint_smoke.yaml",
+    "config_sha256": "217e3ef99b52069429567b1926876ca00438703c7ac1e449fc7f91110b357e79",
+    "epochs": 2,
+    "expected_updates": 26
+  },
+  "control": {
+    "config": "configs/goggles_classification_v2_control.yaml",
+    "weights": "results/classification/goggles_v2_control/best.pt",
+    "weights_sha256": "c66432ef67e71efb9341c7aceed7a2291e1f45cf4de313548ad3d9a03c6be8d7",
+    "val_macro_f1": 0.8493589743589743,
+    "val_accuracy": 0.9148936170212766,
+    "wearing_recall": 0.6666666666666666
+  },
+  "selection_rule": "Keep control unless joint best-epoch validation macro-F1 is higher (or equal with higher wearing recall) and wearing recall is not below control. No extra seeds, hyperparameter trials or threshold changes this round.",
+  "decision_rule": "argmax; unchanged",
+  "final_evaluation_policy": "Old 29 and 24 test sets remain sealed. Only if joint is selected, compare control and joint once on a new frozen external set with known overlap checks against both prior datasets; otherwise keep new source as an untested reviewed pool.",
+  "old_artifacts_sha256": {
+    "results/classification/goggles_v1_baseline/benchmark_5859b079a61f07f9436f5a7c75383d9c8854fe73fb98c0211cb4045643ae550c.json": "32b3cc2aad2823c6b321a9e9a00f3fa2e13e12ec147855c3a390e6e5bcb52a67",
+    "results/classification/goggles_v1_baseline/best.pt": "ab649ad5020a80e9f0edcd00a9fe75e808b4ed3e3df2d29bc6a4d0e06f4737eb",
+    "results/classification/goggles_v1_baseline/experiment.json": "e852080db3582303b1d4cf8fb44def3b0d5e98814aabd4d3c37429ebb778c8ae",
+    "results/classification/goggles_v1_baseline/final_test.json": "7a42a3b882aeb36f3f55e387fa64e191fcb68ff9ead439a40d5a9ce5ae5c80ba",
+    "results/classification/goggles_v1_smoke/best.pt": "4061d65dffd1cf638fadfe57d4f4044c8d23b801e3d83da3c6f35a5e38599b52",
+    "results/classification/goggles_v1_smoke/experiment.json": "07cc1f033e7cc3484243082d72143306a0905e2f3f3a45267e3e99a603657359",
+    "results/classification/goggles_v2_control/best.pt": "c66432ef67e71efb9341c7aceed7a2291e1f45cf4de313548ad3d9a03c6be8d7",
+    "results/classification/goggles_v2_control/experiment.json": "58ad66d31b77247f1505de25266ab8e671bdaf6f4106e812593d31c425846546",
+    "results/classification/goggles_v2_control/final_test.json": "274a206484b731fe567691ca9b7627d3452266353e8efd372409387d11538c44",
+    "results/classification/goggles_v2_groups/best.pt": "7a7578ab4cebb689bcf6e74afa90aef2c6d40a05974f5cc104901284db3ab4c2",
+    "results/classification/goggles_v2_groups/experiment.json": "151cd27549de3f6a0ea9cfff6e26ba3edc42a90bc6a5d6c9f4892670ec5e17b9",
+    "results/classification/goggles_v2_smoke/best.pt": "f05fe82cb212c870034a7f0f05ba2e70858b638df6c11f03e95c291cf2d9ea0d",
+    "results/classification/goggles_v2_smoke/experiment.json": "934b3679798662c83c692437c001f88a14df39c99fe88c694ee467bb4a659e66",
+    "results/classification/goggles_v2_uniform/best.pt": "855738b3067e961447a6bffe71756e48ad41e7431d1eae27b08e2da264228ceb",
+    "results/classification/goggles_v2_uniform/experiment.json": "49ab06bc386577d84908beca28b031ab74903e0f933174b1c2ea5fbc571d18c8",
+    "results/classification_evaluations/goggles_v1_final_test/metrics.json": "dd308ec68e83ff951d09d45cca1aaa7271999b2d30e8dd65e7f8c7d0060649c7",
+    "results/classification_evaluations/goggles_v1_final_test/run.json": "dd308ec68e83ff951d09d45cca1aaa7271999b2d30e8dd65e7f8c7d0060649c7",
+    "results/classification_evaluations/goggles_v1_on_v3_benchmark/metrics.json": "1298ccf99c86ca1c69cd55efe94aa8f98ae3e8671042b373dfa1ae5ec9fd553c",
+    "results/classification_evaluations/goggles_v1_on_v3_benchmark/run.json": "1298ccf99c86ca1c69cd55efe94aa8f98ae3e8671042b373dfa1ae5ec9fd553c",
+    "results/classification_evaluations/goggles_v1_validation/metrics.json": "6d3b7b135a9dac42d78b22909a80fd891277701e6ce1996f901a3a5d380d82fd",
+    "results/classification_evaluations/goggles_v1_validation/run.json": "6d3b7b135a9dac42d78b22909a80fd891277701e6ce1996f901a3a5d380d82fd",
+    "results/classification_evaluations/goggles_v2_selected_test/metrics.json": "2d4accd1371e0a6c726a805745a94c97279e10fcf695d2192feab86d914031ac",
+    "results/classification_evaluations/goggles_v2_selected_test/run.json": "2d4accd1371e0a6c726a805745a94c97279e10fcf695d2192feab86d914031ac",
+    "results/classification_evaluations/goggles_v2_selected_validation/metrics.json": "126ebfbc9485fae5bf6000c4ae4af7b7ee745c403742a8e09195c30c8667ec61",
+    "results/classification_evaluations/goggles_v2_selected_validation/run.json": "126ebfbc9485fae5bf6000c4ae4af7b7ee745c403742a8e09195c30c8667ec61",
+    "results/classification_predictions/goggles_v1_directory/predictions.jsonl": "1510ec8dfa1e6630e2059bbb188da82e5d1ae010fb62a49b0a6c4da871922f1a",
+    "results/classification_predictions/goggles_v1_directory/run.json": "53eafb9368381e800f79e12723dee3d32aab73390e4cf7405e85e7342b94fab3",
+    "results/classification_predictions/goggles_v1_single/predictions.jsonl": "f00de7784c0ee06e57d913d493313ee7b65294299f764f118b0de7429ca5f3d9",
+    "results/classification_predictions/goggles_v1_single/run.json": "cdf5e45df5e215301944a1d860c5fa85c154ebc564df7249c11c84cadf1d651e",
+    "results/classification_predictions/goggles_v2_examples/predictions.jsonl": "11db87638d15bf4c49b99817e0674bc3f923bd50d8745fb5c1df021ddcee2215",
+    "results/classification_predictions/goggles_v2_examples/run.json": "bbc96466c9d9ca409f44ab6703e3333174405c7e9ffc0f306326390e5c14e764",
+    "dataset/goggles/classification_v3_20261022/manifest.json": "a6d9184554f3e370432f89fc6a5e0522c5ac256120b076fc599228ad60bd4615",
+    "dataset/goggles/classification_v2_20261022/manifest.json": "5e376b473f45abc2b2a26c69b5c52cbb18838f15c6cef8330a10a3dd2535ee7d"
+  },
+  "limitations": [
+    "No course acceptance thresholds were provided; selection criteria are an experiment rule, not an acceptance claim.",
+    "No independent second human annotation or actual laboratory domain was supplied."
+  ]
+}

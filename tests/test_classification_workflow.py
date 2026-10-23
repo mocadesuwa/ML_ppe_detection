@@ -17,6 +17,30 @@ from src.train_classification import source_group_sampling_weights, weighted_los
 
 
 class ClassificationMetricsTests(unittest.TestCase):
+    def test_class_source_sampler_preserves_both_classes_and_balances_groups_within_each(self):
+        rows = [{"id": f"negative_{i}", "group": "mixed", "label": "class_0"} for i in range(120)]
+        rows += [{"id": f"positive_{i}", "group": "mixed", "label": "class_1"} for i in range(32)]
+        rows += [{"id": "other_negative", "group": "other", "label": "class_0"}]
+        rows += [{"id": "other_positive_a", "group": "a", "label": "class_1"},
+                 {"id": "other_positive_b", "group": "b", "label": "class_1"}]
+        ids = [row["id"] for row in reversed(rows)]
+        weights = dict(zip(ids, source_group_sampling_weights(ids, rows, balance_classes=True)))
+        for label, group_count in (("class_0", 2), ("class_1", 3)):
+            labelled = [row for row in rows if row["label"] == label]
+            self.assertAlmostEqual(sum(weights[row["id"]] for row in labelled), 1)
+            for group in {row["group"] for row in labelled}:
+                self.assertAlmostEqual(sum(weights[row["id"]] for row in labelled if row["group"] == group), 1 / group_count)
+        self.assertEqual(weights["other_positive_a"], weights["other_positive_b"])
+
+    def test_class_source_sampler_rejects_missing_labels_and_single_class(self):
+        for rows in ([{"id": "a", "group": "g"}],
+                     [{"id": "a", "group": "g", "label": ""}],
+                     [{"id": "a", "group": "g", "label": "class_0"}]):
+            with self.subTest(rows=rows), self.assertRaises(ValueError):
+                source_group_sampling_weights(["a"], rows, balance_classes=True)
+        with self.assertRaises(ValueError):
+            source_group_sampling_weights(["a", "a"], [{"id": "a", "group": "g", "label": "class_0"}], balance_classes=True)
+
     def test_source_groups_have_equal_sampling_mass_despite_repeated_frames(self):
         rows = [{"id": f"frame_{i}", "group": "factory"} for i in range(120)]
         rows += [{"id": "independent_a", "group": "a"}, {"id": "independent_b", "group": "b"}]

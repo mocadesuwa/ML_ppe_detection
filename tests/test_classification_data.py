@@ -200,6 +200,19 @@ class ClassificationDataTests(unittest.TestCase):
             with self.subTest(field=field), self.assertRaises(ValueError):
                 training_plan(path)
 
+    def test_joint_sampler_requires_unweighted_loss(self):
+        import yaml
+        path, plan = self.runtime_config()
+        plan.update(epochs=30, patience=8, lr=.0003, weight_decay=.0001, optimizer="AdamW", workers=0,
+                    class_weighting="none", sampling="class_source_group_balanced", name="fixture_joint",
+                    project=str(self.root / "training"), preflight=str(self.root / "preflight.json"))
+        path.write_text(yaml.safe_dump(plan), encoding="utf-8")
+        self.assertEqual(training_plan(path)[0]["sampling"], "class_source_group_balanced")
+        plan["class_weighting"] = "inverse_train_frequency"
+        path.write_text(yaml.safe_dump(plan), encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "double balancing"):
+            training_plan(path)
+
 
 if __name__ == "__main__":
     unittest.main()
