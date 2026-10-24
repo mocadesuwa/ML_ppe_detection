@@ -16,11 +16,13 @@
 
 2026-10-23已完成[类别与来源联合均衡对照](docs/goggles_joint_sampling_report.md)：短跑26次更新后，唯一候选运行10轮130次更新；验证macro-F1为0.8321、佩戴Recall55.56%，低于原方案的0.8494、66.67%，继续保留v2_control。另逐图核查100张新来源，因眼镜语义不符及重复/增强问题未并入；原数据和两组测试继续冻结，本轮没有新的独立测试结果。
 
-2026-10-24按用户新授权推进[部分微调与拖拽测试页](docs/goggles_finetuning_plan.md)：从control检查点解冻尾部两种深度，先短跑验证再按验证集选择；页面只在本机处理新的静态头像。完成后单独记录实际结果，当前已测试基线仍保留。
+2026-10-24已完成[部分微调](docs/goggles_finetuning_report.md)：短跑26次更新通过，tail2/tail4分别训练7/6轮，最佳验证macro-F1为0.8017/0.8494；均未严格超过原基线，继续保留control，旧测试没有重跑。已增加真实模型驱动的[本机拖拽识别页](docs/local_demo.md)，可上传新的单人头像查看判断、两类分数，切换基线/实验模型并下载结果。
 
 所有工厂连续帧保持同组进入训练集；训练集也包含SH17的两类样本。训练来源组增至72，佩戴样本覆盖8组；新test有20组，6个佩戴样本来自4组。已知来源组无交叉，新test与旧全部191张在ID、分组、原图/头像字节及像素上无已知重叠；未知人物/摄影者关系仍有限制。
 
 ## 当前入口
+
+想直接看识别效果：在项目目录双击 **`start_demo.cmd`**，自动打开`http://127.0.0.1:8765`，拖入已裁剪的单人头像后点“开始识别”。关闭服务窗口或按`Ctrl+C`停止。图片留在本机内存中，不自动加入训练。完整步骤、输入限制及API见[使用说明](docs/local_demo.md)。
 
 主流程：原图与原标注 → 逐项复核及头部框 → 头像裁剪与像素核查 → 按来源整组划分 → 分类数据导出与预检 → 训练、评价与头像预测。
 
@@ -32,7 +34,7 @@ python -m src.train_classification --config configs/goggles_classification_v2_co
 
 分类训练入口默认只核查并打印计划，真实训练必须显式提供`--start`，且要求匹配预检。第二轮短跑2轮26次更新通过后执行三组对照，均通过骨干冻结、头更新和最佳权重重载。选定control第11轮早停，第3轮验证macro-F1最佳0.8494、Accuracy91.49%；212项累计回归通过，未安装依赖。
 
-护目镜入口是`src.train_classification`、`src.evaluate_classification`和`src.predict_classification`。通用检测工具及共享校验仍保留，具体职责见[框架说明](docs/framework_review.md)。
+护目镜训练/离线入口是`src.train_classification`、`src.evaluate_classification`和`src.predict_classification`，交互页面入口是`src.serve_demo`。目前233项累计回归通过，两个真实模型的HTTP推理及浏览器上传/下载已核验；回归通过不等于新图准确率。通用检测工具及共享校验仍保留，具体职责见[框架说明](docs/framework_review.md)。
 
 对本地已裁剪头像预测的示例：
 
@@ -56,6 +58,9 @@ python -m src.train_classification --config configs/goggles_classification_v2_co
 | [docs/goggles_improvement_report.md](docs/goggles_improvement_report.md) | 第二轮三组对照、选模、相同新测试的比较与取舍 |
 | [docs/goggles_improvement_status.json](docs/goggles_improvement_status.json) | 当前运行、最佳权重、指标与完整证据SHA摘要 |
 | [docs/goggles_joint_sampling_report.md](docs/goggles_joint_sampling_report.md) | 第三轮未入选的对照结果与新来源筛除原因 |
+| [docs/goggles_finetuning_report.md](docs/goggles_finetuning_report.md) | 第四轮尾部微调、验证比较与继续保留基线的原因 |
+| [docs/goggles_finetuning_status.json](docs/goggles_finetuning_status.json) | 第四轮验证重载、证据SHA与页面核验摘要 |
+| [docs/local_demo.md](docs/local_demo.md) | 拖拽页面的启动、操作、模型选择及本机API |
 | [configs/goggles_classification_v2_control.yaml](configs/goggles_classification_v2_control.yaml) | 当前选定方案的数据、初始权重、参数与匹配预检 |
 | [docs/data_sources/](docs/data_sources/) | 原始来源、逐对象决定、显式裁剪计划和质量记录 |
 | [docs/head_crops.md](docs/head_crops.md) | 通用显式头像裁剪与完整性核查接口 |

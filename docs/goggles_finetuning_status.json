@@ -1,0 +1,82 @@
+{
+  "format_version": 1,
+  "completed_at": "2026-10-23T16:41:42.902417+00:00",
+  "selection_sha256": "7190c3c2a3e37d06e3ed160a443a928b9b0c447340738f6c3bd2b45e56e5c952",
+  "selected_model": "goggles_v2_control",
+  "new_test_evaluated": false,
+  "protected_artifacts_verified": 37,
+  "smoke": {
+    "epochs": 2,
+    "updates": 26,
+    "elapsed_seconds": 67.49486869999964,
+    "record_sha256": "7d4ab8ebddb3f3dcf48e92d0df30ab2663953824627a7295c9a605b0009f2c56",
+    "weights_sha256": "db34663897bc2602a5fa5c634db6a342e17f5534b5d4ea043e0cedf338c34c50"
+  },
+  "tail4_validation": {
+    "report": "results/classification_evaluations/goggles_v4_tail4_validation/metrics.json",
+    "sha256": "df203dc828b5ffa1db2cfddf7c353b0a713507898f68192f2513cf71896c7009",
+    "metrics": {
+      "image_count": 47,
+      "accuracy": 0.9148936170212766,
+      "macro_f1": 0.8493589743589743,
+      "per_class": [
+        {
+          "class_id": 0,
+          "name": "not_wearing_goggles",
+          "support": 38,
+          "precision": 0.925,
+          "recall": 0.9736842105263158,
+          "f1": 0.9487179487179487
+        },
+        {
+          "class_id": 1,
+          "name": "wearing_goggles",
+          "support": 9,
+          "precision": 0.8571428571428571,
+          "recall": 0.6666666666666666,
+          "f1": 0.75
+        }
+      ],
+      "confusion_matrix": [
+        [
+          37,
+          1
+        ],
+        [
+          3,
+          6
+        ]
+      ],
+      "confusion_matrix_axes": "rows=true, columns=predicted",
+      "zero_division": 0
+    }
+  },
+  "real_demo_qa": {
+    "validation_predictions": 8,
+    "models": [
+      "baseline",
+      "candidate"
+    ],
+    "real_accuracy_estimate": false,
+    "synthetic_unknown_route_checked": true,
+    "image_uploads_saved": false
+  },
+  "regression": {
+    "tests": 233,
+    "passed": true,
+    "elapsed_seconds": 21.439,
+    "log": ".cache/regression-2026-10-24-demo-resumed.txt",
+    "log_sha256": "19b3768f94151cdf2a32ec81f8e4d6b0f121d2b52b75ed6123c569ba0dccaa56"
+  },
+  "plot_sha256": "48a8cd1591a6e41fe094ca560357b3d3ba85ff9efc5f2dfb4ce49e41a25558c3",
+  "last_verified_at": "2026-10-24T02:33:28.361077+00:00",
+  "demo_source_sha256": {
+    "src/serve_demo.py": "1d5ebbff75176e8fb2b564b5a46a40a81e6657981266845209677931b2c26f3d",
+    "tests/test_demo_server.py": "4c68cf30326e3678ea4aaf89fcfdc39bcf6b76c9f3091e3cfc8ebdab1f2ea7c0",
+    "start_demo.cmd": "63148388e68a09e4983a82a03e0c84dd30c3d0ac58f3153d411c7c95ef4c496f",
+    "web/dist/index.html": "43312e21913fb5711276a4cabfd819eda0dbd4b0965906d423884e729e890a32",
+    "web/dist/app.js": "5e7ca27331dbb56c08b209fb74ea122cd6aba6a467a88abe36461659bc004655",
+    "web/dist/style.css": "027d333620c5d9ae09b54aa7f2d888777e75db84098d7495d0867644126a796c"
+  },
+  "resumed_browser_check": "Real baseline inference on one registered validation head succeeded; no independent accuracy claim."
+}

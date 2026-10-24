@@ -1,0 +1,150 @@
+{
+  "format_version": 1,
+  "completed_at": "2026-10-23T16:36:14.671850+00:00",
+  "protocol_sha256": "b962d8cfc5364f932e7bca831c1f41374feadf183fe1c12639d50c7ffd9acf56",
+  "dataset_fingerprint": "5859b079a61f07f9436f5a7c75383d9c8854fe73fb98c0211cb4045643ae550c",
+  "selection_basis": "validation_only",
+  "selected": "goggles_v2_control",
+  "selected_weights": "results/classification/goggles_v2_control/best.pt",
+  "selected_weights_sha256": "c66432ef67e71efb9341c7aceed7a2291e1f45cf4de313548ad3d9a03c6be8d7",
+  "control_validation": {
+    "epoch": 3,
+    "train_loss": 0.412223884452295,
+    "val_loss": 0.34649095636733035,
+    "val_accuracy": 0.9148936170212766,
+    "val_macro_f1": 0.8493589743589743,
+    "val_confusion_matrix": [
+      [
+        37,
+        1
+      ],
+      [
+        3,
+        6
+      ]
+    ],
+    "val_per_class": [
+      {
+        "class_id": 0,
+        "name": "not_wearing_goggles",
+        "support": 38,
+        "precision": 0.925,
+        "recall": 0.9736842105263158,
+        "f1": 0.9487179487179487
+      },
+      {
+        "class_id": 1,
+        "name": "wearing_goggles",
+        "support": 9,
+        "precision": 0.8571428571428571,
+        "recall": 0.6666666666666666,
+        "f1": 0.75
+      }
+    ]
+  },
+  "candidates": [
+    {
+      "id": "tail2",
+      "config": "configs/goggles_classification_v4_tail2.yaml",
+      "run": "results/classification/goggles_v4_tail2",
+      "best_weights_sha256": "851f9ff53ace13eb62c8f4f80a157ea19c1456fd7c7dbf0187641053d820d378",
+      "experiment_sha256": "8845a6fa8083de5b2d2c6f627d3c3f502e2ecfdac61756fd63190f813e29fb34",
+      "epochs": 7,
+      "gradient_updates": 91,
+      "best_epoch": 2,
+      "validation": {
+        "epoch": 2,
+        "train_loss": 0.3001556655901751,
+        "val_loss": 0.3186409169055046,
+        "val_accuracy": 0.8936170212765957,
+        "val_macro_f1": 0.8016877637130801,
+        "val_confusion_matrix": [
+          [
+            37,
+            1
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "val_per_class": [
+          {
+            "class_id": 0,
+            "name": "not_wearing_goggles",
+            "support": 38,
+            "precision": 0.9024390243902439,
+            "recall": 0.9736842105263158,
+            "f1": 0.9367088607594937
+          },
+          {
+            "class_id": 1,
+            "name": "wearing_goggles",
+            "support": 9,
+            "precision": 0.8333333333333334,
+            "recall": 0.5555555555555556,
+            "f1": 0.6666666666666666
+          }
+        ],
+        "max_grad_norm_before_clip": 3.8225553035736084
+      },
+      "elapsed_seconds": 112.24496070000168,
+      "peak_allocated_mib": 79.89599609375,
+      "eligible": false
+    },
+    {
+      "id": "tail4",
+      "config": "configs/goggles_classification_v4_tail4.yaml",
+      "run": "results/classification/goggles_v4_tail4",
+      "best_weights_sha256": "ebe4fb2a5a2fc7c130ffca3ea5fdae350d61d625e65328f57b2189143185e6c8",
+      "experiment_sha256": "659c56d49671f0840f13d73b18ced40689f8d48064fc2681f1b7a0d3ac02f705",
+      "epochs": 6,
+      "gradient_updates": 78,
+      "best_epoch": 1,
+      "validation": {
+        "epoch": 1,
+        "train_loss": 0.34366734324579934,
+        "val_loss": 0.3166234442528258,
+        "val_accuracy": 0.9148936170212766,
+        "val_macro_f1": 0.8493589743589743,
+        "val_confusion_matrix": [
+          [
+            37,
+            1
+          ],
+          [
+            3,
+            6
+          ]
+        ],
+        "val_per_class": [
+          {
+            "class_id": 0,
+            "name": "not_wearing_goggles",
+            "support": 38,
+            "precision": 0.925,
+            "recall": 0.9736842105263158,
+            "f1": 0.9487179487179487
+          },
+          {
+            "class_id": 1,
+            "name": "wearing_goggles",
+            "support": 9,
+            "precision": 0.8571428571428571,
+            "recall": 0.6666666666666666,
+            "f1": 0.75
+          }
+        ],
+        "max_grad_norm_before_clip": 6.353515625
+      },
+      "elapsed_seconds": 110.63872410000477,
+      "peak_allocated_mib": 94.9130859375,
+      "eligible": false
+    }
+  ],
+  "decision": "Neither candidate strictly improves validation macro-F1 with wearing recall preserved; retain control.",
+  "frontend_comparison": "goggles_v4_tail4; an experimental alternative, not a replacement",
+  "protected_artifacts_verified": 37,
+  "new_test_evaluated": false,
+  "new_accuracy_improvement_claim": false
+}

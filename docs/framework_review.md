@@ -1,6 +1,6 @@
 # 护目镜项目代码框架
 
-更新日期：2026-10-22。用户已确认静态头部头像二分类，仅输出佩戴状态、不输出框，详见[需求](goggles_requirements.md)。当前为272张v3数据上的第二轮改进，实际对照与同一新保留集结果见[改进报告](goggles_improvement_report.md)；第一轮191张数据与旧模型保留历史。
+更新日期：2026-10-24。用户已确认静态头部头像二分类，仅输出佩戴状态、不输出框，详见[需求](goggles_requirements.md)。当前仍使用272张v3数据选出的control；第四轮微调未优于基线，新增本机交互页面，见[最新报告](goggles_finetuning_report.md)。第二轮同一新保留集结果见[改进报告](goggles_improvement_report.md)，其余数据/模型保留历史。
 
 ## 护目镜主流程
 
@@ -21,6 +21,8 @@
 | `src/classification_model.py` | 分类检查点契约、完成运行/最佳权重绑定、两类指标与概率输出检查 |
 | `src/evaluate_classification.py` | 分类验证/最终测试、逐图分数与错误记录，最终测试仅允许完成的基线且防止重复尝试 |
 | `src/predict_classification.py` | 已裁剪静态头像的类别预测，逐图JSONL与输入/权重完整性检查 |
+| `src/serve_demo.py` | 本机图片解码、已完成模型校验、内存推理及只开放前端资源的HTTP接口 |
+| `web/dist/`、`start_demo.cmd` | 无构建依赖的拖放页面及Windows一键启动 |
 | `src/environment.py` | 查询现有Python、依赖和GPU环境 |
 | `scripts/find_related_images.py` | 相似图片候选，不自动判断人物或来源组 |
 | `scripts/preflight_classification.py` | 当前分类数据加载、变换、官方初始模型与CUDA eval前向；不构建优化器、不训练 |
@@ -51,6 +53,8 @@
 第三轮已完成短跑26次、完整训练130次更新，候选验证macro-F1为0.8321、佩戴Recall55.56%，未超过control，继续保留原模型。100张新来源核查后未并入，也没有建立新的独立测试；完整证据及具体数据缺口见[本轮报告](goggles_joint_sampling_report.md)。
 
 第四轮支持从已完成任务检查点进行尾部微调：配置显式解冻模块数及两组学习率，预检绑定初始化记录，训练核对冻结前部、归一化缓冲区及允许更新部分。旧头部训练和检查点继续可用，微调不会把整个特征提取部分谎报为冻结；具体设计见[第四轮方案](goggles_finetuning_plan.md)。
+
+第四轮短跑及两个完整候选已完成，均未达到替换条件，control继续作为默认。交互页面复用分类检查点契约和既有变换，不另建模型/训练分支；只监听127.0.0.1，图片只在内存中处理。字节/像素匹配仅提示登记集合，不保证来源独立。233项回归、真实模型接口和浏览器上传/下载核验已完成，启动说明见[本机页面](local_demo.md)。
 
 ## 当前分类路径
 
