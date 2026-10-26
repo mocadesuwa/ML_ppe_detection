@@ -27,6 +27,8 @@
 
 ## 日志、验证与版本管理
 
+- 2026-10-26用户最终要求“只上传模型，本体不做了”，已取消本轮便携应用及页面扩展。只将当前v2_control模型作为GitHub Release附件发布，不把权重放入Git；不带Python/CUDA运行环境、应用或原始图片。原页面保留；发布与验证见`docs/model_release.md`，不得自行重启已取消的应用制作。
+
 - 第四轮两组尾部微调已完成，验证macro-F1分别0.8017/0.8494，未严格超过control的0.8494，继续保留control；旧29/24测试不重跑。本机拖拽识别页入口、真实核验及限制见`docs/local_demo.md`和`docs/goggles_finetuning_report.md`。
 
 - 用户要求每次修改后写一份独立日志。每完成一轮调整，在提交前创建 `docs/change_logs/YYYY-MM-DD-NN-topic.md`，并更新该目录的 `README.md` 索引；日志与对应修改一起提交。

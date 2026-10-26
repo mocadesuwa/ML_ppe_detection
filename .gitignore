@@ -1,5 +1,6 @@
 .venv/
 .cache/
+/build.log
 __pycache__/
 *.py[cod]
 dataset/raw/*
