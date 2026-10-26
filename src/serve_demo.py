@@ -21,9 +21,13 @@ from .common import local_caches, project_path, select_device, sha256
 MAX_UPLOAD_BYTES = 8 * 1024 * 1024
 MAX_IMAGE_PIXELS = 16_000_000
 CLASSES = ["not_wearing_goggles", "wearing_goggles"]
-STATIC = {"/": ("index.html", "text/html; charset=utf-8"),
-          "/app.js": ("app.js", "text/javascript; charset=utf-8"),
-          "/style.css": ("style.css", "text/css; charset=utf-8")}
+STATIC = {
+    "/": ("index.html", "text/html; charset=utf-8"),
+    "/app.js": ("app.js", "text/javascript; charset=utf-8"),
+    "/style.css": ("style.css", "text/css; charset=utf-8"),
+    "/training.js": ("training.js", "text/javascript; charset=utf-8"),
+    "/training-summary.json": ("training-summary.json", "application/json; charset=utf-8"),
+}
 
 
 def decode_image(content: bytes):

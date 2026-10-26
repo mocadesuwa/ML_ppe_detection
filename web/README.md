@@ -5,5 +5,6 @@
 - `dist/index.html`：上传、模型选择、分数和规则。
 - `dist/style.css`：桌面双栏与窄屏布局。
 - `dist/app.js`：拖放/选择预览、异步推理、错误处理与JSON下载。
+- `dist/training.js`、`dist/training-summary.json`：四组已保存实验的曲线切换、验证对照与历史测试说明；摘要只含聚合数据和证据哈希。
 
 使用项目根目录的`start_demo.cmd`启动，详见[使用说明](../docs/local_demo.md)。不在该目录保存真实头像或模型。

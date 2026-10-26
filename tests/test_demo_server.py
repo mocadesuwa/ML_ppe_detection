@@ -83,7 +83,11 @@ class DemoHttpTests(unittest.TestCase):
         return response.status, dict(response.getheaders()), content
 
     def test_page_assets_and_model_metadata_are_served(self):
-        for path, content_type in (("/", "text/html"), ("/app.js", "text/javascript"), ("/style.css", "text/css")):
+        for path, content_type in (
+            ("/", "text/html"), ("/app.js", "text/javascript"),
+            ("/style.css", "text/css"), ("/training.js", "text/javascript"),
+            ("/training-summary.json", "application/json"),
+        ):
             status, headers, content = self.request("GET", path)
             self.assertEqual(status, 200)
             self.assertTrue(headers["Content-Type"].startswith(content_type))
@@ -93,6 +97,20 @@ class DemoHttpTests(unittest.TestCase):
         status, _, content = self.request("GET", "/api/models")
         self.assertEqual(status, 200)
         self.assertEqual(json.loads(content)["models"][0]["id"], "baseline")
+
+    def test_training_summary_separates_validation_from_historical_test(self):
+        status, _, content = self.request("GET", "/training-summary.json")
+        self.assertEqual(status, 200)
+        summary = json.loads(content)
+        self.assertFalse(summary["new_training_performed"])
+        self.assertFalse(summary["new_test_evaluated"])
+        self.assertEqual(summary["historical_test"]["model_id"], "control")
+        self.assertEqual(summary["historical_test"]["images"], 24)
+        self.assertEqual(sum(summary["counts"]["val"].values()), 47)
+        self.assertEqual([run["id"] for run in summary["experiments"]],
+                         ["control", "joint", "tail2", "tail4"])
+        self.assertEqual([run["id"] for run in summary["experiments"] if run["selected"]],
+                         ["control"])
 
     def test_binary_image_round_trip_uses_selected_model_and_correct_pixels(self):
         image = png_bytes()

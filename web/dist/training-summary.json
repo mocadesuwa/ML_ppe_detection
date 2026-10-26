@@ -1,0 +1,305 @@
+{
+  "format_version": 1,
+  "recorded_on": "2026-10-26",
+  "model": "MobileNetV3 Small",
+  "dataset_fingerprint": "5859b079a61f07f9436f5a7c75383d9c8854fe73fb98c0211cb4045643ae550c",
+  "counts": {
+    "train": {
+      "not_wearing_goggles": 157,
+      "wearing_goggles": 44
+    },
+    "val": {
+      "not_wearing_goggles": 38,
+      "wearing_goggles": 9
+    },
+    "test": {
+      "not_wearing_goggles": 18,
+      "wearing_goggles": 6
+    }
+  },
+  "experiments": [
+    {
+      "id": "control",
+      "title": "原方案 / 当前基线",
+      "name": "goggles_v2_control",
+      "selected": true,
+      "best_epoch": 3,
+      "updates": 143,
+      "validation": {
+        "accuracy": 0.9148936170212766,
+        "macro_f1": 0.8493589743589743,
+        "wearing_recall": 0.6666666666666666
+      },
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.7127187754558015,
+          "val_loss": 0.5939690407286299,
+          "val_macro_f1": 0.6948051948051948
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.5205527449878307,
+          "val_loss": 0.38352113581718283,
+          "val_macro_f1": 0.6875593542260209
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.412223884452295,
+          "val_loss": 0.34649095636733035,
+          "val_macro_f1": 0.8493589743589743
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.35396174707766226,
+          "val_loss": 0.32822179794311523,
+          "val_macro_f1": 0.7768281101614435
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.31213588468809783,
+          "val_loss": 0.33709868471673193,
+          "val_macro_f1": 0.7134146341463414
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.26410818206424436,
+          "val_loss": 0.3574071082663029,
+          "val_macro_f1": 0.5523809523809524
+        },
+        {
+          "epoch": 7,
+          "train_loss": 0.23230809791559345,
+          "val_loss": 0.3266794630821715,
+          "val_macro_f1": 0.7134146341463414
+        },
+        {
+          "epoch": 8,
+          "train_loss": 0.19529789844149978,
+          "val_loss": 0.347595288398418,
+          "val_macro_f1": 0.6396495071193866
+        },
+        {
+          "epoch": 9,
+          "train_loss": 0.17432433779457485,
+          "val_loss": 0.3731793013024837,
+          "val_macro_f1": 0.6396495071193866
+        },
+        {
+          "epoch": 10,
+          "train_loss": 0.14455575564584744,
+          "val_loss": 0.3941225980190521,
+          "val_macro_f1": 0.6396495071193866
+        },
+        {
+          "epoch": 11,
+          "train_loss": 0.12564490413176826,
+          "val_loss": 0.4441606212169566,
+          "val_macro_f1": 0.5523809523809524
+        }
+      ],
+      "weights_sha256": "c66432ef67e71efb9341c7aceed7a2291e1f45cf4de313548ad3d9a03c6be8d7",
+      "source_record_sha256": "58ad66d31b77247f1505de25266ab8e671bdaf6f4106e812593d31c425846546"
+    },
+    {
+      "id": "joint",
+      "title": "类别与来源联合均衡",
+      "name": "goggles_v3_joint",
+      "selected": false,
+      "best_epoch": 2,
+      "updates": 130,
+      "validation": {
+        "accuracy": 0.9148936170212766,
+        "macro_f1": 0.8321428571428571,
+        "wearing_recall": 0.5555555555555556
+      },
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.5575896620157346,
+          "val_loss": 0.4576807225004156,
+          "val_macro_f1": 0.7626262626262625
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.35268986084271425,
+          "val_loss": 0.31443341234897043,
+          "val_macro_f1": 0.8321428571428571
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.20626876581071027,
+          "val_loss": 0.2930301047386007,
+          "val_macro_f1": 0.8321428571428571
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.15421983714572232,
+          "val_loss": 0.4109372813650902,
+          "val_macro_f1": 0.6396495071193866
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.09567505536387809,
+          "val_loss": 0.41254643683737896,
+          "val_macro_f1": 0.6396495071193866
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.06287578447022248,
+          "val_loss": 0.41754641431443235,
+          "val_macro_f1": 0.6396495071193866
+        },
+        {
+          "epoch": 7,
+          "train_loss": 0.061475603085993535,
+          "val_loss": 0.47494479950438157,
+          "val_macro_f1": 0.5523809523809524
+        },
+        {
+          "epoch": 8,
+          "train_loss": 0.04617107894957362,
+          "val_loss": 0.4405165885357147,
+          "val_macro_f1": 0.5523809523809524
+        },
+        {
+          "epoch": 9,
+          "train_loss": 0.05342024101398477,
+          "val_loss": 0.45438268336843934,
+          "val_macro_f1": 0.5523809523809524
+        },
+        {
+          "epoch": 10,
+          "train_loss": 0.03212312282762717,
+          "val_loss": 0.49738711245516515,
+          "val_macro_f1": 0.6396495071193866
+        }
+      ],
+      "weights_sha256": "9bb3dc55d7bc314ffb971121000f5fd37e79ce60f05a20db7278d228a972312a",
+      "source_record_sha256": "3e479292bf5dc3e051b39fc2aaec454eb6ee4feb21d78d48b532b8a52d40d3e7"
+    },
+    {
+      "id": "tail2",
+      "title": "微调最后2个模块",
+      "name": "goggles_v4_tail2",
+      "selected": false,
+      "best_epoch": 2,
+      "updates": 91,
+      "validation": {
+        "accuracy": 0.8936170212765957,
+        "macro_f1": 0.8016877637130801,
+        "wearing_recall": 0.5555555555555556
+      },
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.3553501197696024,
+          "val_loss": 0.32651959581578033,
+          "val_macro_f1": 0.7482142857142857
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.3001556655901751,
+          "val_loss": 0.3186409169055046,
+          "val_macro_f1": 0.8016877637130801
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.26221981875655903,
+          "val_loss": 0.31784002324368094,
+          "val_macro_f1": 0.7134146341463414
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.2419945356941863,
+          "val_loss": 0.3136564315633571,
+          "val_macro_f1": 0.7134146341463414
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.214046854622934,
+          "val_loss": 0.3260148763656616,
+          "val_macro_f1": 0.7134146341463414
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.1751720183098949,
+          "val_loss": 0.37641621396896685,
+          "val_macro_f1": 0.6396495071193866
+        },
+        {
+          "epoch": 7,
+          "train_loss": 0.15280293679055354,
+          "val_loss": 0.3502994623590023,
+          "val_macro_f1": 0.7134146341463414
+        }
+      ],
+      "weights_sha256": "851f9ff53ace13eb62c8f4f80a157ea19c1456fd7c7dbf0187641053d820d378",
+      "source_record_sha256": "8845a6fa8083de5b2d2c6f627d3c3f502e2ecfdac61756fd63190f813e29fb34"
+    },
+    {
+      "id": "tail4",
+      "title": "微调最后4个模块",
+      "name": "goggles_v4_tail4",
+      "selected": false,
+      "best_epoch": 1,
+      "updates": 78,
+      "validation": {
+        "accuracy": 0.9148936170212766,
+        "macro_f1": 0.8493589743589743,
+        "wearing_recall": 0.6666666666666666
+      },
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.34366734324579934,
+          "val_loss": 0.3166234442528258,
+          "val_macro_f1": 0.8493589743589743
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.26368094042695245,
+          "val_loss": 0.309317355460309,
+          "val_macro_f1": 0.7134146341463414
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.2068111432685537,
+          "val_loss": 0.29719043792562283,
+          "val_macro_f1": 0.7768281101614435
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.17213505737878027,
+          "val_loss": 0.2968938502859562,
+          "val_macro_f1": 0.7768281101614435
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.1399465511678433,
+          "val_loss": 0.3298058864918161,
+          "val_macro_f1": 0.7768281101614435
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.10009557865694413,
+          "val_loss": 0.4504599653659983,
+          "val_macro_f1": 0.6396495071193866
+        }
+      ],
+      "weights_sha256": "ebe4fb2a5a2fc7c130ffca3ea5fdae350d61d625e65328f57b2189143185e6c8",
+      "source_record_sha256": "659c56d49671f0840f13d73b18ced40689f8d48064fc2681f1b7a0d3ac02f705"
+    }
+  ],
+  "historical_test": {
+    "model_id": "control",
+    "recorded_on": "2026-10-22",
+    "images": 24,
+    "accuracy": 0.7916666666666666,
+    "macro_f1": 0.7051597051597052,
+    "wearing_recall": 0.5,
+    "source_sha256": "2d4accd1371e0a6c726a805745a94c97279e10fcf695d2192feab86d914031ac"
+  },
+  "new_training_performed": false,
+  "new_test_evaluated": false
+}

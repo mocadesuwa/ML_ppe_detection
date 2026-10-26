@@ -22,6 +22,7 @@
 | `src/evaluate_classification.py` | 分类验证/最终测试、逐图分数与错误记录，最终测试仅允许完成的基线且防止重复尝试 |
 | `src/predict_classification.py` | 已裁剪静态头像的类别预测，逐图JSONL与输入/权重完整性检查 |
 | `src/serve_demo.py` | 本机图片解码、已完成模型校验、内存推理及只开放前端资源的HTTP接口 |
+| `web/dist/training.js`、`training-summary.json` | 读取已存聚合训练记录，切换实验/曲线与展示数据划分，不触发训练或测试 |
 | `web/dist/`、`start_demo.cmd` | 无构建依赖的拖放页面及Windows一键启动 |
 | `src/environment.py` | 查询现有Python、依赖和GPU环境 |
 | `scripts/find_related_images.py` | 相似图片候选，不自动判断人物或来源组 |

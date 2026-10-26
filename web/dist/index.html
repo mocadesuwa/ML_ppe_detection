@@ -1,44 +1,440 @@
 <!doctype html>
 <html lang="zh-CN">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>护目镜识别 · 本机实验台</title>
-  <meta name="description" content="在本机拖入静态单人头像，查看护目镜佩戴判断和两类模型分数。">
-  <link rel="stylesheet" href="/style.css">
-  <script src="/app.js" defer></script>
-</head>
-<body>
-  <header class="topbar"><div class="brand"><span class="brand-icon" aria-hidden="true">◉</span> 实验室视觉 <span class="slash">/</span> <span class="brand-sub">护目镜实验台</span></div><span id="connection" class="connection">正在连接本机模型</span></header>
-  <main>
-    <section class="intro"><div><p class="eyebrow">图像分类 · 本机推理</p><h1>护目镜佩戴识别</h1><p class="lead">拖入一张新的头像，看看模型如何判断。</p></div><div class="private-note"><span aria-hidden="true">↳</span><div><strong>图片留在本机</strong><p>仅用于本次识别，不自动加入训练数据。</p></div></div></section>
-    <section class="workspace" aria-label="头像识别工作区">
-      <div class="card upload-card">
-        <div class="card-heading"><span class="step">01</span><h2>选择头像</h2><span class="small-tag">一次一张</span></div>
-        <div id="dropzone" class="dropzone">
-          <div id="empty-preview" class="empty-preview">
-            <svg class="upload-symbol" width="90" height="60" viewBox="0 0 90 60" fill="none" aria-hidden="true"><path d="M11 22 5 16M79 22l6-6M34 30h22M10 25c1-5 8-7 14-7h10c4 0 7 3 7 7l-2 12c-1 5-6 8-13 8H21c-6 0-10-3-11-8V25ZM80 25c-1-5-8-7-14-7H56c-4 0-7 3-7 7l2 12c1 5 6 8 13 8h5c6 0 10-3 11-8V25Z" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
-            <h3>将图片拖到这里</h3><p>或从电脑中选择一张头像图片</p><button id="choose" class="button secondary" type="button">选择图片 <span aria-hidden="true">↗</span></button><p class="formats">JPG / PNG / BMP / WebP · 最大8MB</p>
-          </div>
-          <div id="image-preview" class="image-preview" hidden><img id="preview" alt="待识别的头像预览"><div class="file-info"><span id="filename"></span><button id="replace" class="text-button" type="button">更换图片</button></div></div>
-          <input id="file" type="file" accept=".jpg,.jpeg,.png,.bmp,.webp" aria-label="上传单人头像" hidden>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>
+      护目镜模型实验台
+    </title>
+    <meta name="description" content="查看真实训练记录与实验对照，并上传头像使用已训练模型判断护目镜佩戴。">
+    <link rel="stylesheet" href="/style.css">
+    <script src="/app.js" defer>
+    </script>
+    <script src="/training.js" defer>
+    </script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#overview">
+        <span class="brand-icon" aria-hidden="true">
+          ◉
+        </span>
+        护目镜模型实验台
+      </a>
+      <nav aria-label="页面导航">
+        <a href="#training">
+          训练记录
+        </a>
+        <a href="#experiments">
+          实验对照
+        </a>
+        <a href="#try-image">
+          图片识别 ↗
+        </a>
+      </nav>
+      <span id="connection" class="connection">
+        正在连接模型
+      </span>
+    </header>
+    <main>
+      <section id="overview" class="intro">
+        <div>
+          <p class="eyebrow">
+            MODEL LAB / 课程实践
+          </p>
+          <h1>
+            看见模型的训练，也试试它的判断。
+          </h1>
+          <p class="lead">
+            从冻结数据到实验对照，再用一张新头像检验护目镜佩戴识别。
+          </p>
         </div>
-        <p class="input-note"><strong>需要单人头部裁剪图。</strong>请保留完整眼部；本页不会自动从多人或全身照片中寻找头像。</p>
-        <p id="error" class="error" role="alert" hidden></p>
-        <button id="predict" class="button primary" type="button" disabled><span id="predict-text">开始识别</span><span id="predict-arrow" aria-hidden="true">→</span></button>
+        <div class="private-note">
+          <div>
+            <strong>
+              当前环境运行 · GPU推理优先
+            </strong>
+            <p>
+              图片留在当前电脑，不自动加入训练。
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="metric-grid" aria-label="当前基线概览">
+        <article class="metric">
+          <span>
+            当前数据版本 · v3
+          </span>
+          <strong id="data-count">
+            —
+          </strong>
+          <p id="split-counts">
+            正在读取冻结划分
+          </p>
+        </article>
+        <article class="metric">
+          <span>
+            基线验证准确率 · 47张
+          </span>
+          <strong id="validation-accuracy">
+            —
+          </strong>
+          <p id="validation-f1">
+            用于选择模型
+          </p>
+        </article>
+        <article class="metric">
+          <span>
+            历史测试准确率 · 24张
+          </span>
+          <strong id="test-accuracy">
+            —
+          </strong>
+          <p id="test-recall">
+            2026-10-22一次评价，已封存
+          </p>
+        </article>
+      </section>
+      <p id="training-error" class="error" role="alert" hidden>
+      </p>
+      <section id="training" class="training-grid" aria-label="训练记录">
+        <article class="card chart-card">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">
+                01 / TRAINING
+              </p>
+              <h2>
+                训练中的变化
+              </h2>
+            </div>
+            <span class="small-tag">
+              真实逐轮记录
+            </span>
+          </div>
+          <div class="chart-controls">
+            <label>
+              查看实验
+              <select id="curve-run" aria-label="训练曲线实验">
+              </select>
+            </label>
+            <label>
+              曲线指标
+              <select id="curve-metric" aria-label="训练曲线指标">
+                <option value="f1">
+                  验证 macro-F1
+                </option>
+                <option value="loss">
+                  训练 / 验证损失
+                </option>
+              </select>
+            </label>
+          </div>
+          <svg id="training-chart" viewBox="0 0 700 240" role="img" aria-label="真实训练曲线">
+          </svg>
+          <p id="curve-caption" class="muted">
+            读取训练历史中…
+          </p>
+        </article>
+        <aside class="card decision-card">
+          <p class="eyebrow">
+            CURRENT MODEL
+          </p>
+          <h2>
+            继续保留原基线
+          </h2>
+          <p class="model-name">
+            MobileNetV3 Small
+          </p>
+          <p>
+            尾部微调没有严格超过基线的验证 macro-F1，默认仍使用
+            <strong>v2_control</strong>。
+          </p>
+          <dl class="recipe">
+            <div>
+              <dt>
+                输入
+              </dt>
+              <dd>
+                单人头像 / 224 × 224
+              </dd>
+            </div>
+            <div>
+              <dt>
+                输出
+              </dt>
+              <dd>
+                佩戴 / 未佩戴，不输出框
+              </dd>
+            </div>
+            <div>
+              <dt>
+                基线策略
+              </dt>
+              <dd>
+                冻结骨干，训练二分类头
+              </dd>
+            </div>
+            <div>
+              <dt>
+                选择依据
+              </dt>
+              <dd>
+                验证集，不反复调试测试集
+              </dd>
+            </div>
+          </dl>
+          <p class="callout">
+            历史测试仅24张，其中6张佩戴样本；佩戴召回率为50%。尚不能代表实际实验室部署效果。
+          </p>
+        </aside>
+      </section>
+      <section id="experiments" class="card experiments">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">
+              02 / EXPERIMENTS
+            </p>
+            <h2>
+              同一验证集上的模型对照
+            </h2>
+          </div>
+          <span class="small-tag">
+            47张 · 38未佩戴 / 9佩戴
+          </span>
+        </div>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">
+                  实验方案
+                </th>
+                <th scope="col">
+                  实际轮数
+                </th>
+                <th scope="col">
+                  最佳轮
+                </th>
+                <th scope="col">
+                  验证准确率
+                </th>
+                <th scope="col">
+                  验证 macro-F1
+                </th>
+                <th scope="col">
+                  佩戴召回率
+                </th>
+              </tr>
+            </thead>
+            <tbody id="experiment-rows">
+            </tbody>
+          </table>
+        </div>
+        <p class="muted">
+          验证结果用于选模；上方历史测试结果仅属于当前基线，不能移作微调模型的测试结果。本页只读取已有训练记录。
+        </p>
+        <div id="data-breakdown" class="data-breakdown" aria-label="数据划分与类别数量">
+        </div>
+        <p class="muted">
+          原图复核 → 头部裁剪 → 按来源整组划分 → 训练与验证 → 一次保留评价。29张早期测试与24张后续测试均继续封存。
+        </p>
+      </section>
+      <div id="try-image" class="section-heading try-heading">
+        <div>
+          <p class="eyebrow">
+            03 / TRY AN IMAGE
+          </p>
+          <h2>
+            用一张头像，看看模型如何判断
+          </h2>
+        </div>
+        <span class="small-tag">
+          当前电脑内存中处理
+        </span>
       </div>
-      <div class="card result-card">
-        <div class="card-heading"><span class="step">02</span><h2>查看判断</h2><span class="small-tag">二分类</span></div>
-        <label class="model-label" for="model">使用模型</label><select id="model" disabled><option>正在读取模型…</option></select><p id="model-note" class="model-note">模型完成加载后即可识别。</p>
-        <div class="result-zone" aria-live="polite" aria-atomic="true"><div id="result-symbol" class="result-symbol">—</div><p id="result-title" class="result-title">等待一张头像</p><p id="result-description" class="result-description">上传后点击“开始识别”，结果会显示在这里。</p></div>
-        <div class="scores"><div class="score-label"><span>佩戴护目镜</span><strong id="wearing-score">—</strong></div><div class="bar"><div id="wearing-bar" class="bar-fill wearing" role="progressbar" aria-label="佩戴护目镜分数" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div></div><div class="score-label"><span>未佩戴护目镜</span><strong id="not-wearing-score">—</strong></div><div class="bar"><div id="not-wearing-bar" class="bar-fill not-wearing" role="progressbar" aria-label="未佩戴护目镜分数" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div></div></div>
-        <p class="score-note">这里显示分类分数，尚未做概率校准。</p>
-        <div id="result-meta" class="result-meta" hidden><span id="dimensions"></span><span id="timing"></span></div><p id="known-note" class="known-note" hidden></p>
-        <a id="download" class="download" download="goggles-result.json" hidden>下载本次判断 JSON <span aria-hidden="true">↧</span></a>
-      </div>
-    </section>
-    <section class="rules" aria-label="判断规则"><div><span class="rule-dot green"></span><p><strong>佩戴</strong>防护镜清楚覆盖眼部</p></div><div><span class="rule-dot orange"></span><p><strong>未佩戴</strong>无防护镜、普通眼镜、太阳镜或额头佩戴</p></div><div><span class="rule-dot gray"></span><p><strong>使用范围</strong>课程实验模型，真实场景效果仍需验证</p></div></section>
-    <footer><span>静态头像识别 · 不输出位置框</span><span>请用未参与训练的新图检验效果</span></footer>
-  </main>
-</body>
+      <section class="workspace" aria-label="头像识别工作区">
+        <div class="card upload-card">
+          <div class="card-heading">
+            <span class="step">
+              01
+            </span>
+            <h2>
+              选择头像
+            </h2>
+            <span class="small-tag">
+              一次一张
+            </span>
+          </div>
+          <div id="dropzone" class="dropzone">
+            <div id="empty-preview" class="empty-preview">
+              <svg class="upload-symbol" width="90" height="60" viewBox="0 0 90 60" fill="none" aria-hidden="true">
+                <path d="M11 22 5 16M79 22l6-6M34 30h22M10 25c1-5 8-7 14-7h10c4 0 7 3 7 7l-2 12c-1 5-6 8-13 8H21c-6 0-10-3-11-8V25ZM80 25c-1-5-8-7-14-7H56c-4 0-7 3-7 7l2 12c1 5 6 8 13 8h5c6 0 10-3 11-8V25Z" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+              <h3>
+                将图片拖到这里
+              </h3>
+              <p>
+                或从电脑中选择一张头像图片
+              </p>
+              <button id="choose" class="button secondary" type="button">
+                选择图片
+                <span aria-hidden="true">
+                  ↗
+                </span>
+              </button>
+              <p class="formats">
+                JPG / PNG / BMP / WebP · 最大8MB
+              </p>
+            </div>
+            <div id="image-preview" class="image-preview" hidden>
+              <img id="preview" alt="待识别的头像预览">
+              <div class="file-info">
+                <span id="filename">
+                </span>
+                <button id="replace" class="text-button" type="button">
+                  更换图片
+                </button>
+              </div>
+            </div>
+            <input id="file" type="file" accept=".jpg,.jpeg,.png,.bmp,.webp" aria-label="上传单人头像" hidden>
+          </div>
+          <p class="input-note">
+            <strong>
+              需要单人头部裁剪图。
+            </strong>
+            请保留完整眼部；本页不会自动从多人或全身照片中寻找头像。
+          </p>
+          <p id="error" class="error" role="alert" hidden>
+          </p>
+          <button id="predict" class="button primary" type="button" disabled>
+            <span id="predict-text">
+              开始识别
+            </span>
+            <span id="predict-arrow" aria-hidden="true">
+              →
+            </span>
+          </button>
+        </div>
+        <div class="card result-card">
+          <div class="card-heading">
+            <span class="step">
+              02
+            </span>
+            <h2>
+              查看判断
+            </h2>
+            <span class="small-tag">
+              二分类
+            </span>
+          </div>
+          <label class="model-label" for="model">
+            使用模型
+          </label>
+          <select id="model" disabled>
+            <option>
+              正在读取模型…
+            </option>
+          </select>
+          <p id="model-note" class="model-note">
+            模型完成加载后即可识别。
+          </p>
+          <div class="result-zone" aria-live="polite" aria-atomic="true">
+            <div id="result-symbol" class="result-symbol">
+              —
+            </div>
+            <p id="result-title" class="result-title">
+              等待一张头像
+            </p>
+            <p id="result-description" class="result-description">
+              上传后点击“开始识别”，结果会显示在这里。
+            </p>
+          </div>
+          <div class="scores">
+            <div class="score-label">
+              <span>
+                佩戴护目镜
+              </span>
+              <strong id="wearing-score">
+                —
+              </strong>
+            </div>
+            <div class="bar">
+              <div id="wearing-bar" class="bar-fill wearing" role="progressbar" aria-label="佩戴护目镜分数" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+              </div>
+            </div>
+            <div class="score-label">
+              <span>
+                未佩戴护目镜
+              </span>
+              <strong id="not-wearing-score">
+                —
+              </strong>
+            </div>
+            <div class="bar">
+              <div id="not-wearing-bar" class="bar-fill not-wearing" role="progressbar" aria-label="未佩戴护目镜分数" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+              </div>
+            </div>
+          </div>
+          <p class="score-note">
+            这里显示分类分数，尚未做概率校准。
+          </p>
+          <div id="result-meta" class="result-meta" hidden>
+            <span id="dimensions">
+            </span>
+            <span id="timing">
+            </span>
+          </div>
+          <p id="known-note" class="known-note" hidden>
+          </p>
+          <a id="download" class="download" download="goggles-result.json" hidden>
+            下载本次判断 JSON
+            <span aria-hidden="true">
+              ↧
+            </span>
+          </a>
+        </div>
+      </section>
+      <section class="rules" aria-label="判断规则">
+        <div>
+          <span class="rule-dot green">
+          </span>
+          <p>
+            <strong>
+              佩戴
+            </strong>
+            防护镜清楚覆盖眼部
+          </p>
+        </div>
+        <div>
+          <span class="rule-dot orange">
+          </span>
+          <p>
+            <strong>
+              未佩戴
+            </strong>
+            无防护镜、普通眼镜、太阳镜或额头佩戴
+          </p>
+        </div>
+        <div>
+          <span class="rule-dot gray">
+          </span>
+          <p>
+            <strong>
+              使用范围
+            </strong>
+            课程实验模型，真实场景效果仍需验证
+          </p>
+        </div>
+      </section>
+      <footer>
+        <span>
+          静态头像识别 · 不输出位置框
+        </span>
+        <span>
+          请用未参与训练的新图检验效果
+        </span>
+      </footer>
+    </main>
+  </body>
 </html>

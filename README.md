@@ -22,7 +22,9 @@
 
 ## 当前入口
 
-**[下载已训练模型（5.71MB）](https://github.com/mocadesuwa/ML_ppe_detection/releases/download/goggles-v2-control-model/goggles_v2_control-model.zip)**：2026-10-26按用户最新指示，仅发布当前`v2_control`模型、最小推理契约与校验说明，不制作便携应用。包内不含Python/CUDA运行环境，支持在兼容环境中使用GPU推理。详见[模型下载说明](docs/model_release.md)。原本机页面保持原样。
+**[下载已训练模型（5.71MB）](https://github.com/mocadesuwa/ML_ppe_detection/releases/download/goggles-v2-control-model/goggles_v2_control-model.zip)**：已发布当前`v2_control`模型、最小推理契约与校验说明，不制作便携应用。包内不含Python/CUDA运行环境，支持在兼容环境中使用GPU推理。详见[模型下载说明](docs/model_release.md)。
+
+2026-10-26按用户新的网页操作需求，增加训练记录、可切换曲线和四组实验对照，沿用既有图片识别及真实GPU推理；234项回归、浏览器曲线操作、双模型CUDA识别及JSON下载核验通过，详见[网页方案](docs/interactive_lab_plan.md)。本轮不重新训练或重跑测试。
 
 想直接看识别效果：在项目目录双击 **`start_demo.cmd`**，自动打开`http://127.0.0.1:8765`，拖入已裁剪的单人头像后点“开始识别”。关闭服务窗口或按`Ctrl+C`停止。图片留在本机内存中，不自动加入训练。完整步骤、输入限制及API见[使用说明](docs/local_demo.md)。
 

@@ -41,7 +41,10 @@ $("predict").addEventListener("click", async () => {
     const wearing = result.label === "wearing_goggles"; $("result-symbol").className = "result-symbol " + (wearing ? "positive" : "negative"); $("result-symbol").textContent = wearing ? "✓" : "!";
     $("result-title").textContent = wearing ? "已佩戴护目镜" : "未佩戴护目镜"; $("result-description").textContent = "以上是这张头像的模型判断。";
     for (const [prefix, key] of [["wearing", "wearing_goggles"], ["not-wearing", "not_wearing_goggles"]]) { const percent = result.probabilities[key] * 100; $(prefix + "-score").textContent = percent.toFixed(1) + "%"; $(prefix + "-bar").style.width = percent + "%"; $(prefix + "-bar").setAttribute("aria-valuenow", percent.toFixed(1)); }
-    $("dimensions").textContent = result.image_size.width + " × " + result.image_size.height + " px"; $("timing").textContent = "本次耗时 " + (result.elapsed_ms / 1000).toFixed(2) + " 秒"; $("result-meta").hidden = false;
+    $("dimensions").textContent = result.image_size.width + " × " + result.image_size.height + " px";
+    const seconds = (result.elapsed_ms / 1000).toFixed(2);
+    $("timing").textContent = "本次耗时 " + seconds + " 秒 · " + result.device;
+    $("result-meta").hidden = false;
     const names = { train: "训练集", val: "验证集", test: "测试集" }; $("known-note").textContent = result.known_splits.length ? "这张图与当前模型已登记头像完全重复：" + result.known_splits.map((name) => names[name] || name).join("、") + "。它不属于独立新图。" : "未匹配到已登记头像的相同字节或像素；这不保证图像来源独立。"; $("known-note").hidden = false;
     resultURL = URL.createObjectURL(new Blob([JSON.stringify(result, null, 2)], { type: "application/json" })); $("download").href = resultURL; $("download").hidden = false;
   } catch (error) { if (current === requestId && error.name !== "AbortError") { clearResult(); showError(error.message || "无法连接本机服务。"); $("result-title").textContent = "本次未完成识别"; } }
