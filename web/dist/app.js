@@ -33,10 +33,32 @@ $("model").addEventListener("change", () => { requestId++; if (controller) contr
 function updateModelNote() { $("model-note").textContent = $("model").selectedOptions[0]?.dataset.note || ""; }
 $("predict").addEventListener("click", async () => {
   if (!file || busy || !connected) return;
-  const current = ++requestId; controller = new AbortController(); busy = true; clearResult(); updateButton(); $("result-title").textContent = "模型正在查看头像"; $("result-description").textContent = "首次识别需要加载模型，可能稍慢。";
+  const current = ++requestId;
+  controller = new AbortController();
+  busy = true;
+  clearResult();
+  updateButton();
+  $("result-title").textContent = "模型正在查看头像";
+  $("result-description").textContent = "首次识别需要加载模型，可能稍慢。";
+  let receivedResponse = false;
   try {
-    const response = await fetch("/api/predict", { method: "POST", headers: { "Content-Type": file.type || "application/octet-stream", "X-Model-Id": $("model").value }, body: file, signal: controller.signal });
-    const result = await response.json(); if (current !== requestId) return; if (!response.ok) throw new Error(result.error || "识别失败，请稍后再试。");
+    const response = await fetch("/api/predict", {
+      method: "POST",
+      headers: {
+        "Content-Type": file.type || "application/octet-stream",
+        "X-Model-Id": $("model").value,
+      },
+      body: file,
+      signal: controller.signal,
+    });
+    receivedResponse = true;
+    const result = await response.json();
+    if (current !== requestId) return;
+    $("connection").textContent = "本机模型已连接";
+    $("connection").className = "connection connected";
+    if (!response.ok) {
+      throw new Error(result.error || "识别失败，请稍后再试。");
+    }
     if (!["wearing_goggles", "not_wearing_goggles"].includes(result.label)) throw new Error("模型返回的类别不符合当前任务。");
     const wearing = result.label === "wearing_goggles"; $("result-symbol").className = "result-symbol " + (wearing ? "positive" : "negative"); $("result-symbol").textContent = wearing ? "✓" : "!";
     $("result-title").textContent = wearing ? "已佩戴护目镜" : "未佩戴护目镜"; $("result-description").textContent = "以上是这张头像的模型判断。";
@@ -47,8 +69,27 @@ $("predict").addEventListener("click", async () => {
     $("result-meta").hidden = false;
     const names = { train: "训练集", val: "验证集", test: "测试集" }; $("known-note").textContent = result.known_splits.length ? "这张图与当前模型已登记头像完全重复：" + result.known_splits.map((name) => names[name] || name).join("、") + "。它不属于独立新图。" : "未匹配到已登记头像的相同字节或像素；这不保证图像来源独立。"; $("known-note").hidden = false;
     resultURL = URL.createObjectURL(new Blob([JSON.stringify(result, null, 2)], { type: "application/json" })); $("download").href = resultURL; $("download").hidden = false;
-  } catch (error) { if (current === requestId && error.name !== "AbortError") { clearResult(); showError(error.message || "无法连接本机服务。"); $("result-title").textContent = "本次未完成识别"; } }
-  finally { if (current === requestId) { busy = false; updateButton(); } }
+  } catch (error) {
+    if (current === requestId && error.name !== "AbortError") {
+      clearResult();
+      const connectionFailed = !receivedResponse && error instanceof TypeError;
+      const message = connectionFailed
+        ? "无法连接本机服务。请确认服务窗口仍在运行，恢复后点“开始识别”重试。"
+        : error.message || "本次识别失败，请稍后再试。";
+      showError(message);
+      $("result-title").textContent = "本次未完成识别";
+      $("result-description").textContent = message;
+      if (connectionFailed) {
+        $("connection").textContent = "本机服务连接中断";
+        $("connection").className = "connection disconnected";
+      }
+    }
+  } finally {
+    if (current === requestId) {
+      busy = false;
+      updateButton();
+    }
+  }
 });
 async function connect() {
   try {

@@ -38,7 +38,7 @@ python -m src.train_classification --config configs/goggles_classification_v2_co
 
 分类训练入口默认只核查并打印计划，真实训练必须显式提供`--start`，且要求匹配预检。第二轮短跑2轮26次更新通过后执行三组对照，均通过骨干冻结、头更新和最佳权重重载。选定control第11轮早停，第3轮验证macro-F1最佳0.8494、Accuracy91.49%；212项累计回归通过，未安装依赖。
 
-护目镜训练/离线入口是`src.train_classification`、`src.evaluate_classification`和`src.predict_classification`，交互页面入口是`src.serve_demo`。目前233项累计回归通过，两个真实模型的HTTP推理及浏览器上传/下载已核验；回归通过不等于新图准确率。通用检测工具及共享校验仍保留，具体职责见[框架说明](docs/framework_review.md)。
+护目镜训练/离线入口是`src.train_classification`、`src.evaluate_classification`和`src.predict_classification`，交互页面入口是`src.serve_demo`。目前234项累计回归通过；阶段收尾修正了服务中断提示，浏览器实测恢复服务后可保留原图直接重试GPU识别。双模型的早期核验及本轮检查范围见[使用说明](docs/local_demo.md)，回归通过不等于新图准确率。通用检测工具及共享校验仍保留，具体职责见[框架说明](docs/framework_review.md)。
 
 对本地已裁剪头像预测的示例：
 
