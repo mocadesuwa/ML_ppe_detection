@@ -18,7 +18,7 @@
   }
 
   function drawCurve() {
-    if (!summary) {
+    if (!summary || element("training").hidden) {
       return;
     }
     const run = summary.experiments.find((item) => item.id === element("curve-run").value);
@@ -115,6 +115,21 @@
       element("data-breakdown").append(box);
     }
     drawCurve();
+  }
+
+  const panelButtons = document.querySelectorAll(".support-toggle");
+  for (const button of panelButtons) {
+    button.addEventListener("click", () => {
+      const expand = button.getAttribute("aria-expanded") !== "true";
+      for (const otherButton of panelButtons) {
+        const active = otherButton === button && expand;
+        const panel = element(otherButton.getAttribute("aria-controls"));
+        otherButton.setAttribute("aria-expanded", String(active));
+        otherButton.querySelector("span").textContent = active ? "－" : "＋";
+        panel.hidden = !active;
+      }
+      drawCurve();
+    });
   }
 
   element("curve-run").addEventListener("change", drawCurve);
