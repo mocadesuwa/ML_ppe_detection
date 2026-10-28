@@ -2,195 +2,135 @@
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>
-      护目镜识别工作台
-    </title>
-    <meta name="description" content="上传单人头像，查看护目镜佩戴判断与分类分数；按需展开模型训练记录。">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="在本机上传单人头像，查看护目镜佩戴判断、分类分数并下载结果。">
+    <title>护目镜识别工作台</title>
     <link rel="stylesheet" href="/style.css">
-    <script src="/app.js" defer>
-    </script>
-    <script src="/training.js" defer>
-    </script>
+    <script src="/app.js" defer></script>
+    <script src="/training.js" defer></script>
   </head>
   <body>
     <header class="topbar">
-      <a class="brand" href="#overview">
-        <span class="brand-icon" aria-hidden="true">
-          ◉
-        </span>
-        护目镜识别工作台
+      <a class="brand od-row" href="#overview" aria-label="护目镜识别工作台首页">
+        <svg class="brand-mark" width="40" height="32" viewBox="0 0 40 32" fill="none" aria-hidden="true">
+          <path d="M3 11h10c3 0 4 2 4 4l-1 6c-.5 3-3 5-6 5H8c-3 0-5-2-5-5V11Zm34 0H27c-3 0-4 2-4 4l1 6c.5 3 3 5 6 5h2c3 0 5-2 5-5V11ZM17 16h6M3 12 1 8m36 4 2-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>护目镜识别</span>
       </a>
-      <span id="connection" class="connection">
-        正在连接模型
-      </span>
+      <div class="connection-tools od-cluster">
+        <span id="connection" class="connection" role="status">正在连接本机服务</span>
+        <button id="reconnect" class="text-button" type="button" hidden>重新连接</button>
+      </div>
     </header>
-    <main>
+    <main class="container">
+      <noscript>
+        <p class="error">此识别界面需要 JavaScript，请在浏览器中启用后重新打开。</p>
+      </noscript>
       <section id="overview" class="intro">
-        <div>
-          <p class="eyebrow">
-            GOGGLES / 图片识别
-          </p>
-          <h1>
-            上传头像，查看护目镜佩戴判断。
-          </h1>
-          <p class="lead">
-            选择一张清晰的单人头像，识别后即可查看判断与两类分数。
-          </p>
+        <div class="od-stack">
+          <h1>上传头像，查看佩戴判断。</h1>
+          <p class="lead">识别护目镜佩戴状态，查看分类分数并保存结果。</p>
         </div>
-        <div class="private-note">
-          <div>
-            <strong>
-              当前环境运行 · GPU推理优先
-            </strong>
-            <p>
-              图片留在当前电脑，不自动加入训练。
-            </p>
-          </div>
-        </div>
+        <p class="privacy-note">
+          <span>图片仅在本机处理</span>
+          <span>不会自动加入训练</span>
+        </p>
       </section>
       <section id="try-image" class="workspace" aria-label="头像识别工作区">
         <div class="card upload-card">
-          <div class="card-heading">
-            <span class="step">
-              01
-            </span>
-            <h2>
-              选择头像
-            </h2>
-            <span class="small-tag">
-              一次一张
-            </span>
+          <div class="card-heading od-row">
+            <span class="step" aria-hidden="true">01</span>
+            <h2>选择头像</h2>
+            <span class="small-tag">一次一张</span>
           </div>
-          <div id="dropzone" class="dropzone">
-            <div id="empty-preview" class="empty-preview">
-              <svg class="upload-symbol" width="90" height="60" viewBox="0 0 90 60" fill="none" aria-hidden="true">
-                <path d="M11 22 5 16M79 22l6-6M34 30h22M10 25c1-5 8-7 14-7h10c4 0 7 3 7 7l-2 12c-1 5-6 8-13 8H21c-6 0-10-3-11-8V25ZM80 25c-1-5-8-7-14-7H56c-4 0-7 3-7 7l2 12c1 5 6 8 13 8h5c6 0 10-3 11-8V25Z" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          <div class="model-field od-field">
+            <label class="model-label" for="model">识别模型</label>
+            <select id="model" disabled>
+              <option>正在读取可用模型…</option>
+            </select>
+            <p id="model-note" class="model-note">连接就绪后即可识别。</p>
+          </div>
+          <div id="dropzone" class="dropzone" aria-label="头像图片拖放区域">
+            <div id="empty-preview" class="empty-preview od-stack">
+              <svg class="od-icon upload-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 16V3m-5 5 5-5 5 5M4 15v5a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-5"/>
               </svg>
-              <h3>
-                将图片拖到这里
-              </h3>
-              <p>
-                或从电脑中选择一张头像图片
-              </p>
-              <button id="choose" class="button secondary" type="button">
-                选择图片
-                <span aria-hidden="true">
-                  ↗
-                </span>
-              </button>
-              <p class="formats">
-                JPG / PNG / BMP / WebP · 最大8MB
-              </p>
+              <h3>将头像图片拖到这里</h3>
+              <button id="choose" class="button secondary" type="button">选择图片</button>
+              <p id="formats" class="formats">JPG / PNG / BMP / WebP · 最大 8 MiB</p>
             </div>
             <div id="image-preview" class="image-preview" hidden>
-              <img id="preview" alt="待识别的头像预览">
-              <div class="file-info">
-                <span id="filename">
-                </span>
-                <button id="replace" class="text-button" type="button">
-                  更换图片
-                </button>
+              <div class="preview-stage">
+                <img id="preview" class="od-media" alt="待识别的单人头像">
+              </div>
+              <div class="file-info od-row-top">
+                <div class="od-field od-fill">
+                  <strong id="filename"></strong>
+                  <span id="file-details"></span>
+                </div>
+                <div class="file-actions od-cluster">
+                  <button id="replace" class="text-button" type="button">更换</button>
+                  <button id="clear" class="text-button" type="button">清空</button>
+                </div>
               </div>
             </div>
             <input id="file" type="file" accept=".jpg,.jpeg,.png,.bmp,.webp" aria-label="上传单人头像" hidden>
           </div>
           <p class="input-note">
-            <strong>
-              需要单人头部裁剪图。
-            </strong>
-            请保留完整眼部；本页不会自动从多人或全身照片中寻找头像。
+            请使用<strong>单人头部裁剪图</strong>，保留完整眼部；多人或全身照片需先自行裁剪。
           </p>
-          <p id="error" class="error" role="alert" hidden>
-          </p>
+          <p id="error" class="error" role="alert" hidden></p>
           <button id="predict" class="button primary" type="button" disabled>
-            <span id="predict-text">
-              开始识别
-            </span>
-            <span id="predict-arrow" aria-hidden="true">
-              →
-            </span>
+            <span id="predict-text">开始识别</span>
+            <span id="predict-arrow" aria-hidden="true">→</span>
           </button>
         </div>
         <div class="card result-card">
-          <div class="card-heading">
-            <span class="step">
-              02
-            </span>
-            <h2>
-              识别结果
-            </h2>
-            <span class="small-tag">
-              二分类
-            </span>
+          <div class="card-heading od-row">
+            <span class="step" aria-hidden="true">02</span>
+            <h2>识别结果</h2>
+            <span id="result-state" class="small-tag">等待图片</span>
           </div>
-          <label class="model-label" for="model">
-            使用模型
-          </label>
-          <select id="model" disabled>
-            <option>
-              正在读取模型…
-            </option>
-          </select>
-          <p id="model-note" class="model-note">
-            模型完成加载后即可识别。
-          </p>
-          <div class="result-zone" aria-live="polite" aria-atomic="true">
-            <div id="result-symbol" class="result-symbol">
-              —
-            </div>
-            <p id="result-title" class="result-title">
-              等待一张头像
-            </p>
+          <div id="result-zone" class="result-zone od-stack" aria-live="polite" aria-atomic="true" aria-busy="false">
+            <div id="result-symbol" class="result-symbol" aria-hidden="true">—</div>
+            <p id="result-title" class="result-title">等待一张头像</p>
             <p id="result-description" class="result-description">
-              上传后点击“开始识别”，结果会显示在这里。
+              上传图片后点击“开始识别”，判断会显示在这里。
             </p>
           </div>
-          <div class="scores">
-            <div class="score-label">
-              <span>
-                佩戴护目镜
-              </span>
-              <strong id="wearing-score">
-                —
-              </strong>
-            </div>
-            <div class="bar">
-              <div id="wearing-bar" class="bar-fill wearing" role="progressbar" aria-label="佩戴护目镜分数" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="scores od-stack" aria-label="两类分类分数">
+            <div class="score-item">
+              <div class="score-label od-row">
+                <span>佩戴护目镜</span>
+                <strong id="wearing-score">—</strong>
+              </div>
+              <div class="bar">
+                <div id="wearing-bar" class="bar-fill wearing" role="progressbar" aria-label="佩戴护目镜分数" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
               </div>
             </div>
-            <div class="score-label">
-              <span>
-                未佩戴护目镜
-              </span>
-              <strong id="not-wearing-score">
-                —
-              </strong>
-            </div>
-            <div class="bar">
-              <div id="not-wearing-bar" class="bar-fill not-wearing" role="progressbar" aria-label="未佩戴护目镜分数" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div class="score-item">
+              <div class="score-label od-row">
+                <span>未佩戴护目镜</span>
+                <strong id="not-wearing-score">—</strong>
+              </div>
+              <div class="bar">
+                <div id="not-wearing-bar" class="bar-fill not-wearing" role="progressbar" aria-label="未佩戴护目镜分数" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
               </div>
             </div>
           </div>
-          <p class="score-note">
-            这里显示分类分数，尚未做概率校准。
-          </p>
-          <div id="result-meta" class="result-meta" hidden>
-            <span id="dimensions">
-            </span>
-            <span id="timing">
-            </span>
+          <p class="score-note">分类分数未经概率校准，不等于判断正确率。</p>
+          <div id="result-meta" class="result-meta od-cluster" hidden>
+            <span id="dimensions"></span>
+            <span id="timing"></span>
           </div>
-          <p id="known-note" class="known-note" hidden>
-          </p>
-          <a id="download" class="download" download="goggles-result.json" hidden>
-            下载本次判断 JSON
-            <span aria-hidden="true">
-              ↧
-            </span>
+          <p id="known-note" class="known-note" hidden></p>
+          <a id="download" class="download od-row" download="goggles-result.json" hidden>
+            <span>下载本次判断 JSON</span>
+            <span aria-hidden="true">↓</span>
           </a>
         </div>
       </section>
+
       <div class="support-tools" role="group" aria-label="模型资料">
         <span class="support-label">了解模型</span>
         <button id="training-toggle" class="support-toggle" type="button" aria-controls="training" aria-expanded="false">

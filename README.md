@@ -22,11 +22,13 @@
 
 ## 当前入口
 
+2026-10-28新增**图形启动器与本机快捷入口**：在项目根目录双击 **`护目镜识别.lnk`**，启动器会启动原有本机服务并打开浏览器，提供运行状态、重新打开页面、停止/重新启动及日志入口。识别页面调整为浅灰与钴蓝的中文工作台，增加清空、预览读取状态和重新连接操作。训练代码、数据集、权重、实验记录和推理接口均未修改。源代码与自动检查已完成，新启动器及新页面的真实窗口操作标为 **MANUAL/PENDING**，不能沿用历史浏览器验证作为本轮证据。见[本轮前端方案](docs/frontend_launcher_plan.md)。
+
 **[下载已训练模型（5.71MB）](https://github.com/mocadesuwa/ML_ppe_detection/releases/download/goggles-v2-control-model/goggles_v2_control-model.zip)**：已发布当前`v2_control`模型、最小推理契约与校验说明，不制作便携应用。包内不含Python/CUDA运行环境，支持在兼容环境中使用GPU推理。详见[模型下载说明](docs/model_release.md)。
 
 2026-10-27按用户确认的重点，将**图片上传与识别结果作为首页主体**；训练曲线、实验对照、数据与规则改为三个小按钮，默认收起，按需展开。展开资料会保留当前图片和判断。234项回归、浏览器按钮操作、真实GPU识别与JSON下载核验通过，详见[网页方案](docs/interactive_lab_plan.md)。模型和推理流程沿用原实现，没有重新训练或重跑封存测试。
 
-想直接看识别效果：在项目目录双击 **`start_demo.cmd`**，自动打开`http://127.0.0.1:8765`，拖入已裁剪的单人头像后点“开始识别”。关闭服务窗口或按`Ctrl+C`停止。图片留在本机内存中，不自动加入训练。完整步骤、输入限制及API见[使用说明](docs/local_demo.md)。
+想直接看识别效果：在项目目录双击 **`护目镜识别.lnk`**，自动打开`http://127.0.0.1:8765`，拖入已裁剪的单人头像后点“开始识别”。保留图形启动器窗口，关闭它会停止本次服务。快捷方式仅保存在当前机器；重新克隆或移动目录后，运行`scripts/create_frontend_shortcut.ps1`重建入口。原`start_demo.cmd`保留为手动备用入口。图片留在本机内存中，不自动加入训练。完整步骤、输入限制及API见[使用说明](docs/local_demo.md)。
 
 主流程：原图与原标注 → 逐项复核及头部框 → 头像裁剪与像素核查 → 按来源整组划分 → 分类数据导出与预检 → 训练、评价与头像预测。
 
@@ -38,7 +40,7 @@ python -m src.train_classification --config configs/goggles_classification_v2_co
 
 分类训练入口默认只核查并打印计划，真实训练必须显式提供`--start`，且要求匹配预检。第二轮短跑2轮26次更新通过后执行三组对照，均通过骨干冻结、头更新和最佳权重重载。选定control第11轮早停，第3轮验证macro-F1最佳0.8494、Accuracy91.49%；212项累计回归通过，未安装依赖。
 
-护目镜训练/离线入口是`src.train_classification`、`src.evaluate_classification`和`src.predict_classification`，交互页面入口是`src.serve_demo`。目前234项累计回归通过；阶段收尾修正了服务中断提示，浏览器实测恢复服务后可保留原图直接重试GPU识别。双模型的早期核验及本轮检查范围见[使用说明](docs/local_demo.md)，回归通过不等于新图准确率。通用检测工具及共享校验仍保留，具体职责见[框架说明](docs/framework_review.md)。
+护目镜训练/离线入口是`src.train_classification`、`src.evaluate_classification`和`src.predict_classification`，交互页面接口仍是`src.serve_demo`。本轮前端交付的自动检查范围见[前端方案](docs/frontend_launcher_plan.md)，历史双模型与浏览器核验见[使用说明](docs/local_demo.md)，回归通过不等于新图准确率或新界面真实操作通过。通用检测工具及共享校验仍保留，具体职责见[框架说明](docs/framework_review.md)。
 
 对本地已裁剪头像预测的示例：
 

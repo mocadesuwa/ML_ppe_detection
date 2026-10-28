@@ -1,6 +1,7 @@
 .venv/
 .cache/
 /build.log
+/护目镜识别.lnk
 __pycache__/
 *.py[cod]
 dataset/raw/*

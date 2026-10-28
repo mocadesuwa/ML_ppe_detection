@@ -23,7 +23,8 @@
 | `src/predict_classification.py` | 已裁剪静态头像的类别预测，逐图JSONL与输入/权重完整性检查 |
 | `src/serve_demo.py` | 本机图片解码、已完成模型校验、内存推理及只开放前端资源的HTTP接口 |
 | `web/dist/training.js`、`training-summary.json` | 读取已存聚合训练记录，切换实验/曲线与展示数据划分，不触发训练或测试 |
-| `web/dist/`、`start_demo.cmd` | 无构建依赖的拖放页面及Windows一键启动 |
+| `web/dist/` | 无构建依赖的本机拖放识别页面与结果下载 |
+| `scripts/launch_frontend.py`、`scripts/create_frontend_shortcut.ps1` | 图形启动器、所属服务生命周期和本机快捷入口；原`start_demo.cmd`保留备用 |
 | `src/environment.py` | 查询现有Python、依赖和GPU环境 |
 | `scripts/find_related_images.py` | 相似图片候选，不自动判断人物或来源组 |
 | `scripts/preflight_classification.py` | 当前分类数据加载、变换、官方初始模型与CUDA eval前向；不构建优化器、不训练 |
@@ -62,6 +63,8 @@
 同日收尾只修正`app.js`的识别错误反馈：连接中断与服务返回的业务错误分开提示，恢复后原图可重试，收到响应再恢复顶部连接状态。模型、接口、数据和训练流程保持不变，见[收尾日志](change_logs/2026-10-27-02-recognition-feedback-closeout.md)。
 
 ## 当前分类路径
+
+2026-10-28本轮只完善前端，并增加Tkinter图形启动器。启动器以现有虚拟环境调用`src.serve_demo`，保持GPU0、8765端口和现有模型选择；命令行后台运行，状态/停止由真实图形窗口提供。`src/`中的接口、分类、训练和数据代码均未修改。新窗口和新页面实际操作尚待人工验证，自动检查边界见[前端方案](frontend_launcher_plan.md)。
 
 真实逐项复核和框清单见[数据处理方案](data_processing_plan.md)。最终头像由既有裁剪/像素检查生成，固定整组划分后，再按来源覆盖调整完整组；`classification_data`要求全部头像已审查、类别字母顺序一致、每类覆盖三个集合，审核附件哈希与头像指纹匹配；显式组、同源字节和相同像素不允许跨集合。提供来源域规则时，还要求每个域的两类均进入训练。
 
