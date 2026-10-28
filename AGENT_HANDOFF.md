@@ -5,8 +5,9 @@
 ## 当前分支与检查点
 
 - 当前分支：main；开始HEAD为ff6c9fa，与origin/main一致，开始时工作区干净。
-- 本轮前端源码、独立日志、说明与本手册一起进入交付提交。当前为提交前记录，尚未把计划中的提交或推送记为成功；完成普通push后补充实际检查点结果。
-- 当前改动：web/dist/index.html、style.css、app.js；scripts/launch_frontend.py、create_frontend_shortcut.ps1；tests/test_frontend_launcher.py；.gitignore及对应说明、方案、日志和本手册。没有他人预存修改。
+- 前端交付提交为bbe102e91f8212919cb5b467f85a52fadd0c9597，已普通push至origin/main；随后核对本地HEAD与远端main完全一致，工作区干净，推送退出码0。
+- 本次手册收尾仅补充上述实际检查点，与本轮日志一起另作独立文档提交；该收尾提交号通过git log -1 -- AGENT_HANDOFF.md查询，最终推送核对在交付消息报告。
+- 本轮已提交：web/dist/index.html、style.css、app.js；scripts/launch_frontend.py、create_frontend_shortcut.ps1；tests/test_frontend_launcher.py；.gitignore及对应说明、方案、日志和本手册。没有他人预存修改。
 - 当前机器已生成根目录“护目镜识别.lnk”，含本机绝对路径，已忽略，不进入Git。build.log、测试缓存和运行日志也不进入Git。
 
 ## 已完成实施
@@ -23,7 +24,7 @@
 - Python py_compile检查启动器及新增测试通过。
 - 最终完整回归237项，27.064秒，退出码0；终端与build.log同步。前面的236/237项运行也通过，最终结果以27.064秒这次为准。
 - 新增3项实际检查：终止所属真实子进程；UTF-8日志和退出事件；Windows原生互斥句柄的单实例/释放。
-- 快捷方式生成脚本退出码0，已写入当前机器入口。git diff --check无空白错误；最终暂存区检查随提交检查点完成。
+- 快捷方式生成脚本退出码0，已写入当前机器入口。git diff --check及git diff --cached --check均无空白错误；前端提交的暂存区未包含src/、配置、训练资料脚本或摘要的修改。
 - 回归在测试入口的临时目录执行，HTTP接口使用替身。它们不是GUI或真实GPU推理证据。
 
 ## 未验证、失败与风险
